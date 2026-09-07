@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Ambiente virtual
+venv/
+.venv/
+
+# Flask
+instance/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Variáveis de ambiente
+.env
