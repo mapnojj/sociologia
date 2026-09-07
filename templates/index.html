@@ -1,10 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação em Dados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+<div class="bg-accent"></div>
 
+<aside id="global-controls" class="glass-panel">
+    <p class="control-title">Escala</p>
+    <div class="level-switch" role="group" aria-label="Escala de análise">
+        <button type="button" data-level="brasil" class="level-btn active">Brasil</button>
+        <button type="button" data-level="estadual" class="level-btn">Estadual</button>
+        <button type="button" data-level="municipal" class="level-btn">Municipal</button>
+    </div>
+
+    <div id="uf-control" class="control-group hidden">
+        <label for="uf-select">UF</label>
+        <select id="uf-select"></select>
+    </div>
+
+    <div id="municipio-control" class="control-group hidden">
+        <label for="municipio-select">Município</label>
+        <select id="municipio-select"></select>
+    </div>
+</aside>
+
+<nav id="nav-dots" aria-label="Navegação entre seções"></nav>
+
+<main id="presentation">
+    <section class="slide slide-hero" id="slide-1" data-slide-index="0">
+        <div class="slide-content center">
+            <p class="eyebrow">EDUCAÇÃO EM DADOS</p>
+            <h1>EDUCAÇÃO EM DADOS</h1>
+            <p class="hero-subtitle">Brasil • 2015–2025</p>
+            <p class="hero-text">Uma década de transformações na Educação Básica</p>
+            <p id="scroll-hint" class="scroll-hint">↓ Explore os dados</p>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-2" data-slide-index="1">
+        <div class="slide-content">
+            <p class="eyebrow">ESCALA TERRITORIAL</p>
+            <h2>DE ONDE ESTAMOS OLHANDO?</h2>
+            <p class="lead">Os mesmos dados podem revelar histórias diferentes quando mudamos a escala de análise.</p>
+            <div class="scale-options">
+                <button type="button" data-level="brasil" class="scale-option active">Brasil</button>
+                <button type="button" data-level="estadual" class="scale-option">Estado</button>
+                <button type="button" data-level="municipal" class="scale-option">Município</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-3" data-slide-index="2">
+        <div class="slide-content">
+            <p class="eyebrow">EVOLUÇÃO GERAL</p>
+            <h2>UMA DÉCADA EM PERSPECTIVA</h2>
+            <p class="dynamic-location" id="localidade-atual">Brasil</p>
+
+            <div class="inline-controls">
+                <label for="indicador-geral">Indicador</label>
+                <select id="indicador-geral">
+                    <option value="Creche">Creche</option>
+                    <option value="Pre_Escola">Pré-escola</option>
+                    <option value="Fundamental_Total">Ensino Fundamental</option>
+                    <option value="Ensino_Medio_Total">Ensino Médio</option>
+                    <option value="EJA_Total">EJA</option>
+                    <option value="Educacao_Profissional">Educação Profissional</option>
+                    <option value="Educacao_Especial">Educação Especial</option>
+                </select>
+            </div>
+
+            <div class="cards-grid">
+                <article class="metric-card"><span>2015</span><strong id="card-2015">—</strong></article>
+                <article class="metric-card"><span>2025</span><strong id="card-2025">—</strong></article>
+                <article class="metric-card"><span>Variação absoluta</span><strong id="card-var-abs">—</strong></article>
+                <article class="metric-card"><span>Variação percentual</span><strong id="card-var-pct">—</strong></article>
+            </div>
+
+            <div class="chart-wrap large"><canvas id="chart-evolucao-geral"></canvas></div>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-4" data-slide-index="3">
+        <div class="slide-content">
+            <p class="eyebrow">EDUCAÇÃO INFANTIL</p>
+            <h2>OS PRIMEIROS ANOS</h2>
+            <p class="lead">Evolução das matrículas na Educação Infantil (2015–2025)</p>
+            <div class="chart-wrap"><canvas id="chart-infantil"></canvas></div>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-5" data-slide-index="4">
+        <div class="slide-content">
+            <p class="eyebrow">ENSINO FUNDAMENTAL</p>
+            <h2>O ENSINO FUNDAMENTAL EM TRANSFORMAÇÃO</h2>
+            <div class="two-charts">
+                <div class="chart-wrap"><canvas id="chart-fundamental-evolucao"></canvas></div>
+                <div class="chart-wrap"><canvas id="chart-fundamental-adm"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-6" data-slide-index="5">
+        <div class="slide-content">
+            <p class="eyebrow">ENSINO MÉDIO</p>
+            <h2>E DEPOIS DO FUNDAMENTAL?</h2>
+            <div class="two-charts">
+                <div class="chart-wrap"><canvas id="chart-medio-evolucao"></canvas></div>
+                <div class="chart-wrap"><canvas id="chart-medio-adm"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-7" data-slide-index="6">
+        <div class="slide-content">
+            <p class="eyebrow">OUTRAS MODALIDADES</p>
+            <h2>OUTROS CAMINHOS DA EDUCAÇÃO</h2>
+            <div class="tab-group" role="group" aria-label="Modalidades educacionais">
+                <button type="button" data-modalidade="EJA_Total" class="tab-btn active">EJA Total</button>
+                <button type="button" data-modalidade="EJA_Ensino_Fundamental" class="tab-btn">EJA Fundamental</button>
+                <button type="button" data-modalidade="EJA_Ensino_Medio" class="tab-btn">EJA Médio</button>
+                <button type="button" data-modalidade="Educacao_Profissional" class="tab-btn">Educação Profissional</button>
+                <button type="button" data-modalidade="Educacao_Especial" class="tab-btn">Educação Especial</button>
+            </div>
+            <div class="chart-wrap"><canvas id="chart-modalidades"></canvas></div>
+        </div>
+    </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
 </body>
 </html>
