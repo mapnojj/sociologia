@@ -211,6 +211,27 @@ select {
     font-size: clamp(1.25rem, 2vw, 2rem);
 }
 
+.superior-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.transition-note {
+    margin: 0.4rem 0 1rem;
+    color: var(--muted);
+}
+
+.source-note {
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+}
+
+.chart-message {
+    margin-top: 0.65rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
 .chart-wrap {
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid var(--border);
@@ -227,6 +248,29 @@ select {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.9rem;
+}
+
+.superior-rede-layout {
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.superior-composition h3 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+}
+
+.mini-metrics {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.mini-metrics .metric-card {
+    padding: 0.75rem;
+}
+
+.mini-metrics .metric-card strong {
+    font-size: clamp(1.1rem, 1.8vw, 1.7rem);
 }
 
 .chart-wrap canvas {
@@ -267,6 +311,10 @@ select {
 @media (max-width: 1080px) {
     .cards-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .superior-cards {
+        grid-template-columns: 1fr;
     }
 
     .two-charts {

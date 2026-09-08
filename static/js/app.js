@@ -6,7 +6,8 @@
         localidades: [],
         indicador: "Creche",
         modalidade: "EJA_Total",
-        payload: null
+        payload: null,
+        superiorPayload: null
     };
 
     const indicatorLabels = {
@@ -33,24 +34,48 @@
         card2015: document.getElementById("card-2015"),
         card2025: document.getElementById("card-2025"),
         cardVarAbs: document.getElementById("card-var-abs"),
-        cardVarPct: document.getElementById("card-var-pct")
+        cardVarPct: document.getElementById("card-var-pct"),
+        superiorLocalityText: document.getElementById("superior-localidade"),
+        superiorCardFirstYearLabel: document.getElementById("sup-card-first-year-label"),
+        superiorCardFirstValue: document.getElementById("sup-card-first-value"),
+        superiorCardLastYearLabel: document.getElementById("sup-card-last-year-label"),
+        superiorCardLastValue: document.getElementById("sup-card-last-value"),
+        superiorCardVarPct: document.getElementById("sup-card-var-pct"),
+        superiorFederal: document.getElementById("sup-publica-federal"),
+        superiorEstadual: document.getElementById("sup-publica-estadual"),
+        superiorMunicipal: document.getElementById("sup-publica-municipal"),
+        superiorMsgExpansao: document.getElementById("msg-superior-expansao"),
+        superiorMsgModalidade: document.getElementById("msg-superior-modalidade"),
+        superiorMsgRede: document.getElementById("msg-superior-rede"),
+        superiorMsgFluxo: document.getElementById("msg-superior-fluxo")
     };
 
     function formatNumber(value) {
         return brFormatter.format(value || 0);
     }
 
+    function formatNullableNumber(value) {
+        if (value === null || value === undefined) return "—";
+        return brFormatter.format(value);
+    }
+
     function getLocalidadeByUf(uf) {
         return appState.localidades.find((item) => item.uf === uf);
     }
 
-    function setLevel(level) {
+    function superiorApiLevel(level) {
+        if (level === "estadual") return "estado";
+        if (level === "municipal") return "municipio";
+        return "brasil";
+    }
+
+    async function setLevel(level) {
         appState.nivel = level;
         syncLevelButtons();
         toggleControlVisibility();
 
         if (level === "brasil") {
-            fetchDados();
+            await refreshAllData();
             return;
         }
 
@@ -60,7 +85,7 @@
         }
 
         populateMunicipiosIfNeeded();
-        fetchDados();
+        await refreshAllData();
     }
 
     function syncLevelButtons() {
@@ -154,6 +179,115 @@
         updateCards();
     }
 
+    function getColumnValueAtIndex(payload, column, index) {
+        if (!payload?.dados?.[column]) return null;
+        const value = payload.dados[column][index];
+        return value === undefined ? null : value;
+    }
+
+    function getAvailableSeriesPoints(payload, column) {
+        if (!payload?.anos?.length) return [];
+        return payload.anos
+            .map((ano, index) => ({
+                ano,
+                valor: getColumnValueAtIndex(payload, column, index),
+                index
+            }))
+            .filter((item) => item.valor !== null && item.valor !== undefined);
+    }
+
+    function hasSeriesData(payload, column) {
+        return getAvailableSeriesPoints(payload, column).length > 0;
+    }
+
+    function hasAllSeriesData(payload, columns) {
+        return columns.every((column) => hasSeriesData(payload, column));
+    }
+
+    function toggleChartMessage(element, show) {
+        if (!element) return;
+        element.classList.toggle("hidden", !show);
+    }
+
+    function updateSuperiorCards() {
+        const payload = appState.superiorPayload;
+        if (!payload) return;
+
+        const points = getAvailableSeriesPoints(payload, "Matriculas_Total");
+        const first = points[0];
+        const last = points[points.length - 1];
+
+        els.superiorCardFirstYearLabel.textContent = first ? `${first.ano}` : "Primeiro ano";
+        els.superiorCardLastYearLabel.textContent = last ? `${last.ano}` : "Último ano";
+        els.superiorCardFirstValue.textContent = first ? formatNullableNumber(first.valor) : "—";
+        els.superiorCardLastValue.textContent = last ? formatNullableNumber(last.valor) : "—";
+
+        if (!first || !last || first.ano === last.ano || !first.valor) {
+            els.superiorCardVarPct.textContent = "—";
+            return;
+        }
+
+        const pct = ((last.valor / first.valor) - 1) * 100;
+        els.superiorCardVarPct.textContent = `${pct.toLocaleString("pt-BR", { maximumFractionDigits: 1, minimumFractionDigits: 1 })}%`;
+    }
+
+    function updateSuperiorPublicComposition() {
+        const payload = appState.superiorPayload;
+        if (!payload?.anos?.length) return;
+
+        let lastIndex = -1;
+        for (let i = payload.anos.length - 1; i >= 0; i -= 1) {
+            const federal = getColumnValueAtIndex(payload, "Matriculas_Federal", i);
+            const estadual = getColumnValueAtIndex(payload, "Matriculas_Estadual", i);
+            const municipal = getColumnValueAtIndex(payload, "Matriculas_Municipal", i);
+            if (federal !== null || estadual !== null || municipal !== null) {
+                lastIndex = i;
+                break;
+            }
+        }
+
+        if (lastIndex < 0) {
+            els.superiorFederal.textContent = "—";
+            els.superiorEstadual.textContent = "—";
+            els.superiorMunicipal.textContent = "—";
+            return;
+        }
+
+        els.superiorFederal.textContent = formatNullableNumber(getColumnValueAtIndex(payload, "Matriculas_Federal", lastIndex));
+        els.superiorEstadual.textContent = formatNullableNumber(getColumnValueAtIndex(payload, "Matriculas_Estadual", lastIndex));
+        els.superiorMunicipal.textContent = formatNullableNumber(getColumnValueAtIndex(payload, "Matriculas_Municipal", lastIndex));
+    }
+
+    function updateSuperiorVisuals() {
+        const payload = appState.superiorPayload;
+        if (!payload) return;
+
+        const localidade = appState.payload?.localidade || payload.localidade || "Brasil";
+        els.superiorLocalityText.textContent = localidade;
+
+        window.ChartManager.updateSuperiorExpansao(payload);
+        window.ChartManager.updateSuperiorModalidade(payload);
+        window.ChartManager.updateSuperiorRede(payload);
+        window.ChartManager.updateSuperiorFluxo(payload);
+
+        toggleChartMessage(els.superiorMsgExpansao, !hasSeriesData(payload, "Matriculas_Total"));
+        toggleChartMessage(
+            els.superiorMsgModalidade,
+            !hasAllSeriesData(payload, ["Matriculas_Presencial", "Matriculas_EAD"])
+        );
+        toggleChartMessage(
+            els.superiorMsgRede,
+            !hasAllSeriesData(payload, ["Matriculas_Publica", "Matriculas_Privada"])
+        );
+        toggleChartMessage(
+            els.superiorMsgFluxo,
+            !hasAllSeriesData(payload, ["Ingressantes", "Concluintes"])
+        );
+
+        updateSuperiorCards();
+        updateSuperiorPublicComposition();
+    }
+
     async function fetchLocalidades() {
         const response = await fetch("/api/localidades");
         if (!response.ok) throw new Error("Falha ao carregar localidades");
@@ -182,10 +316,37 @@
         updateAllVisuals();
     }
 
+    async function fetchEnsinoSuperior() {
+        const params = new URLSearchParams({ nivel: superiorApiLevel(appState.nivel) });
+
+        if (appState.nivel === "estadual") {
+            params.set("uf", appState.uf);
+        }
+
+        if (appState.nivel === "municipal") {
+            params.set("codigo", appState.codigo);
+        }
+
+        const response = await fetch(`/api/ensino-superior?${params.toString()}`);
+        if (!response.ok) throw new Error("Falha ao carregar dados de Ensino Superior");
+
+        appState.superiorPayload = await response.json();
+        updateSuperiorVisuals();
+    }
+
+    async function refreshAllData() {
+        await fetchDados();
+        await fetchEnsinoSuperior();
+    }
+
+    function handleAsyncError(error) {
+        console.error(error);
+    }
+
     function bindEvents() {
         els.levelButtons().forEach((button) => {
             button.addEventListener("click", () => {
-                setLevel(button.dataset.level);
+                setLevel(button.dataset.level).catch(handleAsyncError);
             });
         });
 
@@ -194,12 +355,12 @@
             if (appState.nivel === "municipal") {
                 populateMunicipiosIfNeeded();
             }
-            fetchDados();
+            refreshAllData().catch(handleAsyncError);
         });
 
         els.municipioSelect.addEventListener("change", () => {
             appState.codigo = els.municipioSelect.value;
-            fetchDados();
+            refreshAllData().catch(handleAsyncError);
         });
 
         els.indicadorSelect.addEventListener("change", () => {
@@ -250,7 +411,7 @@
             await fetchLocalidades();
             syncLevelButtons();
             toggleControlVisibility();
-            await fetchDados();
+            await refreshAllData();
         } catch (error) {
             console.error(error);
         }

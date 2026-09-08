@@ -129,6 +129,80 @@
             <div class="chart-wrap"><canvas id="chart-modalidades"></canvas></div>
         </div>
     </section>
+
+    <section class="slide" id="slide-8" data-slide-index="7">
+        <div class="slide-content">
+            <p class="eyebrow">DA ESCOLA DE MASSA À GRADUAÇÃO</p>
+            <h2>DA EXPANSÃO DA EDUCAÇÃO BÁSICA À TRANSFORMAÇÃO DO ENSINO SUPERIOR</h2>
+            <p class="lead">Depois da ampliação da escolarização básica, o acesso à graduação também se reconfigura no território brasileiro.</p>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-9" data-slide-index="8">
+        <div class="slide-content">
+            <p class="eyebrow">ENSINO SUPERIOR</p>
+            <h2>ENSINO SUPERIOR: EXPANSÃO E TRANSFORMAÇÃO</h2>
+            <p class="lead">Como mudou o acesso à graduação brasileira entre 2015 e 2024?</p>
+            <p class="dynamic-location" id="superior-localidade">Brasil</p>
+
+            <div class="cards-grid superior-cards">
+                <article class="metric-card"><span id="sup-card-first-year-label">—</span><strong id="sup-card-first-value">—</strong></article>
+                <article class="metric-card"><span id="sup-card-last-year-label">—</span><strong id="sup-card-last-value">—</strong></article>
+                <article class="metric-card"><span>Variação no período</span><strong id="sup-card-var-pct">—</strong></article>
+            </div>
+
+            <div class="chart-wrap large"><canvas id="chart-superior-expansao"></canvas></div>
+            <p id="msg-superior-expansao" class="chart-message hidden">Não há dados disponíveis para esta localidade no período selecionado.</p>
+            <p class="source-note">Fonte: INEP — Censo da Educação Superior | 2015–2024</p>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-10" data-slide-index="9">
+        <div class="slide-content">
+            <p class="eyebrow">MUDANÇA NA OFERTA</p>
+            <h2>A TRANSFORMAÇÃO DA GRADUAÇÃO BRASILEIRA</h2>
+            <p class="lead">Presencial × Educação a Distância</p>
+            <p class="transition-note">A expansão ocorre junto de mudanças no modo de oferta.</p>
+
+            <div class="chart-wrap large"><canvas id="chart-superior-modalidade"></canvas></div>
+            <p id="msg-superior-modalidade" class="chart-message hidden">Não há dados disponíveis para esta localidade no período selecionado.</p>
+            <p class="source-note">Fonte: INEP — Censo da Educação Superior | 2015–2024</p>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-11" data-slide-index="10">
+        <div class="slide-content">
+            <p class="eyebrow">REDE DE OFERTA</p>
+            <h2>QUEM OFERECE O ENSINO SUPERIOR?</h2>
+            <p class="transition-note">A expansão também revela o peso relativo entre setor público e privado.</p>
+
+            <div class="two-charts superior-rede-layout">
+                <div class="chart-wrap"><canvas id="chart-superior-rede"></canvas></div>
+                <div class="chart-wrap superior-composition">
+                    <h3>Rede pública no último ano disponível</h3>
+                    <div class="mini-metrics">
+                        <article class="metric-card"><span>Federal</span><strong id="sup-publica-federal">—</strong></article>
+                        <article class="metric-card"><span>Estadual</span><strong id="sup-publica-estadual">—</strong></article>
+                        <article class="metric-card"><span>Municipal</span><strong id="sup-publica-municipal">—</strong></article>
+                    </div>
+                </div>
+            </div>
+            <p id="msg-superior-rede" class="chart-message hidden">Não há dados disponíveis para esta localidade no período selecionado.</p>
+            <p class="source-note">Fonte: INEP — Censo da Educação Superior | 2015–2024</p>
+        </div>
+    </section>
+
+    <section class="slide" id="slide-12" data-slide-index="11">
+        <div class="slide-content">
+            <p class="eyebrow">TRAJETÓRIAS</p>
+            <h2>ENTRAR NÃO É O MESMO QUE CONCLUIR</h2>
+            <p class="lead">Ingressantes e concluintes expressam dimensões diferentes da expansão do sistema.</p>
+
+            <div class="chart-wrap large"><canvas id="chart-superior-fluxo"></canvas></div>
+            <p id="msg-superior-fluxo" class="chart-message hidden">Não há dados disponíveis para esta localidade no período selecionado.</p>
+            <p class="source-note">Fonte: INEP — Censo da Educação Superior | 2015–2024</p>
+        </div>
+    </section>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
