@@ -59,6 +59,20 @@
         };
     }
 
+    function barDataset(label, data, color, extras = {}) {
+        return {
+            type: "bar",
+            label,
+            data,
+            backgroundColor: `${color}b3`,
+            borderColor: color,
+            borderWidth: 1,
+            borderRadius: 8,
+            borderSkipped: false,
+            ...extras
+        };
+    }
+
     function chartData(payload, column) {
         return payload?.dados?.[column] || [];
     }
@@ -130,6 +144,28 @@
             type: "line",
             data: { labels: [], datasets: [] },
             options
+        });
+
+        charts.medioNarrativa = new Chart(document.getElementById("chart-medio-narrativa"), {
+            type: "line",
+            data: { labels: [], datasets: [] },
+            options
+        });
+
+        charts.medioOferta = new Chart(document.getElementById("chart-medio-oferta"), {
+            type: "line",
+            data: { labels: [], datasets: [] },
+            options
+        });
+
+        const stackedOptions = baseOptions();
+        stackedOptions.scales.x.stacked = true;
+        stackedOptions.scales.y.stacked = true;
+
+        charts.ejaNarrativa = new Chart(document.getElementById("chart-eja-narrativa"), {
+            type: "bar",
+            data: { labels: [], datasets: [] },
+            options: stackedOptions
         });
 
         charts.superiorExpansao = new Chart(document.getElementById("chart-superior-expansao"), {
@@ -212,6 +248,45 @@
         ]);
     }
 
+    function updateMedioNarrativa(payload) {
+        const total = chartData(payload, "Ensino_Medio_Total");
+        updateChart(charts.medioNarrativa, payload.anos, [
+            lineDataset("Ensino Médio Total", total, palette.blue, false, {
+                pointRadius: highlightedPoints(total),
+                pointHoverRadius: highlightedPoints(total, 4, 7)
+            })
+        ]);
+    }
+
+    function updateMedioOferta(payload) {
+        updateChart(charts.medioOferta, payload.anos, [
+            lineDataset("Federal", chartData(payload, "Ensino_Medio_Federal"), palette.gray, true),
+            lineDataset("Estadual", chartData(payload, "Ensino_Medio_Estadual"), palette.blue),
+            lineDataset("Municipal", chartData(payload, "Ensino_Medio_Municipal"), palette.green),
+            lineDataset("Privada", chartData(payload, "Ensino_Medio_Privada"), palette.orange)
+        ]);
+    }
+
+    function updateEjaNarrativa(payload) {
+        const total = chartData(payload, "EJA_Total");
+        updateChart(charts.ejaNarrativa, payload.anos, [
+            barDataset("EJA Ensino Fundamental", chartData(payload, "EJA_Ensino_Fundamental"), palette.cyan, {
+                stack: "eja",
+                order: 2
+            }),
+            barDataset("EJA Ensino Médio", chartData(payload, "EJA_Ensino_Medio"), palette.purple, {
+                stack: "eja",
+                order: 2
+            }),
+            lineDataset("EJA Total", total, palette.blue, false, {
+                type: "line",
+                pointRadius: highlightedPoints(total),
+                pointHoverRadius: highlightedPoints(total, 4, 7),
+                order: 1
+            })
+        ]);
+    }
+
     function updateSuperiorExpansao(payload) {
         const values = chartData(payload, "Matriculas_Total");
         updateChart(charts.superiorExpansao, payload.anos, [
@@ -256,6 +331,9 @@
         updateFundamental,
         updateMedio,
         updateModalidades,
+        updateMedioNarrativa,
+        updateMedioOferta,
+        updateEjaNarrativa,
         updateSuperiorExpansao,
         updateSuperiorModalidade,
         updateSuperiorRede,

@@ -215,6 +215,11 @@ select {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.narrative-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 920px;
+}
+
 .transition-note {
     margin: 0.4rem 0 1rem;
     color: var(--muted);
@@ -278,6 +283,45 @@ select {
     height: 100% !important;
 }
 
+.trajectory-flow {
+    margin: 2rem auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    max-width: 960px;
+}
+
+.trajectory-node {
+    padding: 0.85rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--text);
+    font-weight: 600;
+}
+
+.trajectory-arrow {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.conceptual-quote {
+    font-size: clamp(1.4rem, 2.8vw, 2.3rem);
+    line-height: 1.2;
+    max-width: 820px;
+    margin: 0 auto 1rem;
+}
+
+.conceptual-copy {
+    color: var(--muted);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    max-width: 760px;
+    margin: 0 auto;
+}
+
 #nav-dots {
     position: fixed;
     right: 1rem;
@@ -325,6 +369,10 @@ select {
     .chart-wrap.large {
         height: min(38vh, 360px);
     }
+
+    .narrative-cards {
+        max-width: none;
+    }
 }
 
 @media (max-width: 760px) {
@@ -340,5 +388,17 @@ select {
 
     #nav-dots {
         right: 0.5rem;
+    }
+
+    .trajectory-flow {
+        gap: 0.55rem;
+    }
+
+    .trajectory-node {
+        width: 100%;
+    }
+
+    .trajectory-arrow {
+        transform: rotate(90deg);
     }
 }

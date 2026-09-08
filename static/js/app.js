@@ -35,6 +35,17 @@
         card2025: document.getElementById("card-2025"),
         cardVarAbs: document.getElementById("card-var-abs"),
         cardVarPct: document.getElementById("card-var-pct"),
+        medioNarrativeLocalityText: document.getElementById("medio-narrativa-localidade"),
+        medioOfertaLocalityText: document.getElementById("medio-oferta-localidade"),
+        ejaLocalityText: document.getElementById("eja-localidade"),
+        medioCardFirstYearLabel: document.getElementById("medio-card-first-year-label"),
+        medioCardFirstValue: document.getElementById("medio-card-first-value"),
+        medioCardLastYearLabel: document.getElementById("medio-card-last-year-label"),
+        medioCardLastValue: document.getElementById("medio-card-last-value"),
+        medioCardVarPct: document.getElementById("medio-card-var-pct"),
+        medioNarrativeMsg: document.getElementById("msg-medio-narrativa"),
+        medioOfertaMsg: document.getElementById("msg-medio-oferta"),
+        ejaNarrativeMsg: document.getElementById("msg-eja-narrativa"),
         superiorLocalityText: document.getElementById("superior-localidade"),
         superiorCardFirstYearLabel: document.getElementById("sup-card-first-year-label"),
         superiorCardFirstValue: document.getElementById("sup-card-first-value"),
@@ -161,10 +172,60 @@
         }
     }
 
+    function getSeriesSummary(payload, column) {
+        const points = getAvailableSeriesPoints(payload, column);
+        return {
+            first: points[0] || null,
+            last: points[points.length - 1] || null,
+            count: points.length
+        };
+    }
+
+    function formatVariation(first, last) {
+        if (!first || !last || first.ano === last.ano || !first.valor) return "—";
+        const pct = ((last.valor / first.valor) - 1) * 100;
+        return `${pct.toLocaleString("pt-BR", { maximumFractionDigits: 1, minimumFractionDigits: 1 })}%`;
+    }
+
+    function updateNarrativeCards() {
+        const payload = appState.payload;
+        if (!payload) return;
+
+        const { first, last } = getSeriesSummary(payload, "Ensino_Medio_Total");
+
+        els.medioCardFirstYearLabel.textContent = first ? `${first.ano}` : "Primeiro ano";
+        els.medioCardLastYearLabel.textContent = last ? `${last.ano}` : "Último ano";
+        els.medioCardFirstValue.textContent = first ? formatNullableNumber(first.valor) : "—";
+        els.medioCardLastValue.textContent = last ? formatNullableNumber(last.valor) : "—";
+        els.medioCardVarPct.textContent = formatVariation(first, last);
+    }
+
+    function getSeriesMessage(payload, column, requiredPoints = 2) {
+        const { count } = getSeriesSummary(payload, column);
+        if (!count) return "Não há dados disponíveis para esta localidade no período selecionado.";
+        if (count < requiredPoints) return "Há apenas um ano com registro disponível para esta localidade.";
+        return "";
+    }
+
+    function setChartMessage(element, message) {
+        if (!element) return;
+        if (!message) {
+            element.classList.add("hidden");
+            element.textContent = "";
+            return;
+        }
+
+        element.textContent = message;
+        element.classList.remove("hidden");
+    }
+
     function updateAllVisuals() {
         if (!appState.payload) return;
 
         els.localityText.textContent = appState.payload.localidade;
+        els.medioNarrativeLocalityText.textContent = appState.payload.localidade;
+        els.medioOfertaLocalityText.textContent = appState.payload.localidade;
+        els.ejaLocalityText.textContent = appState.payload.localidade;
 
         window.ChartManager.updateEvolucaoGeral(
             appState.payload,
@@ -175,8 +236,15 @@
         window.ChartManager.updateFundamental(appState.payload);
         window.ChartManager.updateMedio(appState.payload);
         window.ChartManager.updateModalidades(appState.payload, appState.modalidade);
+        window.ChartManager.updateMedioNarrativa(appState.payload);
+        window.ChartManager.updateMedioOferta(appState.payload);
+        window.ChartManager.updateEjaNarrativa(appState.payload);
 
         updateCards();
+        updateNarrativeCards();
+        setChartMessage(els.medioNarrativeMsg, getSeriesMessage(appState.payload, "Ensino_Medio_Total"));
+        setChartMessage(els.medioOfertaMsg, getSeriesMessage(appState.payload, "Ensino_Medio_Total"));
+        setChartMessage(els.ejaNarrativeMsg, getSeriesMessage(appState.payload, "EJA_Total"));
     }
 
     function getColumnValueAtIndex(payload, column, index) {
