@@ -42,7 +42,7 @@
         };
     }
 
-    function lineDataset(label, data, color, dashed = false) {
+    function lineDataset(label, data, color, dashed = false, extras = {}) {
         return {
             label,
             data,
@@ -53,7 +53,9 @@
             pointRadius: 2,
             pointHoverRadius: 4,
             fill: false,
-            borderDash: dashed ? [6, 4] : undefined
+            borderDash: dashed ? [6, 4] : undefined,
+            spanGaps: false,
+            ...extras
         };
     }
 
@@ -66,6 +68,21 @@
         chart.data.labels = labels;
         chart.data.datasets = datasets;
         chart.update();
+    }
+
+    function getLastDefinedIndex(data = []) {
+        for (let i = data.length - 1; i >= 0; i -= 1) {
+            if (data[i] !== null && data[i] !== undefined) return i;
+        }
+        return -1;
+    }
+
+    function highlightedPoints(data, defaultRadius = 2, highlightRadius = 5) {
+        const lastIndex = getLastDefinedIndex(data);
+        return data.map((value, index) => {
+            if (value === null || value === undefined) return 0;
+            return index === lastIndex ? highlightRadius : defaultRadius;
+        });
     }
 
     function initCharts() {
@@ -110,6 +127,30 @@
         });
 
         charts.modalidades = new Chart(document.getElementById("chart-modalidades"), {
+            type: "line",
+            data: { labels: [], datasets: [] },
+            options
+        });
+
+        charts.superiorExpansao = new Chart(document.getElementById("chart-superior-expansao"), {
+            type: "line",
+            data: { labels: [], datasets: [] },
+            options
+        });
+
+        charts.superiorModalidade = new Chart(document.getElementById("chart-superior-modalidade"), {
+            type: "line",
+            data: { labels: [], datasets: [] },
+            options
+        });
+
+        charts.superiorRede = new Chart(document.getElementById("chart-superior-rede"), {
+            type: "line",
+            data: { labels: [], datasets: [] },
+            options
+        });
+
+        charts.superiorFluxo = new Chart(document.getElementById("chart-superior-fluxo"), {
             type: "line",
             data: { labels: [], datasets: [] },
             options
@@ -171,12 +212,53 @@
         ]);
     }
 
+    function updateSuperiorExpansao(payload) {
+        const values = chartData(payload, "Matriculas_Total");
+        updateChart(charts.superiorExpansao, payload.anos, [
+            lineDataset("Matrículas totais", values, palette.blue)
+        ]);
+    }
+
+    function updateSuperiorModalidade(payload) {
+        const presencial = chartData(payload, "Matriculas_Presencial");
+        const ead = chartData(payload, "Matriculas_EAD");
+
+        updateChart(charts.superiorModalidade, payload.anos, [
+            lineDataset("Presencial", presencial, palette.blue, false, {
+                pointRadius: highlightedPoints(presencial),
+                pointHoverRadius: highlightedPoints(presencial, 4, 7)
+            }),
+            lineDataset("EaD", ead, palette.purple, false, {
+                pointRadius: highlightedPoints(ead),
+                pointHoverRadius: highlightedPoints(ead, 4, 7)
+            })
+        ]);
+    }
+
+    function updateSuperiorRede(payload) {
+        updateChart(charts.superiorRede, payload.anos, [
+            lineDataset("Pública", chartData(payload, "Matriculas_Publica"), palette.green),
+            lineDataset("Privada", chartData(payload, "Matriculas_Privada"), palette.orange)
+        ]);
+    }
+
+    function updateSuperiorFluxo(payload) {
+        updateChart(charts.superiorFluxo, payload.anos, [
+            lineDataset("Ingressantes", chartData(payload, "Ingressantes"), palette.cyan),
+            lineDataset("Concluintes", chartData(payload, "Concluintes"), palette.gray)
+        ]);
+    }
+
     window.ChartManager = {
         initCharts,
         updateEvolucaoGeral,
         updateInfantil,
         updateFundamental,
         updateMedio,
-        updateModalidades
+        updateModalidades,
+        updateSuperiorExpansao,
+        updateSuperiorModalidade,
+        updateSuperiorRede,
+        updateSuperiorFluxo
     };
 })();

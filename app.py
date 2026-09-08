@@ -5,8 +5,9 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 
-DATA_PATH = Path(__file__).parent / "data" / "educacao_basica_2015_2025.csv"
-EXPECTED_NUMERIC_COLUMNS = [
+DATA_PATH_BASICA = Path(__file__).parent / "data" / "educacao_basica_2015_2025.csv"
+DATA_PATH_SUPERIOR = Path(__file__).parent / "data" / "ensino_superior_2015_2024.csv"
+EXPECTED_NUMERIC_COLUMNS_BASICA = [
     "Creche",
     "Pre_Escola",
     "Fundamental_Total",
@@ -27,6 +28,19 @@ EXPECTED_NUMERIC_COLUMNS = [
     "Educacao_Profissional",
     "Educacao_Especial",
 ]
+EXPECTED_NUMERIC_COLUMNS_SUPERIOR = [
+    "Matriculas_Total",
+    "Matriculas_Publica",
+    "Matriculas_Federal",
+    "Matriculas_Estadual",
+    "Matriculas_Municipal",
+    "Matriculas_Privada",
+    "Matriculas_Presencial",
+    "Matriculas_EAD",
+    "Ingressantes",
+    "Concluintes",
+]
+SUPERIOR_YEAR_RANGE = list(range(2015, 2025))
 
 
 def _to_native_number(value):
@@ -36,15 +50,15 @@ def _to_native_number(value):
     return int(number) if number.is_integer() else number
 
 
-def _load_data():
-    df = pd.read_csv(DATA_PATH, encoding="utf-8-sig")
+def _load_data(data_path, expected_numeric_columns):
+    df = pd.read_csv(data_path, encoding="utf-8-sig")
 
     required_base = {"Ano", "Codigo_Municipio", "Municipio", "UF"}
     missing_base = required_base - set(df.columns)
     if missing_base:
         raise RuntimeError(f"Colunas obrigatórias ausentes no CSV: {sorted(missing_base)}")
 
-    numeric_columns = [col for col in EXPECTED_NUMERIC_COLUMNS if col in df.columns]
+    numeric_columns = [col for col in expected_numeric_columns if col in df.columns]
 
     df["Ano"] = pd.to_numeric(df["Ano"], errors="coerce").astype("Int64")
     df["Codigo_Municipio"] = df["Codigo_Municipio"].astype("string")
@@ -60,7 +74,11 @@ def _load_data():
     return df, numeric_columns
 
 
-DF, NUMERIC_COLUMNS = _load_data()
+DF_BASICA, NUMERIC_COLUMNS_BASICA = _load_data(DATA_PATH_BASICA, EXPECTED_NUMERIC_COLUMNS_BASICA)
+DF_SUPERIOR, NUMERIC_COLUMNS_SUPERIOR = _load_data(DATA_PATH_SUPERIOR, EXPECTED_NUMERIC_COLUMNS_SUPERIOR)
+
+# Compatibilidade com o frontend atual da Educação Básica
+DF, NUMERIC_COLUMNS = DF_BASICA, NUMERIC_COLUMNS_BASICA
 
 
 @app.get("/")
@@ -136,6 +154,65 @@ def api_dados():
 
     anos = grouped["Ano"].astype(int).tolist()
     dados = {col: [_to_native_number(value) for value in grouped[col].tolist()] for col in NUMERIC_COLUMNS}
+
+    return jsonify(
+        {
+            "nivel": nivel,
+            "localidade": localidade_nome,
+            "anos": anos,
+            "dados": dados,
+        }
+    )
+
+
+@app.get("/api/ensino-superior")
+def api_ensino_superior():
+    nivel = (request.args.get("nivel") or "").strip().lower()
+    nivel = {"estadual": "estado", "municipal": "municipio"}.get(nivel, nivel)
+
+    if nivel not in {"brasil", "estado", "municipio"}:
+        return jsonify({"erro": "Parâmetro 'nivel' inválido."}), 400
+
+    grouped = pd.DataFrame(columns=["Ano", *NUMERIC_COLUMNS_SUPERIOR])
+    localidade_nome = "Brasil"
+
+    if nivel == "brasil":
+        selected = DF_SUPERIOR.copy()
+        grouped = selected.groupby("Ano", as_index=False)[NUMERIC_COLUMNS_SUPERIOR].sum(min_count=1)
+
+    elif nivel == "estado":
+        uf = (request.args.get("uf") or "").strip()
+        if not uf:
+            return jsonify({"erro": "Parâmetro 'uf' é obrigatório para nível estado."}), 400
+
+        selected = DF_SUPERIOR[DF_SUPERIOR["UF"] == uf]
+        localidade_nome = uf
+        if not selected.empty:
+            grouped = selected.groupby("Ano", as_index=False)[NUMERIC_COLUMNS_SUPERIOR].sum(min_count=1)
+
+    else:
+        codigo = (request.args.get("codigo") or "").strip()
+        if not codigo:
+            return jsonify({"erro": "Parâmetro 'codigo' é obrigatório para nível município."}), 400
+
+        selected = DF_SUPERIOR[DF_SUPERIOR["Codigo_Municipio"] == codigo]
+        localidade_nome = str(selected.iloc[0]["Municipio"]) if not selected.empty else codigo
+        if not selected.empty:
+            grouped = selected.sort_values("Ano")[["Ano", *NUMERIC_COLUMNS_SUPERIOR]].copy()
+
+    grouped = grouped.sort_values("Ano")
+    grouped = (
+        grouped.set_index("Ano")
+        .reindex(SUPERIOR_YEAR_RANGE)
+        .rename_axis("Ano")
+        .reset_index()
+    )
+
+    anos = grouped["Ano"].astype(int).tolist()
+    dados = {
+        col: [_to_native_number(value) for value in grouped[col].tolist()]
+        for col in NUMERIC_COLUMNS_SUPERIOR
+    }
 
     return jsonify(
         {
