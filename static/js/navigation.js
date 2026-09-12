@@ -13,6 +13,7 @@
             .join("");
 
         const dots = [...navDots.querySelectorAll(".nav-dot")];
+        const scrollHint = document.getElementById("scroll-hint");
 
         function setActive(index) {
             currentIndex = index;
@@ -55,6 +56,17 @@
                 scrollToSlide(targetIndex);
             });
         });
+
+        if (scrollHint) {
+            scrollHint.addEventListener("click", () => {
+                const currentSlide = scrollHint.closest(".slide");
+                const currentSlideIndex = currentSlide ? slides.indexOf(currentSlide) : -1;
+                const nextSlideIndex = currentSlideIndex + 1;
+                if (nextSlideIndex > 0 && nextSlideIndex < slides.length) {
+                    scrollToSlide(nextSlideIndex);
+                }
+            });
+        }
 
         const observer = new IntersectionObserver(
             (entries) => {
