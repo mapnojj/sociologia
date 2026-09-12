@@ -517,7 +517,13 @@ h2 {
 
 #global-controls .level-btn.active,
 #global-controls .level-btn:hover,
-#global-controls .level-btn:focus-visible {
+#global-controls .level-btn:focus-visible,
+#global-controls .scale-option.active,
+#global-controls .scale-option:hover,
+#global-controls .scale-option:focus-visible,
+#global-controls .tab-btn.active,
+#global-controls .tab-btn:hover,
+#global-controls .tab-btn:focus-visible {
     background: linear-gradient(135deg, var(--bege), rgba(168, 120, 56, 0.92));
     color: var(--vinho-950);
     border-color: rgba(221, 201, 174, 0.86);
@@ -544,14 +550,18 @@ h2 {
 }
 
 #global-controls select:focus-visible,
-#global-controls .level-btn:focus-visible {
+#global-controls .level-btn:focus-visible,
+#global-controls .scale-option:focus-visible,
+#global-controls .tab-btn:focus-visible {
     outline: 2px solid rgba(244, 238, 228, 0.82);
     outline-offset: 2px;
 }
 
 @supports not selector(:focus-visible) {
     #global-controls select:focus,
-    #global-controls .level-btn:focus {
+    #global-controls .level-btn:focus,
+    #global-controls .scale-option:focus,
+    #global-controls .tab-btn:focus {
         outline: 2px solid rgba(244, 238, 228, 0.82);
         outline-offset: 2px;
     }
