@@ -184,16 +184,17 @@ body {
     cursor: pointer;
 }
 
-.slide-hero .scroll-hint:hover,
-.slide-hero .scroll-hint:focus-visible {
+.slide-hero .scroll-hint:hover {
     background: rgba(244, 238, 228, 0.16);
     border-color: rgba(221, 201, 174, 0.55);
 }
 
 .slide-hero .scroll-hint:focus-visible {
+    background: rgba(244, 238, 228, 0.24);
+    border-color: rgba(244, 238, 228, 0.9);
     outline: 3px solid rgba(244, 238, 228, 0.96);
     outline-offset: 3px;
-    box-shadow: 0 0 0 6px rgba(168, 120, 56, 0.35);
+    box-shadow: none;
 }
 
 @keyframes hero-hint-pulse {
@@ -236,6 +237,7 @@ body {
     overflow: hidden;
     border: 1px solid rgba(221, 201, 174, 0.42);
     box-shadow: 0 28px 60px rgba(8, 1, 1, 0.52);
+    isolation: isolate;
 }
 
 .hero-circle::before {
@@ -247,6 +249,7 @@ body {
         linear-gradient(180deg, rgba(17, 4, 5, 0.12), rgba(10, 2, 2, 0.7));
     mix-blend-mode: multiply;
     pointer-events: none;
+    z-index: 2;
 }
 
 .hero-circle-main {
@@ -272,6 +275,7 @@ body {
     background:
         repeating-linear-gradient(90deg, rgba(250, 245, 236, 0.2) 0 2px, transparent 2px 24px),
         linear-gradient(180deg, rgba(250, 244, 233, 0.3), rgba(77, 48, 35, 0.72));
+    z-index: 1;
 }
 
 .hero-circle-secondary {
