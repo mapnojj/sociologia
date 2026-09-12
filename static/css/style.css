@@ -509,6 +509,10 @@ h2 {
 }
 
 body.hero-active #global-controls {
+    top: auto;
+    left: auto;
+    right: clamp(4rem, 7vw, 9rem);
+    bottom: clamp(1.4rem, 3.2vh, 2.2rem);
     width: min(420px, calc(100vw - 6rem));
     background: linear-gradient(180deg, rgba(43, 5, 7, 0.94), rgba(43, 5, 7, 0.88));
     border: 1px solid rgba(221, 201, 174, 0.24);
@@ -895,6 +899,8 @@ select {
 
     body.hero-active #global-controls {
         top: 0.8rem;
+        right: auto;
+        bottom: auto;
         left: 0.8rem;
         padding: 0.8rem 0.9rem;
     }
