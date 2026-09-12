@@ -18,6 +18,12 @@
     --texto-secundario: rgba(247, 241, 232, 0.72);
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .slide-hero .scroll-hint {
+        animation: none;
+    }
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -188,6 +194,7 @@ body {
 .hero-art {
     position: relative;
     min-height: min(68vh, 690px);
+    pointer-events: none;
 }
 
 .hero-line {
