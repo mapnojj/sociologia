@@ -21,6 +21,7 @@
 @media (prefers-reduced-motion: reduce) {
     .slide-hero .scroll-hint {
         animation: none;
+        transition: none;
     }
 }
 
