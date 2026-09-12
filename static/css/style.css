@@ -468,10 +468,9 @@ h2 {
 .glass-panel {
     position: fixed;
     top: clamp(0.9rem, 2vw, 1.5rem);
-    left: 50%;
-    transform: translateX(-50%);
+    left: clamp(1rem, 3vw, 2rem);
     z-index: 40;
-    width: min(560px, calc(100vw - 7rem));
+    width: min(420px, calc(100vw - 6rem));
     background: linear-gradient(180deg, rgba(43, 5, 7, 0.76), rgba(43, 5, 7, 0.62));
     border: 1px solid rgba(221, 201, 174, 0.24);
     backdrop-filter: blur(14px);
@@ -556,19 +555,19 @@ h2 {
     color: var(--texto-claro);
 }
 
-#global-controls select:focus-visible,
-#global-controls .level-btn:focus-visible,
-#global-controls .scale-option:focus-visible,
-#global-controls .tab-btn:focus-visible {
+.glass-panel select:focus-visible,
+.glass-panel .level-btn:focus-visible,
+.glass-panel .scale-option:focus-visible,
+.glass-panel .tab-btn:focus-visible {
     outline: 2px solid rgba(244, 238, 228, 0.82);
     outline-offset: 2px;
 }
 
 @supports not selector(:focus-visible) {
-    #global-controls select:focus,
-    #global-controls .level-btn:focus,
-    #global-controls .scale-option:focus,
-    #global-controls .tab-btn:focus {
+    .glass-panel select:focus,
+    .glass-panel .level-btn:focus,
+    .glass-panel .scale-option:focus,
+    .glass-panel .tab-btn:focus {
         outline: 2px solid rgba(244, 238, 228, 0.82);
         outline-offset: 2px;
     }
