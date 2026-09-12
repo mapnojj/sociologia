@@ -58,7 +58,14 @@
         });
 
         if (scrollHint) {
-            scrollHint.addEventListener("click", () => scrollToSlide(1));
+            scrollHint.addEventListener("click", () => {
+                const currentSlide = scrollHint.closest(".slide");
+                const currentSlideIndex = currentSlide ? slides.indexOf(currentSlide) : -1;
+                const nextSlideIndex = currentSlideIndex + 1;
+                if (nextSlideIndex > 0 && nextSlideIndex < slides.length) {
+                    scrollToSlide(nextSlideIndex);
+                }
+            });
         }
 
         const observer = new IntersectionObserver(
