@@ -241,6 +241,10 @@ body.hero-active .hero-grid {
     padding-top: clamp(4.8rem, 8vh, 6.2rem);
 }
 
+body.hero-active .hero-copy {
+    padding-top: clamp(1.4rem, 3vh, 2.2rem);
+}
+
 .hero-copy {
     max-width: 740px;
     padding-right: clamp(1rem, 2vw, 2rem);
@@ -783,6 +787,10 @@ select {
 
     body.hero-active .hero-grid {
         padding-top: clamp(5.5rem, 10vh, 7rem);
+    }
+
+    body.hero-active .hero-copy {
+        padding-top: clamp(2rem, 4vh, 3rem);
     }
 
     .hero-art {
