@@ -237,6 +237,10 @@ body {
     z-index: 1;
 }
 
+body.hero-active .hero-grid {
+    padding-top: clamp(2.8rem, 5vh, 4.2rem);
+}
+
 .hero-copy {
     max-width: 740px;
     padding-right: clamp(1rem, 2vw, 2rem);
@@ -746,6 +750,7 @@ select {
     z-index: 50;
     display: grid;
     gap: 0.7rem;
+    justify-items: center;
 }
 
 #nav-dots::before {
@@ -812,6 +817,12 @@ select {
 
     .hero-logo {
         width: clamp(84px, 8vw, 130px);
+    }
+
+    body.hero-active .hero-logo {
+        top: 4.8rem;
+        right: 1rem;
+        width: 96px;
     }
 
     .cards-grid {
@@ -916,6 +927,10 @@ select {
         grid-template-columns: 1fr;
         align-items: start;
         gap: 1.2rem;
+    }
+
+    body.hero-active .hero-grid {
+        padding-top: 0;
     }
 
     .hero-art {
