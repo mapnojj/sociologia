@@ -18,6 +18,7 @@
         function setActive(index) {
             currentIndex = index;
             dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+            document.body.classList.toggle("hero-active", index === 0);
         }
 
         function scrollToSlide(index) {
@@ -67,6 +68,21 @@
                 }
             });
         }
+
+        const initialIndex = slides.reduce(
+            (bestIndex, slide, index) => {
+                const { top, bottom } = slide.getBoundingClientRect();
+                const distance = Math.abs(top);
+                const intersectsViewport = top < window.innerHeight * 0.65 && bottom > window.innerHeight * 0.35;
+                if (intersectsViewport) {
+                    return { index, distance: -1 };
+                }
+                return distance < bestIndex.distance ? { index, distance } : bestIndex;
+            },
+            { index: 0, distance: Number.POSITIVE_INFINITY }
+        ).index;
+
+        setActive(initialIndex);
 
         const observer = new IntersectionObserver(
             (entries) => {

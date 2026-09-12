@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educação em Dados</title>
+    <title>Da Escola de Elite à Escola de Massa</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -31,25 +31,49 @@
 <nav id="nav-dots" aria-label="Navegação entre seções"></nav>
 
 <main id="presentation">
-    <section class="slide slide-hero" id="slide-1" data-slide-index="0">
+    <section class="slide slide-hero editorial-grid" id="slide-1" data-slide-index="0">
+        <img class="hero-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo institucional">
         <div class="hero-grid">
             <div class="hero-copy">
-                <p class="eyebrow">DOSSIÊ SOCIOLÓGICO</p>
-                <h1>EDUCAÇÃO EM DADOS</h1>
-                <p class="hero-subtitle">Brasil • 2015–2025</p>
-                <p class="hero-text">Uma década de transformações na Educação Básica brasileira em perspectiva histórica.</p>
-                <div class="hero-meta">
-                    <span>Panorama nacional</span>
-                    <span>Leitura territorial</span>
-                    <span>Séries históricas</span>
+                <div class="hero-academic">
+                    <p class="section-eyebrow editorial-label">Disciplina</p>
+                    <div class="hero-academic-row">
+                        <span class="hero-academic-symbol" aria-hidden="true"></span>
+                        <div>
+                            <p class="hero-discipline">Fundamentos Sociológicos da Educação</p>
+                            <p class="hero-professor">Prof.: Dário Sales</p>
+                        </div>
+                    </div>
                 </div>
-                <button id="scroll-hint" class="scroll-hint" type="button"><span aria-hidden="true">↓</span> Explore os dados</button>
+
+                <div class="hero-title-block">
+                    <h1 class="slide-title">Da Escola de Elite <span>à Escola de Massa</span></h1>
+                    <p class="slide-subtitle">A Difícil Universalização do Atendimento na Educação Básica e as Mudanças no Ensino Superior</p>
+                </div>
+
+                <div class="slide-authors">
+                    <span class="editorial-line" aria-hidden="true"></span>
+                    <p>Airton, Maurício, Renan e Vitória</p>
+                </div>
+
+                <button id="scroll-hint" class="scroll-hint" type="button">
+                    <span>Role para continuar</span>
+                    <span class="scroll-hint-arrow" aria-hidden="true">↓</span>
+                </button>
             </div>
+
             <div class="hero-art" aria-hidden="true">
-                <div class="hero-line hero-line-top"></div>
-                <div class="hero-line hero-line-mid"></div>
-                <div class="hero-circle hero-circle-main"></div>
-                <div class="hero-circle hero-circle-secondary"></div>
+                <div class="editorial-line hero-line hero-line-top"></div>
+                <div class="editorial-line hero-line hero-line-mid"></div>
+                <div class="editorial-line hero-line hero-line-vertical"></div>
+                <div class="editorial-circle hero-deco-circle hero-deco-circle-a"></div>
+                <div class="editorial-circle hero-deco-circle hero-deco-circle-b"></div>
+                <div class="image-circle image-circle-large" aria-hidden="true">
+                    <img src="{{ url_for('static', filename='img/circulo-1.jpeg') }}" alt="">
+                </div>
+                <div class="image-circle image-circle-small" aria-hidden="true">
+                    <img src="{{ url_for('static', filename='img/circulo-2.jpeg') }}" alt="">
+                </div>
             </div>
         </div>
     </section>
