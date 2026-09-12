@@ -509,11 +509,11 @@ h2 {
 }
 
 body.hero-active #global-controls {
-    top: auto;
+    top: clamp(6.2rem, 11vh, 7.6rem);
     left: auto;
     right: clamp(4rem, 7vw, 9rem);
-    bottom: clamp(1.4rem, 3.2vh, 2.2rem);
-    width: min(420px, calc(100vw - 6rem));
+    bottom: auto;
+    width: min(300px, calc(100vw - 8rem));
     background: linear-gradient(180deg, rgba(43, 5, 7, 0.94), rgba(43, 5, 7, 0.88));
     border: 1px solid rgba(221, 201, 174, 0.24);
     border-radius: 22px;
@@ -905,6 +905,7 @@ body.hero-active #nav-dots {
         right: auto;
         bottom: auto;
         left: 0.8rem;
+        width: calc(100vw - 1.6rem);
         padding: 0.8rem 0.9rem;
     }
 
