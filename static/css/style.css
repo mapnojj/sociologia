@@ -516,7 +516,8 @@ h2 {
 }
 
 #global-controls .level-btn.active,
-#global-controls .level-btn:hover {
+#global-controls .level-btn:hover,
+#global-controls .level-btn:focus-visible {
     background: linear-gradient(135deg, var(--bege), rgba(168, 120, 56, 0.92));
     color: var(--vinho-950);
     border-color: rgba(221, 201, 174, 0.86);
@@ -546,6 +547,14 @@ h2 {
 #global-controls .level-btn:focus-visible {
     outline: 2px solid rgba(244, 238, 228, 0.82);
     outline-offset: 2px;
+}
+
+@supports not selector(:focus-visible) {
+    #global-controls select:focus,
+    #global-controls .level-btn:focus {
+        outline: 2px solid rgba(244, 238, 228, 0.82);
+        outline-offset: 2px;
+    }
 }
 
 .level-btn.active,
