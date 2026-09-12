@@ -514,7 +514,7 @@ body.hero-active #global-controls {
     right: auto;
     bottom: auto;
     transform: translateX(-50%);
-    width: min(420px, calc(100vw - 14rem));
+    width: min(420px, calc(100vw - 4rem));
     background: linear-gradient(180deg, rgba(43, 5, 7, 0.94), rgba(43, 5, 7, 0.88));
     border: 1px solid rgba(221, 201, 174, 0.24);
     border-radius: 22px;
