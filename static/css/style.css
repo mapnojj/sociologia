@@ -69,7 +69,8 @@ body {
     height: 100vh;
     min-height: 100vh;
     padding: 6.5rem 7vw 4rem;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
     background:
         radial-gradient(circle at 16% 18%, rgba(168, 120, 56, 0.18), transparent 30%),
