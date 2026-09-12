@@ -190,6 +190,7 @@ body {
     border-color: rgba(221, 201, 174, 0.55);
 }
 
+.slide-hero .scroll-hint:focus,
 .slide-hero .scroll-hint:focus-visible {
     background: var(--marfim);
     color: var(--vinho-950);
