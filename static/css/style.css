@@ -511,9 +511,9 @@ h2 {
 body.hero-active #global-controls {
     top: clamp(6.2rem, 11vh, 7.6rem);
     left: auto;
-    right: clamp(11rem, 15vw, 16rem);
+    right: clamp(7rem, 10vw, 10rem);
     bottom: auto;
-    width: min(300px, calc(100vw - 16rem));
+    width: min(240px, calc(100vw - 12rem));
     background: linear-gradient(180deg, rgba(43, 5, 7, 0.94), rgba(43, 5, 7, 0.88));
     border: 1px solid rgba(221, 201, 174, 0.24);
     border-radius: 22px;
