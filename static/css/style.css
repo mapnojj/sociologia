@@ -190,11 +190,12 @@ body {
 }
 
 .slide-hero .scroll-hint:focus-visible {
-    background: rgba(244, 238, 228, 0.24);
-    border-color: rgba(244, 238, 228, 0.9);
-    outline: 3px solid rgba(244, 238, 228, 0.96);
+    background: var(--marfim);
+    color: var(--vinho-950);
+    border-color: var(--vinho-950);
+    outline: 3px solid var(--marfim);
     outline-offset: 3px;
-    box-shadow: none;
+    box-shadow: 0 0 0 2px var(--vinho-950), 0 0 0 7px rgba(244, 238, 228, 0.34);
 }
 
 @keyframes hero-hint-pulse {
