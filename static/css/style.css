@@ -584,6 +584,11 @@ body.hero-active #global-controls select {
     color: var(--texto-claro);
 }
 
+body.hero-active #global-controls select option {
+    background: var(--marfim);
+    color: var(--vinho-950);
+}
+
 .glass-panel select:focus-visible,
 .glass-panel .level-btn:focus-visible,
 .glass-panel .scale-option:focus-visible,
