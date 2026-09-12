@@ -754,6 +754,10 @@ select {
     z-index: -1;
 }
 
+body.hero-active #nav-dots {
+    top: 40%;
+}
+
 .nav-dot {
     width: 9px;
     height: 9px;
