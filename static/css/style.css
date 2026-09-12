@@ -173,7 +173,7 @@ body {
     height: 100dvh;
     min-height: 100vh;
     min-height: 100dvh;
-    padding: clamp(5.8rem, 9vh, 7.2rem) 7vw clamp(2.4rem, 6vh, 4rem);
+    padding: clamp(8.4rem, 14vh, 10rem) 7vw clamp(2.4rem, 6vh, 4rem);
     overflow: hidden;
     position: relative;
     isolation: isolate;
@@ -753,10 +753,6 @@ select {
     background: rgba(244, 238, 228, 0.18);
     transform: translateX(-50%);
     z-index: -1;
-}
-
-body.hero-active #nav-dots {
-    top: 40%;
 }
 
 .nav-dot {
