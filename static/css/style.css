@@ -169,7 +169,6 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    width: fit-content;
     font-weight: 600;
     letter-spacing: 0.04em;
     border: 1px solid rgba(221, 201, 174, 0.34);
