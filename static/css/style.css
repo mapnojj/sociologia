@@ -170,7 +170,9 @@ body {
 .slide-hero {
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     min-height: 100vh;
+    min-height: 100dvh;
     padding: clamp(5.8rem, 9vh, 7.2rem) 7vw clamp(2.4rem, 6vh, 4rem);
     overflow: hidden;
     position: relative;
@@ -832,7 +834,9 @@ select {
 @media (max-width: 760px) {
     .slide-hero {
         height: 100vh;
+        height: 100dvh;
         min-height: 100vh;
+        min-height: 100dvh;
         padding: 6.8rem 5vw 2rem;
     }
 
