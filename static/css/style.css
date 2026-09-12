@@ -66,11 +66,10 @@ body {
 }
 
 .slide-hero {
-    height: 100vh;
+    height: 100dvh;
     min-height: 100vh;
     padding: 6.5rem 7vw 4rem;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     position: relative;
     background:
         radial-gradient(circle at 16% 18%, rgba(168, 120, 56, 0.18), transparent 30%),
