@@ -238,7 +238,7 @@ body {
 }
 
 body.hero-active .hero-grid {
-    padding-top: clamp(2.8rem, 5vh, 4.2rem);
+    padding-top: clamp(4.8rem, 8vh, 6.2rem);
 }
 
 .hero-copy {
@@ -751,18 +751,7 @@ select {
     display: grid;
     gap: 0.7rem;
     justify-items: center;
-}
-
-#nav-dots::before {
-    content: "";
-    position: absolute;
-    top: 0.15rem;
-    bottom: 0.15rem;
-    left: 50%;
-    width: 1px;
-    background: rgba(244, 238, 228, 0.18);
-    transform: translateX(-50%);
-    z-index: -1;
+    background: linear-gradient(180deg, rgba(244, 238, 228, 0.18), rgba(244, 238, 228, 0.18)) center / 1px calc(100% - 0.3rem) no-repeat;
 }
 
 .nav-dot {
@@ -790,6 +779,10 @@ select {
     .hero-grid {
         grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
         gap: 2.4rem;
+    }
+
+    body.hero-active .hero-grid {
+        padding-top: clamp(5.5rem, 10vh, 7rem);
     }
 
     .hero-art {
