@@ -72,6 +72,7 @@ body {
     overflow: hidden;
     position: relative;
     isolation: isolate;
+    background-color: var(--vinho-950);
     background:
         radial-gradient(circle at 16% 18%, rgba(168, 120, 56, 0.18), transparent 30%),
         radial-gradient(circle at 90% 86%, rgba(133, 81, 39, 0.2), transparent 34%),
