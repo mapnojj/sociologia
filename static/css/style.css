@@ -188,6 +188,11 @@ body {
     border-color: rgba(221, 201, 174, 0.55);
 }
 
+.slide-hero .scroll-hint:focus-visible {
+    outline: 2px solid rgba(244, 238, 228, 0.92);
+    outline-offset: 2px;
+}
+
 @keyframes hero-hint-pulse {
     0%,
     100% {
