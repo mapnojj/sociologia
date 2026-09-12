@@ -470,21 +470,21 @@ h2 {
     top: clamp(0.9rem, 2vw, 1.5rem);
     left: clamp(1rem, 3vw, 2rem);
     z-index: 40;
-    width: min(420px, calc(100vw - 6rem));
-    background: linear-gradient(180deg, rgba(43, 5, 7, 0.76), rgba(43, 5, 7, 0.62));
-    border: 1px solid rgba(221, 201, 174, 0.24);
-    backdrop-filter: blur(14px);
-    border-radius: 22px;
-    padding: 0.9rem 1rem;
-    box-shadow: 0 18px 40px rgba(12, 2, 2, 0.28);
+    width: min(330px, calc(100vw - 2.4rem));
+    background: var(--card);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 0.9rem;
+    box-shadow: 0 10px 30px rgba(18, 33, 61, 0.1);
 }
 
 .control-title {
-    font-size: 0.72rem;
-    color: rgba(247, 241, 232, 0.68);
-    margin-bottom: 0.55rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0.45rem;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.08rem;
 }
 
 .level-switch,
@@ -508,48 +508,65 @@ h2 {
     transition: 0.25s ease;
 }
 
-.cover-panel .level-btn {
+body.hero-active #global-controls {
+    width: min(420px, calc(100vw - 6rem));
+    background: linear-gradient(180deg, rgba(43, 5, 7, 0.76), rgba(43, 5, 7, 0.62));
+    border: 1px solid rgba(221, 201, 174, 0.24);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 18px 40px rgba(12, 2, 2, 0.28);
+}
+
+body.hero-active #global-controls .control-title {
+    font-size: 0.72rem;
+    color: rgba(247, 241, 232, 0.68);
+    margin-bottom: 0.55rem;
+    letter-spacing: 0.18em;
+}
+
+body.hero-active #global-controls .level-btn {
     background: transparent;
     color: var(--marfim);
     border-color: rgba(244, 238, 228, 0.2);
 }
 
-.cover-panel .scale-option,
-.cover-panel .tab-btn {
+body.hero-active #global-controls .scale-option,
+body.hero-active #global-controls .tab-btn {
     background: transparent;
     color: var(--marfim);
     border-color: rgba(244, 238, 228, 0.2);
 }
 
-.cover-panel .level-btn.active,
-.cover-panel .level-btn:hover,
-.cover-panel .level-btn:focus-visible,
-.cover-panel .scale-option.active,
-.cover-panel .scale-option:hover,
-.cover-panel .scale-option:focus-visible,
-.cover-panel .tab-btn.active,
-.cover-panel .tab-btn:hover,
-.cover-panel .tab-btn:focus-visible {
+body.hero-active #global-controls .level-btn.active,
+body.hero-active #global-controls .level-btn:hover,
+body.hero-active #global-controls .level-btn:focus-visible,
+body.hero-active #global-controls .scale-option.active,
+body.hero-active #global-controls .scale-option:hover,
+body.hero-active #global-controls .scale-option:focus-visible,
+body.hero-active #global-controls .tab-btn.active,
+body.hero-active #global-controls .tab-btn:hover,
+body.hero-active #global-controls .tab-btn:focus-visible {
     background: linear-gradient(135deg, var(--bege), rgba(168, 120, 56, 0.92));
     color: var(--vinho-950);
     border-color: rgba(221, 201, 174, 0.86);
 }
 
-.cover-panel .control-group {
+body.hero-active #global-controls .control-group {
     grid-template-columns: auto 1fr;
     align-items: center;
     gap: 0.65rem;
     margin-top: 0.65rem;
 }
 
-.cover-panel .control-group label {
+body.hero-active #global-controls .control-group label {
     color: rgba(247, 241, 232, 0.72);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.7rem;
 }
 
-.cover-panel select {
+body.hero-active #global-controls select {
     border-color: rgba(221, 201, 174, 0.22);
     background: rgba(247, 241, 232, 0.08);
     color: var(--texto-claro);
@@ -866,11 +883,13 @@ select {
     }
 
     .glass-panel {
-        top: 0.8rem;
-        bottom: auto;
-        left: 0.8rem;
-        transform: none;
         width: calc(100vw - 1.6rem);
+    }
+
+    body.hero-active #global-controls {
+        top: 0.8rem;
+        left: 0.8rem;
+        padding: 0.8rem 0.9rem;
     }
 
     .hero-grid {

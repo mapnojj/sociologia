@@ -18,6 +18,7 @@
         function setActive(index) {
             currentIndex = index;
             dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+            document.body.classList.toggle("hero-active", index === 0);
         }
 
         function scrollToSlide(index) {
@@ -67,6 +68,8 @@
                 }
             });
         }
+
+        setActive(0);
 
         const observer = new IntersectionObserver(
             (entries) => {
