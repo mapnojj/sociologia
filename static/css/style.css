@@ -890,11 +890,10 @@ body.hero-active #nav-dots {
 
 @media (max-width: 760px) {
     .slide-hero {
-        height: 100vh;
-        height: 100dvh;
+        height: auto;
         min-height: 100vh;
         min-height: 100dvh;
-        padding: 10rem 5vw 2rem;
+        padding: 8.8rem 5vw 2rem;
     }
 
     .glass-panel {
