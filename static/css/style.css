@@ -66,8 +66,8 @@ body {
 }
 
 .slide-hero {
-    height: 100dvh;
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 6.5rem 7vw 4rem;
     overflow: hidden;
     position: relative;
