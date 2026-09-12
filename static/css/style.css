@@ -510,12 +510,19 @@ h2 {
 
 body.hero-active #global-controls {
     width: min(420px, calc(100vw - 6rem));
-    background: linear-gradient(180deg, rgba(43, 5, 7, 0.76), rgba(43, 5, 7, 0.62));
+    background: linear-gradient(180deg, rgba(43, 5, 7, 0.94), rgba(43, 5, 7, 0.88));
     border: 1px solid rgba(221, 201, 174, 0.24);
-    backdrop-filter: blur(14px);
     border-radius: 22px;
     padding: 0.9rem 1rem;
     box-shadow: 0 18px 40px rgba(12, 2, 2, 0.28);
+}
+
+@supports ((-webkit-backdrop-filter: blur(14px)) or (backdrop-filter: blur(14px))) {
+    body.hero-active #global-controls {
+        background: linear-gradient(180deg, rgba(43, 5, 7, 0.76), rgba(43, 5, 7, 0.62));
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+    }
 }
 
 body.hero-active #global-controls .control-title {
