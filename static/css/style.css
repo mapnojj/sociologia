@@ -508,48 +508,48 @@ h2 {
     transition: 0.25s ease;
 }
 
-#global-controls .level-btn {
+.cover-panel .level-btn {
     background: transparent;
     color: var(--marfim);
     border-color: rgba(244, 238, 228, 0.2);
 }
 
-#global-controls .scale-option,
-#global-controls .tab-btn {
+.cover-panel .scale-option,
+.cover-panel .tab-btn {
     background: transparent;
     color: var(--marfim);
     border-color: rgba(244, 238, 228, 0.2);
 }
 
-#global-controls .level-btn.active,
-#global-controls .level-btn:hover,
-#global-controls .level-btn:focus-visible,
-#global-controls .scale-option.active,
-#global-controls .scale-option:hover,
-#global-controls .scale-option:focus-visible,
-#global-controls .tab-btn.active,
-#global-controls .tab-btn:hover,
-#global-controls .tab-btn:focus-visible {
+.cover-panel .level-btn.active,
+.cover-panel .level-btn:hover,
+.cover-panel .level-btn:focus-visible,
+.cover-panel .scale-option.active,
+.cover-panel .scale-option:hover,
+.cover-panel .scale-option:focus-visible,
+.cover-panel .tab-btn.active,
+.cover-panel .tab-btn:hover,
+.cover-panel .tab-btn:focus-visible {
     background: linear-gradient(135deg, var(--bege), rgba(168, 120, 56, 0.92));
     color: var(--vinho-950);
     border-color: rgba(221, 201, 174, 0.86);
 }
 
-#global-controls .control-group {
+.cover-panel .control-group {
     grid-template-columns: auto 1fr;
     align-items: center;
     gap: 0.65rem;
     margin-top: 0.65rem;
 }
 
-#global-controls .control-group label {
+.cover-panel .control-group label {
     color: rgba(247, 241, 232, 0.72);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.7rem;
 }
 
-#global-controls select {
+.cover-panel select {
     border-color: rgba(221, 201, 174, 0.22);
     background: rgba(247, 241, 232, 0.08);
     color: var(--texto-claro);
@@ -862,14 +862,14 @@ select {
         height: 100dvh;
         min-height: 100vh;
         min-height: 100dvh;
-        padding: 6.8rem 5vw 2rem;
+        padding: 10rem 5vw 2rem;
     }
 
     .glass-panel {
-        top: auto;
-        bottom: 0.8rem;
-        left: 50%;
-        transform: translateX(-50%);
+        top: 0.8rem;
+        bottom: auto;
+        left: 0.8rem;
+        transform: none;
         width: calc(100vw - 1.6rem);
     }
 
