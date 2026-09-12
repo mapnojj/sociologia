@@ -181,6 +181,10 @@ body {
     color: var(--texto-claro);
 }
 
+body.hero-active .slide-hero {
+    padding-left: clamp(23rem, 28vw, 27rem);
+}
+
 .slide-hero::before,
 .slide-hero::after {
     content: "";
@@ -785,6 +789,10 @@ select {
         gap: 2.4rem;
     }
 
+    body.hero-active .slide-hero {
+        padding-left: clamp(19rem, 27vw, 22rem);
+    }
+
     body.hero-active .hero-grid {
         padding-top: clamp(5.5rem, 10vh, 7rem);
     }
@@ -908,6 +916,10 @@ select {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 8.8rem 5vw 2rem;
+    }
+
+    body.hero-active .slide-hero {
+        padding-left: 5vw;
     }
 
     .glass-panel {
