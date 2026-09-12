@@ -104,7 +104,7 @@ body {
     width: min(1360px, 100%);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 1.06fr) minmax(340px, 0.94fr);
+    grid-template-columns: minmax(0, 1.06fr) minmax(280px, 0.94fr);
     gap: clamp(1.8rem, 5vw, 4.5rem);
     align-items: center;
     position: relative;
@@ -160,6 +160,14 @@ body {
 .slide-hero .scroll-hint {
     margin-top: 2.4rem;
     color: rgba(247, 241, 232, 0.85);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid rgba(221, 201, 174, 0.34);
+    background: rgba(244, 238, 228, 0.08);
+    border-radius: 999px;
+    padding: 0.4rem 0.8rem;
+    opacity: 1;
 }
 
 .hero-art {
@@ -497,6 +505,25 @@ select {
         padding: 7.4rem 6vw 3rem;
     }
 
+    .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .superior-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .two-charts {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-wrap,
+    .chart-wrap.large {
+        height: min(38vh, 360px);
+    }
+}
+
+@media (max-width: 1200px) {
     .hero-grid {
         grid-template-columns: 1fr;
         gap: 2.2rem;
@@ -514,23 +541,6 @@ select {
     .hero-circle-secondary {
         left: 3%;
         bottom: -2%;
-    }
-
-    .cards-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .superior-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .two-charts {
-        grid-template-columns: 1fr;
-    }
-
-    .chart-wrap,
-    .chart-wrap.large {
-        height: min(38vh, 360px);
     }
 }
 
