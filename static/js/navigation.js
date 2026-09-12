@@ -13,6 +13,7 @@
             .join("");
 
         const dots = [...navDots.querySelectorAll(".nav-dot")];
+        const scrollHint = document.getElementById("scroll-hint");
 
         function setActive(index) {
             currentIndex = index;
@@ -55,6 +56,10 @@
                 scrollToSlide(targetIndex);
             });
         });
+
+        if (scrollHint) {
+            scrollHint.addEventListener("click", () => scrollToSlide(1));
+        }
 
         const observer = new IntersectionObserver(
             (entries) => {

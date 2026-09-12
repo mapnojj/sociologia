@@ -180,6 +180,8 @@ body {
     opacity: 1;
     text-decoration: none;
     transition: background 0.2s ease, border-color 0.2s ease;
+    font: inherit;
+    cursor: pointer;
 }
 
 .slide-hero .scroll-hint:hover,
@@ -189,8 +191,9 @@ body {
 }
 
 .slide-hero .scroll-hint:focus-visible {
-    outline: 2px solid rgba(244, 238, 228, 0.92);
-    outline-offset: 2px;
+    outline: 3px solid rgba(244, 238, 228, 0.96);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(168, 120, 56, 0.35);
 }
 
 @keyframes hero-hint-pulse {
