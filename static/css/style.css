@@ -944,8 +944,9 @@ body.hero-active .hero-copy {
     height: 100dvh;
     min-height: 100vh;
     min-height: 100dvh;
+    position: relative;
     padding: clamp(5.8rem, 9.6vh, 7.2rem) 7vw clamp(2.2rem, 4.6vh, 3.4rem);
-    overflow: hidden;
+    overflow: visible;
     color: var(--texto-claro);
 }
 
