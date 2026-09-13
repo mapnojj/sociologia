@@ -353,7 +353,7 @@
     function updateSuperiorExpansao(payload) {
         const values = chartData(payload, "Matriculas_Total");
         updateChart(charts.superiorExpansao, payload.anos, [
-            editorialLineDataset("Matrículas totais", values, "#f4eee4")
+            editorialLineDataset("Matrículas totais", values, "#d8b06a")
         ]);
     }
 
