@@ -2645,6 +2645,9 @@ select {
 #slide-13 .financiamento-charge-shell {
     margin: clamp(0.35rem, 0.9vh, 0.75rem) 0 0;
     width: min(100%, 680px);
+    border-radius: 10px;
+    border: 1px solid rgba(216, 176, 106, 0.34);
+    overflow: hidden;
 }
 
 #slide-13 .financiamento-charge {
@@ -2653,8 +2656,6 @@ select {
     height: clamp(290px, 49vh, 560px);
     object-fit: contain;
     object-position: left top;
-    border-radius: 10px;
-    border: 1px solid rgba(216, 176, 106, 0.34);
 }
 
 #slide-13 .financiamento-debate {
