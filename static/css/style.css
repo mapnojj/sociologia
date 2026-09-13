@@ -1967,6 +1967,13 @@ body.hero-active .hero-copy {
     overflow-wrap: anywhere;
 }
 
+.duality-row-text {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    line-height: inherit;
+}
+
 .duality-closing {
     display: grid;
     gap: 0.95rem;
