@@ -1645,7 +1645,8 @@ body.hero-active .hero-copy {
 
 #slide-11 .superior-rede-breakdown {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.85rem;
 }
 
 #slide-11 .superior-rede-breakdown-item {
