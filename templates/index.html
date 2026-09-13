@@ -141,15 +141,63 @@
         </div>
     </section>
 
-    <section class="slide" id="slide-3" data-slide-index="2">
-        <div class="slide-content">
-            <p class="eyebrow">EVOLUÇÃO GERAL</p>
-            <h2>UMA DÉCADA EM PERSPECTIVA</h2>
-            <p class="dynamic-location" id="localidade-atual">Brasil</p>
+    <section class="slide slide-intro editorial-grid" id="slide-3" data-slide-index="2">
+        <div class="intro-shell">
+            <header class="intro-heading">
+                <p class="section-eyebrow editorial-label">Capítulo 01</p>
+                <h2 class="slide-title intro-title">Introdução</h2>
+                <p class="slide-subtitle intro-subtitle">e o Desafio da Educação Básica</p>
+                <span class="editorial-line intro-title-line" aria-hidden="true"></span>
+            </header>
 
-            <div class="inline-controls">
-                <label for="indicador-geral">Indicador</label>
-                <select id="indicador-geral">
+            <div class="intro-layout">
+                <figure class="intro-photo" aria-hidden="true"></figure>
+
+                <aside class="dilemmas-panel">
+                    <div class="dilemmas-heading">
+                        <p class="editorial-label">Dilemas Históricos da Educação Brasileira</p>
+                        <p class="dilemmas-source">Comparato (1987)</p>
+                    </div>
+
+                    <ol class="dilemma-list" aria-label="Dilemas históricos da educação brasileira">
+                        <li class="dilemma-item">
+                            <span class="dilemma-number">01</span>
+                            <span class="dilemma-text">Elitismo</span>
+                            <span class="dilemma-opposition">×</span>
+                            <span class="dilemma-text">Massificação</span>
+                        </li>
+                        <li class="dilemma-item">
+                            <span class="dilemma-number">02</span>
+                            <span class="dilemma-text">Público</span>
+                            <span class="dilemma-opposition">×</span>
+                            <span class="dilemma-text">Privado</span>
+                        </li>
+                        <li class="dilemma-item">
+                            <span class="dilemma-number">03</span>
+                            <span class="dilemma-text">Centralização</span>
+                            <span class="dilemma-opposition">×</span>
+                            <span class="dilemma-text">Descentralização</span>
+                        </li>
+                        <li class="dilemma-item">
+                            <span class="dilemma-number">04</span>
+                            <span class="dilemma-text">Neutralidade política</span>
+                            <span class="dilemma-opposition">×</span>
+                            <span class="dilemma-text">Orientação política</span>
+                        </li>
+                    </ol>
+                </aside>
+            </div>
+
+            <div class="intro-decor" aria-hidden="true">
+                <span class="editorial-line intro-line intro-line-a"></span>
+                <span class="editorial-circle intro-circle intro-circle-a"></span>
+                <span class="editorial-circle intro-circle intro-circle-b"></span>
+                <span class="editorial-circle intro-circle intro-circle-c"></span>
+            </div>
+
+            <div class="slide-3-legacy" aria-hidden="true">
+                <span id="localidade-atual">Brasil</span>
+                <select id="indicador-geral" tabindex="-1">
                     <option value="Creche">Creche</option>
                     <option value="Pre_Escola">Pré-escola</option>
                     <option value="Fundamental_Total">Ensino Fundamental</option>
@@ -158,16 +206,12 @@
                     <option value="Educacao_Profissional">Educação Profissional</option>
                     <option value="Educacao_Especial">Educação Especial</option>
                 </select>
+                <span id="card-2015">—</span>
+                <span id="card-2025">—</span>
+                <span id="card-var-abs">—</span>
+                <span id="card-var-pct">—</span>
+                <canvas id="chart-evolucao-geral"></canvas>
             </div>
-
-            <div class="cards-grid">
-                <article class="metric-card"><span>2015</span><strong id="card-2015">—</strong></article>
-                <article class="metric-card"><span>2025</span><strong id="card-2025">—</strong></article>
-                <article class="metric-card"><span>Variação absoluta</span><strong id="card-var-abs">—</strong></article>
-                <article class="metric-card"><span>Variação percentual</span><strong id="card-var-pct">—</strong></article>
-            </div>
-
-            <div class="chart-wrap large"><canvas id="chart-evolucao-geral"></canvas></div>
         </div>
     </section>
 
