@@ -739,12 +739,35 @@ h2 {
     box-shadow: 0 10px 30px rgba(18, 33, 61, 0.1);
 }
 
+.territorial-selector {
+    background: linear-gradient(180deg, rgba(43, 5, 7, 0.92), rgba(67, 9, 12, 0.82));
+    border: 1px solid rgba(168, 120, 56, 0.34);
+    border-radius: 22px;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 18px 40px rgba(12, 2, 2, 0.28);
+}
+
+@supports ((-webkit-backdrop-filter: blur(14px)) or (backdrop-filter: blur(14px))) {
+    .territorial-selector {
+        background: linear-gradient(180deg, rgba(43, 5, 7, 0.78), rgba(67, 9, 12, 0.64));
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+    }
+}
+
 .control-title {
     font-size: 0.75rem;
     color: var(--muted);
     margin-bottom: 0.45rem;
     text-transform: uppercase;
     letter-spacing: 0.08rem;
+}
+
+.territorial-selector .control-title {
+    font-size: 0.72rem;
+    color: rgba(247, 241, 232, 0.72);
+    margin-bottom: 0.55rem;
+    letter-spacing: 0.18em;
 }
 
 .level-switch,
@@ -768,83 +791,66 @@ h2 {
     transition: 0.25s ease;
 }
 
-body.hero-active #global-controls {
-    top: clamp(1rem, 2.2vh, 1.5rem);
-    left: clamp(1rem, 3vw, 2rem);
-    right: auto;
-    bottom: auto;
-    transform: none;
-    width: min(360px, calc(100vw - 4rem));
-    background: linear-gradient(180deg, rgba(43, 5, 7, 0.94), rgba(43, 5, 7, 0.88));
-    border: 1px solid rgba(221, 201, 174, 0.24);
-    border-radius: 22px;
-    padding: 0.9rem 1rem;
-    box-shadow: 0 18px 40px rgba(12, 2, 2, 0.28);
-}
-
-@supports ((-webkit-backdrop-filter: blur(14px)) or (backdrop-filter: blur(14px))) {
-    body.hero-active #global-controls {
-        background: linear-gradient(180deg, rgba(43, 5, 7, 0.76), rgba(43, 5, 7, 0.62));
-        -webkit-backdrop-filter: blur(14px);
-        backdrop-filter: blur(14px);
-    }
-}
-
-body.hero-active #global-controls .control-title {
-    font-size: 0.72rem;
-    color: rgba(247, 241, 232, 0.68);
-    margin-bottom: 0.55rem;
-    letter-spacing: 0.18em;
-}
-
-body.hero-active #global-controls .level-btn {
+.territorial-selector .level-btn,
+.territorial-selector .scale-option,
+.territorial-selector .tab-btn {
     background: transparent;
     color: var(--marfim);
-    border-color: rgba(244, 238, 228, 0.2);
+    border-color: rgba(168, 120, 56, 0.34);
+    box-shadow: inset 0 0 0 1px rgba(244, 238, 228, 0.04);
 }
 
-body.hero-active #global-controls .scale-option,
-body.hero-active #global-controls .tab-btn {
-    background: transparent;
-    color: var(--marfim);
-    border-color: rgba(244, 238, 228, 0.2);
-}
-
-body.hero-active #global-controls .level-btn.active,
-body.hero-active #global-controls .level-btn:hover,
-body.hero-active #global-controls .level-btn:focus-visible,
-body.hero-active #global-controls .scale-option.active,
-body.hero-active #global-controls .scale-option:hover,
-body.hero-active #global-controls .scale-option:focus-visible,
-body.hero-active #global-controls .tab-btn.active,
-body.hero-active #global-controls .tab-btn:hover,
-body.hero-active #global-controls .tab-btn:focus-visible {
+.territorial-selector .level-btn.active,
+.territorial-selector .scale-option.active,
+.territorial-selector .tab-btn.active {
     background: linear-gradient(135deg, var(--bege), rgba(168, 120, 56, 0.92));
     color: var(--vinho-950);
     border-color: rgba(221, 201, 174, 0.86);
 }
 
-body.hero-active #global-controls .control-group {
+.territorial-selector .level-btn:hover,
+.territorial-selector .level-btn:focus-visible,
+.territorial-selector .scale-option:hover,
+.territorial-selector .scale-option:focus-visible,
+.territorial-selector .tab-btn:hover,
+.territorial-selector .tab-btn:focus-visible {
+    background: rgba(244, 238, 228, 0.08);
+    border-color: rgba(221, 201, 174, 0.46);
+    color: var(--marfim);
+}
+
+.territorial-selector .level-btn.active:hover,
+.territorial-selector .level-btn.active:focus-visible,
+.territorial-selector .scale-option.active:hover,
+.territorial-selector .scale-option.active:focus-visible,
+.territorial-selector .tab-btn.active:hover,
+.territorial-selector .tab-btn.active:focus-visible {
+    background: linear-gradient(135deg, rgba(221, 201, 174, 0.96), rgba(168, 120, 56, 0.94));
+    color: var(--vinho-950);
+    border-color: rgba(221, 201, 174, 0.92);
+}
+
+.territorial-selector .control-group {
     grid-template-columns: auto 1fr;
     align-items: center;
     gap: 0.65rem;
     margin-top: 0.65rem;
 }
 
-body.hero-active #global-controls .control-group label {
+.territorial-selector .control-group label {
     color: rgba(247, 241, 232, 0.72);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.7rem;
 }
 
-body.hero-active #global-controls select {
-    border-color: rgba(221, 201, 174, 0.22);
+.territorial-selector select {
+    border-color: rgba(168, 120, 56, 0.34);
     background: rgba(247, 241, 232, 0.08);
     color: var(--texto-claro);
 }
 
-body.hero-active #global-controls select option {
+.territorial-selector select option {
     background: var(--marfim);
     color: var(--vinho-950);
 }
