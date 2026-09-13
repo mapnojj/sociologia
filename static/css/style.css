@@ -1863,7 +1863,7 @@ body.hero-active .hero-copy {
 
 .duality-comparison {
     display: grid;
-    gap: clamp(0.9rem, 1.7vh, 1.4rem);
+    gap: clamp(0.95rem, 1.7vh, 1.4rem);
 }
 
 .duality-table {
@@ -1874,26 +1874,31 @@ body.hero-active .hero-copy {
 }
 
 .duality-col-divider {
-    width: clamp(28px, 4.2vw, 44px);
+    width: clamp(50px, 5vw, 80px);
+}
+
+.duality-columns-header {
+    border-bottom: 1px solid rgba(221, 201, 174, 0.16);
 }
 
 .duality-columns-header th {
     min-width: 0;
     margin: 0;
+    padding-top: 0;
     padding-bottom: 0.8rem;
-    border-bottom: 1px solid rgba(221, 201, 174, 0.16);
     vertical-align: bottom;
 }
 
 .duality-columns-header th:first-child {
-    padding-right: clamp(28px, 4.2vw, 64px);
+    padding-right: clamp(22px, 3vw, 52px);
 }
 
 .duality-columns-header th:last-child {
-    padding-left: clamp(28px, 4.2vw, 64px);
+    padding-left: clamp(22px, 3vw, 52px);
 }
 
 .duality-column-title {
+    margin: 0;
     padding: 0;
     border: 0;
     background: transparent;
@@ -1907,8 +1912,7 @@ body.hero-active .hero-copy {
     text-align: left;
 }
 
-.duality-columns-header th:last-child .duality-column-title,
-.duality-columns-header th:last-child.duality-column-title {
+.duality-column-title-right {
     text-align: right;
 }
 
@@ -1920,59 +1924,55 @@ body.hero-active .hero-copy {
     padding: 0;
 }
 
-.duality-row-side-left {
-    padding-top: clamp(0.45rem, 0.9vh, 0.6rem);
-    padding-right: clamp(28px, 4.2vw, 64px);
-    padding-bottom: clamp(0.45rem, 0.9vh, 0.6rem);
-}
-
-.duality-row-side-right {
-    padding-top: clamp(0.45rem, 0.9vh, 0.6rem);
-    padding-bottom: clamp(0.45rem, 0.9vh, 0.6rem);
-    padding-left: clamp(28px, 4.2vw, 64px);
+.duality-rows {
+    border: 0;
 }
 
 .duality-row-side {
+    margin: 0;
     min-width: 0;
     border: 0;
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 0.9rem;
-    align-items: start;
+    font-weight: 400;
+    padding-top: clamp(0.45rem, 0.9vh, 0.6rem);
+    padding-bottom: clamp(0.45rem, 0.9vh, 0.6rem);
 }
 
-.duality-row-side-right .duality-point-number {
-    display: none;
+.duality-row-side-left {
+    text-align: left;
+    padding-right: clamp(22px, 3vw, 52px);
 }
 
-.duality-point-number {
-    font-family: inherit;
-    font-size: 0.75rem;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: 0.24em;
-    color: rgba(216, 176, 106, 0.94);
+.duality-row-side-right {
+    text-align: right;
+    padding-left: clamp(22px, 3vw, 52px);
 }
 
 .duality-row-divider {
     min-width: 0;
+    margin: 0;
     padding: 0;
     border: 0;
     text-align: center;
     vertical-align: middle;
     font-family: var(--serif-display);
-    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    font-weight: 700;
     line-height: 1;
-    color: rgba(216, 176, 106, 0.82);
+    color: rgba(216, 176, 106, 0.94);
 }
 
-.duality-row p {
-    margin: 0;
-    min-width: 0;
+.duality-row-side {
     font-size: clamp(1rem, 1.28vw, 1.16rem);
     line-height: 1.42;
     color: rgba(247, 241, 232, 0.92);
     overflow-wrap: anywhere;
+}
+
+.duality-row-text {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    line-height: inherit;
 }
 
 .duality-closing {
@@ -2780,18 +2780,14 @@ select {
         gap: 1.4rem;
     }
 
-    .duality-col-divider {
-        width: clamp(24px, 3.2vw, 36px);
-    }
-
     .duality-columns-header th:first-child,
     .duality-row-side-left {
-        padding-right: clamp(18px, 2.8vw, 36px);
+        padding-right: clamp(18px, 2.8vw, 38px);
     }
 
     .duality-columns-header th:last-child,
     .duality-row-side-right {
-        padding-left: clamp(18px, 2.8vw, 36px);
+        padding-left: clamp(18px, 2.8vw, 38px);
     }
 
     .contemporary-title {
@@ -2977,7 +2973,7 @@ select {
         font-size: clamp(1.32rem, 1.9vw, 2rem);
     }
 
-    .duality-row p,
+    .duality-row-side,
     .duality-closing p {
         font-size: clamp(0.92rem, 1.08vw, 1rem);
         line-height: 1.45;
@@ -3078,8 +3074,14 @@ select {
         padding-bottom: 0.6rem;
     }
 
-    .duality-row-side {
-        gap: 0.72rem;
+    .duality-columns-header th:first-child,
+    .duality-row-side-left {
+        padding-right: clamp(14px, 2.2vw, 28px);
+    }
+
+    .duality-columns-header th:last-child,
+    .duality-row-side-right {
+        padding-left: clamp(14px, 2.2vw, 28px);
     }
 
     .duality-closing {
