@@ -85,7 +85,7 @@ body {
     width: min(1200px, 100%);
     margin: 0 auto;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .slide-content.center {
