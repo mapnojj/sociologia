@@ -2601,7 +2601,6 @@ select {
     width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
     max-width: none;
     margin-inline: auto;
-    min-height: 100%;
     align-items: start;
     grid-template-columns: minmax(0, 42fr) minmax(0, 50fr);
     gap: clamp(56px, 6vw, 100px);
@@ -2965,6 +2964,8 @@ select {
 
 @media (max-width: 1080px) {
     #slide-13.slide-access {
+        min-height: 100vh;
+        min-height: 100dvh;
         padding: 5.2rem 6vw 2.3rem;
     }
 
