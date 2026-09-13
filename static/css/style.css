@@ -1200,11 +1200,22 @@ body.hero-active .hero-copy {
     gap: clamp(0.9rem, 1.7vh, 1.4rem);
 }
 
+.duality-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
 .duality-columns-header {
     min-width: 0;
+}
+
+.duality-columns-header tr {
+    min-width: 0;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(48px, 6vw, 120px);
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    column-gap: clamp(48px, 6vw, 120px);
     align-items: end;
     padding-bottom: 0.8rem;
     border-bottom: 1px solid rgba(221, 201, 174, 0.16);
@@ -1212,6 +1223,9 @@ body.hero-active .hero-copy {
 
 .duality-column-title {
     margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
     min-width: 0;
     font-family: var(--serif-display);
     font-size: clamp(1.5rem, 2.2vw, 2.35rem);
@@ -1219,6 +1233,7 @@ body.hero-active .hero-copy {
     letter-spacing: -0.02em;
     text-transform: uppercase;
     color: var(--marfim);
+    text-align: left;
 }
 
 .duality-column-title:last-child {
@@ -1229,10 +1244,17 @@ body.hero-active .hero-copy {
     display: block;
 }
 
+.duality-column-separator {
+    width: 0;
+    padding: 0;
+    border: 0;
+}
+
 .duality-rows {
     min-width: 0;
     display: grid;
     gap: clamp(0.85rem, 1.6vh, 1.1rem);
+    padding-top: clamp(0.9rem, 1.6vh, 1.2rem);
 }
 
 .duality-row {
@@ -1245,6 +1267,8 @@ body.hero-active .hero-copy {
 
 .duality-row-side {
     min-width: 0;
+    padding: 0;
+    border: 0;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     gap: 0.9rem;
@@ -1265,6 +1289,9 @@ body.hero-active .hero-copy {
 }
 
 .duality-row-divider {
+    min-width: 0;
+    padding: 0;
+    border: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1882,8 +1909,8 @@ select {
         gap: 1.4rem;
     }
 
-    .duality-columns-header {
-        gap: clamp(28px, 4.2vw, 64px);
+    .duality-columns-header tr {
+        column-gap: clamp(28px, 4.2vw, 64px);
     }
 
     .duality-row {
@@ -2074,7 +2101,7 @@ select {
         gap: 0.45rem;
     }
 
-    .duality-columns-header {
+    .duality-columns-header tr {
         padding-bottom: 0.6rem;
     }
 
