@@ -1241,7 +1241,8 @@ body.hero-active .hero-copy {
     text-align: left;
 }
 
-.duality-column-title:last-child {
+.duality-columns-header th:last-child .duality-column-title,
+.duality-columns-header th:last-child.duality-column-title {
     text-align: right;
 }
 
