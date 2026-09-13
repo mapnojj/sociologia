@@ -938,6 +938,152 @@ body.hero-active .hero-copy {
         linear-gradient(145deg, rgba(133, 81, 39, 0.22), rgba(67, 9, 12, 0.12));
 }
 
+.slide-access {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: clamp(5.8rem, 9.6vh, 7.2rem) 7vw clamp(2.2rem, 4.6vh, 3.4rem);
+    overflow: hidden;
+    color: var(--texto-claro);
+}
+
+.slide-access::before,
+.slide-access::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.slide-access::before {
+    background:
+        linear-gradient(102deg, rgba(22, 4, 5, 0.95) 0%, rgba(34, 5, 7, 0.9) 30%, rgba(56, 10, 13, 0.7) 62%, rgba(62, 10, 13, 0.48) 100%),
+        radial-gradient(circle at 16% 18%, rgba(168, 120, 56, 0.14), transparent 26%),
+        radial-gradient(circle at 76% 24%, rgba(133, 81, 39, 0.15), transparent 24%),
+        radial-gradient(circle at 74% 68%, rgba(0, 0, 0, 0.22), transparent 28%),
+        radial-gradient(circle at center, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.32) 100%),
+        url("../img/capa-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(0.34) saturate(0.72);
+    transform: scale(1.01);
+    z-index: -2;
+}
+
+.slide-access::after {
+    inset: 1.2rem;
+    border: 1px solid rgba(221, 201, 174, 0.14);
+    background:
+        var(--editorial-grid-horizontal),
+        var(--editorial-grid-vertical);
+    opacity: 0.42;
+    z-index: -1;
+}
+
+.access-layout {
+    width: min(1320px, 100%);
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.38fr) minmax(0, 0.62fr);
+    gap: clamp(1.4rem, 2.8vw, 2.8rem);
+    align-items: center;
+}
+
+.access-content {
+    display: grid;
+    gap: clamp(1rem, 2vh, 1.6rem);
+    align-content: center;
+}
+
+.access-title {
+    font-size: clamp(2.7rem, 4.9vw, 5.5rem);
+    max-width: 11ch;
+}
+
+.access-line {
+    width: min(86%, 300px);
+}
+
+.access-copy {
+    display: grid;
+    gap: clamp(0.7rem, 1.35vh, 1.15rem);
+}
+
+.access-copy p {
+    font-size: clamp(1rem, 1.35vw, 1.2rem);
+    line-height: 1.5;
+    color: rgba(247, 241, 232, 0.9);
+    max-width: 32ch;
+}
+
+.access-chart-area {
+    position: relative;
+    display: grid;
+    gap: clamp(0.8rem, 1.5vh, 1.2rem);
+    min-height: 0;
+    padding: clamp(0.4rem, 0.8vh, 0.7rem) 0 clamp(0.3rem, 0.7vh, 0.6rem);
+}
+
+.access-chart-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(43, 5, 7, 0.15), rgba(43, 5, 7, 0.15));
+    pointer-events: none;
+    z-index: 0;
+}
+
+.access-chart-header,
+.access-chart-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.access-chart-header .section-eyebrow {
+    margin-bottom: 0.45rem;
+    color: rgba(221, 201, 174, 0.9);
+}
+
+.access-chart-title {
+    margin: 0;
+    font-family: var(--serif-display);
+    font-size: clamp(1.9rem, 3vw, 3.1rem);
+    line-height: 1.02;
+    color: rgba(244, 238, 228, 0.98);
+}
+
+.access-chart-subtitle {
+    margin-top: 0.5rem;
+    font-size: clamp(0.9rem, 1.16vw, 1.06rem);
+    line-height: 1.45;
+    color: rgba(247, 241, 232, 0.82);
+}
+
+#slide-4 .access-chart-wrapper {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.2rem 0 0;
+    height: clamp(300px, 48vh, 520px);
+}
+
+#slide-4 .access-chart-wrapper::before {
+    content: "";
+    display: block;
+    width: min(180px, 24%);
+    height: 1px;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, rgba(244, 238, 228, 0.52), rgba(244, 238, 228, 0));
+}
+
+#slide-4 .access-chart-wrapper canvas {
+    background: transparent !important;
+}
+
 .slide-3-legacy {
     position: absolute;
     left: 0;
@@ -1456,6 +1602,29 @@ select {
         right: 30%;
         bottom: 3%;
     }
+
+    .slide-access {
+        padding: 5.2rem 6vw 2.3rem;
+    }
+
+    .access-layout {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 1.2rem;
+    }
+
+    .access-title {
+        font-size: clamp(2.5rem, 6vw, 3.4rem);
+        max-width: none;
+    }
+
+    .access-copy p {
+        max-width: none;
+    }
+
+    #slide-4 .access-chart-wrapper {
+        height: clamp(260px, 42vh, 420px);
+    }
 }
 
 @media (max-height: 860px) {
@@ -1518,6 +1687,27 @@ select {
 
     .summary-item-title {
         font-size: clamp(1.08rem, 1.45vw, 1.58rem);
+    }
+
+    .slide-access {
+        padding-top: 4.9rem;
+        padding-bottom: 1.7rem;
+    }
+
+    .access-layout {
+        gap: 1rem;
+    }
+
+    .access-title {
+        font-size: clamp(2.3rem, 4.4vw, 4.3rem);
+    }
+
+    .access-copy p {
+        font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+    }
+
+    #slide-4 .access-chart-wrapper {
+        height: clamp(240px, 45vh, 420px);
     }
 }
 
