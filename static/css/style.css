@@ -1225,6 +1225,7 @@ body.hero-active .hero-copy {
     color: rgba(216, 176, 106, 0.78);
     padding: 0.2rem 0.7rem;
     background: linear-gradient(180deg, rgba(43, 5, 7, 0.92), rgba(43, 5, 7, 0.72));
+    pointer-events: none;
 }
 
 .duality-column {
@@ -1244,7 +1245,7 @@ body.hero-active .hero-copy {
 
 .duality-column-index,
 .duality-point-number {
-    font-family: var(--sans);
+    font-family: inherit;
     font-size: 0.75rem;
     font-weight: 700;
     line-height: 1;
