@@ -1162,13 +1162,21 @@ body.hero-active .hero-copy {
     word-break: normal;
 }
 
+#slide-7 .slide-content {
+    width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
+    max-width: none;
+    margin-inline: auto;
+}
+
 #slide-7 .modalidades-layout {
     display: grid;
-    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
-    gap: clamp(44px, 4vw, 72px);
-    width: min(1440px, 100%);
-    max-width: 1440px;
-    margin: 0 auto;
+    min-height: 100%;
+    grid-template-columns: minmax(300px, 34%) minmax(0, 66%);
+    column-gap: clamp(70px, 5vw, 110px);
+    row-gap: clamp(1rem, 2vh, 1.4rem);
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
     align-items: center;
 }
 
@@ -1203,8 +1211,12 @@ body.hero-active .hero-copy {
 #slide-7 .modalidades-chart-area {
     width: 100%;
     justify-self: stretch;
+    min-width: 0;
     overflow: visible;
-    gap: clamp(0.9rem, 1.6vh, 1.25rem);
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr);
+    gap: clamp(1rem, 1.8vh, 1.4rem);
+    padding: clamp(0.35rem, 0.7vh, 0.6rem) 0;
 }
 
 #slide-7 .modalidades-chart-header {
@@ -1259,7 +1271,8 @@ body.hero-active .hero-copy {
     border-radius: 0;
     box-shadow: none;
     padding: 0.2rem 0 0;
-    height: clamp(300px, 48vh, 520px);
+    width: 100%;
+    height: clamp(390px, 47vh, 520px);
 }
 
 #slide-7 .modalidades-chart-wrapper::before {
@@ -2486,7 +2499,8 @@ select {
     }
 
     #slide-7 .modalidades-layout {
-        gap: clamp(36px, 3.2vw, 56px);
+        column-gap: clamp(70px, 5vw, 110px);
+        row-gap: clamp(1rem, 2vh, 1.4rem);
     }
 
     #slide-7 .modalidades-title {
@@ -2846,8 +2860,9 @@ select {
     }
 
     #slide-7 .modalidades-layout {
-        grid-template-columns: minmax(0, 40%) minmax(0, 60%);
-        gap: clamp(32px, 3vw, 48px);
+        grid-template-columns: minmax(300px, 34%) minmax(0, 66%);
+        column-gap: clamp(70px, 5vw, 110px);
+        row-gap: clamp(0.9rem, 1.6vh, 1.2rem);
     }
 
     #slide-7 .modalidades-title {
