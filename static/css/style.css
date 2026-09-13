@@ -2404,9 +2404,12 @@ select {
     #slide-4 .access-chart-wrapper,
     #slide-5 .access-chart-wrapper,
     #slide-7 .modalidades-chart-wrapper,
-    #slide-9 .superior-chart-wrapper,
-    #slide-10 .superior-chart-wrapper {
+    #slide-9 .superior-chart-wrapper {
         height: clamp(280px, 44vh, 440px);
+    }
+
+    #slide-10 .superior-chart-wrapper {
+        height: clamp(320px, 48vh, 470px);
     }
 
     :is(#slide-9, #slide-10) .superior-layout {
@@ -2549,9 +2552,12 @@ select {
     #slide-4 .access-chart-wrapper,
     #slide-5 .access-chart-wrapper,
     #slide-7 .modalidades-chart-wrapper,
-    #slide-9 .superior-chart-wrapper,
-    #slide-10 .superior-chart-wrapper {
+    #slide-9 .superior-chart-wrapper {
         height: clamp(260px, 46vh, 440px);
+    }
+
+    #slide-10 .superior-chart-wrapper {
+        height: clamp(300px, 48vh, 470px);
     }
 
     #slide-7 .modalidades-layout {
