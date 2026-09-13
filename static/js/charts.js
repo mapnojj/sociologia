@@ -415,6 +415,13 @@
     function updateSuperiorModalidade(payload) {
         const presencial = chartData(payload, "Matriculas_Presencial");
         const ead = chartData(payload, "Matriculas_EAD");
+        const hasPresencial = getLastDefinedIndex(presencial) >= 0;
+        const hasEad = getLastDefinedIndex(ead) >= 0;
+
+        if (!hasPresencial || !hasEad) {
+            updateChart(charts.superiorModalidade, payload.anos, []);
+            return;
+        }
 
         updateChart(charts.superiorModalidade, payload.anos, [
             editorialLineDataset("Presencial", presencial, "#f4eee4", {
