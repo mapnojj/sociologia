@@ -1070,7 +1070,7 @@ body.hero-active .hero-copy {
 }
 
 #slide-4 .access-chart-wrapper {
-    height: clamp(320px, 50vh, 540px);
+    height: clamp(390px, 47vh, 520px);
 }
 
 #slide-5 .access-chart-wrapper {
@@ -1107,6 +1107,43 @@ body.hero-active .hero-copy {
     width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
     max-width: none;
     margin-inline: auto;
+}
+
+#slide-4 .slide-content {
+    width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
+    max-width: none;
+    margin-inline: auto;
+}
+
+#slide-4 .access-layout {
+    display: grid;
+    min-height: 100%;
+    grid-template-columns: minmax(300px, 34%) minmax(0, 66%);
+    column-gap: clamp(70px, 5vw, 110px);
+    row-gap: clamp(1rem, 2vh, 1.4rem);
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+    align-items: center;
+}
+
+#slide-4 .access-content,
+#slide-4 .access-chart-area {
+    min-width: 0;
+}
+
+#slide-4 .access-chart-area {
+    width: 100%;
+    justify-self: stretch;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: clamp(1rem, 1.8vh, 1.4rem);
+    padding: clamp(0.35rem, 0.7vh, 0.6rem) 0;
+    overflow: visible;
+}
+
+#slide-4 .access-chart-header {
+    max-width: 100%;
 }
 
 #slide-5 .fundamental-layout {
