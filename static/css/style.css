@@ -790,6 +790,7 @@ body.hero-active .hero-copy {
     position: relative;
     margin: 0;
     padding: 0;
+    aspect-ratio: 16 / 10;
     min-height: clamp(320px, 50vh, 560px);
     border: 1px solid rgba(221, 201, 174, 0.58);
     border-radius: 20px;
