@@ -2595,6 +2595,110 @@ select {
     bottom: 12%;
 }
 
+#slide-13 .slide-content {
+    width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
+    max-width: none;
+    margin-inline: auto;
+}
+
+#slide-13::before {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#slide-13 .financiamento-layout {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+    min-height: 100%;
+    align-items: start;
+    grid-template-columns: minmax(0, 42%) minmax(0, 50%);
+    gap: clamp(56px, 6vw, 100px);
+}
+
+#slide-13 .financiamento-content,
+#slide-13 .financiamento-debate {
+    min-width: 0;
+}
+
+#slide-13 .financiamento-content {
+    display: grid;
+    align-content: start;
+    gap: clamp(0.8rem, 1.8vh, 1.35rem);
+}
+
+#slide-13 .financiamento-eyebrow,
+#slide-13 .financiamento-debate-eyebrow {
+    margin: 0;
+    color: rgba(221, 201, 174, 0.78);
+}
+
+#slide-13 .financiamento-title {
+    margin: 0;
+    max-width: 9.5ch;
+    font-size: clamp(3rem, 5vw, 5rem);
+}
+
+#slide-13 .financiamento-subtitle {
+    margin: 0;
+    max-width: 24ch;
+    font-size: clamp(1.12rem, 1.55vw, 1.55rem);
+    line-height: 1.35;
+    color: rgba(247, 241, 232, 0.88);
+}
+
+#slide-13 .financiamento-charge-shell {
+    margin: clamp(0.35rem, 0.9vh, 0.75rem) 0 0;
+    width: min(100%, 680px);
+}
+
+#slide-13 .financiamento-charge {
+    display: block;
+    width: 100%;
+    height: clamp(290px, 49vh, 560px);
+    object-fit: contain;
+    object-position: left top;
+    border-radius: 10px;
+    border: 1px solid rgba(216, 176, 106, 0.34);
+}
+
+#slide-13 .financiamento-debate {
+    display: grid;
+    align-content: start;
+    gap: clamp(1.5rem, 2.8vh, 2.2rem);
+    padding-top: clamp(0.45rem, 1vh, 0.9rem);
+}
+
+#slide-13 .financiamento-argumento {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: clamp(0.9rem, 1.4vw, 1.5rem);
+    align-items: start;
+}
+
+#slide-13 .financiamento-argumento-numero {
+    margin: 0;
+    min-width: 2ch;
+    font-family: var(--serif-display);
+    font-size: clamp(1.95rem, 2.8vw, 2.9rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: rgba(216, 176, 106, 0.96);
+}
+
+#slide-13 .financiamento-argumento-texto {
+    margin: 0;
+    font-size: clamp(1.1rem, 1.45vw, 1.42rem);
+    line-height: 1.58;
+    color: rgba(247, 241, 232, 0.9);
+}
+
+#slide-13 .financiamento-separador {
+    width: 100%;
+    margin: clamp(0.35rem, 0.8vh, 0.6rem) 0;
+}
+
 .transition-note {
     margin: 0.4rem 0 1rem;
     color: var(--muted);
@@ -2704,6 +2808,15 @@ select {
 }
 
 @media (max-width: 1450px) {
+    #slide-13 .financiamento-layout {
+        grid-template-columns: minmax(0, 44%) minmax(0, 48%);
+        gap: clamp(40px, 4.6vw, 68px);
+    }
+
+    #slide-13 .financiamento-argumento-texto {
+        font-size: clamp(1.04rem, 1.2vw, 1.25rem);
+    }
+
     :is(#slide-8, #slide-13) .transition-editorial-layout {
         gap: clamp(1.6rem, 3.8vw, 3.2rem);
         grid-template-columns: minmax(0, 0.9fr) minmax(240px, 1.1fr);
@@ -2754,6 +2867,23 @@ select {
 }
 
 @media (max-width: 1280px) {
+    #slide-13 .slide-content {
+        width: min(calc(100% - clamp(80px, 8vw, 120px)), 1520px);
+    }
+
+    #slide-13 .financiamento-layout {
+        grid-template-columns: minmax(0, 46%) minmax(0, 50%);
+        gap: clamp(28px, 3.5vw, 44px);
+    }
+
+    #slide-13 .financiamento-title {
+        font-size: clamp(2.5rem, 4.3vw, 3.9rem);
+    }
+
+    #slide-13 .financiamento-charge {
+        height: clamp(250px, 42vh, 450px);
+    }
+
     :is(#slide-8, #slide-13) .transition-editorial-layout {
         width: 100%;
         max-width: 1200px;
@@ -2837,6 +2967,32 @@ select {
 }
 
 @media (max-width: 1080px) {
+    #slide-13 {
+        padding: 5.2rem 6vw 2.3rem;
+    }
+
+    #slide-13 .slide-content {
+        width: min(100%, 1100px);
+    }
+
+    #slide-13 .financiamento-layout {
+        grid-template-columns: 1fr;
+        gap: clamp(1.3rem, 2.4vh, 2rem);
+    }
+
+    #slide-13 .financiamento-subtitle,
+    #slide-13 .financiamento-charge-shell {
+        max-width: 100%;
+    }
+
+    #slide-13 .financiamento-charge {
+        height: clamp(220px, 34vh, 360px);
+    }
+
+    #slide-13 .financiamento-debate {
+        gap: 1.2rem;
+    }
+
     :is(#slide-8, #slide-13).slide-transition-editorial {
         padding: 5.2rem 6vw 2.3rem;
     }
@@ -3425,6 +3581,43 @@ select {
 }
 
 @media (max-width: 760px) {
+    #slide-13 {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 7.2rem 5vw 2rem;
+    }
+
+    #slide-13::after {
+        inset: 0.8rem;
+    }
+
+    #slide-13 .slide-content {
+        width: 100%;
+    }
+
+    #slide-13 .financiamento-title {
+        font-size: clamp(2rem, 9.6vw, 2.85rem);
+        max-width: 100%;
+    }
+
+    #slide-13 .financiamento-subtitle {
+        font-size: clamp(1rem, 4.4vw, 1.22rem);
+        max-width: 100%;
+    }
+
+    #slide-13 .financiamento-charge {
+        height: clamp(210px, 31vh, 320px);
+    }
+
+    #slide-13 .financiamento-argumento-numero {
+        font-size: clamp(1.6rem, 8vw, 2.1rem);
+    }
+
+    #slide-13 .financiamento-argumento-texto {
+        font-size: clamp(0.96rem, 4.25vw, 1.08rem);
+        line-height: 1.5;
+    }
+
     :is(#slide-8, #slide-13).slide-transition-editorial {
         min-height: 100vh;
         min-height: 100dvh;
