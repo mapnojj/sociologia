@@ -1066,7 +1066,7 @@ body.hero-active .hero-copy {
     border-radius: 0;
     box-shadow: none;
     padding: 0.2rem 0 0;
-    height: clamp(300px, 48vh, 520px);
+    height: clamp(320px, 50vh, 540px);
 }
 
 #slide-4 .access-chart-wrapper::before {
@@ -1621,7 +1621,7 @@ select {
     }
 
     #slide-4 .access-chart-wrapper {
-        height: clamp(260px, 42vh, 420px);
+        height: clamp(280px, 44vh, 440px);
     }
 }
 
@@ -1705,7 +1705,7 @@ select {
     }
 
     #slide-4 .access-chart-wrapper {
-        height: clamp(240px, 45vh, 420px);
+        height: clamp(260px, 46vh, 440px);
     }
 }
 
