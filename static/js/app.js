@@ -54,6 +54,8 @@
         superiorFederal: document.getElementById("sup-publica-federal"),
         superiorEstadual: document.getElementById("sup-publica-estadual"),
         superiorMunicipal: document.getElementById("sup-publica-municipal"),
+        superiorExpansaoCanvas: document.getElementById("chart-superior-expansao"),
+        superiorExpansaoSummary: document.getElementById("chart-superior-expansao-summary"),
         superiorMsgExpansao: document.getElementById("msg-superior-expansao"),
         superiorMsgModalidade: document.getElementById("msg-superior-modalidade"),
         superiorMsgRede: document.getElementById("msg-superior-rede"),
@@ -203,6 +205,18 @@
         }
     }
 
+    function updateSuperiorExpansaoA11y(localidade) {
+        const description = `Série anual de matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`;
+
+        if (els.superiorExpansaoSummary) {
+            els.superiorExpansaoSummary.textContent = description;
+        }
+
+        if (els.superiorExpansaoCanvas) {
+            els.superiorExpansaoCanvas.setAttribute("aria-label", `Gráfico de evolução das matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}`);
+        }
+    }
+
     function getColumnValueAtIndex(payload, column, index) {
         if (!payload?.dados?.[column]) return null;
         const value = payload.dados[column][index];
@@ -288,6 +302,7 @@
 
         const localidade = appState.payload?.localidade || payload.localidade || "Brasil";
         els.superiorLocalityText.textContent = localidade;
+        updateSuperiorExpansaoA11y(localidade);
 
         window.ChartManager.updateSuperiorExpansao(payload);
         window.ChartManager.updateSuperiorModalidade(payload);
