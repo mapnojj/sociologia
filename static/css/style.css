@@ -1508,16 +1508,19 @@ body.hero-active .hero-copy {
 }
 
 #slide-11 .slide-content {
-    width: min(1380px, 100%);
+    width: min(100% - clamp(120px, 10vw, 190px), 1680px);
+    max-width: none;
+    margin-inline: auto;
     position: relative;
 }
 
 #slide-11 .superior-rede-shell {
     min-height: 100%;
-    margin: 0 auto;
+    width: 100%;
+    margin-inline: auto;
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
-    column-gap: clamp(45px, 4vw, 80px);
+    grid-template-columns: minmax(300px, 34%) minmax(0, 66%);
+    column-gap: clamp(70px, 5vw, 110px);
     row-gap: clamp(1rem, 2vh, 1.4rem);
     align-items: center;
 }
@@ -1597,8 +1600,8 @@ body.hero-active .hero-copy {
 
 #slide-11 .superior-rede-topbar {
     display: grid;
-    grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
-    gap: clamp(1rem, 2vw, 1.8rem);
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(1rem, 2vw, 2rem);
     align-items: start;
 }
 
@@ -1624,8 +1627,8 @@ body.hero-active .hero-copy {
     gap: 0.85rem;
     align-content: start;
     min-width: 0;
-    width: 100%;
-    max-width: 360px;
+    width: fit-content;
+    max-width: min(360px, 100%);
     justify-self: end;
     padding-top: 0.15rem;
     padding-left: clamp(1rem, 1.6vw, 1.4rem);
@@ -1668,7 +1671,7 @@ body.hero-active .hero-copy {
     box-shadow: none;
     padding: 0.2rem 0 0;
     width: 100%;
-    height: clamp(380px, 56vh, 620px);
+    height: clamp(390px, 47vh, 520px);
 }
 
 #slide-11 .superior-rede-chart-wrapper::before {
@@ -2500,7 +2503,7 @@ select {
     }
 
     #slide-11 .superior-rede-topbar {
-        grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) auto;
     }
 }
 
@@ -2703,7 +2706,7 @@ select {
     }
 
     #slide-11 .superior-rede-topbar {
-        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) auto;
     }
 
     #slide-9 .superior-metrics {
