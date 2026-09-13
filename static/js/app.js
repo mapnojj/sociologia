@@ -58,6 +58,8 @@
         superiorExpansaoSummary: document.getElementById("chart-superior-expansao-summary"),
         superiorModalidadeCanvas: document.getElementById("chart-superior-modalidade"),
         superiorModalidadeSummary: document.getElementById("chart-superior-modalidade-summary"),
+        superiorRedeCanvas: document.getElementById("chart-superior-rede"),
+        superiorRedeSummary: document.getElementById("chart-superior-rede-summary"),
         superiorMsgExpansao: document.getElementById("msg-superior-expansao"),
         superiorMsgModalidade: document.getElementById("msg-superior-modalidade"),
         superiorMsgRede: document.getElementById("msg-superior-rede"),
@@ -258,6 +260,28 @@
         toggleChartMessage(els.superiorMsgModalidade, true);
     }
 
+    function updateSuperiorRedeA11y(localidade, hasPublicaData, hasPrivadaData) {
+        let description = `Não há dados disponíveis para a evolução das matrículas por rede de oferta no Ensino Superior em ${localidade}.`;
+        let label = `Gráfico indisponível de matrículas por rede de oferta no Ensino Superior em ${localidade}`;
+
+        if (hasPublicaData && hasPrivadaData) {
+            description = `Série anual de matrículas das redes pública e privada no Ensino Superior em ${localidade}, atualizada pela escala territorial selecionada.`;
+            label = `Gráfico de evolução das matrículas das redes pública e privada no Ensino Superior em ${localidade}`;
+        } else if (hasPublicaData || hasPrivadaData) {
+            const redeDisponivel = hasPublicaData ? "pública" : "privada";
+            description = `Série anual disponível apenas para a rede ${redeDisponivel} no Ensino Superior em ${localidade}, atualizada pela escala territorial selecionada.`;
+            label = `Gráfico de evolução parcial das matrículas da rede ${redeDisponivel} no Ensino Superior em ${localidade}`;
+        }
+
+        if (els.superiorRedeSummary) {
+            els.superiorRedeSummary.textContent = description;
+        }
+
+        if (els.superiorRedeCanvas) {
+            els.superiorRedeCanvas.setAttribute("aria-label", label);
+        }
+    }
+
     function getColumnValueAtIndex(payload, column, index) {
         if (!payload?.dados?.[column]) return null;
         const value = payload.dados[column][index];
@@ -345,9 +369,12 @@
         const hasExpansaoData = hasSeriesData(payload, "Matriculas_Total");
         const hasPresencialData = hasSeriesData(payload, "Matriculas_Presencial");
         const hasEadData = hasSeriesData(payload, "Matriculas_EAD");
+        const hasPublicaData = hasSeriesData(payload, "Matriculas_Publica");
+        const hasPrivadaData = hasSeriesData(payload, "Matriculas_Privada");
         els.superiorLocalityText.textContent = localidade;
         updateSuperiorExpansaoA11y(localidade, hasExpansaoData);
         updateSuperiorModalidadeA11y(localidade, hasPresencialData, hasEadData);
+        updateSuperiorRedeA11y(localidade, hasPublicaData, hasPrivadaData);
 
         window.ChartManager.updateSuperiorExpansao(payload);
         window.ChartManager.updateSuperiorModalidade(payload);
