@@ -1507,10 +1507,6 @@ body.hero-active .hero-copy {
     max-width: 38ch;
 }
 
-#slide-11 {
-    position: relative;
-}
-
 #slide-11 .slide-content {
     width: min(1380px, 100%);
 }
