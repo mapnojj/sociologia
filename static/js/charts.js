@@ -7,7 +7,8 @@
         purple: "#8d55ff",
         green: "#00a16b",
         orange: "#ff8c32",
-        gray: "#5d6b86"
+        gray: "#5d6b86",
+        editorialGold: "#d8b06a"
     };
 
     const charts = {};
@@ -352,7 +353,7 @@
     function updateSuperiorExpansao(payload) {
         const values = chartData(payload, "Matriculas_Total");
         updateChart(charts.superiorExpansao, payload.anos, [
-            editorialLineDataset("Matrículas totais", values, "#d8b06a")
+            editorialLineDataset("Matrículas totais", values, palette.editorialGold)
         ]);
     }
 
