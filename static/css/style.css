@@ -792,7 +792,7 @@ body.hero-active .hero-copy {
     position: relative;
     margin: 0;
     padding: 0;
-    height: clamp(320px, 50vh, 560px);
+    min-height: clamp(320px, 50vh, 560px);
     border: 1px solid rgba(221, 201, 174, 0.58);
     border-radius: 20px;
     overflow: hidden;
@@ -1448,7 +1448,7 @@ select {
     }
 
     .intro-photo {
-        height: clamp(300px, 42vh, 430px);
+        min-height: clamp(300px, 42vh, 430px);
     }
 
     .intro-line-a {
@@ -1712,7 +1712,7 @@ select {
     }
 
     .intro-photo {
-        height: 260px;
+        min-height: 260px;
         border-radius: 16px;
     }
 
