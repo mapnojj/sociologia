@@ -215,6 +215,59 @@
         };
     }
 
+    function createSuperiorFluxoOptions(options = createChartOptions({ editorial: true })) {
+        return {
+            ...options,
+            plugins: {
+                ...options.plugins,
+                legend: {
+                    ...options.plugins.legend,
+                    position: "top",
+                    align: "start",
+                    labels: {
+                        ...options.plugins.legend.labels,
+                        color: "rgba(247, 241, 232, 0.92)",
+                        boxWidth: 7,
+                        boxHeight: 7,
+                        padding: 12
+                    }
+                },
+                tooltip: {
+                    ...options.plugins.tooltip,
+                    backgroundColor: "rgba(43, 5, 7, 0.92)",
+                    titleColor: "#f4eee4",
+                    bodyColor: "#f4eee4",
+                    borderColor: "rgba(168, 120, 56, 0.64)",
+                    borderWidth: 1
+                }
+            },
+            scales: {
+                x: {
+                    ...options.scales.x,
+                    ticks: {
+                        ...options.scales.x.ticks,
+                        color: "rgba(247, 241, 232, 0.80)"
+                    },
+                    grid: {
+                        ...options.scales.x.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                },
+                y: {
+                    ...options.scales.y,
+                    ticks: {
+                        ...options.scales.y.ticks,
+                        color: "rgba(247, 241, 232, 0.80)"
+                    },
+                    grid: {
+                        ...options.scales.y.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                }
+            }
+        };
+    }
+
     function withEditorialTheme(options = baseOptions()) {
         return {
             ...options,
@@ -387,7 +440,7 @@
         charts.superiorFluxo = new Chart(document.getElementById("chart-superior-fluxo"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: createSuperiorFluxoOptions(superiorEditorialOptions)
         });
     }
 
@@ -502,8 +555,18 @@
 
     function updateSuperiorFluxo(payload) {
         updateChart(charts.superiorFluxo, payload.anos, [
-            lineDataset("Ingressantes", chartData(payload, "Ingressantes"), palette.cyan),
-            lineDataset("Concluintes", chartData(payload, "Concluintes"), palette.gray)
+            editorialLineDataset("Ingressantes", chartData(payload, "Ingressantes"), "#d8b06a", {
+                pointRadius: 2,
+                pointHoverRadius: 3.8,
+                pointBackgroundColor: "#d8b06a",
+                pointBorderColor: "#d8b06a"
+            }),
+            editorialLineDataset("Concluintes", chartData(payload, "Concluintes"), "#f4eee4", {
+                pointRadius: 2,
+                pointHoverRadius: 3.8,
+                pointBackgroundColor: "#f4eee4",
+                pointBorderColor: "#f4eee4"
+            })
         ]);
     }
 

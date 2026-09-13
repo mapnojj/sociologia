@@ -1278,7 +1278,7 @@ body.hero-active .hero-copy {
     height: 100% !important;
 }
 
-:is(#slide-9, #slide-10) .superior-layout {
+:is(#slide-9, #slide-10, #slide-12) .superior-layout {
     display: grid;
     grid-template-columns: minmax(0, 38%) minmax(0, 62%);
     column-gap: clamp(50px, 4vw, 85px);
@@ -1289,12 +1289,12 @@ body.hero-active .hero-copy {
     align-items: center;
 }
 
-:is(#slide-9, #slide-10) .superior-content,
-:is(#slide-9, #slide-10) .superior-chart-area {
+:is(#slide-9, #slide-10, #slide-12) .superior-content,
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-area {
     min-width: 0;
 }
 
-:is(#slide-9, #slide-10) .superior-content {
+:is(#slide-9, #slide-10, #slide-12) .superior-content {
     display: grid;
     align-content: center;
     width: 100%;
@@ -1304,7 +1304,7 @@ body.hero-active .hero-copy {
     overflow: visible;
 }
 
-:is(#slide-9, #slide-10) .superior-title {
+:is(#slide-9, #slide-10, #slide-12) .superior-title {
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -1313,7 +1313,7 @@ body.hero-active .hero-copy {
     letter-spacing: -0.04em;
 }
 
-:is(#slide-9, #slide-10) .superior-intro {
+:is(#slide-9, #slide-10, #slide-12) .superior-intro {
     max-width: 32ch;
     font-size: clamp(0.98rem, 1.26vw, 1.12rem);
     line-height: 1.55;
@@ -1364,7 +1364,7 @@ body.hero-active .hero-copy {
     color: var(--marfim);
 }
 
-:is(#slide-9, #slide-10) .superior-chart-area {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-area {
     width: 100%;
     justify-self: stretch;
     min-width: 0;
@@ -1374,16 +1374,16 @@ body.hero-active .hero-copy {
     padding-right: 0;
 }
 
-:is(#slide-9, #slide-10) .superior-chart-area::before {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-area::before {
     display: none;
 }
 
-:is(#slide-9, #slide-10) .superior-chart-header {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-header {
     width: 100%;
     max-width: 100%;
 }
 
-:is(#slide-9, #slide-10) .superior-chart-title {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-title {
     max-width: 100%;
     width: 100%;
     margin: 0;
@@ -1391,11 +1391,11 @@ body.hero-active .hero-copy {
     white-space: normal;
 }
 
-:is(#slide-9, #slide-10) .superior-chart-subtitle {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-subtitle {
     max-width: 36ch;
 }
 
-:is(#slide-9, #slide-10) .superior-chart-wrapper {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-wrapper {
     background: transparent;
     border: none;
     border-radius: 0;
@@ -1404,7 +1404,7 @@ body.hero-active .hero-copy {
     height: clamp(320px, 50vh, 540px);
 }
 
-:is(#slide-9, #slide-10) .superior-chart-wrapper::before {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-wrapper::before {
     content: "";
     display: block;
     width: min(180px, 24%);
@@ -1413,24 +1413,24 @@ body.hero-active .hero-copy {
     background: linear-gradient(90deg, rgba(244, 238, 228, 0.52), rgba(244, 238, 228, 0));
 }
 
-:is(#slide-9, #slide-10) .superior-chart-wrapper canvas {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-wrapper canvas {
     background: transparent !important;
     display: block;
     width: 100% !important;
     height: 100% !important;
 }
 
-:is(#slide-9, #slide-10) .superior-chart-message,
-:is(#slide-9, #slide-10) .superior-source-note {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-message,
+:is(#slide-9, #slide-10, #slide-12) .superior-source-note {
     margin-top: 0;
     color: rgba(247, 241, 232, 0.62);
 }
 
-:is(#slide-9, #slide-10) .superior-chart-message {
+:is(#slide-9, #slide-10, #slide-12) .superior-chart-message {
     font-size: 0.9rem;
 }
 
-:is(#slide-9, #slide-10) .superior-source-note {
+:is(#slide-9, #slide-10, #slide-12) .superior-source-note {
     font-size: 0.8rem;
 }
 
@@ -1645,6 +1645,51 @@ body.hero-active .hero-copy {
 
 #slide-11 .superior-chart-message {
     font-size: 0.9rem;
+}
+
+#slide-12 .superior-fluxo-title {
+    max-width: 9ch;
+}
+
+#slide-12 .superior-fluxo-intro {
+    max-width: 31ch;
+}
+
+#slide-12 .superior-fluxo-highlights {
+    display: grid;
+    width: min(100%, 360px);
+    margin-top: clamp(0.25rem, 0.8vh, 0.5rem);
+}
+
+#slide-12 .superior-fluxo-highlight {
+    display: grid;
+    gap: 0.36rem;
+    padding: clamp(0.8rem, 1.45vh, 1rem) 0;
+    border-top: 1px solid rgba(221, 201, 174, 0.26);
+}
+
+#slide-12 .superior-fluxo-highlight:last-child {
+    border-bottom: 1px solid rgba(221, 201, 174, 0.26);
+}
+
+#slide-12 .superior-fluxo-highlight-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(216, 176, 106, 0.94);
+}
+
+#slide-12 .superior-fluxo-highlight-text {
+    margin: 0;
+    max-width: 24ch;
+    font-size: clamp(1rem, 1.18vw, 1.12rem);
+    line-height: 1.52;
+    color: rgba(247, 241, 232, 0.94);
+}
+
+#slide-12 .superior-fluxo-chart-subtitle {
+    max-width: 39ch;
 }
 
 #slide-11 .superior-rede-sidebar {
@@ -2593,7 +2638,8 @@ select {
     #slide-5 .access-chart-wrapper,
     #slide-7 .modalidades-chart-wrapper,
     #slide-9 .superior-chart-wrapper,
-    #slide-11 .superior-rede-chart-wrapper {
+    #slide-11 .superior-rede-chart-wrapper,
+    #slide-12 .superior-fluxo-chart-wrapper {
         height: clamp(280px, 44vh, 440px);
     }
 
@@ -2601,17 +2647,17 @@ select {
         height: clamp(320px, 48vh, 470px);
     }
 
-    :is(#slide-9, #slide-10) .superior-layout {
+    :is(#slide-9, #slide-10, #slide-12) .superior-layout {
         grid-template-columns: minmax(0, 38%) minmax(0, 62%);
         column-gap: clamp(50px, 4vw, 85px);
         row-gap: clamp(1rem, 2vh, 1.4rem);
         align-items: center;
     }
 
-    :is(#slide-9, #slide-10) .superior-content,
-    :is(#slide-9, #slide-10) .superior-chart-header,
-    :is(#slide-9, #slide-10) .superior-intro,
-    :is(#slide-9, #slide-10) .superior-chart-subtitle {
+    :is(#slide-9, #slide-10, #slide-12) .superior-content,
+    :is(#slide-9, #slide-10, #slide-12) .superior-chart-header,
+    :is(#slide-9, #slide-10, #slide-12) .superior-intro,
+    :is(#slide-9, #slide-10, #slide-12) .superior-chart-subtitle {
         max-width: 100%;
     }
 
@@ -2762,7 +2808,8 @@ select {
     #slide-5 .access-chart-wrapper,
     #slide-7 .modalidades-chart-wrapper,
     #slide-9 .superior-chart-wrapper,
-    #slide-11 .superior-rede-chart-wrapper {
+    #slide-11 .superior-rede-chart-wrapper,
+    #slide-12 .superior-fluxo-chart-wrapper {
         height: clamp(260px, 46vh, 440px);
     }
 
@@ -2787,21 +2834,21 @@ select {
         font-size: clamp(0.92rem, 1.08vw, 1rem);
     }
 
-    :is(#slide-9, #slide-10) .superior-layout {
+    :is(#slide-9, #slide-10, #slide-12) .superior-layout {
         grid-template-columns: minmax(0, 38%) minmax(0, 62%);
         column-gap: clamp(50px, 4vw, 85px);
         row-gap: clamp(0.9rem, 1.6vh, 1.2rem);
     }
 
-    :is(#slide-9, #slide-10) .superior-title {
+    :is(#slide-9, #slide-10, #slide-12) .superior-title {
         font-size: clamp(2.4rem, 3.7vw, 3.9rem);
     }
 
-    :is(#slide-9, #slide-10) .superior-chart-title {
+    :is(#slide-9, #slide-10, #slide-12) .superior-chart-title {
         font-size: clamp(1.85rem, 2.55vw, 2.8rem);
     }
 
-    :is(#slide-9, #slide-10) .superior-intro {
+    :is(#slide-9, #slide-10, #slide-12) .superior-intro {
         font-size: clamp(0.92rem, 1.08vw, 1rem);
     }
 
