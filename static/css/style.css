@@ -75,10 +75,15 @@ body {
     opacity: 0.22;
     pointer-events: none;
     user-select: none;
-    z-index: 1;
+    z-index: 0;
     background: none;
     border: 0;
     box-shadow: none;
+}
+
+#presentation {
+    position: relative;
+    z-index: 1;
 }
 
 .slide-content {
