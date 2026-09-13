@@ -1240,6 +1240,11 @@ body.hero-active .hero-copy {
     color: var(--marfim);
 }
 
+#slide-7 .modalidades-tab-group .tab-btn:focus-visible {
+    outline: 2px solid rgba(247, 241, 232, 0.88);
+    outline-offset: 2px;
+}
+
 #slide-7 .modalidades-tab-group .tab-btn.active,
 #slide-7 .modalidades-tab-group .tab-btn.active:hover,
 #slide-7 .modalidades-tab-group .tab-btn.active:focus-visible {
