@@ -1213,12 +1213,14 @@ body.hero-active .hero-copy {
     transform: translateX(-0.5px);
 }
 
-.duality-comparison::after {
-    content: "×";
+.duality-divider {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: var(--serif-display);
     font-size: clamp(1.5rem, 2vw, 2rem);
     line-height: 1;
@@ -1902,7 +1904,7 @@ select {
         background: linear-gradient(90deg, rgba(221, 201, 174, 0.08), rgba(221, 201, 174, 0.42), rgba(221, 201, 174, 0.08));
     }
 
-    .duality-comparison::after {
+    .duality-divider {
         top: 50%;
     }
 }
