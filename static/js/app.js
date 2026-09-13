@@ -224,21 +224,46 @@
         }
     }
 
-    function updateSuperiorModalidadeA11y(localidade, hasData) {
-        const description = hasData
-            ? `Série anual de matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`
-            : `Não há dados disponíveis para a evolução das matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}.`;
+    function updateSuperiorModalidadeA11y(localidade, hasPresencialData, hasEadData) {
+        let description = `Não há dados disponíveis para a evolução das matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}.`;
+        let label = `Gráfico indisponível de matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}`;
+
+        if (hasPresencialData && hasEadData) {
+            description = `Série anual de matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`;
+            label = `Gráfico de evolução das matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}`;
+        } else if (hasPresencialData || hasEadData) {
+            const modalidadeDisponivel = hasPresencialData ? "presenciais" : "em educação a distância";
+            description = `Série anual disponível apenas para matrículas ${modalidadeDisponivel} no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`;
+            label = `Gráfico de evolução parcial das matrículas ${modalidadeDisponivel} no Ensino Superior entre 2015 e 2024 em ${localidade}`;
+        }
 
         if (els.superiorModalidadeSummary) {
             els.superiorModalidadeSummary.textContent = description;
         }
 
         if (els.superiorModalidadeCanvas) {
-            const label = hasData
-                ? `Gráfico de evolução das matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}`
-                : `Gráfico indisponível de matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}`;
             els.superiorModalidadeCanvas.setAttribute("aria-label", label);
         }
+    }
+
+    function updateSuperiorModalidadeMessage(hasPresencialData, hasEadData) {
+        if (!els.superiorMsgModalidade) return;
+
+        if (hasPresencialData && hasEadData) {
+            els.superiorMsgModalidade.textContent = "Não há dados disponíveis para esta localidade no período selecionado.";
+            toggleChartMessage(els.superiorMsgModalidade, false);
+            return;
+        }
+
+        if (hasPresencialData || hasEadData) {
+            const serieAusente = hasPresencialData ? "EaD" : "Presencial";
+            els.superiorMsgModalidade.textContent = `Série parcial: ${serieAusente} sem dados disponíveis para esta localidade no período selecionado.`;
+            toggleChartMessage(els.superiorMsgModalidade, true);
+            return;
+        }
+
+        els.superiorMsgModalidade.textContent = "Não há dados disponíveis para esta localidade no período selecionado.";
+        toggleChartMessage(els.superiorMsgModalidade, true);
     }
 
     function getColumnValueAtIndex(payload, column, index) {
@@ -326,11 +351,11 @@
 
         const localidade = appState.payload?.localidade || payload.localidade || "Brasil";
         const hasExpansaoData = hasSeriesData(payload, "Matriculas_Total");
-        const hasModalidadeData = hasSeriesData(payload, "Matriculas_Presencial")
-            || hasSeriesData(payload, "Matriculas_EAD");
+        const hasPresencialData = hasSeriesData(payload, "Matriculas_Presencial");
+        const hasEadData = hasSeriesData(payload, "Matriculas_EAD");
         els.superiorLocalityText.textContent = localidade;
         updateSuperiorExpansaoA11y(localidade, hasExpansaoData);
-        updateSuperiorModalidadeA11y(localidade, hasModalidadeData);
+        updateSuperiorModalidadeA11y(localidade, hasPresencialData, hasEadData);
 
         window.ChartManager.updateSuperiorExpansao(payload);
         window.ChartManager.updateSuperiorModalidade(payload);
@@ -338,7 +363,7 @@
         window.ChartManager.updateSuperiorFluxo(payload);
 
         toggleChartMessage(els.superiorMsgExpansao, !hasExpansaoData);
-        toggleChartMessage(els.superiorMsgModalidade, !hasModalidadeData);
+        updateSuperiorModalidadeMessage(hasPresencialData, hasEadData);
         toggleChartMessage(
             els.superiorMsgRede,
             !hasAllSeriesData(payload, ["Matriculas_Publica", "Matriculas_Privada"])

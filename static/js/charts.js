@@ -415,25 +415,17 @@
     function updateSuperiorModalidade(payload) {
         const presencial = chartData(payload, "Matriculas_Presencial");
         const ead = chartData(payload, "Matriculas_EAD");
-        const datasets = [];
-
-        if (getLastDefinedIndex(presencial) >= 0) {
-            datasets.push(editorialLineDataset("Presencial", presencial, "#f4eee4", {
-                pointRadius: highlightedPoints(presencial, 2.2, 3.4),
-                pointHoverRadius: highlightedPoints(presencial, 3.6, 5.2),
-                pointBackgroundColor: "#f4eee4",
-                pointBorderColor: "#f4eee4"
+        const datasets = [
+            { label: "Presencial", data: presencial, color: "#f4eee4" },
+            { label: "EaD", data: ead, color: "#a87838" }
+        ]
+            .filter(({ data }) => getLastDefinedIndex(data) >= 0)
+            .map(({ label, data, color }) => editorialLineDataset(label, data, color, {
+                pointRadius: highlightedPoints(data, 2.2, 3.4),
+                pointHoverRadius: highlightedPoints(data, 3.6, 5.2),
+                pointBackgroundColor: color,
+                pointBorderColor: color
             }));
-        }
-
-        if (getLastDefinedIndex(ead) >= 0) {
-            datasets.push(editorialLineDataset("EaD", ead, "#a87838", {
-                pointRadius: highlightedPoints(ead, 2.2, 3.4),
-                pointHoverRadius: highlightedPoints(ead, 3.6, 5.2),
-                pointBackgroundColor: "#a87838",
-                pointBorderColor: "#a87838"
-            }));
-        }
 
         updateChart(charts.superiorModalidade, payload.anos, datasets);
     }
