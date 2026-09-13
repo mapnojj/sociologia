@@ -3172,6 +3172,29 @@ select {
         gap: 0.6rem;
     }
 
+    #slide-11 .superior-rede-shell {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.4rem;
+        align-items: start;
+    }
+
+    #slide-11 .superior-rede-title,
+    #slide-11 .superior-rede-intro,
+    #slide-11 .superior-rede-highlight-text,
+    #slide-11 .superior-rede-chart-subtitle {
+        max-width: 100%;
+    }
+
+    #slide-11 .superior-rede-chart-wrapper {
+        height: clamp(280px, 44vh, 380px);
+    }
+
+    #slide-11 .superior-rede-sidebar {
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 0.25rem;
+    }
+
     #slide-9 .superior-metric-value {
         font-size: clamp(1.9rem, 8vw, 2.7rem);
     }
