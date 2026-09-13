@@ -3062,7 +3062,7 @@ select {
         gap: 0.45rem;
     }
 
-    .duality-columns-header {
+    .duality-columns-header th {
         padding-bottom: 0.6rem;
     }
 
