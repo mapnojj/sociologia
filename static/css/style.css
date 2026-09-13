@@ -2673,19 +2673,11 @@ select {
 }
 
 #slide-13 .financiamento-argumento {
-    position: relative;
-    padding-left: clamp(2.3rem, 2.8vw, 3rem);
+    padding-left: clamp(0.7rem, 1vw, 1rem);
 }
 
 #slide-13 .financiamento-argumento::marker {
-    color: transparent;
-}
-
-#slide-13 .financiamento-argumento::before {
     content: counter(list-item, decimal-leading-zero);
-    position: absolute;
-    top: 0;
-    left: 0;
     font-family: var(--serif-display);
     font-size: clamp(1.95rem, 2.8vw, 2.9rem);
     line-height: 1;
@@ -3607,7 +3599,7 @@ select {
         height: clamp(210px, 31vh, 320px);
     }
 
-    #slide-13 .financiamento-argumento::before {
+    #slide-13 .financiamento-argumento::marker {
         font-size: clamp(1.6rem, 8vw, 2.1rem);
     }
 
