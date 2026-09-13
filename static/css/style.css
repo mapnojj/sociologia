@@ -1507,7 +1507,7 @@ body.hero-active .hero-copy {
     max-width: 38ch;
 }
 
-#slide-11 {
+#slide-11 .superior-rede-shell {
     --slide11-sidebar-width: clamp(188px, 13vw, 220px);
     --slide11-sidebar-offset: clamp(45px, 4vw, 80px);
     --slide11-sidebar-space: calc(var(--slide11-sidebar-width) + var(--slide11-sidebar-offset));
