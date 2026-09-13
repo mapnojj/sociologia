@@ -1507,22 +1507,29 @@ body.hero-active .hero-copy {
     max-width: 38ch;
 }
 
+#slide-11 .superior-rede-shell {
+    --slide11-sidebar-width: clamp(188px, 13vw, 220px);
+    --slide11-sidebar-offset: clamp(45px, 4vw, 80px);
+    --slide11-sidebar-space: calc(var(--slide11-sidebar-width) + var(--slide11-sidebar-offset));
+}
+
 #slide-11 .slide-content {
     width: min(1380px, 100%);
+    position: relative;
 }
 
 #slide-11 .superior-rede-shell {
     min-height: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 32%) minmax(0, 45%) minmax(0, 23%);
-    gap: clamp(28px, 2.5vw, 50px);
+    grid-template-columns: minmax(0, 35%) minmax(0, 65%);
+    column-gap: clamp(45px, 4vw, 80px);
+    row-gap: clamp(1rem, 2vh, 1.4rem);
     align-items: center;
 }
 
 #slide-11 .superior-rede-content,
-#slide-11 .superior-rede-chart-area,
-#slide-11 .superior-rede-sidebar {
+#slide-11 .superior-rede-chart-area {
     min-width: 0;
 }
 
@@ -1585,6 +1592,7 @@ body.hero-active .hero-copy {
     overflow: visible;
     gap: clamp(0.95rem, 1.7vh, 1.3rem);
     padding: clamp(0.35rem, 0.7vh, 0.6rem) 0;
+    padding-right: var(--slide11-sidebar-space);
 }
 
 #slide-11 .superior-rede-chart-area::before {
@@ -1605,7 +1613,7 @@ body.hero-active .hero-copy {
 }
 
 #slide-11 .superior-rede-chart-subtitle {
-    max-width: 36ch;
+    max-width: 38ch;
 }
 
 #slide-11 .superior-rede-chart-wrapper {
@@ -1692,24 +1700,46 @@ body.hero-active .hero-copy {
     max-width: 39ch;
 }
 
+#slide-11 .superior-rede-overlay {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: var(--slide11-sidebar-space);
+}
+
 #slide-11 .superior-rede-sidebar {
+    width: var(--slide11-sidebar-width);
     display: grid;
-    align-content: center;
     gap: clamp(1rem, 1.8vh, 1.35rem);
-    padding-left: clamp(22px, 2vw, 32px);
-    border-left: 1px solid rgba(216, 176, 106, 0.18);
+    margin-right: var(--slide11-sidebar-offset);
+    padding: clamp(22px, 2.2vh, 24px) clamp(22px, 2vw, 28px);
+    background-color: rgba(43, 5, 7, 0.86);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(216, 176, 106, 0.45);
+    border-radius: 12px;
+    box-shadow: 0 18px 48px rgba(12, 1, 2, 0.22);
+    pointer-events: auto;
+}
+
+@supports not ((-webkit-backdrop-filter: blur(6px)) or (backdrop-filter: blur(6px))) {
+    #slide-11 .superior-rede-sidebar {
+        background-color: #2b0507;
+    }
 }
 
 #slide-11 .superior-rede-sidebar-title {
     margin: 0;
     display: grid;
     gap: 0.18rem;
-    font-size: clamp(0.92rem, 1.04vw, 1.06rem);
+    font-size: clamp(0.78rem, 0.9vw, 0.92rem);
     font-weight: 600;
-    line-height: 1.45;
+    line-height: 1.42;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(247, 241, 232, 0.82);
+    color: rgba(247, 241, 232, 0.84);
 }
 
 #slide-11 .superior-rede-sidebar-title span {
@@ -1723,19 +1753,18 @@ body.hero-active .hero-copy {
 #slide-11 .superior-rede-breakdown-item {
     display: grid;
     gap: 0.42rem;
-    padding: clamp(0.9rem, 1.5vh, 1.05rem) 0;
-    border-top: 1px solid rgba(221, 201, 174, 0.22);
+    padding: clamp(0.88rem, 1.45vh, 1rem) 0;
 }
 
-#slide-11 .superior-rede-breakdown-item:last-child {
-    border-bottom: 1px solid rgba(221, 201, 174, 0.22);
+#slide-11 .superior-rede-breakdown-item + .superior-rede-breakdown-item {
+    border-top: 1px solid rgba(216, 176, 106, 0.24);
 }
 
 #slide-11 .superior-rede-breakdown-value {
     display: block;
     font-family: var(--serif-display);
-    font-size: clamp(1.85rem, 2.35vw, 2.7rem);
-    line-height: 0.92;
+    font-size: clamp(1.72rem, 2vw, 2.3rem);
+    line-height: 0.9;
     letter-spacing: -0.03em;
     color: var(--marfim);
 }
@@ -2472,6 +2501,28 @@ select {
     #slide-7 .modalidades-chart-title {
         font-size: clamp(2rem, 2.8vw, 3.2rem);
     }
+
+    #slide-11 .superior-rede-overlay {
+        position: static;
+        grid-column: 2;
+        grid-row: 2;
+        right: auto;
+        width: 100%;
+        display: block;
+        pointer-events: auto;
+        transform: none;
+    }
+
+    #slide-11 .superior-rede-sidebar {
+        width: min(100%, 240px);
+        margin: clamp(1rem, 2vh, 1.4rem) 0 0;
+    }
+
+    #slide-11 .superior-rede-chart-area {
+        grid-column: 2;
+        grid-row: 1;
+        padding-right: 0;
+    }
 }
 
 @media (max-width: 1280px) {
@@ -2661,11 +2712,6 @@ select {
         max-width: 100%;
     }
 
-    #slide-11 .superior-rede-shell {
-        grid-template-columns: minmax(0, 32%) minmax(0, 44%) minmax(0, 24%);
-        gap: clamp(24px, 2vw, 36px);
-    }
-
     #slide-11 .superior-rede-title,
     #slide-11 .superior-rede-chart-title {
         max-width: 100%;
@@ -2678,7 +2724,7 @@ select {
     }
 
     #slide-11 .superior-rede-sidebar {
-        padding-left: clamp(18px, 1.8vw, 26px);
+        width: min(100%, 232px);
     }
 
     #slide-9 .superior-metrics {
@@ -2853,8 +2899,7 @@ select {
     }
 
     #slide-11 .superior-rede-shell {
-        grid-template-columns: minmax(0, 32%) minmax(0, 43%) minmax(0, 25%);
-        gap: clamp(24px, 2vw, 34px);
+        row-gap: clamp(0.9rem, 1.6vh, 1.2rem);
     }
 
     #slide-11 .superior-rede-title {
@@ -3225,6 +3270,17 @@ select {
         align-items: start;
     }
 
+    #slide-11 .superior-rede-content {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #slide-11 .superior-rede-chart-area {
+        grid-column: 1;
+        grid-row: 2;
+        padding-right: 0;
+    }
+
     #slide-11 .superior-rede-title,
     #slide-11 .superior-rede-intro,
     #slide-11 .superior-rede-highlight-text,
@@ -3236,10 +3292,15 @@ select {
         height: clamp(280px, 44vh, 380px);
     }
 
+    #slide-11 .superior-rede-overlay {
+        grid-column: 1;
+        grid-row: 3;
+        width: 100%;
+    }
+
     #slide-11 .superior-rede-sidebar {
-        padding-left: 0;
-        border-left: 0;
-        padding-top: 0.25rem;
+        width: min(100%, 100%);
+        margin: 0;
     }
 
     #slide-9 .superior-metric-value {
