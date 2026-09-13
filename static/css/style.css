@@ -938,7 +938,8 @@ body.hero-active .hero-copy {
         linear-gradient(145deg, rgba(133, 81, 39, 0.22), rgba(67, 9, 12, 0.12));
 }
 
-.slide-access {
+.slide-access,
+#slide-13 {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
@@ -948,14 +949,17 @@ body.hero-active .hero-copy {
 }
 
 .slide-access::before,
-.slide-access::after {
+.slide-access::after,
+#slide-13::before,
+#slide-13::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
 }
 
-.slide-access::before {
+.slide-access::before,
+#slide-13::before {
     background:
         linear-gradient(102deg, rgba(22, 4, 5, 0.95) 0%, rgba(34, 5, 7, 0.9) 30%, rgba(56, 10, 13, 0.7) 62%, rgba(62, 10, 13, 0.48) 100%),
         radial-gradient(circle at 16% 18%, rgba(168, 120, 56, 0.14), transparent 26%),
@@ -971,7 +975,8 @@ body.hero-active .hero-copy {
     z-index: -2;
 }
 
-.slide-access::after {
+.slide-access::after,
+#slide-13::after {
     inset: 1.2rem;
     border: 1px solid rgba(221, 201, 174, 0.14);
     background:
