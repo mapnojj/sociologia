@@ -2467,6 +2467,7 @@ select {
 }
 
 #slide-8 .transition-editorial-layout {
+    position: relative;
     width: min(calc(100% - clamp(120px, 10vw, 190px)), 1360px);
     margin: 0 auto;
     display: grid;
@@ -2547,6 +2548,7 @@ select {
 }
 
 #slide-8 .transition-editorial-circle {
+    position: absolute;
     overflow: hidden;
     border: 1px solid rgba(216, 176, 106, 0.38);
     background:
