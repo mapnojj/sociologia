@@ -2613,7 +2613,7 @@ select {
     margin-inline: auto;
     min-height: 100%;
     align-items: start;
-    grid-template-columns: minmax(0, 42%) minmax(0, 50%);
+    grid-template-columns: minmax(0, 42fr) minmax(0, 50fr);
     gap: clamp(56px, 6vw, 100px);
 }
 
@@ -2817,7 +2817,7 @@ select {
 
 @media (max-width: 1450px) {
     #slide-13 .financiamento-layout {
-        grid-template-columns: minmax(0, 44%) minmax(0, 48%);
+        grid-template-columns: minmax(0, 44fr) minmax(0, 48fr);
         gap: clamp(40px, 4.6vw, 68px);
     }
 
@@ -2880,7 +2880,7 @@ select {
     }
 
     #slide-13 .financiamento-layout {
-        grid-template-columns: minmax(0, 46%) minmax(0, 50%);
+        grid-template-columns: minmax(0, 46fr) minmax(0, 50fr);
         gap: clamp(28px, 3.5vw, 44px);
     }
 
