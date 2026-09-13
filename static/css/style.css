@@ -1510,6 +1510,9 @@ body.hero-active .hero-copy {
 #slide-11 .slide-content {
     width: min(1380px, 100%);
     position: relative;
+    --slide11-sidebar-width: clamp(188px, 13vw, 220px);
+    --slide11-sidebar-offset: clamp(45px, 4vw, 80px);
+    --slide11-sidebar-space: calc(var(--slide11-sidebar-width) + var(--slide11-sidebar-offset));
 }
 
 #slide-11 .superior-rede-shell {
@@ -1586,7 +1589,7 @@ body.hero-active .hero-copy {
     overflow: visible;
     gap: clamp(0.95rem, 1.7vh, 1.3rem);
     padding: clamp(0.35rem, 0.7vh, 0.6rem) 0;
-    padding-right: clamp(220px, 18vw, 300px);
+    padding-right: var(--slide11-sidebar-space);
 }
 
 #slide-11 .superior-rede-chart-area::before {
@@ -1701,13 +1704,14 @@ body.hero-active .hero-copy {
     transform: translateY(-50%);
     z-index: 5;
     pointer-events: none;
+    width: var(--slide11-sidebar-space);
 }
 
 #slide-11 .superior-rede-sidebar {
-    width: clamp(188px, 13vw, 220px);
+    width: var(--slide11-sidebar-width);
     display: grid;
     gap: clamp(1rem, 1.8vh, 1.35rem);
-    margin-right: clamp(45px, 4vw, 80px);
+    margin-right: var(--slide11-sidebar-offset);
     padding: clamp(22px, 2.2vh, 24px) clamp(22px, 2vw, 28px);
     background-color: rgba(43, 5, 7, 0.86);
     -webkit-backdrop-filter: blur(6px);
