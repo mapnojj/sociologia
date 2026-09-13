@@ -2491,8 +2491,9 @@ select {
         position: static;
         top: auto;
         right: auto;
+        justify-self: start;
         width: min(100%, 240px);
-        margin: clamp(1rem, 2vh, 1.4rem) 0 0 auto;
+        margin: clamp(1rem, 2vh, 1.4rem) 0 0;
         transform: none;
     }
 }
