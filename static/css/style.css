@@ -758,18 +758,13 @@ body.hero-active .hero-copy {
 }
 
 .intro-title {
-    font-size: clamp(3.4rem, 5vw, 5.8rem);
-    line-height: 0.92;
-    margin: 0;
-}
-
-.intro-subtitle {
-    max-width: 22ch;
-    margin: 0;
+    font-size: clamp(3rem, 4.2vw, 5rem);
+    line-height: 0.95;
     font-family: var(--serif-display);
-    font-size: clamp(2rem, 3vw, 3.4rem);
-    line-height: 1.1;
     font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--marfim);
+    margin: 0;
 }
 
 .intro-title-line {
@@ -1695,15 +1690,6 @@ select {
 
     .intro-shell {
         gap: 1.35rem;
-    }
-
-    .intro-title {
-        font-size: clamp(3rem, 12vw, 4.2rem);
-    }
-
-    .intro-subtitle {
-        font-size: clamp(1.85rem, 7vw, 2.7rem);
-        line-height: 1.1;
     }
 
     .intro-layout {
