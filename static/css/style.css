@@ -1060,16 +1060,25 @@ body.hero-active .hero-copy {
     color: rgba(247, 241, 232, 0.82);
 }
 
-#slide-4 .access-chart-wrapper {
+#slide-4 .access-chart-wrapper,
+#slide-5 .access-chart-wrapper {
     background: transparent;
     border: none;
     border-radius: 0;
     box-shadow: none;
     padding: 0.2rem 0 0;
+}
+
+#slide-4 .access-chart-wrapper {
     height: clamp(320px, 50vh, 540px);
 }
 
-#slide-4 .access-chart-wrapper::before {
+#slide-5 .access-chart-wrapper {
+    height: clamp(300px, 48vh, 520px);
+}
+
+#slide-4 .access-chart-wrapper::before,
+#slide-5 .access-chart-wrapper::before {
     content: "";
     display: block;
     width: min(180px, 24%);
@@ -1078,11 +1087,20 @@ body.hero-active .hero-copy {
     background: linear-gradient(90deg, rgba(244, 238, 228, 0.52), rgba(244, 238, 228, 0));
 }
 
-#slide-4 .access-chart-wrapper canvas {
+#slide-4 .access-chart-wrapper canvas,
+#slide-5 .access-chart-wrapper canvas {
     background: transparent !important;
     display: block;
     width: 100% !important;
     height: 100% !important;
+}
+
+#slide-5 .access-title {
+    max-width: 12ch;
+}
+
+#slide-5 .access-copy p {
+    max-width: 35ch;
 }
 
 .slide-3-legacy {
@@ -1635,7 +1653,8 @@ select {
         max-width: none;
     }
 
-    #slide-4 .access-chart-wrapper {
+    #slide-4 .access-chart-wrapper,
+    #slide-5 .access-chart-wrapper {
         height: clamp(280px, 44vh, 440px);
     }
 }
@@ -1719,7 +1738,8 @@ select {
         font-size: clamp(0.92rem, 1.2vw, 1.05rem);
     }
 
-    #slide-4 .access-chart-wrapper {
+    #slide-4 .access-chart-wrapper,
+    #slide-5 .access-chart-wrapper {
         height: clamp(260px, 46vh, 440px);
     }
 }

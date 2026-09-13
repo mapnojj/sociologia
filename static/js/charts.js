@@ -42,8 +42,12 @@
         };
     }
 
-    function infantilOptions() {
+    function createChartOptions({ editorial = false } = {}) {
         const options = baseOptions();
+        return editorial ? withEditorialTheme(options) : options;
+    }
+
+    function withEditorialTheme(options = baseOptions()) {
         return {
             ...options,
             plugins: {
@@ -98,6 +102,16 @@
         };
     }
 
+    function editorialLineDataset(label, data, color) {
+        return lineDataset(label, data, color, false, {
+            borderWidth: 2.8,
+            pointRadius: 3,
+            pointHoverRadius: 5,
+            pointBackgroundColor: color,
+            pointBorderColor: color
+        });
+    }
+
     function lineDataset(label, data, color, dashed = false, extras = {}) {
         return {
             label,
@@ -144,7 +158,7 @@
     function initCharts() {
         if (!window.Chart) throw new Error("Chart.js não está disponível");
 
-        const options = baseOptions();
+        const options = createChartOptions();
 
         charts.evolucaoGeral = new Chart(document.getElementById("chart-evolucao-geral"), {
             type: "line",
@@ -155,19 +169,13 @@
         charts.infantil = new Chart(document.getElementById("chart-infantil"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: infantilOptions()
+            options: createChartOptions({ editorial: true })
         });
 
         charts.fundamentalEvolucao = new Chart(document.getElementById("chart-fundamental-evolucao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
-        });
-
-        charts.fundamentalAdm = new Chart(document.getElementById("chart-fundamental-adm"), {
-            type: "line",
-            data: { labels: [], datasets: [] },
-            options
+            options: createChartOptions({ editorial: true })
         });
 
         charts.medioEvolucao = new Chart(document.getElementById("chart-medio-evolucao"), {
@@ -221,35 +229,16 @@
 
     function updateInfantil(payload) {
         updateChart(charts.infantil, payload.anos, [
-            lineDataset("Creche", chartData(payload, "Creche"), "#d8b06a", false, {
-                borderWidth: 2.8,
-                pointRadius: 3,
-                pointHoverRadius: 5,
-                pointBackgroundColor: "#d8b06a",
-                pointBorderColor: "#d8b06a"
-            }),
-            lineDataset("Pré-escola", chartData(payload, "Pre_Escola"), "#f4eee4", false, {
-                borderWidth: 2.8,
-                pointRadius: 3,
-                pointHoverRadius: 5,
-                pointBackgroundColor: "#f4eee4",
-                pointBorderColor: "#f4eee4"
-            })
+            editorialLineDataset("Creche", chartData(payload, "Creche"), "#d8b06a"),
+            editorialLineDataset("Pré-escola", chartData(payload, "Pre_Escola"), "#f4eee4")
         ]);
     }
 
     function updateFundamental(payload) {
         updateChart(charts.fundamentalEvolucao, payload.anos, [
-            lineDataset("Fundamental Total", chartData(payload, "Fundamental_Total"), palette.blue),
-            lineDataset("Anos Iniciais", chartData(payload, "Fundamental_Anos_Iniciais"), palette.purple),
-            lineDataset("Anos Finais", chartData(payload, "Fundamental_Anos_Finais"), palette.green)
-        ]);
-
-        updateChart(charts.fundamentalAdm, payload.anos, [
-            lineDataset("Federal", chartData(payload, "Fundamental_Federal"), palette.gray, true),
-            lineDataset("Estadual", chartData(payload, "Fundamental_Estadual"), palette.blue),
-            lineDataset("Municipal", chartData(payload, "Fundamental_Municipal"), palette.green),
-            lineDataset("Privada", chartData(payload, "Fundamental_Privada"), palette.orange)
+            editorialLineDataset("Total", chartData(payload, "Fundamental_Total"), "#f4eee4"),
+            editorialLineDataset("Anos Iniciais", chartData(payload, "Fundamental_Anos_Iniciais"), "#d8b06a"),
+            editorialLineDataset("Anos Finais", chartData(payload, "Fundamental_Anos_Finais"), "#a87838")
         ]);
     }
 
