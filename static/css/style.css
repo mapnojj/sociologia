@@ -2597,6 +2597,7 @@ select {
 }
 
 #slide-13 .financiamento-layout {
+    display: grid;
     width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
     max-width: none;
     margin-inline: auto;
