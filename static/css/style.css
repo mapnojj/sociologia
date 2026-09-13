@@ -2607,16 +2607,6 @@ select {
     gap: clamp(56px, 6vw, 100px);
 }
 
-#slide-13.slide-access::before {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#slide-13.slide-access::after {
-    inset: 1.2rem;
-}
-
 #slide-13 .financiamento-content,
 #slide-13 .financiamento-debate {
     min-width: 0;
@@ -2974,7 +2964,7 @@ select {
 }
 
 @media (max-width: 1080px) {
-    #slide-13 {
+    #slide-13.slide-access {
         padding: 5.2rem 6vw 2.3rem;
     }
 
@@ -3585,14 +3575,10 @@ select {
 }
 
 @media (max-width: 760px) {
-    #slide-13 {
+    #slide-13.slide-access {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 7.2rem 5vw 2rem;
-    }
-
-    #slide-13.slide-access::after {
-        inset: 0.8rem;
     }
 
     #slide-13 .financiamento-layout {
