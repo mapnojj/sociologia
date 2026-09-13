@@ -1509,6 +1509,7 @@ body.hero-active .hero-copy {
 
 #slide-11 .slide-content {
     width: min(1380px, 100%);
+    position: relative;
 }
 
 #slide-11 .superior-rede-shell {
@@ -1579,7 +1580,6 @@ body.hero-active .hero-copy {
 }
 
 #slide-11 .superior-rede-chart-area {
-    position: relative;
     width: 100%;
     justify-self: stretch;
     min-width: 0;
@@ -1696,7 +1696,7 @@ body.hero-active .hero-copy {
 #slide-11 .superior-rede-sidebar {
     position: absolute;
     top: 50%;
-    right: clamp(-92px, -6vw, -36px);
+    right: clamp(45px, 4vw, 80px);
     transform: translateY(-50%);
     z-index: 5;
     width: clamp(188px, 13vw, 220px);
@@ -2487,10 +2487,18 @@ select {
         position: static;
         top: auto;
         right: auto;
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
         justify-self: start;
         width: min(100%, 240px);
         margin: clamp(1rem, 2vh, 1.4rem) 0 0;
         transform: none;
+    }
+
+    #slide-11 .superior-rede-chart-area {
+        grid-column: 2;
+        grid-row: 1;
     }
 }
 
@@ -3247,6 +3255,16 @@ select {
         align-items: start;
     }
 
+    #slide-11 .superior-rede-content {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #slide-11 .superior-rede-chart-area {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
     #slide-11 .superior-rede-title,
     #slide-11 .superior-rede-intro,
     #slide-11 .superior-rede-highlight-text,
@@ -3259,6 +3277,8 @@ select {
     }
 
     #slide-11 .superior-rede-sidebar {
+        grid-column: 1;
+        grid-row: 3;
         width: min(100%, 100%);
         margin-top: 0;
     }
