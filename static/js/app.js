@@ -326,7 +326,8 @@
 
         const localidade = appState.payload?.localidade || payload.localidade || "Brasil";
         const hasExpansaoData = hasSeriesData(payload, "Matriculas_Total");
-        const hasModalidadeData = hasAllSeriesData(payload, ["Matriculas_Presencial", "Matriculas_EAD"]);
+        const hasModalidadeData = hasSeriesData(payload, "Matriculas_Presencial")
+            || hasSeriesData(payload, "Matriculas_EAD");
         els.superiorLocalityText.textContent = localidade;
         updateSuperiorExpansaoA11y(localidade, hasExpansaoData);
         updateSuperiorModalidadeA11y(localidade, hasModalidadeData);
