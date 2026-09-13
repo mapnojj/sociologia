@@ -1191,61 +1191,94 @@ body.hero-active .hero-copy {
 
 .duality-title {
     font-size: clamp(2.8rem, 4.6vw, 4.9rem);
-    max-width: 13ch;
+    max-width: min(900px, 100%);
+    line-height: 1.04;
 }
 
 .duality-comparison {
-    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(60px, 7vw, 130px);
+    gap: clamp(0.9rem, 1.7vh, 1.4rem);
+}
+
+.duality-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+.duality-col-divider {
+    width: clamp(28px, 4.2vw, 44px);
+}
+
+.duality-columns-header th {
+    min-width: 0;
+    margin: 0;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(221, 201, 174, 0.16);
+    vertical-align: bottom;
+}
+
+.duality-columns-header th:first-child {
+    padding-right: clamp(28px, 4.2vw, 64px);
+}
+
+.duality-columns-header th:last-child {
+    padding-left: clamp(28px, 4.2vw, 64px);
+}
+
+.duality-column-title {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    min-width: 0;
+    font-family: var(--serif-display);
+    font-size: clamp(1.5rem, 2.2vw, 2.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--marfim);
+    text-align: left;
+}
+
+.duality-columns-header th:last-child .duality-column-title,
+.duality-columns-header th:last-child.duality-column-title {
+    text-align: right;
+}
+
+.duality-column-title span {
+    display: block;
+}
+
+.duality-column-separator {
+    padding: 0;
+}
+
+.duality-row-side-left {
+    padding-top: clamp(0.45rem, 0.9vh, 0.6rem);
+    padding-right: clamp(28px, 4.2vw, 64px);
+    padding-bottom: clamp(0.45rem, 0.9vh, 0.6rem);
+}
+
+.duality-row-side-right {
+    padding-top: clamp(0.45rem, 0.9vh, 0.6rem);
+    padding-bottom: clamp(0.45rem, 0.9vh, 0.6rem);
+    padding-left: clamp(28px, 4.2vw, 64px);
+}
+
+.duality-row-side {
+    min-width: 0;
+    border: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.9rem;
     align-items: start;
 }
 
-.duality-comparison::before {
-    content: "";
-    position: absolute;
-    top: 0.35rem;
-    bottom: 0.35rem;
-    left: 50%;
-    width: 1px;
-    background: linear-gradient(180deg, rgba(221, 201, 174, 0.18), rgba(221, 201, 174, 0.62), rgba(221, 201, 174, 0.18));
-    transform: translateX(-0.5px);
+.duality-row-side-right .duality-point-number {
+    display: none;
 }
 
-.duality-divider {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--serif-display);
-    font-size: clamp(1.5rem, 2vw, 2rem);
-    line-height: 1;
-    color: rgba(216, 176, 106, 0.78);
-    padding: 0.2rem 0.7rem;
-    background: linear-gradient(180deg, rgba(43, 5, 7, 0.92), rgba(43, 5, 7, 0.72));
-    pointer-events: none;
-}
-
-.duality-column {
-    min-width: 0;
-    display: grid;
-    gap: clamp(1rem, 1.9vh, 1.45rem);
-    align-content: start;
-}
-
-.duality-column-header {
-    min-width: 0;
-    display: grid;
-    gap: 0.7rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid rgba(221, 201, 174, 0.16);
-}
-
-.duality-column-index,
 .duality-point-number {
     font-family: inherit;
     font-size: 0.75rem;
@@ -1255,36 +1288,19 @@ body.hero-active .hero-copy {
     color: rgba(216, 176, 106, 0.94);
 }
 
-.duality-column-title {
-    margin: 0;
+.duality-row-divider {
     min-width: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    vertical-align: middle;
     font-family: var(--serif-display);
-    font-size: clamp(1.5rem, 2.2vw, 2.35rem);
-    line-height: 0.98;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: var(--marfim);
+    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    line-height: 1;
+    color: rgba(216, 176, 106, 0.82);
 }
 
-.duality-column-title span {
-    display: block;
-}
-
-.duality-points {
-    min-width: 0;
-    display: grid;
-    gap: clamp(0.85rem, 1.6vh, 1.1rem);
-}
-
-.duality-point {
-    min-width: 0;
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 0.9rem;
-    align-items: start;
-}
-
-.duality-point p {
+.duality-row p {
     margin: 0;
     min-width: 0;
     font-size: clamp(1rem, 1.28vw, 1.16rem);
@@ -1889,23 +1905,21 @@ select {
     }
 
     .duality-comparison {
-        grid-template-columns: 1fr;
-        gap: 1.6rem;
+        gap: 1.4rem;
     }
 
-    .duality-comparison::before {
-        top: 50%;
-        right: 0;
-        bottom: auto;
-        left: 0;
-        width: auto;
-        height: 1px;
-        transform: none;
-        background: linear-gradient(90deg, rgba(221, 201, 174, 0.18), rgba(221, 201, 174, 0.62), rgba(221, 201, 174, 0.18));
+    .duality-col-divider {
+        width: clamp(24px, 3.2vw, 36px);
     }
 
-    .duality-divider {
-        display: none;
+    .duality-columns-header th:first-child,
+    .duality-row-side-left {
+        padding-right: clamp(18px, 2.8vw, 36px);
+    }
+
+    .duality-columns-header th:last-child,
+    .duality-row-side-right {
+        padding-left: clamp(18px, 2.8vw, 36px);
     }
 }
 
@@ -2018,11 +2032,7 @@ select {
         font-size: clamp(1.32rem, 1.9vw, 2rem);
     }
 
-    .duality-points {
-        gap: 0.7rem;
-    }
-
-    .duality-point p,
+    .duality-row p,
     .duality-closing p {
         font-size: clamp(0.92rem, 1.08vw, 1rem);
         line-height: 1.45;
@@ -2092,16 +2102,11 @@ select {
         gap: 0.45rem;
     }
 
-    .duality-column-header {
-        gap: 0.55rem;
+    .duality-columns-header th {
         padding-bottom: 0.6rem;
     }
 
-    .duality-points {
-        gap: 0.58rem;
-    }
-
-    .duality-point {
+    .duality-row-side {
         gap: 0.72rem;
     }
 
