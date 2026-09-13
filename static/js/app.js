@@ -20,6 +20,14 @@
         Educacao_Especial: "Educação Especial"
     };
 
+    const modalidadeLabels = {
+        EJA_Total: "EJA Total",
+        EJA_Ensino_Fundamental: "EJA Fundamental",
+        EJA_Ensino_Medio: "EJA Médio",
+        Educacao_Profissional: "Educação Profissional",
+        Educacao_Especial: "Educação Especial"
+    };
+
     const brFormatter = new Intl.NumberFormat("pt-BR");
 
     const els = {
@@ -29,7 +37,9 @@
         ufSelect: document.getElementById("uf-select"),
         municipioSelect: document.getElementById("municipio-select"),
         indicadorSelect: document.getElementById("indicador-geral"),
-        modalidadeButtons: [...document.querySelectorAll(".tab-btn")],
+        modalidadeButtons: [...document.querySelectorAll(".modalidades-tab-group .tab-btn")],
+        modalidadesCanvas: document.getElementById("chart-modalidades"),
+        modalidadesSummary: document.getElementById("chart-modalidades-summary"),
         localityText: document.getElementById("localidade-atual"),
         card2015: document.getElementById("card-2015"),
         card2025: document.getElementById("card-2025"),
@@ -175,8 +185,22 @@
         window.ChartManager.updateFundamental(appState.payload);
         window.ChartManager.updateMedio(appState.payload);
         window.ChartManager.updateModalidades(appState.payload, appState.modalidade);
+        updateModalidadesA11y();
 
         updateCards();
+    }
+
+    function updateModalidadesA11y() {
+        const modalidadeLabel = modalidadeLabels[appState.modalidade] || appState.modalidade;
+        const description = `Série anual de matrículas em ${modalidadeLabel} entre 2015 e 2025, atualizada pela escala territorial selecionada.`;
+
+        if (els.modalidadesSummary) {
+            els.modalidadesSummary.textContent = description;
+        }
+
+        if (els.modalidadesCanvas) {
+            els.modalidadesCanvas.setAttribute("aria-label", `Gráfico de evolução das matrículas em ${modalidadeLabel} entre 2015 e 2025`);
+        }
     }
 
     function getColumnValueAtIndex(payload, column, index) {
@@ -377,9 +401,14 @@
         els.modalidadeButtons.forEach((button) => {
             button.addEventListener("click", () => {
                 appState.modalidade = button.dataset.modalidade;
-                els.modalidadeButtons.forEach((item) => item.classList.toggle("active", item === button));
+                els.modalidadeButtons.forEach((item) => {
+                    const isActive = item === button;
+                    item.classList.toggle("active", isActive);
+                    item.setAttribute("aria-pressed", isActive ? "true" : "false");
+                });
                 if (appState.payload) {
                     window.ChartManager.updateModalidades(appState.payload, appState.modalidade);
+                    updateModalidadesA11y();
                 }
             });
         });

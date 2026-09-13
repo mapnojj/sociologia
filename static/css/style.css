@@ -1162,6 +1162,122 @@ body.hero-active .hero-copy {
     word-break: normal;
 }
 
+#slide-7 .modalidades-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+    gap: clamp(44px, 4vw, 72px);
+    width: min(1440px, 100%);
+    max-width: 1440px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+#slide-7 .modalidades-content,
+#slide-7 .modalidades-chart-area {
+    min-width: 0;
+}
+
+#slide-7 .modalidades-content {
+    width: 100%;
+    max-width: 100%;
+    gap: clamp(0.9rem, 1.8vh, 1.4rem);
+}
+
+#slide-7 .modalidades-title {
+    max-width: 100%;
+    font-size: clamp(2.6rem, 4vw, 5rem);
+    line-height: 0.96;
+}
+
+#slide-7 .modalidades-intro {
+    max-width: 34ch;
+    font-size: clamp(0.98rem, 1.28vw, 1.14rem);
+    line-height: 1.55;
+    color: rgba(247, 241, 232, 0.9);
+}
+
+#slide-7 .modalidades-line {
+    width: min(90%, 320px);
+}
+
+#slide-7 .modalidades-chart-area {
+    width: 100%;
+    justify-self: stretch;
+    overflow: visible;
+    gap: clamp(0.9rem, 1.6vh, 1.25rem);
+}
+
+#slide-7 .modalidades-chart-header {
+    max-width: 100%;
+}
+
+#slide-7 .modalidades-chart-title {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#slide-7 .modalidades-tab-group {
+    gap: 0.52rem;
+}
+
+#slide-7 .modalidades-tab-group .tab-btn {
+    background: transparent;
+    color: var(--marfim);
+    border: 1px solid rgba(168, 120, 56, 0.52);
+    border-radius: 12px;
+    padding: 0.46rem 0.76rem;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    box-shadow: none;
+}
+
+#slide-7 .modalidades-tab-group .tab-btn:hover,
+#slide-7 .modalidades-tab-group .tab-btn:focus-visible {
+    background: rgba(221, 201, 174, 0.11);
+    border-color: rgba(221, 201, 174, 0.72);
+    color: var(--marfim);
+}
+
+#slide-7 .modalidades-tab-group .tab-btn:focus-visible {
+    outline: 2px solid rgba(247, 241, 232, 0.88);
+    outline-offset: 2px;
+}
+
+#slide-7 .modalidades-tab-group .tab-btn.active,
+#slide-7 .modalidades-tab-group .tab-btn.active:hover,
+#slide-7 .modalidades-tab-group .tab-btn.active:focus-visible {
+    background: linear-gradient(135deg, rgba(221, 201, 174, 0.94), rgba(168, 120, 56, 0.92));
+    color: var(--vinho-950);
+    border-color: rgba(221, 201, 174, 0.94);
+}
+
+#slide-7 .modalidades-chart-wrapper {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.2rem 0 0;
+    height: clamp(300px, 48vh, 520px);
+}
+
+#slide-7 .modalidades-chart-wrapper::before {
+    content: "";
+    display: block;
+    width: min(180px, 24%);
+    height: 1px;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, rgba(244, 238, 228, 0.52), rgba(244, 238, 228, 0));
+}
+
+#slide-7 .modalidades-chart-wrapper canvas {
+    background: transparent !important;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .slide-duality::before {
     background:
         linear-gradient(112deg, rgba(20, 3, 4, 0.96) 0%, rgba(34, 5, 7, 0.92) 34%, rgba(55, 9, 12, 0.76) 66%, rgba(61, 9, 12, 0.54) 100%),
@@ -1882,6 +1998,18 @@ select {
     #slide-5 .fundamental-chart-title {
         font-size: clamp(2rem, 2.8vw, 3.2rem);
     }
+
+    #slide-7 .modalidades-layout {
+        gap: clamp(36px, 3.2vw, 56px);
+    }
+
+    #slide-7 .modalidades-title {
+        font-size: clamp(2.4rem, 3.8vw, 4rem);
+    }
+
+    #slide-7 .modalidades-chart-title {
+        font-size: clamp(2rem, 2.8vw, 3.2rem);
+    }
 }
 
 @media (max-width: 1280px) {
@@ -2045,7 +2173,8 @@ select {
     }
 
     #slide-4 .access-chart-wrapper,
-    #slide-5 .access-chart-wrapper {
+    #slide-5 .access-chart-wrapper,
+    #slide-7 .modalidades-chart-wrapper {
         height: clamp(280px, 44vh, 440px);
     }
 
@@ -2169,8 +2298,26 @@ select {
     }
 
     #slide-4 .access-chart-wrapper,
-    #slide-5 .access-chart-wrapper {
+    #slide-5 .access-chart-wrapper,
+    #slide-7 .modalidades-chart-wrapper {
         height: clamp(260px, 46vh, 440px);
+    }
+
+    #slide-7 .modalidades-layout {
+        grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+        gap: clamp(32px, 3vw, 48px);
+    }
+
+    #slide-7 .modalidades-title {
+        font-size: clamp(2.4rem, 3.7vw, 3.8rem);
+    }
+
+    #slide-7 .modalidades-chart-title {
+        font-size: clamp(1.85rem, 2.6vw, 2.8rem);
+    }
+
+    #slide-7 .modalidades-intro {
+        font-size: clamp(0.92rem, 1.08vw, 1rem);
     }
 
     .duality-shell {

@@ -47,6 +47,54 @@
         return editorial ? withEditorialTheme(options) : options;
     }
 
+    function createModalidadesOptions() {
+        const options = withEditorialTheme(baseOptions());
+        return {
+            ...options,
+            plugins: {
+                ...options.plugins,
+                legend: {
+                    ...options.plugins.legend,
+                    labels: {
+                        ...options.plugins.legend.labels,
+                        color: "rgba(247, 241, 232, 0.92)"
+                    }
+                },
+                tooltip: {
+                    ...options.plugins.tooltip,
+                    backgroundColor: "rgba(43, 5, 7, 0.9)",
+                    borderColor: "rgba(168, 120, 56, 0.64)",
+                    titleColor: "#f4eee4",
+                    bodyColor: "#f4eee4"
+                }
+            },
+            scales: {
+                x: {
+                    ...options.scales.x,
+                    ticks: {
+                        ...options.scales.x.ticks,
+                        color: "rgba(247, 241, 232, 0.75)"
+                    },
+                    grid: {
+                        ...options.scales.x.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                },
+                y: {
+                    ...options.scales.y,
+                    ticks: {
+                        ...options.scales.y.ticks,
+                        color: "rgba(247, 241, 232, 0.75)"
+                    },
+                    grid: {
+                        ...options.scales.y.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                }
+            }
+        };
+    }
+
     function withEditorialTheme(options = baseOptions()) {
         return {
             ...options,
@@ -193,7 +241,7 @@
         charts.modalidades = new Chart(document.getElementById("chart-modalidades"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: createModalidadesOptions()
         });
 
         charts.superiorExpansao = new Chart(document.getElementById("chart-superior-expansao"), {
@@ -264,8 +312,27 @@
             Educacao_Especial: "Educação Especial"
         };
 
+        const modalidadeColors = {
+            EJA_Total: "#f4eee4",
+            EJA_Ensino_Fundamental: "#d8b06a",
+            EJA_Ensino_Medio: "#855127",
+            Educacao_Profissional: "#a87838",
+            Educacao_Especial: "#ddc9ae"
+        };
+
         updateChart(charts.modalidades, payload.anos, [
-            lineDataset(labels[modalidade] || modalidade, chartData(payload, modalidade), palette.blue)
+            lineDataset(
+                labels[modalidade] || modalidade,
+                chartData(payload, modalidade),
+                modalidadeColors[modalidade] || "#f4eee4",
+                false,
+                {
+                    pointRadius: 2,
+                    pointHoverRadius: 4,
+                    pointBackgroundColor: modalidadeColors[modalidade] || "#f4eee4",
+                    pointBorderColor: modalidadeColors[modalidade] || "#f4eee4"
+                }
+            )
         ]);
     }
 
