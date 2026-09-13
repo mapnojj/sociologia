@@ -1905,7 +1905,7 @@ select {
     }
 
     .duality-divider {
-        top: 50%;
+        display: none;
     }
 }
 
