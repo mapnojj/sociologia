@@ -529,9 +529,6 @@ body.hero-active .hero-copy {
 
 .summary-grid {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1rem, 2.2vw, 2.3rem);
     padding: clamp(1rem, 2.2vh, 1.8rem) clamp(0.7rem, 1.6vw, 1.4rem);
     background: linear-gradient(130deg, rgba(43, 5, 7, 0.44), rgba(43, 5, 7, 0.2));
 }
@@ -548,19 +545,46 @@ body.hero-active .hero-copy {
     pointer-events: none;
 }
 
-.summary-column {
-    display: grid;
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-}
-
 .summary-list {
-    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1rem, 2.2vw, 2.3rem);
+    row-gap: 0;
     margin: 0;
     padding: 0;
+    list-style: decimal-leading-zero;
+    list-style-position: inside;
 }
 
-.summary-column li + li .summary-item {
+.summary-list-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.summary-list-item:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.summary-list-item:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.summary-list-item:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.summary-list-item:nth-child(2) .summary-item,
+.summary-list-item:nth-child(4) .summary-item {
     border-top: 1px solid rgba(244, 238, 228, 0.2);
+}
+
+.summary-list-item::marker {
+    color: rgba(247, 241, 232, 0.44);
+    font-size: 0.92rem;
 }
 
 .summary-item {
@@ -1331,20 +1355,21 @@ select {
         inset: 0.8rem;
     }
 
-    .summary-grid {
-        grid-template-columns: 1fr;
-        gap: 0.6rem;
-    }
-
     .summary-grid::before {
         display: none;
     }
 
-    .summary-column {
+    .summary-list {
+        grid-template-columns: 1fr;
         grid-template-rows: auto;
     }
 
-    .summary-column + .summary-column {
+    .summary-list-item {
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+
+    .summary-list-item + .summary-list-item .summary-item {
         border-top: 1px solid rgba(244, 238, 228, 0.2);
         margin-top: 0.25rem;
         padding-top: 0.4rem;
