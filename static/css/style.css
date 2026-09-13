@@ -1583,6 +1583,7 @@ body.hero-active .hero-copy {
 }
 
 #slide-11 .superior-rede-chart-area {
+    position: relative;
     width: 100%;
     justify-self: stretch;
     min-width: 0;
@@ -2488,6 +2489,8 @@ select {
 
     #slide-11 .superior-rede-sidebar {
         position: static;
+        top: auto;
+        right: auto;
         width: min(100%, 240px);
         margin: clamp(1rem, 2vh, 1.4rem) 0 0 auto;
         transform: none;
