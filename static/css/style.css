@@ -2511,6 +2511,10 @@ select {
     color: var(--marfim);
 }
 
+#slide-8 .transition-editorial-title span {
+    display: block;
+}
+
 #slide-8 .transition-editorial-lead {
     margin: clamp(1.35rem, 2.1vh, 1.95rem) 0 0;
     max-width: min(34ch, 100%);
