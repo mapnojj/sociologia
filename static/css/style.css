@@ -1932,6 +1932,7 @@ body.hero-active .hero-copy {
     margin: 0;
     min-width: 0;
     border: 0;
+    font-weight: 400;
     padding-top: clamp(0.45rem, 0.9vh, 0.6rem);
     padding-bottom: clamp(0.45rem, 0.9vh, 0.6rem);
 }
