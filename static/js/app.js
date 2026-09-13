@@ -249,16 +249,8 @@
     function updateSuperiorModalidadeMessage(hasPresencialData, hasEadData) {
         if (!els.superiorMsgModalidade) return;
 
-        if (hasPresencialData && hasEadData) {
-            els.superiorMsgModalidade.textContent = "Não há dados disponíveis para esta localidade no período selecionado.";
-            toggleChartMessage(els.superiorMsgModalidade, false);
-            return;
-        }
-
         if (hasPresencialData || hasEadData) {
-            const serieAusente = hasPresencialData ? "EaD" : "Presencial";
-            els.superiorMsgModalidade.textContent = `Série parcial: ${serieAusente} sem dados disponíveis para esta localidade no período selecionado.`;
-            toggleChartMessage(els.superiorMsgModalidade, true);
+            toggleChartMessage(els.superiorMsgModalidade, false);
             return;
         }
 
