@@ -2595,12 +2595,6 @@ select {
     bottom: 12%;
 }
 
-#slide-13 .slide-content {
-    width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
-    max-width: none;
-    margin-inline: auto;
-}
-
 #slide-13::before {
     background-size: cover;
     background-position: center;
@@ -2608,7 +2602,7 @@ select {
 }
 
 #slide-13 .financiamento-layout {
-    width: 100%;
+    width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
     max-width: none;
     margin-inline: auto;
     min-height: 100%;
@@ -2875,11 +2869,8 @@ select {
 }
 
 @media (max-width: 1280px) {
-    #slide-13 .slide-content {
-        width: min(calc(100% - clamp(80px, 8vw, 120px)), 1520px);
-    }
-
     #slide-13 .financiamento-layout {
+        width: min(calc(100% - clamp(80px, 8vw, 120px)), 1520px);
         grid-template-columns: minmax(0, 46fr) minmax(0, 50fr);
         gap: clamp(28px, 3.5vw, 44px);
     }
@@ -2979,11 +2970,8 @@ select {
         padding: 5.2rem 6vw 2.3rem;
     }
 
-    #slide-13 .slide-content {
-        width: min(100%, 1100px);
-    }
-
     #slide-13 .financiamento-layout {
+        width: min(100%, 1100px);
         grid-template-columns: 1fr;
         gap: clamp(1.3rem, 2.4vh, 2rem);
     }
@@ -3599,7 +3587,7 @@ select {
         inset: 0.8rem;
     }
 
-    #slide-13 .slide-content {
+    #slide-13 .financiamento-layout {
         width: 100%;
     }
 
