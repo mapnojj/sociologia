@@ -42,8 +42,7 @@
         };
     }
 
-    function accessChartOptions() {
-        const options = baseOptions();
+    function withEditorialTheme(options = baseOptions()) {
         return {
             ...options,
             plugins: {
@@ -165,13 +164,13 @@
         charts.infantil = new Chart(document.getElementById("chart-infantil"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: accessChartOptions()
+            options: withEditorialTheme(baseOptions())
         });
 
         charts.fundamentalEvolucao = new Chart(document.getElementById("chart-fundamental-evolucao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: accessChartOptions()
+            options: withEditorialTheme(baseOptions())
         });
 
         charts.medioEvolucao = new Chart(document.getElementById("chart-medio-evolucao"), {
