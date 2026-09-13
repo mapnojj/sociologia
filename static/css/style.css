@@ -1280,10 +1280,11 @@ body.hero-active .hero-copy {
 
 #slide-9 .superior-layout {
     display: grid;
-    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
-    gap: clamp(44px, 4vw, 72px);
-    width: min(1440px, 100%);
-    max-width: 1440px;
+    grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+    column-gap: clamp(50px, 4vw, 85px);
+    row-gap: clamp(1rem, 2vh, 1.4rem);
+    width: 100%;
+    max-width: none;
     margin: 0 auto;
     align-items: center;
 }
@@ -1294,15 +1295,22 @@ body.hero-active .hero-copy {
 }
 
 #slide-9 .superior-content {
+    display: grid;
+    align-content: center;
     width: 100%;
     max-width: 100%;
+    min-width: 0;
     gap: clamp(0.9rem, 1.8vh, 1.45rem);
+    overflow: visible;
 }
 
 #slide-9 .superior-title {
+    width: 100%;
     max-width: 100%;
-    font-size: clamp(2.7rem, 4vw, 5rem);
+    min-width: 0;
+    font-size: clamp(2.6rem, 3.8vw, 4.6rem);
     line-height: 0.96;
+    letter-spacing: -0.04em;
 }
 
 #slide-9 .superior-intro {
@@ -1359,9 +1367,11 @@ body.hero-active .hero-copy {
 #slide-9 .superior-chart-area {
     width: 100%;
     justify-self: stretch;
+    min-width: 0;
     overflow: visible;
     gap: clamp(0.95rem, 1.8vh, 1.35rem);
-    padding-right: clamp(0.1rem, 0.6vw, 0.45rem);
+    padding-left: clamp(1.6rem, 2.6vw, 3rem);
+    padding-right: 0;
 }
 
 #slide-9 .superior-chart-area::before {
@@ -1369,7 +1379,8 @@ body.hero-active .hero-copy {
 }
 
 #slide-9 .superior-chart-header {
-    max-width: min(700px, 100%);
+    width: 100%;
+    max-width: 100%;
 }
 
 #slide-9 .superior-chart-title {
@@ -1377,6 +1388,7 @@ body.hero-active .hero-copy {
     width: 100%;
     margin: 0;
     font-size: clamp(1.95rem, 2.8vw, 3.05rem);
+    white-space: normal;
 }
 
 #slide-9 .superior-chart-subtitle {
@@ -2324,9 +2336,10 @@ select {
     }
 
     #slide-9 .superior-layout {
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: 1.2rem;
+        grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+        column-gap: clamp(50px, 4vw, 85px);
+        row-gap: clamp(1rem, 2vh, 1.4rem);
+        align-items: center;
     }
 
     #slide-9 .superior-content,
@@ -2484,8 +2497,9 @@ select {
     }
 
     #slide-9 .superior-layout {
-        grid-template-columns: minmax(0, 40%) minmax(0, 60%);
-        gap: clamp(32px, 3vw, 48px);
+        grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+        column-gap: clamp(50px, 4vw, 85px);
+        row-gap: clamp(0.9rem, 1.6vh, 1.2rem);
     }
 
     #slide-9 .superior-title {
