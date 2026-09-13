@@ -1162,6 +1162,162 @@ body.hero-active .hero-copy {
     word-break: normal;
 }
 
+.slide-duality::before {
+    background:
+        linear-gradient(112deg, rgba(20, 3, 4, 0.96) 0%, rgba(34, 5, 7, 0.92) 34%, rgba(55, 9, 12, 0.76) 66%, rgba(61, 9, 12, 0.54) 100%),
+        radial-gradient(circle at 20% 22%, rgba(168, 120, 56, 0.12), transparent 24%),
+        radial-gradient(circle at 78% 22%, rgba(133, 81, 39, 0.14), transparent 22%),
+        radial-gradient(circle at 50% 72%, rgba(0, 0, 0, 0.22), transparent 28%),
+        radial-gradient(circle at center, rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, 0.34) 100%),
+        url("../img/capa-bg.jpg");
+}
+
+.duality-shell {
+    width: min(1360px, 100%);
+    display: grid;
+    gap: clamp(1.6rem, 2.6vh, 2.4rem);
+}
+
+.duality-header {
+    display: grid;
+    gap: 0.7rem;
+    justify-items: center;
+    text-align: center;
+}
+
+.duality-header .section-eyebrow {
+    color: rgba(221, 201, 174, 0.9);
+}
+
+.duality-title {
+    font-size: clamp(2.8rem, 4.6vw, 4.9rem);
+    max-width: 13ch;
+}
+
+.duality-comparison {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(60px, 7vw, 130px);
+    align-items: start;
+}
+
+.duality-comparison::before {
+    content: "";
+    position: absolute;
+    top: 0.35rem;
+    bottom: 0.35rem;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(221, 201, 174, 0.18), rgba(221, 201, 174, 0.62), rgba(221, 201, 174, 0.18));
+    transform: translateX(-0.5px);
+}
+
+.duality-divider {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif-display);
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    line-height: 1;
+    color: rgba(216, 176, 106, 0.78);
+    padding: 0.2rem 0.7rem;
+    background: linear-gradient(180deg, rgba(43, 5, 7, 0.92), rgba(43, 5, 7, 0.72));
+    pointer-events: none;
+}
+
+.duality-column {
+    min-width: 0;
+    display: grid;
+    gap: clamp(1rem, 1.9vh, 1.45rem);
+    align-content: start;
+}
+
+.duality-column-header {
+    min-width: 0;
+    display: grid;
+    gap: 0.7rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(221, 201, 174, 0.16);
+}
+
+.duality-column-index,
+.duality-point-number {
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.24em;
+    color: rgba(216, 176, 106, 0.94);
+}
+
+.duality-column-title {
+    margin: 0;
+    min-width: 0;
+    font-family: var(--serif-display);
+    font-size: clamp(1.5rem, 2.2vw, 2.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--marfim);
+}
+
+.duality-column-title span {
+    display: block;
+}
+
+.duality-points {
+    min-width: 0;
+    display: grid;
+    gap: clamp(0.85rem, 1.6vh, 1.1rem);
+}
+
+.duality-point {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: start;
+}
+
+.duality-point p {
+    margin: 0;
+    min-width: 0;
+    font-size: clamp(1rem, 1.28vw, 1.16rem);
+    line-height: 1.42;
+    color: rgba(247, 241, 232, 0.92);
+    overflow-wrap: anywhere;
+}
+
+.duality-closing {
+    display: grid;
+    gap: 0.95rem;
+    padding-top: clamp(0.6rem, 1.2vh, 1rem);
+}
+
+.duality-closing-line {
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(90deg, rgba(221, 201, 174, 0.12), rgba(216, 176, 106, 0.82), rgba(221, 201, 174, 0.12));
+}
+
+.duality-closing p {
+    margin: 0;
+    max-width: 64rem;
+    font-size: clamp(1rem, 1.28vw, 1.16rem);
+    line-height: 1.6;
+    color: rgba(247, 241, 232, 0.9);
+}
+
+.duality-closing strong {
+    color: rgba(244, 238, 228, 1);
+    font-weight: 700;
+}
+
 .slide-3-legacy {
     position: absolute;
     left: 0;
@@ -1731,6 +1887,26 @@ select {
     #slide-5 .access-chart-wrapper {
         height: clamp(280px, 44vh, 440px);
     }
+
+    .duality-comparison {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+
+    .duality-comparison::before {
+        top: 50%;
+        right: 0;
+        bottom: auto;
+        left: 0;
+        width: auto;
+        height: 1px;
+        transform: none;
+        background: linear-gradient(90deg, rgba(221, 201, 174, 0.18), rgba(221, 201, 174, 0.62), rgba(221, 201, 174, 0.18));
+    }
+
+    .duality-divider {
+        display: none;
+    }
 }
 
 @media (max-height: 860px) {
@@ -1829,6 +2005,28 @@ select {
     #slide-5 .access-chart-wrapper {
         height: clamp(260px, 46vh, 440px);
     }
+
+    .duality-shell {
+        gap: 1.25rem;
+    }
+
+    .duality-title {
+        font-size: clamp(2.35rem, 4vw, 3.9rem);
+    }
+
+    .duality-column-title {
+        font-size: clamp(1.32rem, 1.9vw, 2rem);
+    }
+
+    .duality-points {
+        gap: 0.7rem;
+    }
+
+    .duality-point p,
+    .duality-closing p {
+        font-size: clamp(0.92rem, 1.08vw, 1rem);
+        line-height: 1.45;
+    }
 }
 
 @media (max-height: 760px) {
@@ -1884,6 +2082,32 @@ select {
 
     .summary-page-number {
         font-size: 0.82rem;
+    }
+
+    .duality-shell {
+        gap: 1rem;
+    }
+
+    .duality-header {
+        gap: 0.45rem;
+    }
+
+    .duality-column-header {
+        gap: 0.55rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .duality-points {
+        gap: 0.58rem;
+    }
+
+    .duality-point {
+        gap: 0.72rem;
+    }
+
+    .duality-closing {
+        gap: 0.72rem;
+        padding-top: 0.35rem;
     }
 }
 
