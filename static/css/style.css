@@ -1712,6 +1712,12 @@ body.hero-active .hero-copy {
     box-shadow: 0 18px 48px rgba(12, 1, 2, 0.22);
 }
 
+@supports not ((-webkit-backdrop-filter: blur(6px)) or (backdrop-filter: blur(6px))) {
+    #slide-11 .superior-rede-sidebar {
+        background-color: #2b0507;
+    }
+}
+
 #slide-11 .superior-rede-sidebar-title {
     margin: 0;
     display: block;
