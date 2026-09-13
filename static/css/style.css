@@ -1103,6 +1103,59 @@ body.hero-active .hero-copy {
     max-width: 35ch;
 }
 
+#slide-5 .fundamental-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+    gap: clamp(40px, 5vw, 90px);
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+#slide-5 .fundamental-content,
+#slide-5 .fundamental-chart-area {
+    min-width: 0;
+}
+
+#slide-5 .fundamental-content {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#slide-5 .fundamental-title {
+    max-width: 100%;
+    font-size: clamp(2.6rem, 4vw, 5rem);
+    line-height: 0.96;
+}
+
+#slide-5 .fundamental-copy {
+    width: 100%;
+    max-width: 34rem;
+}
+
+#slide-5 .fundamental-copy p {
+    max-width: 34rem;
+}
+
+#slide-5 .fundamental-chart-area {
+    width: 100%;
+    overflow: hidden;
+}
+
+#slide-5 .fundamental-chart-header {
+    max-width: 100%;
+}
+
+#slide-5 .fundamental-chart-title {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
 .slide-3-legacy {
     position: absolute;
     left: 0;
@@ -1493,6 +1546,21 @@ select {
     border: 0;
 }
 
+@media (max-width: 1450px) {
+    #slide-5 .fundamental-layout {
+        grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+        gap: 36px;
+    }
+
+    #slide-5 .fundamental-title {
+        font-size: clamp(2.4rem, 3.8vw, 4rem);
+    }
+
+    #slide-5 .fundamental-chart-title {
+        font-size: clamp(2rem, 2.8vw, 3.2rem);
+    }
+}
+
 @media (max-width: 1280px) {
     .hero-grid {
         grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
@@ -1736,6 +1804,19 @@ select {
 
     .access-copy p {
         font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+    }
+
+    #slide-5 .fundamental-layout {
+        grid-template-columns: minmax(0, 36%) minmax(0, 64%);
+        gap: clamp(32px, 4vw, 44px);
+    }
+
+    #slide-5 .fundamental-title {
+        font-size: clamp(2.25rem, 3.5vw, 3.6rem);
+    }
+
+    #slide-5 .fundamental-chart-title {
+        font-size: clamp(1.85rem, 2.6vw, 2.8rem);
     }
 
     #slide-4 .access-chart-wrapper,
