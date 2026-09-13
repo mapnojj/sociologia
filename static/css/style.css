@@ -553,6 +553,12 @@ body.hero-active .hero-copy {
     grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
+.summary-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .summary-column .summary-item + .summary-item {
     border-top: 1px solid rgba(244, 238, 228, 0.2);
 }
