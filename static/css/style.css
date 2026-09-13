@@ -1701,7 +1701,7 @@ body.hero-active .hero-copy {
     position: absolute;
     top: 50%;
     right: clamp(45px, 4vw, 80px);
-    transform: translateY(-40%);
+    transform: translateY(-50%);
     z-index: 5;
     width: clamp(188px, 13vw, 220px);
     display: grid;
