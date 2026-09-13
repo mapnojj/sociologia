@@ -109,8 +109,7 @@
         };
     }
 
-    function createSuperiorModalidadeOptions() {
-        const options = withEditorialTheme(baseOptions());
+    function createSuperiorModalidadeOptions(options = createChartOptions({ editorial: true })) {
         return {
             ...options,
             plugins: {
@@ -276,6 +275,7 @@
         if (!window.Chart) throw new Error("Chart.js não está disponível");
 
         const options = createChartOptions();
+        const superiorEditorialOptions = createChartOptions({ editorial: true });
 
         charts.evolucaoGeral = new Chart(document.getElementById("chart-evolucao-geral"), {
             type: "line",
@@ -316,13 +316,13 @@
         charts.superiorExpansao = new Chart(document.getElementById("chart-superior-expansao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: withLegendVisibility(createChartOptions({ editorial: true }), false)
+            options: withLegendVisibility(superiorEditorialOptions, false)
         });
 
         charts.superiorModalidade = new Chart(document.getElementById("chart-superior-modalidade"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: createSuperiorModalidadeOptions()
+            options: createSuperiorModalidadeOptions(superiorEditorialOptions)
         });
 
         charts.superiorRede = new Chart(document.getElementById("chart-superior-rede"), {
