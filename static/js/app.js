@@ -401,7 +401,11 @@
         els.modalidadeButtons.forEach((button) => {
             button.addEventListener("click", () => {
                 appState.modalidade = button.dataset.modalidade;
-                els.modalidadeButtons.forEach((item) => item.classList.toggle("active", item === button));
+                els.modalidadeButtons.forEach((item) => {
+                    const isActive = item === button;
+                    item.classList.toggle("active", isActive);
+                    item.setAttribute("aria-pressed", isActive ? "true" : "false");
+                });
                 if (appState.payload) {
                     window.ChartManager.updateModalidades(appState.payload, appState.modalidade);
                     updateModalidadesA11y();
