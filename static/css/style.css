@@ -1515,7 +1515,7 @@ body.hero-active .hero-copy {
     min-height: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    grid-template-columns: minmax(0, 35%) minmax(0, 65%);
     column-gap: clamp(45px, 4vw, 80px);
     row-gap: clamp(1rem, 2vh, 1.4rem);
     align-items: center;
