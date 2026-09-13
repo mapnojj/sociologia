@@ -7,7 +7,8 @@
         purple: "#8d55ff",
         green: "#00a16b",
         orange: "#ff8c32",
-        gray: "#5d6b86"
+        gray: "#5d6b86",
+        editorialGold: "#d8b06a"
     };
 
     const charts = {};
@@ -45,6 +46,19 @@
     function createChartOptions({ editorial = false } = {}) {
         const options = baseOptions();
         return editorial ? withEditorialTheme(options) : options;
+    }
+
+    function withLegendVisibility(options, display) {
+        return {
+            ...options,
+            plugins: {
+                ...options.plugins,
+                legend: {
+                    ...options.plugins.legend,
+                    display
+                }
+            }
+        };
     }
 
     function createModalidadesOptions() {
@@ -247,7 +261,7 @@
         charts.superiorExpansao = new Chart(document.getElementById("chart-superior-expansao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: withLegendVisibility(createChartOptions({ editorial: true }), false)
         });
 
         charts.superiorModalidade = new Chart(document.getElementById("chart-superior-modalidade"), {
@@ -339,7 +353,7 @@
     function updateSuperiorExpansao(payload) {
         const values = chartData(payload, "Matriculas_Total");
         updateChart(charts.superiorExpansao, payload.anos, [
-            lineDataset("Matrículas totais", values, palette.blue)
+            editorialLineDataset("Matrículas totais", values, palette.editorialGold)
         ]);
     }
 

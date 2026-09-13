@@ -434,22 +434,43 @@
         </div>
     </section>
 
-    <section class="slide" id="slide-9" data-slide-index="9">
-        <div class="slide-content">
-            <p class="eyebrow">ENSINO SUPERIOR</p>
-            <h2>ENSINO SUPERIOR: EXPANSÃO E TRANSFORMAÇÃO</h2>
-            <p class="lead">Como mudou o acesso à graduação brasileira entre 2015 e 2024?</p>
-            <p class="dynamic-location" id="superior-localidade">Brasil</p>
+    <section class="slide slide-access slide-superior editorial-grid" id="slide-9" data-slide-index="9">
+        <div class="slide-content access-layout superior-layout">
+            <div class="access-content superior-content">
+                <p class="section-eyebrow editorial-label">ENSINO SUPERIOR</p>
+                <h2 class="slide-title access-title superior-title"><span>EXPANSÃO E</span><span>TRANSFORMAÇÃO</span></h2>
+                <p class="superior-intro">Como mudou o acesso à graduação brasileira entre 2015 e 2024?</p>
+                <p class="dynamic-location superior-location" id="superior-localidade">Brasil</p>
 
-            <div class="cards-grid superior-cards">
-                <article class="metric-card"><span id="sup-card-first-year-label">—</span><strong id="sup-card-first-value">—</strong></article>
-                <article class="metric-card"><span id="sup-card-last-year-label">—</span><strong id="sup-card-last-value">—</strong></article>
-                <article class="metric-card"><span>Variação no período</span><strong id="sup-card-var-pct">—</strong></article>
+                <div class="superior-metrics" aria-label="Indicadores do Ensino Superior">
+                    <article class="superior-metric">
+                        <span class="superior-metric-label" id="sup-card-first-year-label">—</span>
+                        <strong class="superior-metric-value" id="sup-card-first-value">—</strong>
+                    </article>
+                    <article class="superior-metric">
+                        <span class="superior-metric-label" id="sup-card-last-year-label">—</span>
+                        <strong class="superior-metric-value" id="sup-card-last-value">—</strong>
+                    </article>
+                    <article class="superior-metric">
+                        <span class="superior-metric-label">VARIAÇÃO NO PERÍODO</span>
+                        <strong class="superior-metric-value" id="sup-card-var-pct">—</strong>
+                    </article>
+                </div>
             </div>
 
-            <div class="chart-wrap large"><canvas id="chart-superior-expansao"></canvas></div>
-            <p id="msg-superior-expansao" class="chart-message hidden">Não há dados disponíveis para esta localidade no período selecionado.</p>
-            <p class="source-note">Fonte: INEP — Censo da Educação Superior | 2015–2024</p>
+            <div class="access-chart-area superior-chart-area">
+                <header class="access-chart-header superior-chart-header">
+                    <p class="section-eyebrow editorial-label">MATRÍCULAS NA GRADUAÇÃO</p>
+                    <h3 class="access-chart-title superior-chart-title">UMA DÉCADA DE EXPANSÃO</h3>
+                    <p class="access-chart-subtitle superior-chart-subtitle">Evolução das matrículas no Ensino Superior (2015–2024)</p>
+                </header>
+                <div class="chart-wrap access-chart-wrapper superior-chart-wrapper">
+                    <canvas id="chart-superior-expansao" role="img" aria-label="Gráfico de evolução das matrículas totais no Ensino Superior entre 2015 e 2024" aria-describedby="chart-superior-expansao-summary"></canvas>
+                    <p id="chart-superior-expansao-summary" class="sr-only">Série anual de matrículas totais no Ensino Superior entre 2015 e 2024, atualizada pela escala territorial selecionada.</p>
+                </div>
+                <p id="msg-superior-expansao" class="chart-message superior-chart-message hidden">Não há dados disponíveis para esta localidade no período selecionado.</p>
+                <p class="source-note superior-source-note">Fonte: INEP — Censo da Educação Superior | 2015–2024</p>
+            </div>
         </div>
     </section>
 

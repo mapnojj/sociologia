@@ -1278,6 +1278,150 @@ body.hero-active .hero-copy {
     height: 100% !important;
 }
 
+#slide-9 .superior-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+    gap: clamp(44px, 4vw, 72px);
+    width: min(1440px, 100%);
+    max-width: 1440px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+#slide-9 .superior-content,
+#slide-9 .superior-chart-area {
+    min-width: 0;
+}
+
+#slide-9 .superior-content {
+    width: 100%;
+    max-width: 100%;
+    gap: clamp(0.9rem, 1.8vh, 1.45rem);
+}
+
+#slide-9 .superior-title {
+    max-width: 100%;
+    font-size: clamp(2.7rem, 4vw, 5rem);
+    line-height: 0.96;
+}
+
+#slide-9 .superior-intro {
+    max-width: 32ch;
+    font-size: clamp(0.98rem, 1.26vw, 1.12rem);
+    line-height: 1.55;
+    color: rgba(247, 241, 232, 0.88);
+}
+
+#slide-9 .superior-location {
+    margin: 0;
+    font-size: clamp(0.78rem, 0.95vw, 0.92rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(247, 241, 232, 0.58);
+}
+
+#slide-9 .superior-metrics {
+    display: grid;
+    gap: clamp(0.85rem, 1.65vh, 1.15rem);
+    width: min(100%, 430px);
+    margin-top: clamp(0.2rem, 0.8vh, 0.5rem);
+}
+
+#slide-9 .superior-metric {
+    padding-bottom: clamp(0.85rem, 1.5vh, 1rem);
+    border-bottom: 1px solid rgba(221, 201, 174, 0.3);
+}
+
+#slide-9 .superior-metric:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#slide-9 .superior-metric-label {
+    display: block;
+    margin-bottom: 0.42rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(221, 201, 174, 0.92);
+}
+
+#slide-9 .superior-metric-value {
+    display: block;
+    font-family: var(--serif-display);
+    font-size: clamp(2rem, 3vw, 3.25rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--marfim);
+}
+
+#slide-9 .superior-chart-area {
+    width: 100%;
+    justify-self: stretch;
+    overflow: visible;
+    gap: clamp(0.95rem, 1.8vh, 1.35rem);
+    padding-right: clamp(0.1rem, 0.6vw, 0.45rem);
+}
+
+#slide-9 .superior-chart-area::before {
+    display: none;
+}
+
+#slide-9 .superior-chart-header {
+    max-width: min(700px, 100%);
+}
+
+#slide-9 .superior-chart-title {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    font-size: clamp(1.95rem, 2.8vw, 3.05rem);
+}
+
+#slide-9 .superior-chart-subtitle {
+    max-width: 36ch;
+}
+
+#slide-9 .superior-chart-wrapper {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.2rem 0 0;
+    height: clamp(320px, 50vh, 540px);
+}
+
+#slide-9 .superior-chart-wrapper::before {
+    content: "";
+    display: block;
+    width: min(180px, 24%);
+    height: 1px;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, rgba(244, 238, 228, 0.52), rgba(244, 238, 228, 0));
+}
+
+#slide-9 .superior-chart-wrapper canvas {
+    background: transparent !important;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#slide-9 .superior-chart-message,
+#slide-9 .superior-source-note {
+    margin-top: 0;
+    color: rgba(247, 241, 232, 0.62);
+}
+
+#slide-9 .superior-chart-message {
+    font-size: 0.9rem;
+}
+
+#slide-9 .superior-source-note {
+    font-size: 0.8rem;
+}
+
 .slide-duality::before {
     background:
         linear-gradient(112deg, rgba(20, 3, 4, 0.96) 0%, rgba(34, 5, 7, 0.92) 34%, rgba(55, 9, 12, 0.76) 66%, rgba(61, 9, 12, 0.54) 100%),
@@ -2174,8 +2318,26 @@ select {
 
     #slide-4 .access-chart-wrapper,
     #slide-5 .access-chart-wrapper,
-    #slide-7 .modalidades-chart-wrapper {
+    #slide-7 .modalidades-chart-wrapper,
+    #slide-9 .superior-chart-wrapper {
         height: clamp(280px, 44vh, 440px);
+    }
+
+    #slide-9 .superior-layout {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 1.2rem;
+    }
+
+    #slide-9 .superior-content,
+    #slide-9 .superior-chart-header,
+    #slide-9 .superior-intro,
+    #slide-9 .superior-chart-subtitle {
+        max-width: 100%;
+    }
+
+    #slide-9 .superior-metrics {
+        width: 100%;
     }
 
     .duality-comparison {
@@ -2299,7 +2461,8 @@ select {
 
     #slide-4 .access-chart-wrapper,
     #slide-5 .access-chart-wrapper,
-    #slide-7 .modalidades-chart-wrapper {
+    #slide-7 .modalidades-chart-wrapper,
+    #slide-9 .superior-chart-wrapper {
         height: clamp(260px, 46vh, 440px);
     }
 
@@ -2317,6 +2480,23 @@ select {
     }
 
     #slide-7 .modalidades-intro {
+        font-size: clamp(0.92rem, 1.08vw, 1rem);
+    }
+
+    #slide-9 .superior-layout {
+        grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+        gap: clamp(32px, 3vw, 48px);
+    }
+
+    #slide-9 .superior-title {
+        font-size: clamp(2.4rem, 3.7vw, 3.9rem);
+    }
+
+    #slide-9 .superior-chart-title {
+        font-size: clamp(1.85rem, 2.55vw, 2.8rem);
+    }
+
+    #slide-9 .superior-intro {
         font-size: clamp(0.92rem, 1.08vw, 1rem);
     }
 
@@ -2664,5 +2844,9 @@ select {
 
     .contemporary-axis {
         gap: 0.6rem;
+    }
+
+    #slide-9 .superior-metric-value {
+        font-size: clamp(1.9rem, 8vw, 2.7rem);
     }
 }

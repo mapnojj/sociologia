@@ -54,6 +54,8 @@
         superiorFederal: document.getElementById("sup-publica-federal"),
         superiorEstadual: document.getElementById("sup-publica-estadual"),
         superiorMunicipal: document.getElementById("sup-publica-municipal"),
+        superiorExpansaoCanvas: document.getElementById("chart-superior-expansao"),
+        superiorExpansaoSummary: document.getElementById("chart-superior-expansao-summary"),
         superiorMsgExpansao: document.getElementById("msg-superior-expansao"),
         superiorMsgModalidade: document.getElementById("msg-superior-modalidade"),
         superiorMsgRede: document.getElementById("msg-superior-rede"),
@@ -203,6 +205,23 @@
         }
     }
 
+    function updateSuperiorExpansaoA11y(localidade, hasData) {
+        const description = hasData
+            ? `Série anual de matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`
+            : `Não há dados disponíveis para a evolução das matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}.`;
+
+        if (els.superiorExpansaoSummary) {
+            els.superiorExpansaoSummary.textContent = description;
+        }
+
+        if (els.superiorExpansaoCanvas) {
+            const label = hasData
+                ? `Gráfico de evolução das matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}`
+                : `Gráfico indisponível de matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}`;
+            els.superiorExpansaoCanvas.setAttribute("aria-label", label);
+        }
+    }
+
     function getColumnValueAtIndex(payload, column, index) {
         if (!payload?.dados?.[column]) return null;
         const value = payload.dados[column][index];
@@ -287,14 +306,16 @@
         if (!payload) return;
 
         const localidade = appState.payload?.localidade || payload.localidade || "Brasil";
+        const hasExpansaoData = hasSeriesData(payload, "Matriculas_Total");
         els.superiorLocalityText.textContent = localidade;
+        updateSuperiorExpansaoA11y(localidade, hasExpansaoData);
 
         window.ChartManager.updateSuperiorExpansao(payload);
         window.ChartManager.updateSuperiorModalidade(payload);
         window.ChartManager.updateSuperiorRede(payload);
         window.ChartManager.updateSuperiorFluxo(payload);
 
-        toggleChartMessage(els.superiorMsgExpansao, !hasSeriesData(payload, "Matriculas_Total"));
+        toggleChartMessage(els.superiorMsgExpansao, !hasExpansaoData);
         toggleChartMessage(
             els.superiorMsgModalidade,
             !hasAllSeriesData(payload, ["Matriculas_Presencial", "Matriculas_EAD"])
