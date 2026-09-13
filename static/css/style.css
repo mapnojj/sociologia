@@ -1507,6 +1507,10 @@ body.hero-active .hero-copy {
     max-width: 38ch;
 }
 
+#slide-11 {
+    position: relative;
+}
+
 #slide-11 .slide-content {
     width: min(1380px, 100%);
 }
@@ -1515,14 +1519,14 @@ body.hero-active .hero-copy {
     min-height: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 32%) minmax(0, 45%) minmax(0, 23%);
-    gap: clamp(28px, 2.5vw, 50px);
+    grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+    column-gap: clamp(45px, 4vw, 80px);
+    row-gap: clamp(1rem, 2vh, 1.4rem);
     align-items: center;
 }
 
 #slide-11 .superior-rede-content,
-#slide-11 .superior-rede-chart-area,
-#slide-11 .superior-rede-sidebar {
+#slide-11 .superior-rede-chart-area {
     min-width: 0;
 }
 
@@ -1605,7 +1609,7 @@ body.hero-active .hero-copy {
 }
 
 #slide-11 .superior-rede-chart-subtitle {
-    max-width: 36ch;
+    max-width: 38ch;
 }
 
 #slide-11 .superior-rede-chart-wrapper {
@@ -1693,23 +1697,33 @@ body.hero-active .hero-copy {
 }
 
 #slide-11 .superior-rede-sidebar {
+    position: absolute;
+    top: 50%;
+    right: clamp(45px, 4vw, 80px);
+    transform: translateY(-40%);
+    z-index: 5;
+    width: clamp(188px, 13vw, 220px);
     display: grid;
-    align-content: center;
     gap: clamp(1rem, 1.8vh, 1.35rem);
-    padding-left: clamp(22px, 2vw, 32px);
-    border-left: 1px solid rgba(216, 176, 106, 0.18);
+    padding: clamp(22px, 2.2vh, 24px) clamp(22px, 2vw, 28px);
+    background: rgba(43, 5, 7, 0.72);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(216, 176, 106, 0.45);
+    border-radius: 12px;
+    box-shadow: 0 18px 48px rgba(12, 1, 2, 0.22);
 }
 
 #slide-11 .superior-rede-sidebar-title {
     margin: 0;
     display: grid;
     gap: 0.18rem;
-    font-size: clamp(0.92rem, 1.04vw, 1.06rem);
+    font-size: clamp(0.78rem, 0.9vw, 0.92rem);
     font-weight: 600;
-    line-height: 1.45;
+    line-height: 1.42;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(247, 241, 232, 0.82);
+    color: rgba(247, 241, 232, 0.84);
 }
 
 #slide-11 .superior-rede-sidebar-title span {
@@ -1723,19 +1737,18 @@ body.hero-active .hero-copy {
 #slide-11 .superior-rede-breakdown-item {
     display: grid;
     gap: 0.42rem;
-    padding: clamp(0.9rem, 1.5vh, 1.05rem) 0;
-    border-top: 1px solid rgba(221, 201, 174, 0.22);
+    padding: clamp(0.88rem, 1.45vh, 1rem) 0;
 }
 
-#slide-11 .superior-rede-breakdown-item:last-child {
-    border-bottom: 1px solid rgba(221, 201, 174, 0.22);
+#slide-11 .superior-rede-breakdown-item + .superior-rede-breakdown-item {
+    border-top: 1px solid rgba(216, 176, 106, 0.24);
 }
 
 #slide-11 .superior-rede-breakdown-value {
     display: block;
     font-family: var(--serif-display);
-    font-size: clamp(1.85rem, 2.35vw, 2.7rem);
-    line-height: 0.92;
+    font-size: clamp(1.72rem, 2vw, 2.3rem);
+    line-height: 0.9;
     letter-spacing: -0.03em;
     color: var(--marfim);
 }
@@ -2472,6 +2485,13 @@ select {
     #slide-7 .modalidades-chart-title {
         font-size: clamp(2rem, 2.8vw, 3.2rem);
     }
+
+    #slide-11 .superior-rede-sidebar {
+        position: static;
+        width: min(100%, 240px);
+        margin: clamp(1rem, 2vh, 1.4rem) 0 0 auto;
+        transform: none;
+    }
 }
 
 @media (max-width: 1280px) {
@@ -2662,8 +2682,9 @@ select {
     }
 
     #slide-11 .superior-rede-shell {
-        grid-template-columns: minmax(0, 32%) minmax(0, 44%) minmax(0, 24%);
-        gap: clamp(24px, 2vw, 36px);
+        grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+        column-gap: clamp(45px, 4vw, 80px);
+        row-gap: clamp(1rem, 2vh, 1.4rem);
     }
 
     #slide-11 .superior-rede-title,
@@ -2678,7 +2699,7 @@ select {
     }
 
     #slide-11 .superior-rede-sidebar {
-        padding-left: clamp(18px, 1.8vw, 26px);
+        width: min(100%, 232px);
     }
 
     #slide-9 .superior-metrics {
@@ -2853,8 +2874,9 @@ select {
     }
 
     #slide-11 .superior-rede-shell {
-        grid-template-columns: minmax(0, 32%) minmax(0, 43%) minmax(0, 25%);
-        gap: clamp(24px, 2vw, 34px);
+        grid-template-columns: minmax(0, 34%) minmax(0, 66%);
+        column-gap: clamp(45px, 4vw, 80px);
+        row-gap: clamp(0.9rem, 1.6vh, 1.2rem);
     }
 
     #slide-11 .superior-rede-title {
@@ -3237,9 +3259,8 @@ select {
     }
 
     #slide-11 .superior-rede-sidebar {
-        padding-left: 0;
-        border-left: 0;
-        padding-top: 0.25rem;
+        width: min(100%, 100%);
+        margin-top: 0;
     }
 
     #slide-9 .superior-metric-value {
