@@ -1209,7 +1209,7 @@ body.hero-active .hero-copy {
     bottom: 0.35rem;
     left: 50%;
     width: 1px;
-    background: linear-gradient(180deg, rgba(221, 201, 174, 0.08), rgba(221, 201, 174, 0.42), rgba(221, 201, 174, 0.08));
+    background: linear-gradient(180deg, rgba(221, 201, 174, 0.18), rgba(221, 201, 174, 0.62), rgba(221, 201, 174, 0.18));
     transform: translateX(-0.5px);
 }
 
@@ -1901,7 +1901,7 @@ select {
         width: auto;
         height: 1px;
         transform: none;
-        background: linear-gradient(90deg, rgba(221, 201, 174, 0.08), rgba(221, 201, 174, 0.42), rgba(221, 201, 174, 0.08));
+        background: linear-gradient(90deg, rgba(221, 201, 174, 0.18), rgba(221, 201, 174, 0.62), rgba(221, 201, 174, 0.18));
     }
 
     .duality-divider {
