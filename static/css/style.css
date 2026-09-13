@@ -1696,10 +1696,9 @@ body.hero-active .hero-copy {
 #slide-11 .superior-rede-sidebar {
     position: absolute;
     top: 50%;
-    right: clamp(45px, 4vw, 80px);
+    right: clamp(-92px, -6vw, -36px);
     transform: translateY(-50%);
     z-index: 5;
-    pointer-events: none;
     width: clamp(188px, 13vw, 220px);
     display: grid;
     gap: clamp(1rem, 1.8vh, 1.35rem);
