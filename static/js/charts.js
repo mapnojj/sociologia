@@ -174,12 +174,6 @@
             options: editorialDarkOptions()
         });
 
-        charts.fundamentalAdm = new Chart(document.getElementById("chart-fundamental-adm"), {
-            type: "line",
-            data: { labels: [], datasets: [] },
-            options
-        });
-
         charts.medioEvolucao = new Chart(document.getElementById("chart-medio-evolucao"), {
             type: "line",
             data: { labels: [], datasets: [] },
@@ -241,13 +235,6 @@
             editorialLineDataset("Total", chartData(payload, "Fundamental_Total"), "#f4eee4"),
             editorialLineDataset("Anos Iniciais", chartData(payload, "Fundamental_Anos_Iniciais"), "#d8b06a"),
             editorialLineDataset("Anos Finais", chartData(payload, "Fundamental_Anos_Finais"), "#a87838")
-        ]);
-
-        updateChart(charts.fundamentalAdm, payload.anos, [
-            lineDataset("Federal", chartData(payload, "Fundamental_Federal"), palette.gray, true),
-            lineDataset("Estadual", chartData(payload, "Fundamental_Estadual"), palette.blue),
-            lineDataset("Municipal", chartData(payload, "Fundamental_Municipal"), palette.green),
-            lineDataset("Privada", chartData(payload, "Fundamental_Privada"), palette.orange)
         ]);
     }
 
