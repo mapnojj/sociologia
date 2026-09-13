@@ -1866,18 +1866,35 @@ body.hero-active .hero-copy {
     gap: clamp(0.95rem, 1.7vh, 1.4rem);
 }
 
-.duality-columns-header-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(50px, 5vw, 80px) minmax(0, 1fr);
-    column-gap: clamp(22px, 3vw, 52px);
-    align-items: end;
+.duality-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+.duality-col-divider {
+    width: clamp(50px, 5vw, 80px);
 }
 
 .duality-columns-header {
+    border-bottom: 1px solid rgba(221, 201, 174, 0.16);
+}
+
+.duality-columns-header th {
     min-width: 0;
     margin: 0;
+    padding-top: 0;
     padding-bottom: 0.8rem;
-    border-bottom: 1px solid rgba(221, 201, 174, 0.16);
+    vertical-align: bottom;
+}
+
+.duality-columns-header th:first-child {
+    padding-right: clamp(22px, 3vw, 52px);
+}
+
+.duality-columns-header th:last-child {
+    padding-left: clamp(22px, 3vw, 52px);
 }
 
 .duality-column-title {
@@ -1904,35 +1921,29 @@ body.hero-active .hero-copy {
 }
 
 .duality-column-separator {
-    display: block;
-    width: 100%;
+    padding: 0;
 }
 
 .duality-rows {
-    display: grid;
-    gap: clamp(0.2rem, 0.55vh, 0.4rem);
-}
-
-.duality-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(50px, 5vw, 80px) minmax(0, 1fr);
-    column-gap: clamp(22px, 3vw, 52px);
-    align-items: center;
+    border: 0;
 }
 
 .duality-row-side {
     margin: 0;
     min-width: 0;
     border: 0;
-    padding: clamp(0.45rem, 0.9vh, 0.6rem) 0;
+    padding-top: clamp(0.45rem, 0.9vh, 0.6rem);
+    padding-bottom: clamp(0.45rem, 0.9vh, 0.6rem);
 }
 
 .duality-row-side-left {
     text-align: left;
+    padding-right: clamp(22px, 3vw, 52px);
 }
 
 .duality-row-side-right {
     text-align: right;
+    padding-left: clamp(22px, 3vw, 52px);
 }
 
 .duality-row-divider {
@@ -2761,9 +2772,14 @@ select {
         gap: 1.4rem;
     }
 
-    .duality-columns-header-row,
-    .duality-row {
-        column-gap: clamp(18px, 2.8vw, 38px);
+    .duality-columns-header th:first-child,
+    .duality-row-side-left {
+        padding-right: clamp(18px, 2.8vw, 38px);
+    }
+
+    .duality-columns-header th:last-child,
+    .duality-row-side-right {
+        padding-left: clamp(18px, 2.8vw, 38px);
     }
 
     .contemporary-title {
@@ -3050,9 +3066,14 @@ select {
         padding-bottom: 0.6rem;
     }
 
-    .duality-columns-header-row,
-    .duality-row {
-        column-gap: clamp(14px, 2.2vw, 28px);
+    .duality-columns-header th:first-child,
+    .duality-row-side-left {
+        padding-right: clamp(14px, 2.2vw, 28px);
+    }
+
+    .duality-columns-header th:last-child,
+    .duality-row-side-right {
+        padding-left: clamp(14px, 2.2vw, 28px);
     }
 
     .duality-closing {
