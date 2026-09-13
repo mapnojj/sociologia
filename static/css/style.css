@@ -581,18 +581,24 @@ body.hero-active .hero-copy {
     font-size: clamp(1.25rem, 1.7vw, 1.9rem);
     line-height: 1.15;
     color: rgba(247, 241, 232, 0.96);
-    max-width: 23ch;
+    max-width: 24ch;
+    text-wrap: balance;
 }
 
 .summary-item:hover,
-.summary-item:focus-within {
+.summary-item:focus-visible {
     transform: translateX(3px);
     border-left-color: rgba(221, 201, 174, 0.36);
 }
 
 .summary-item:hover .summary-number,
-.summary-item:focus-within .summary-number {
+.summary-item:focus-visible .summary-number {
     color: var(--dourado);
+}
+
+.summary-item:focus-visible {
+    outline: 1px solid rgba(221, 201, 174, 0.46);
+    outline-offset: 0.2rem;
 }
 
 .summary-decor {
