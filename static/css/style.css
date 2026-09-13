@@ -1507,12 +1507,15 @@ body.hero-active .hero-copy {
     max-width: 38ch;
 }
 
-#slide-11 .slide-content {
-    width: min(1380px, 100%);
-    position: relative;
+#slide-11 {
     --slide11-sidebar-width: clamp(188px, 13vw, 220px);
     --slide11-sidebar-offset: clamp(45px, 4vw, 80px);
     --slide11-sidebar-space: calc(var(--slide11-sidebar-width) + var(--slide11-sidebar-offset));
+}
+
+#slide-11 .slide-content {
+    width: min(1380px, 100%);
+    position: relative;
 }
 
 #slide-11 .superior-rede-shell {
@@ -1703,7 +1706,6 @@ body.hero-active .hero-copy {
     right: 0;
     transform: translateY(-50%);
     z-index: 5;
-    pointer-events: none;
     width: var(--slide11-sidebar-space);
 }
 
