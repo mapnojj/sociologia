@@ -1479,7 +1479,7 @@ body.hero-active .hero-copy {
     font-weight: 700;
 }
 
-.slide-3-legacy {
+.legacy-hidden-content {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1490,8 +1490,8 @@ body.hero-active .hero-copy {
     pointer-events: none;
 }
 
-.slide-3-legacy canvas,
-.slide-3-legacy select {
+.legacy-hidden-content canvas,
+.legacy-hidden-content select {
     width: 1px !important;
     height: 1px !important;
 }
