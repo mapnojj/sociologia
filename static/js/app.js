@@ -56,6 +56,8 @@
         superiorMunicipal: document.getElementById("sup-publica-municipal"),
         superiorExpansaoCanvas: document.getElementById("chart-superior-expansao"),
         superiorExpansaoSummary: document.getElementById("chart-superior-expansao-summary"),
+        superiorModalidadeCanvas: document.getElementById("chart-superior-modalidade"),
+        superiorModalidadeSummary: document.getElementById("chart-superior-modalidade-summary"),
         superiorMsgExpansao: document.getElementById("msg-superior-expansao"),
         superiorMsgModalidade: document.getElementById("msg-superior-modalidade"),
         superiorMsgRede: document.getElementById("msg-superior-rede"),
@@ -222,6 +224,40 @@
         }
     }
 
+    function updateSuperiorModalidadeA11y(localidade, hasPresencialData, hasEadData) {
+        let description = `Não há dados disponíveis para a evolução das matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}.`;
+        let label = `Gráfico indisponível de matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}`;
+
+        if (hasPresencialData && hasEadData) {
+            description = `Série anual de matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`;
+            label = `Gráfico de evolução das matrículas presenciais e em educação a distância no Ensino Superior entre 2015 e 2024 em ${localidade}`;
+        } else if (hasPresencialData || hasEadData) {
+            const modalidadeDisponivel = hasPresencialData ? "presenciais" : "em educação a distância";
+            description = `Série anual disponível apenas para matrículas ${modalidadeDisponivel} no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`;
+            label = `Gráfico de evolução parcial das matrículas ${modalidadeDisponivel} no Ensino Superior entre 2015 e 2024 em ${localidade}`;
+        }
+
+        if (els.superiorModalidadeSummary) {
+            els.superiorModalidadeSummary.textContent = description;
+        }
+
+        if (els.superiorModalidadeCanvas) {
+            els.superiorModalidadeCanvas.setAttribute("aria-label", label);
+        }
+    }
+
+    function updateSuperiorModalidadeMessage(hasPresencialData, hasEadData) {
+        if (!els.superiorMsgModalidade) return;
+
+        if (hasPresencialData || hasEadData) {
+            toggleChartMessage(els.superiorMsgModalidade, false);
+            return;
+        }
+
+        els.superiorMsgModalidade.textContent = "Não há dados disponíveis para esta localidade no período selecionado.";
+        toggleChartMessage(els.superiorMsgModalidade, true);
+    }
+
     function getColumnValueAtIndex(payload, column, index) {
         if (!payload?.dados?.[column]) return null;
         const value = payload.dados[column][index];
@@ -307,8 +343,11 @@
 
         const localidade = appState.payload?.localidade || payload.localidade || "Brasil";
         const hasExpansaoData = hasSeriesData(payload, "Matriculas_Total");
+        const hasPresencialData = hasSeriesData(payload, "Matriculas_Presencial");
+        const hasEadData = hasSeriesData(payload, "Matriculas_EAD");
         els.superiorLocalityText.textContent = localidade;
         updateSuperiorExpansaoA11y(localidade, hasExpansaoData);
+        updateSuperiorModalidadeA11y(localidade, hasPresencialData, hasEadData);
 
         window.ChartManager.updateSuperiorExpansao(payload);
         window.ChartManager.updateSuperiorModalidade(payload);
@@ -316,10 +355,7 @@
         window.ChartManager.updateSuperiorFluxo(payload);
 
         toggleChartMessage(els.superiorMsgExpansao, !hasExpansaoData);
-        toggleChartMessage(
-            els.superiorMsgModalidade,
-            !hasAllSeriesData(payload, ["Matriculas_Presencial", "Matriculas_EAD"])
-        );
+        updateSuperiorModalidadeMessage(hasPresencialData, hasEadData);
         toggleChartMessage(
             els.superiorMsgRede,
             !hasAllSeriesData(payload, ["Matriculas_Publica", "Matriculas_Privada"])
