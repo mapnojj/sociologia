@@ -205,15 +205,20 @@
         }
     }
 
-    function updateSuperiorExpansaoA11y(localidade) {
-        const description = `Série anual de matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`;
+    function updateSuperiorExpansaoA11y(localidade, hasData) {
+        const description = hasData
+            ? `Série anual de matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}, atualizada pela escala territorial selecionada.`
+            : `Não há dados disponíveis para a evolução das matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}.`;
 
         if (els.superiorExpansaoSummary) {
             els.superiorExpansaoSummary.textContent = description;
         }
 
         if (els.superiorExpansaoCanvas) {
-            els.superiorExpansaoCanvas.setAttribute("aria-label", `Gráfico de evolução das matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}`);
+            const label = hasData
+                ? `Gráfico de evolução das matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}`
+                : `Gráfico indisponível de matrículas totais no Ensino Superior entre 2015 e 2024 em ${localidade}`;
+            els.superiorExpansaoCanvas.setAttribute("aria-label", label);
         }
     }
 
@@ -301,15 +306,16 @@
         if (!payload) return;
 
         const localidade = appState.payload?.localidade || payload.localidade || "Brasil";
+        const hasExpansaoData = hasSeriesData(payload, "Matriculas_Total");
         els.superiorLocalityText.textContent = localidade;
-        updateSuperiorExpansaoA11y(localidade);
+        updateSuperiorExpansaoA11y(localidade, hasExpansaoData);
 
         window.ChartManager.updateSuperiorExpansao(payload);
         window.ChartManager.updateSuperiorModalidade(payload);
         window.ChartManager.updateSuperiorRede(payload);
         window.ChartManager.updateSuperiorFluxo(payload);
 
-        toggleChartMessage(els.superiorMsgExpansao, !hasSeriesData(payload, "Matriculas_Total"));
+        toggleChartMessage(els.superiorMsgExpansao, !hasExpansaoData);
         toggleChartMessage(
             els.superiorMsgModalidade,
             !hasAllSeriesData(payload, ["Matriculas_Presencial", "Matriculas_EAD"])
