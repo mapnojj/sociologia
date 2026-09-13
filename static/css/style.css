@@ -965,6 +965,7 @@ body.hero-active .hero-copy {
         url("../img/capa-bg.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     filter: grayscale(0.34) saturate(0.72);
     transform: scale(1.01);
     z-index: -2;
@@ -2593,12 +2594,6 @@ select {
     aspect-ratio: 1;
     right: clamp(28%, 18vw, 40%);
     bottom: 12%;
-}
-
-#slide-13::before {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 #slide-13 .financiamento-layout {
