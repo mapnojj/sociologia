@@ -835,6 +835,9 @@ body.hero-active .hero-copy {
 
 .dilemma-list {
     display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .dilemma-item {
