@@ -2688,12 +2688,6 @@ select {
         max-width: 100%;
     }
 
-    #slide-11 .superior-rede-shell {
-        grid-template-columns: minmax(0, 34%) minmax(0, 66%);
-        column-gap: clamp(45px, 4vw, 80px);
-        row-gap: clamp(1rem, 2vh, 1.4rem);
-    }
-
     #slide-11 .superior-rede-title,
     #slide-11 .superior-rede-chart-title {
         max-width: 100%;
@@ -2881,8 +2875,6 @@ select {
     }
 
     #slide-11 .superior-rede-shell {
-        grid-template-columns: minmax(0, 34%) minmax(0, 66%);
-        column-gap: clamp(45px, 4vw, 80px);
         row-gap: clamp(0.9rem, 1.6vh, 1.2rem);
     }
 
