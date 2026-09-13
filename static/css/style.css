@@ -1586,6 +1586,7 @@ body.hero-active .hero-copy {
     overflow: visible;
     gap: clamp(0.95rem, 1.7vh, 1.3rem);
     padding: clamp(0.35rem, 0.7vh, 0.6rem) 0;
+    padding-right: clamp(220px, 18vw, 300px);
 }
 
 #slide-11 .superior-rede-chart-area::before {
@@ -2514,6 +2515,7 @@ select {
     #slide-11 .superior-rede-chart-area {
         grid-column: 2;
         grid-row: 1;
+        padding-right: 0;
     }
 }
 
@@ -3270,6 +3272,7 @@ select {
     #slide-11 .superior-rede-chart-area {
         grid-column: 1;
         grid-row: 2;
+        padding-right: 0;
     }
 
     #slide-11 .superior-rede-title,
