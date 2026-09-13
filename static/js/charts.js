@@ -47,6 +47,20 @@
         return editorial ? withEditorialTheme(options) : options;
     }
 
+    function createSingleSeriesEditorialOptions() {
+        const options = withEditorialTheme(baseOptions());
+        return {
+            ...options,
+            plugins: {
+                ...options.plugins,
+                legend: {
+                    ...options.plugins.legend,
+                    display: false
+                }
+            }
+        };
+    }
+
     function createModalidadesOptions() {
         const options = withEditorialTheme(baseOptions());
         return {
@@ -247,7 +261,7 @@
         charts.superiorExpansao = new Chart(document.getElementById("chart-superior-expansao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: createSingleSeriesEditorialOptions()
         });
 
         charts.superiorModalidade = new Chart(document.getElementById("chart-superior-modalidade"), {
@@ -339,7 +353,7 @@
     function updateSuperiorExpansao(payload) {
         const values = chartData(payload, "Matriculas_Total");
         updateChart(charts.superiorExpansao, payload.anos, [
-            lineDataset("Matrículas totais", values, palette.blue)
+            editorialLineDataset("Matrículas totais", values, "#f4eee4")
         ]);
     }
 
