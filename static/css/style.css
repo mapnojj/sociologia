@@ -586,19 +586,14 @@ body.hero-active .hero-copy {
 }
 
 .summary-item:hover,
-.summary-item:focus-visible {
+.summary-item:focus-within {
     transform: translateX(3px);
     border-left-color: rgba(221, 201, 174, 0.36);
 }
 
 .summary-item:hover .summary-number,
-.summary-item:focus-visible .summary-number {
+.summary-item:focus-within .summary-number {
     color: var(--dourado);
-}
-
-.summary-item:focus-visible {
-    outline: 1px solid rgba(221, 201, 174, 0.46);
-    outline-offset: 0.2rem;
 }
 
 .summary-decor {
