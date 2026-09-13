@@ -2666,7 +2666,6 @@ select {
 
 #slide-13 .financiamento-argumentos {
     list-style: none;
-    counter-reset: financiamento-item;
     margin: 0;
     padding: 0;
     display: grid;
@@ -2674,15 +2673,14 @@ select {
 }
 
 #slide-13 .financiamento-argumento {
-    counter-increment: financiamento-item;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     column-gap: clamp(0.9rem, 1.4vw, 1.5rem);
     align-items: start;
 }
 
-#slide-13 .financiamento-argumento::before {
-    content: counter(financiamento-item, decimal-leading-zero);
+#slide-13 .financiamento-argumento-numero {
+    margin: 0;
     min-width: 2ch;
     font-family: var(--serif-display);
     font-size: clamp(1.95rem, 2.8vw, 2.9rem);
@@ -3605,7 +3603,7 @@ select {
         height: clamp(210px, 31vh, 320px);
     }
 
-    #slide-13 .financiamento-argumento::before {
+    #slide-13 .financiamento-argumento-numero {
         font-size: clamp(1.6rem, 8vw, 2.1rem);
     }
 
