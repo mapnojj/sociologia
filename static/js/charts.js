@@ -42,8 +42,9 @@
         };
     }
 
-    function createSharedChartOptions() {
-        return baseOptions();
+    function createChartOptions({ editorial = false } = {}) {
+        const options = baseOptions();
+        return editorial ? withEditorialTheme(options) : options;
     }
 
     function withEditorialTheme(options = baseOptions()) {
@@ -157,7 +158,7 @@
     function initCharts() {
         if (!window.Chart) throw new Error("Chart.js não está disponível");
 
-        const options = createSharedChartOptions();
+        const options = createChartOptions();
 
         charts.evolucaoGeral = new Chart(document.getElementById("chart-evolucao-geral"), {
             type: "line",
@@ -168,13 +169,13 @@
         charts.infantil = new Chart(document.getElementById("chart-infantil"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: withEditorialTheme(createSharedChartOptions())
+            options: createChartOptions({ editorial: true })
         });
 
         charts.fundamentalEvolucao = new Chart(document.getElementById("chart-fundamental-evolucao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: withEditorialTheme(createSharedChartOptions())
+            options: createChartOptions({ editorial: true })
         });
 
         charts.medioEvolucao = new Chart(document.getElementById("chart-medio-evolucao"), {
