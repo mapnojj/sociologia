@@ -765,7 +765,7 @@ body.hero-active .hero-copy {
 }
 
 .intro-subtitle {
-    max-width: 40rem;
+    max-width: 18ch;
     margin: 0;
     font-family: var(--serif-display);
     font-size: clamp(2rem, 3vw, 3.4rem);
