@@ -2966,7 +2966,7 @@ select {
 }
 
 @media (max-width: 1080px) {
-    #slide-13.slide-access {
+    #slide-13 {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 5.2rem 6vw 2.3rem;
@@ -3579,7 +3579,7 @@ select {
 }
 
 @media (max-width: 760px) {
-    #slide-13.slide-access {
+    #slide-13 {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 7.2rem 5vw 2rem;
