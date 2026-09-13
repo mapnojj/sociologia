@@ -3278,6 +3278,22 @@ select {
         border-left: none;
     }
 
+    #slide-11 .superior-rede-breakdown {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #slide-11 .superior-rede-breakdown-item {
+        padding: 0.08rem 0;
+    }
+
+    #slide-11 .superior-rede-breakdown-item + .superior-rede-breakdown-item {
+        padding-left: 0;
+        padding-top: 0.75rem;
+        margin-top: 0.75rem;
+        border-left: none;
+        border-top: 1px solid rgba(216, 176, 106, 0.24);
+    }
+
     #slide-9 .superior-metric-value {
         font-size: clamp(1.9rem, 8vw, 2.7rem);
     }
