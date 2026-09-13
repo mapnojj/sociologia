@@ -1105,10 +1105,10 @@ body.hero-active .hero-copy {
 
 #slide-5 .fundamental-layout {
     display: grid;
-    grid-template-columns: minmax(0, 38%) minmax(0, 62%);
-    gap: clamp(40px, 5vw, 90px);
-    width: 100%;
-    max-width: 1320px;
+    grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+    gap: clamp(44px, 4vw, 72px);
+    width: min(1440px, 100%);
+    max-width: 1440px;
     margin: 0 auto;
     align-items: center;
 }
@@ -1121,7 +1121,8 @@ body.hero-active .hero-copy {
 #slide-5 .fundamental-content {
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    min-width: 0;
+    overflow: visible;
 }
 
 #slide-5 .fundamental-title {
@@ -1132,16 +1133,21 @@ body.hero-active .hero-copy {
 
 #slide-5 .fundamental-copy {
     width: 100%;
-    max-width: 34rem;
+    max-width: 100%;
 }
 
 #slide-5 .fundamental-copy p {
-    max-width: 34rem;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    overflow-wrap: normal;
 }
 
 #slide-5 .fundamental-chart-area {
     width: 100%;
-    overflow: hidden;
+    justify-self: stretch;
+    overflow: visible;
 }
 
 #slide-5 .fundamental-chart-header {
@@ -1548,8 +1554,8 @@ select {
 
 @media (max-width: 1450px) {
     #slide-5 .fundamental-layout {
-        grid-template-columns: minmax(0, 36%) minmax(0, 64%);
-        gap: 36px;
+        grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+        gap: clamp(36px, 3.2vw, 56px);
     }
 
     #slide-5 .fundamental-title {
@@ -1807,12 +1813,12 @@ select {
     }
 
     #slide-5 .fundamental-layout {
-        grid-template-columns: minmax(0, 36%) minmax(0, 64%);
-        gap: clamp(32px, 4vw, 44px);
+        grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+        gap: clamp(32px, 3vw, 48px);
     }
 
     #slide-5 .fundamental-title {
-        font-size: clamp(2.25rem, 3.5vw, 3.6rem);
+        font-size: clamp(2.4rem, 3.7vw, 3.8rem);
     }
 
     #slide-5 .fundamental-chart-title {
