@@ -37,7 +37,7 @@
         ufSelect: document.getElementById("uf-select"),
         municipioSelect: document.getElementById("municipio-select"),
         indicadorSelect: document.getElementById("indicador-geral"),
-        modalidadeButtons: [...document.querySelectorAll(".tab-btn")],
+        modalidadeButtons: [...document.querySelectorAll(".modalidades-tab-group .tab-btn")],
         modalidadesCanvas: document.getElementById("chart-modalidades"),
         modalidadesSummary: document.getElementById("chart-modalidades-summary"),
         localityText: document.getElementById("localidade-atual"),
