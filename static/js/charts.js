@@ -42,17 +42,19 @@
         };
     }
 
-    function createChartOptions({ editorial = false, showLegend = true } = {}) {
+    function createChartOptions({ editorial = false } = {}) {
         const options = baseOptions();
-        const themedOptions = editorial ? withEditorialTheme(options) : options;
-        if (showLegend) return themedOptions;
+        return editorial ? withEditorialTheme(options) : options;
+    }
+
+    function withLegendVisibility(options, display) {
         return {
-            ...themedOptions,
+            ...options,
             plugins: {
-                ...themedOptions.plugins,
+                ...options.plugins,
                 legend: {
-                    ...themedOptions.plugins.legend,
-                    display: false
+                    ...options.plugins.legend,
+                    display
                 }
             }
         };
@@ -258,7 +260,7 @@
         charts.superiorExpansao = new Chart(document.getElementById("chart-superior-expansao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: createChartOptions({ editorial: true, showLegend: false })
+            options: withLegendVisibility(createChartOptions({ editorial: true }), false)
         });
 
         charts.superiorModalidade = new Chart(document.getElementById("chart-superior-modalidade"), {
