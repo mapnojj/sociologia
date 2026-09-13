@@ -2672,6 +2672,7 @@ select {
 
 #slide-13 .financiamento-argumentos {
     list-style: none;
+    counter-reset: financiamento-item;
     margin: 0;
     padding: 0;
     display: grid;
@@ -2679,6 +2680,7 @@ select {
 }
 
 #slide-13 .financiamento-argumento {
+    counter-increment: financiamento-item;
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     column-gap: clamp(0.9rem, 1.4vw, 1.5rem);
@@ -2686,7 +2688,7 @@ select {
 }
 
 #slide-13 .financiamento-argumento::before {
-    content: counter(list-item, decimal-leading-zero);
+    content: counter(financiamento-item, decimal-leading-zero);
     min-width: 2ch;
     font-family: var(--serif-display);
     font-size: clamp(1.95rem, 2.8vw, 2.9rem);
