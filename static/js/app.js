@@ -404,8 +404,8 @@
                 els.modalidadeButtons.forEach((item) => item.classList.toggle("active", item === button));
                 if (appState.payload) {
                     window.ChartManager.updateModalidades(appState.payload, appState.modalidade);
+                    updateModalidadesA11y();
                 }
-                updateModalidadesA11y();
             });
         });
     }
