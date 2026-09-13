@@ -66,18 +66,19 @@ body {
     isolation: isolate;
 }
 
-.institutional-watermark-deck .slide::after {
-    content: "";
-    position: absolute;
+.institutional-watermark {
+    position: fixed;
     top: 28px;
     right: 40px;
     width: clamp(70px, 6vw, 110px);
-    aspect-ratio: 442 / 331;
-    background: var(--institutional-watermark-image) center / contain no-repeat;
+    height: auto;
     opacity: 0.22;
     pointer-events: none;
     user-select: none;
-    z-index: 0;
+    z-index: 3;
+    background: none;
+    border: 0;
+    box-shadow: none;
 }
 
 .slide-content {
@@ -1098,7 +1099,7 @@ select {
         gap: 1.8rem;
     }
 
-    .institutional-watermark-deck .slide::after {
+    .institutional-watermark {
         top: 24px;
         right: 32px;
     }
@@ -1338,7 +1339,7 @@ select {
         padding: 7rem 5vw 3rem;
     }
 
-    .institutional-watermark-deck .slide::after {
+    .institutional-watermark {
         top: 20px;
         right: 20px;
     }
