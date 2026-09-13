@@ -590,7 +590,6 @@ body.hero-active .hero-copy {
     padding: clamp(0.8rem, 1.5vh, 1.2rem) clamp(0.2rem, 0.4vw, 0.45rem);
     transition: transform 0.25s ease, border-color 0.25s ease;
     border-left: 1px solid rgba(221, 201, 174, 0.22);
-    text-decoration: none;
 }
 
 .summary-number {
@@ -610,20 +609,13 @@ body.hero-active .hero-copy {
     text-wrap: balance;
 }
 
-.summary-item:hover,
-.summary-item:focus-visible {
+.summary-item:hover {
     transform: translateX(3px);
     border-left-color: rgba(221, 201, 174, 0.36);
 }
 
-.summary-item:hover .summary-number,
-.summary-item:focus-visible .summary-number {
+.summary-item:hover .summary-number {
     color: var(--dourado);
-}
-
-.summary-item:focus-visible {
-    outline: 1px solid rgba(221, 201, 174, 0.42);
-    outline-offset: 0.2rem;
 }
 
 .summary-decor {
