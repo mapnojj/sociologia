@@ -315,7 +315,7 @@
         const modalidadeColors = {
             EJA_Total: "#f4eee4",
             EJA_Ensino_Fundamental: "#d8b06a",
-            EJA_Ensino_Medio: "#a87838",
+            EJA_Ensino_Medio: "#855127",
             Educacao_Profissional: "#a87838",
             Educacao_Especial: "#ddc9ae"
         };
