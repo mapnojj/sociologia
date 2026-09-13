@@ -42,7 +42,7 @@
         };
     }
 
-    function infantilOptions() {
+    function editorialDarkOptions() {
         const options = baseOptions();
         return {
             ...options,
@@ -96,6 +96,16 @@
                 }
             }
         };
+    }
+
+    function editorialLineDataset(label, data, color) {
+        return lineDataset(label, data, color, false, {
+            borderWidth: 2.8,
+            pointRadius: 3,
+            pointHoverRadius: 5,
+            pointBackgroundColor: color,
+            pointBorderColor: color
+        });
     }
 
     function lineDataset(label, data, color, dashed = false, extras = {}) {
@@ -155,13 +165,13 @@
         charts.infantil = new Chart(document.getElementById("chart-infantil"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: infantilOptions()
+            options: editorialDarkOptions()
         });
 
         charts.fundamentalEvolucao = new Chart(document.getElementById("chart-fundamental-evolucao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: editorialDarkOptions()
         });
 
         charts.fundamentalAdm = new Chart(document.getElementById("chart-fundamental-adm"), {
@@ -221,28 +231,16 @@
 
     function updateInfantil(payload) {
         updateChart(charts.infantil, payload.anos, [
-            lineDataset("Creche", chartData(payload, "Creche"), "#d8b06a", false, {
-                borderWidth: 2.8,
-                pointRadius: 3,
-                pointHoverRadius: 5,
-                pointBackgroundColor: "#d8b06a",
-                pointBorderColor: "#d8b06a"
-            }),
-            lineDataset("Pré-escola", chartData(payload, "Pre_Escola"), "#f4eee4", false, {
-                borderWidth: 2.8,
-                pointRadius: 3,
-                pointHoverRadius: 5,
-                pointBackgroundColor: "#f4eee4",
-                pointBorderColor: "#f4eee4"
-            })
+            editorialLineDataset("Creche", chartData(payload, "Creche"), "#d8b06a"),
+            editorialLineDataset("Pré-escola", chartData(payload, "Pre_Escola"), "#f4eee4")
         ]);
     }
 
     function updateFundamental(payload) {
         updateChart(charts.fundamentalEvolucao, payload.anos, [
-            lineDataset("Fundamental Total", chartData(payload, "Fundamental_Total"), palette.blue),
-            lineDataset("Anos Iniciais", chartData(payload, "Fundamental_Anos_Iniciais"), palette.purple),
-            lineDataset("Anos Finais", chartData(payload, "Fundamental_Anos_Finais"), palette.green)
+            editorialLineDataset("Total", chartData(payload, "Fundamental_Total"), "#f4eee4"),
+            editorialLineDataset("Anos Iniciais", chartData(payload, "Fundamental_Anos_Iniciais"), "#d8b06a"),
+            editorialLineDataset("Anos Finais", chartData(payload, "Fundamental_Anos_Finais"), "#a87838")
         ]);
 
         updateChart(charts.fundamentalAdm, payload.anos, [
