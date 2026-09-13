@@ -30,9 +30,12 @@
 
 <nav id="nav-dots" aria-label="Navegação entre seções"></nav>
 
-<main id="presentation">
+<main
+    id="presentation"
+    class="institutional-watermark-deck"
+    style="--institutional-watermark-image: url('{{ url_for('static', filename='img/logo-ifbaiano.png') }}');"
+>
     <section class="slide slide-hero editorial-grid" id="slide-1" data-slide-index="0">
-        <img class="hero-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo institucional">
         <div class="hero-grid">
             <div class="hero-copy">
                 <div class="hero-academic">
