@@ -162,6 +162,59 @@
         };
     }
 
+    function createSuperiorRedeOptions(options = createChartOptions({ editorial: true })) {
+        return {
+            ...options,
+            plugins: {
+                ...options.plugins,
+                legend: {
+                    ...options.plugins.legend,
+                    position: "top",
+                    align: "start",
+                    labels: {
+                        ...options.plugins.legend.labels,
+                        color: "rgba(247, 241, 232, 0.92)",
+                        boxWidth: 8,
+                        boxHeight: 8,
+                        padding: 14
+                    }
+                },
+                tooltip: {
+                    ...options.plugins.tooltip,
+                    backgroundColor: "rgba(43, 5, 7, 0.92)",
+                    titleColor: "#f4eee4",
+                    bodyColor: "#f4eee4",
+                    borderColor: "rgba(168, 120, 56, 0.64)",
+                    borderWidth: 1
+                }
+            },
+            scales: {
+                x: {
+                    ...options.scales.x,
+                    ticks: {
+                        ...options.scales.x.ticks,
+                        color: "rgba(247, 241, 232, 0.80)"
+                    },
+                    grid: {
+                        ...options.scales.x.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                },
+                y: {
+                    ...options.scales.y,
+                    ticks: {
+                        ...options.scales.y.ticks,
+                        color: "rgba(247, 241, 232, 0.80)"
+                    },
+                    grid: {
+                        ...options.scales.y.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                }
+            }
+        };
+    }
+
     function withEditorialTheme(options = baseOptions()) {
         return {
             ...options,
@@ -328,7 +381,7 @@
         charts.superiorRede = new Chart(document.getElementById("chart-superior-rede"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: createSuperiorRedeOptions(superiorEditorialOptions)
         });
 
         charts.superiorFluxo = new Chart(document.getElementById("chart-superior-fluxo"), {
@@ -432,8 +485,18 @@
 
     function updateSuperiorRede(payload) {
         updateChart(charts.superiorRede, payload.anos, [
-            lineDataset("Pública", chartData(payload, "Matriculas_Publica"), palette.green),
-            lineDataset("Privada", chartData(payload, "Matriculas_Privada"), palette.orange)
+            editorialLineDataset("Pública", chartData(payload, "Matriculas_Publica"), "#f4eee4", {
+                pointRadius: 2.2,
+                pointHoverRadius: 4,
+                pointBackgroundColor: "#f4eee4",
+                pointBorderColor: "#f4eee4"
+            }),
+            editorialLineDataset("Privada", chartData(payload, "Matriculas_Privada"), "#d8b06a", {
+                pointRadius: 2.2,
+                pointHoverRadius: 4,
+                pointBackgroundColor: "#d8b06a",
+                pointBorderColor: "#d8b06a"
+            })
         ]);
     }
 

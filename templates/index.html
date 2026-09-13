@@ -514,25 +514,56 @@
         </div>
     </section>
 
-    <section class="slide" id="slide-11" data-slide-index="11">
-        <div class="slide-content">
-            <p class="eyebrow">REDE DE OFERTA</p>
-            <h2>QUEM OFERECE O ENSINO SUPERIOR?</h2>
-            <p class="transition-note">A expansão também revela o peso relativo entre setor público e privado.</p>
+    <section class="slide slide-access slide-superior editorial-grid" id="slide-11" data-slide-index="11">
+        <div class="slide-content superior-rede-shell">
+            <div class="access-content superior-content superior-rede-content">
+                <p class="section-eyebrow editorial-label">REDE DE OFERTA</p>
+                <h2 class="slide-title access-title superior-title superior-rede-title"><span>QUEM OFERECE</span><span>O ENSINO</span><span>SUPERIOR?</span></h2>
+                <p class="superior-intro superior-rede-intro">A expansão também revela o peso relativo entre setor público e privado.</p>
 
-            <div class="two-charts superior-rede-layout">
-                <div class="chart-wrap"><canvas id="chart-superior-rede"></canvas></div>
-                <div class="chart-wrap superior-composition">
-                    <h3>Rede pública no último ano disponível</h3>
-                    <div class="mini-metrics">
-                        <article class="metric-card"><span>Federal</span><strong id="sup-publica-federal">—</strong></article>
-                        <article class="metric-card"><span>Estadual</span><strong id="sup-publica-estadual">—</strong></article>
-                        <article class="metric-card"><span>Municipal</span><strong id="sup-publica-municipal">—</strong></article>
-                    </div>
+                <div class="superior-rede-highlights">
+                    <article class="superior-rede-highlight">
+                        <span class="superior-rede-highlight-label">REDE PRIVADA</span>
+                        <p class="superior-rede-highlight-text">Expansão contínua ao longo da década.</p>
+                    </article>
+                    <article class="superior-rede-highlight">
+                        <span class="superior-rede-highlight-label">REDE PÚBLICA</span>
+                        <p class="superior-rede-highlight-text">Crescimento mais estável ao longo do período.</p>
+                    </article>
                 </div>
             </div>
-            <p id="msg-superior-rede" class="chart-message hidden">Não há dados disponíveis para esta localidade no período selecionado.</p>
-            <p class="source-note">Fonte: INEP — Censo da Educação Superior | 2015–2024</p>
+
+            <div class="access-chart-area superior-chart-area superior-rede-chart-area">
+                <header class="access-chart-header superior-chart-header superior-rede-chart-header">
+                    <p class="section-eyebrow editorial-label">MATRÍCULAS POR REDE</p>
+                    <h3 class="access-chart-title superior-chart-title superior-rede-chart-title">REDE PÚBLICA × PRIVADA</h3>
+                    <p class="access-chart-subtitle superior-chart-subtitle superior-rede-chart-subtitle">Evolução das matrículas no Ensino Superior por rede de oferta (2015–2024)</p>
+                </header>
+                <div class="chart-wrap access-chart-wrapper superior-chart-wrapper superior-rede-chart-wrapper">
+                    <canvas id="chart-superior-rede" role="img" aria-label="Gráfico de evolução das matrículas públicas e privadas no Ensino Superior entre 2015 e 2024" aria-describedby="chart-superior-rede-summary"></canvas>
+                    <p id="chart-superior-rede-summary" class="sr-only">Série anual de matrículas das redes pública e privada no Ensino Superior entre 2015 e 2024, atualizada pela escala territorial selecionada.</p>
+                </div>
+                <p id="msg-superior-rede" class="chart-message superior-chart-message hidden" role="status" aria-live="polite">Não há dados disponíveis para esta localidade no período selecionado.</p>
+                <p class="source-note superior-source-note superior-rede-source-note">Fonte: INEP — Censo da Educação Superior | 2015–2024</p>
+            </div>
+
+            <aside class="superior-rede-sidebar" aria-label="Composição da rede pública no último ano disponível">
+                <h3 class="superior-rede-sidebar-title"><span>REDE PÚBLICA</span><span>NO ÚLTIMO ANO DISPONÍVEL</span></h3>
+                <div class="superior-rede-breakdown">
+                    <article class="superior-rede-breakdown-item">
+                        <span class="superior-rede-breakdown-label">FEDERAL</span>
+                        <strong class="superior-rede-breakdown-value" id="sup-publica-federal">—</strong>
+                    </article>
+                    <article class="superior-rede-breakdown-item">
+                        <span class="superior-rede-breakdown-label">ESTADUAL</span>
+                        <strong class="superior-rede-breakdown-value" id="sup-publica-estadual">—</strong>
+                    </article>
+                    <article class="superior-rede-breakdown-item">
+                        <span class="superior-rede-breakdown-label">MUNICIPAL</span>
+                        <strong class="superior-rede-breakdown-value" id="sup-publica-municipal">—</strong>
+                    </article>
+                </div>
+            </aside>
         </div>
     </section>
 

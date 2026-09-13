@@ -1507,6 +1507,194 @@ body.hero-active .hero-copy {
     max-width: 38ch;
 }
 
+#slide-11 .slide-content {
+    width: min(1380px, 100%);
+}
+
+#slide-11 .superior-rede-shell {
+    min-height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 32%) minmax(0, 45%) minmax(0, 23%);
+    gap: clamp(28px, 2.5vw, 50px);
+    align-items: center;
+}
+
+#slide-11 .superior-rede-content,
+#slide-11 .superior-rede-chart-area,
+#slide-11 .superior-rede-sidebar {
+    min-width: 0;
+}
+
+#slide-11 .superior-rede-content {
+    gap: clamp(0.9rem, 1.8vh, 1.45rem);
+}
+
+#slide-11 .superior-rede-title {
+    width: 100%;
+    max-width: 8.8ch;
+    min-width: 0;
+    font-size: clamp(2.6rem, 3.8vw, 4.6rem);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+}
+
+#slide-11 .superior-rede-intro {
+    max-width: 26ch;
+}
+
+#slide-11 .superior-rede-highlights {
+    display: grid;
+    width: min(100%, 360px);
+    margin-top: clamp(0.2rem, 0.8vh, 0.45rem);
+}
+
+#slide-11 .superior-rede-highlight {
+    display: grid;
+    gap: 0.38rem;
+    padding: clamp(0.82rem, 1.45vh, 1rem) 0;
+    border-top: 1px solid rgba(221, 201, 174, 0.26);
+}
+
+#slide-11 .superior-rede-highlight:last-child {
+    border-bottom: 1px solid rgba(221, 201, 174, 0.26);
+}
+
+#slide-11 .superior-rede-highlight-label,
+#slide-11 .superior-rede-breakdown-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(221, 201, 174, 0.92);
+}
+
+#slide-11 .superior-rede-highlight-text {
+    margin: 0;
+    max-width: 20ch;
+    font-family: var(--serif-display);
+    font-size: clamp(1.2rem, 1.75vw, 1.7rem);
+    line-height: 1.08;
+    color: var(--marfim);
+}
+
+#slide-11 .superior-rede-chart-area {
+    width: 100%;
+    justify-self: stretch;
+    min-width: 0;
+    overflow: visible;
+    gap: clamp(0.95rem, 1.7vh, 1.3rem);
+    padding: clamp(0.35rem, 0.7vh, 0.6rem) 0;
+}
+
+#slide-11 .superior-rede-chart-area::before {
+    display: none;
+}
+
+#slide-11 .superior-rede-chart-header {
+    width: 100%;
+    max-width: 100%;
+}
+
+#slide-11 .superior-rede-chart-title {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(1.9rem, 2.75vw, 3rem);
+    white-space: normal;
+}
+
+#slide-11 .superior-rede-chart-subtitle {
+    max-width: 36ch;
+}
+
+#slide-11 .superior-rede-chart-wrapper {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.2rem 0 0;
+    height: clamp(320px, 50vh, 540px);
+}
+
+#slide-11 .superior-rede-chart-wrapper::before {
+    content: "";
+    display: block;
+    width: min(180px, 24%);
+    height: 1px;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, rgba(244, 238, 228, 0.52), rgba(244, 238, 228, 0));
+}
+
+#slide-11 .superior-rede-chart-wrapper canvas {
+    background: transparent !important;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#slide-11 .superior-rede-source-note,
+#slide-11 .superior-chart-message {
+    margin-top: 0;
+    color: rgba(247, 241, 232, 0.62);
+}
+
+#slide-11 .superior-rede-source-note {
+    font-size: 0.8rem;
+}
+
+#slide-11 .superior-chart-message {
+    font-size: 0.9rem;
+}
+
+#slide-11 .superior-rede-sidebar {
+    display: grid;
+    align-content: center;
+    gap: clamp(1rem, 1.8vh, 1.35rem);
+    padding-left: clamp(22px, 2vw, 32px);
+    border-left: 1px solid rgba(216, 176, 106, 0.18);
+}
+
+#slide-11 .superior-rede-sidebar-title {
+    margin: 0;
+    display: grid;
+    gap: 0.18rem;
+    font-size: clamp(0.92rem, 1.04vw, 1.06rem);
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(247, 241, 232, 0.82);
+}
+
+#slide-11 .superior-rede-sidebar-title span {
+    display: block;
+}
+
+#slide-11 .superior-rede-breakdown {
+    display: grid;
+}
+
+#slide-11 .superior-rede-breakdown-item {
+    display: grid;
+    gap: 0.42rem;
+    padding: clamp(0.9rem, 1.5vh, 1.05rem) 0;
+    border-top: 1px solid rgba(221, 201, 174, 0.22);
+}
+
+#slide-11 .superior-rede-breakdown-item:last-child {
+    border-bottom: 1px solid rgba(221, 201, 174, 0.22);
+}
+
+#slide-11 .superior-rede-breakdown-value {
+    display: block;
+    font-family: var(--serif-display);
+    font-size: clamp(1.85rem, 2.35vw, 2.7rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    color: var(--marfim);
+}
+
 .slide-duality::before {
     background:
         linear-gradient(112deg, rgba(20, 3, 4, 0.96) 0%, rgba(34, 5, 7, 0.92) 34%, rgba(55, 9, 12, 0.76) 66%, rgba(61, 9, 12, 0.54) 100%),
@@ -2404,7 +2592,8 @@ select {
     #slide-4 .access-chart-wrapper,
     #slide-5 .access-chart-wrapper,
     #slide-7 .modalidades-chart-wrapper,
-    #slide-9 .superior-chart-wrapper {
+    #slide-9 .superior-chart-wrapper,
+    #slide-11 .superior-rede-chart-wrapper {
         height: clamp(280px, 44vh, 440px);
     }
 
@@ -2424,6 +2613,26 @@ select {
     :is(#slide-9, #slide-10) .superior-intro,
     :is(#slide-9, #slide-10) .superior-chart-subtitle {
         max-width: 100%;
+    }
+
+    #slide-11 .superior-rede-shell {
+        grid-template-columns: minmax(0, 32%) minmax(0, 44%) minmax(0, 24%);
+        gap: clamp(24px, 2vw, 36px);
+    }
+
+    #slide-11 .superior-rede-title,
+    #slide-11 .superior-rede-chart-title {
+        max-width: 100%;
+    }
+
+    #slide-11 .superior-rede-intro,
+    #slide-11 .superior-rede-chart-subtitle,
+    #slide-11 .superior-rede-highlight-text {
+        max-width: 100%;
+    }
+
+    #slide-11 .superior-rede-sidebar {
+        padding-left: clamp(18px, 1.8vw, 26px);
     }
 
     #slide-9 .superior-metrics {
@@ -2552,7 +2761,8 @@ select {
     #slide-4 .access-chart-wrapper,
     #slide-5 .access-chart-wrapper,
     #slide-7 .modalidades-chart-wrapper,
-    #slide-9 .superior-chart-wrapper {
+    #slide-9 .superior-chart-wrapper,
+    #slide-11 .superior-rede-chart-wrapper {
         height: clamp(260px, 46vh, 440px);
     }
 
@@ -2593,6 +2803,27 @@ select {
 
     :is(#slide-9, #slide-10) .superior-intro {
         font-size: clamp(0.92rem, 1.08vw, 1rem);
+    }
+
+    #slide-11 .superior-rede-shell {
+        grid-template-columns: minmax(0, 32%) minmax(0, 43%) minmax(0, 25%);
+        gap: clamp(24px, 2vw, 34px);
+    }
+
+    #slide-11 .superior-rede-title {
+        font-size: clamp(2.35rem, 3.45vw, 3.7rem);
+    }
+
+    #slide-11 .superior-rede-chart-title {
+        font-size: clamp(1.82rem, 2.35vw, 2.7rem);
+    }
+
+    #slide-11 .superior-rede-intro {
+        font-size: clamp(0.92rem, 1.08vw, 1rem);
+    }
+
+    #slide-11 .superior-rede-breakdown-value {
+        font-size: clamp(1.7rem, 2.1vw, 2.35rem);
     }
 
     .duality-shell {
@@ -2939,6 +3170,29 @@ select {
 
     .contemporary-axis {
         gap: 0.6rem;
+    }
+
+    #slide-11 .superior-rede-shell {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.4rem;
+        align-items: start;
+    }
+
+    #slide-11 .superior-rede-title,
+    #slide-11 .superior-rede-intro,
+    #slide-11 .superior-rede-highlight-text,
+    #slide-11 .superior-rede-chart-subtitle {
+        max-width: 100%;
+    }
+
+    #slide-11 .superior-rede-chart-wrapper {
+        height: clamp(280px, 44vh, 380px);
+    }
+
+    #slide-11 .superior-rede-sidebar {
+        padding-left: 0;
+        border-left: 0;
+        padding-top: 0.25rem;
     }
 
     #slide-9 .superior-metric-value {
