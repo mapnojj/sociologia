@@ -152,7 +152,7 @@
 
             <div class="intro-layout">
                 <figure class="intro-photo">
-                    <img src="{{ url_for('static', filename='img/capa-bg.jpg') }}" alt="" aria-hidden="true">
+                    <img src="{{ url_for('static', filename='img/capa-bg.jpg') }}" alt="Fotografia arquitetônica">
                 </figure>
 
                 <aside class="dilemmas-panel">
@@ -198,29 +198,21 @@
             </div>
 
             <div class="slide-3-legacy" aria-hidden="true">
-                <p class="dynamic-location" id="localidade-atual">Brasil</p>
-
-                <div class="inline-controls">
-                    <label for="indicador-geral">Indicador</label>
-                    <select id="indicador-geral">
-                        <option value="Creche">Creche</option>
-                        <option value="Pre_Escola">Pré-escola</option>
-                        <option value="Fundamental_Total">Ensino Fundamental</option>
-                        <option value="Ensino_Medio_Total">Ensino Médio</option>
-                        <option value="EJA_Total">EJA</option>
-                        <option value="Educacao_Profissional">Educação Profissional</option>
-                        <option value="Educacao_Especial">Educação Especial</option>
-                    </select>
-                </div>
-
-                <div class="cards-grid">
-                    <article class="metric-card"><span>2015</span><strong id="card-2015">—</strong></article>
-                    <article class="metric-card"><span>2025</span><strong id="card-2025">—</strong></article>
-                    <article class="metric-card"><span>Variação absoluta</span><strong id="card-var-abs">—</strong></article>
-                    <article class="metric-card"><span>Variação percentual</span><strong id="card-var-pct">—</strong></article>
-                </div>
-
-                <div class="chart-wrap large"><canvas id="chart-evolucao-geral"></canvas></div>
+                <span id="localidade-atual">Brasil</span>
+                <select id="indicador-geral" tabindex="-1">
+                    <option value="Creche">Creche</option>
+                    <option value="Pre_Escola">Pré-escola</option>
+                    <option value="Fundamental_Total">Ensino Fundamental</option>
+                    <option value="Ensino_Medio_Total">Ensino Médio</option>
+                    <option value="EJA_Total">EJA</option>
+                    <option value="Educacao_Profissional">Educação Profissional</option>
+                    <option value="Educacao_Especial">Educação Especial</option>
+                </select>
+                <span id="card-2015">—</span>
+                <span id="card-2025">—</span>
+                <span id="card-var-abs">—</span>
+                <span id="card-var-pct">—</span>
+                <canvas id="chart-evolucao-geral"></canvas>
             </div>
         </div>
     </section>

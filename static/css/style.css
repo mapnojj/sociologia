@@ -936,6 +936,12 @@ body.hero-active .hero-copy {
     pointer-events: none;
 }
 
+.slide-3-legacy canvas,
+.slide-3-legacy select {
+    width: 1px !important;
+    height: 1px !important;
+}
+
 .eyebrow {
     font-size: 0.85rem;
     letter-spacing: 0.12rem;
