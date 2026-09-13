@@ -2607,6 +2607,16 @@ select {
     gap: clamp(56px, 6vw, 100px);
 }
 
+#slide-13.slide-access::before {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#slide-13.slide-access::after {
+    inset: 1.2rem;
+}
+
 #slide-13 .financiamento-content,
 #slide-13 .financiamento-debate {
     min-width: 0;
@@ -3579,7 +3589,7 @@ select {
         padding: 7.2rem 5vw 2rem;
     }
 
-    #slide-13::after {
+    #slide-13.slide-access::after {
         inset: 0.8rem;
     }
 
