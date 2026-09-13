@@ -2499,6 +2499,7 @@ select {
         position: static;
         grid-column: 2;
         grid-row: 2;
+        right: auto;
         width: 100%;
         display: block;
         pointer-events: auto;
