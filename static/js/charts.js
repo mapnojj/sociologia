@@ -109,6 +109,60 @@
         };
     }
 
+    function createSuperiorModalidadeOptions() {
+        const options = withEditorialTheme(baseOptions());
+        return {
+            ...options,
+            plugins: {
+                ...options.plugins,
+                legend: {
+                    ...options.plugins.legend,
+                    position: "top",
+                    align: "start",
+                    labels: {
+                        ...options.plugins.legend.labels,
+                        color: "rgba(247, 241, 232, 0.92)",
+                        boxWidth: 8,
+                        boxHeight: 8,
+                        padding: 14
+                    }
+                },
+                tooltip: {
+                    ...options.plugins.tooltip,
+                    backgroundColor: "rgba(43, 5, 7, 0.92)",
+                    titleColor: "#f4eee4",
+                    bodyColor: "#f4eee4",
+                    borderColor: "rgba(168, 120, 56, 0.64)",
+                    borderWidth: 1
+                }
+            },
+            scales: {
+                x: {
+                    ...options.scales.x,
+                    ticks: {
+                        ...options.scales.x.ticks,
+                        color: "rgba(247, 241, 232, 0.8)"
+                    },
+                    grid: {
+                        ...options.scales.x.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                },
+                y: {
+                    ...options.scales.y,
+                    ticks: {
+                        ...options.scales.y.ticks,
+                        color: "rgba(247, 241, 232, 0.8)"
+                    },
+                    grid: {
+                        ...options.scales.y.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                }
+            }
+        };
+    }
+
     function withEditorialTheme(options = baseOptions()) {
         return {
             ...options,
@@ -164,13 +218,14 @@
         };
     }
 
-    function editorialLineDataset(label, data, color) {
+    function editorialLineDataset(label, data, color, extras = {}) {
         return lineDataset(label, data, color, false, {
             borderWidth: 2.8,
             pointRadius: 3,
             pointHoverRadius: 5,
             pointBackgroundColor: color,
-            pointBorderColor: color
+            pointBorderColor: color,
+            ...extras
         });
     }
 
@@ -267,7 +322,7 @@
         charts.superiorModalidade = new Chart(document.getElementById("chart-superior-modalidade"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: createSuperiorModalidadeOptions()
         });
 
         charts.superiorRede = new Chart(document.getElementById("chart-superior-rede"), {
@@ -362,13 +417,17 @@
         const ead = chartData(payload, "Matriculas_EAD");
 
         updateChart(charts.superiorModalidade, payload.anos, [
-            lineDataset("Presencial", presencial, palette.blue, false, {
+            editorialLineDataset("Presencial", presencial, "#f4eee4", {
                 pointRadius: highlightedPoints(presencial),
-                pointHoverRadius: highlightedPoints(presencial, 4, 7)
+                pointHoverRadius: highlightedPoints(presencial, 4, 7),
+                pointBackgroundColor: "#f4eee4",
+                pointBorderColor: "#f4eee4"
             }),
-            lineDataset("EaD", ead, palette.purple, false, {
+            editorialLineDataset("EaD", ead, "#a87838", {
                 pointRadius: highlightedPoints(ead),
-                pointHoverRadius: highlightedPoints(ead, 4, 7)
+                pointHoverRadius: highlightedPoints(ead, 4, 7),
+                pointBackgroundColor: "#a87838",
+                pointBorderColor: "#a87838"
             })
         ]);
     }
