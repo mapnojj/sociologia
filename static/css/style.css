@@ -2653,7 +2653,8 @@ select {
 #slide-13 .financiamento-charge {
     display: block;
     width: 100%;
-    height: clamp(290px, 49vh, 560px);
+    height: auto;
+    max-height: clamp(290px, 49vh, 560px);
     object-fit: contain;
     object-position: left top;
 }
@@ -2990,6 +2991,11 @@ select {
 
     #slide-13 .financiamento-debate {
         gap: 1.2rem;
+    }
+
+    #slide-13 .financiamento-argumento-texto {
+        font-size: clamp(0.98rem, 1.7vw, 1.14rem);
+        line-height: 1.52;
     }
 
     #slide-8.slide-transition-editorial {
