@@ -1080,6 +1080,9 @@ body.hero-active .hero-copy {
 
 #slide-4 .access-chart-wrapper canvas {
     background: transparent !important;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .slide-3-legacy {
