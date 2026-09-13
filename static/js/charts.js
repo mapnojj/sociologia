@@ -42,6 +42,62 @@
         };
     }
 
+    function infantilOptions() {
+        const options = baseOptions();
+        return {
+            ...options,
+            plugins: {
+                ...options.plugins,
+                legend: {
+                    ...options.plugins.legend,
+                    labels: {
+                        ...options.plugins.legend.labels,
+                        color: "rgba(247, 241, 232, 0.9)",
+                        boxWidth: 10,
+                        boxHeight: 10,
+                        usePointStyle: true,
+                        pointStyle: "circle",
+                        padding: 18
+                    }
+                },
+                tooltip: {
+                    ...options.plugins.tooltip,
+                    backgroundColor: "rgba(43, 5, 7, 0.95)",
+                    titleColor: "#f4eee4",
+                    bodyColor: "#f4eee4",
+                    borderColor: "rgba(168, 120, 56, 0.65)",
+                    borderWidth: 1
+                }
+            },
+            scales: {
+                x: {
+                    ...options.scales.x,
+                    border: { color: "rgba(247, 241, 232, 0.18)" },
+                    ticks: {
+                        ...options.scales.x.ticks,
+                        color: "rgba(247, 241, 232, 0.85)"
+                    },
+                    grid: {
+                        ...options.scales.x.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                },
+                y: {
+                    ...options.scales.y,
+                    border: { color: "rgba(247, 241, 232, 0.18)" },
+                    ticks: {
+                        ...options.scales.y.ticks,
+                        color: "rgba(247, 241, 232, 0.85)"
+                    },
+                    grid: {
+                        ...options.scales.y.grid,
+                        color: "rgba(247, 241, 232, 0.10)"
+                    }
+                }
+            }
+        };
+    }
+
     function lineDataset(label, data, color, dashed = false, extras = {}) {
         return {
             label,
@@ -99,7 +155,7 @@
         charts.infantil = new Chart(document.getElementById("chart-infantil"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: infantilOptions()
         });
 
         charts.fundamentalEvolucao = new Chart(document.getElementById("chart-fundamental-evolucao"), {
@@ -165,8 +221,20 @@
 
     function updateInfantil(payload) {
         updateChart(charts.infantil, payload.anos, [
-            lineDataset("Creche", chartData(payload, "Creche"), palette.blue),
-            lineDataset("Pré-escola", chartData(payload, "Pre_Escola"), palette.cyan)
+            lineDataset("Creche", chartData(payload, "Creche"), "#d8b06a", false, {
+                borderWidth: 2.8,
+                pointRadius: 3,
+                pointHoverRadius: 5,
+                pointBackgroundColor: "#d8b06a",
+                pointBorderColor: "#d8b06a"
+            }),
+            lineDataset("Pré-escola", chartData(payload, "Pre_Escola"), "#f4eee4", false, {
+                borderWidth: 2.8,
+                pointRadius: 3,
+                pointHoverRadius: 5,
+                pointBackgroundColor: "#f4eee4",
+                pointBorderColor: "#f4eee4"
+            })
         ]);
     }
 
