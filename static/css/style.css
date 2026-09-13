@@ -1342,6 +1342,8 @@ select {
     .institutional-watermark {
         top: 20px;
         right: 20px;
+        width: clamp(60px, 18vw, 85px);
+        opacity: 0.16;
     }
 
     .slide-summary {
