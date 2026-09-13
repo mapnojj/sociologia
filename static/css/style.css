@@ -2435,7 +2435,6 @@ select {
     min-height: 100vh;
     min-height: 100dvh;
     position: relative;
-    overflow: hidden;
     padding: clamp(5.8rem, 9.5vh, 7.1rem) 7vw clamp(2.2rem, 4.4vh, 3.4rem);
     color: var(--texto-claro);
 }
@@ -2521,6 +2520,7 @@ select {
 
 #slide-8 .transition-editorial-art {
     position: relative;
+    overflow: hidden;
     justify-self: end;
     width: min(100%, 620px);
     height: clamp(380px, 58vh, 620px);
