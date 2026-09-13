@@ -1508,7 +1508,7 @@ body.hero-active .hero-copy {
 }
 
 #slide-11 .slide-content {
-    width: min(100% - clamp(120px, 10vw, 190px), 1680px);
+    width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
     max-width: none;
     margin-inline: auto;
     position: relative;
