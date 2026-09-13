@@ -2502,12 +2502,6 @@ select {
 }
 
 @media (max-width: 1450px) {
-    #slide-5 .fundamental-layout {
-        grid-template-columns: minmax(300px, 34%) minmax(0, 66%);
-        column-gap: clamp(70px, 5vw, 110px);
-        row-gap: clamp(1rem, 2vh, 1.4rem);
-    }
-
     #slide-5 .fundamental-title {
         font-size: clamp(2.4rem, 3.8vw, 4rem);
     }
@@ -2852,8 +2846,8 @@ select {
     }
 
     #slide-5 .fundamental-layout {
-        grid-template-columns: minmax(300px, 34%) minmax(0, 66%);
-        column-gap: clamp(70px, 5vw, 110px);
+        grid-template-columns: minmax(280px, 36%) minmax(0, 64%);
+        column-gap: clamp(48px, 4vw, 72px);
         row-gap: clamp(0.9rem, 1.6vh, 1.2rem);
     }
 
