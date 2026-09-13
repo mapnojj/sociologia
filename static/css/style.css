@@ -2574,8 +2574,7 @@ select {
 #slide-8 .transition-editorial-circle::after {
     inset: 0;
     background: repeating-linear-gradient(180deg, rgba(244, 238, 228, 0.07) 0 1px, transparent 1px 14px);
-    mix-blend-mode: screen;
-    opacity: 0.48;
+    opacity: 0.34;
 }
 
 #slide-8 .transition-editorial-circle-lg {
