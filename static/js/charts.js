@@ -418,14 +418,14 @@
 
         updateChart(charts.superiorModalidade, payload.anos, [
             editorialLineDataset("Presencial", presencial, "#f4eee4", {
-                pointRadius: highlightedPoints(presencial),
-                pointHoverRadius: highlightedPoints(presencial, 4, 7),
+                pointRadius: highlightedPoints(presencial, 2.2, 3.4),
+                pointHoverRadius: highlightedPoints(presencial, 3.6, 5.2),
                 pointBackgroundColor: "#f4eee4",
                 pointBorderColor: "#f4eee4"
             }),
             editorialLineDataset("EaD", ead, "#a87838", {
-                pointRadius: highlightedPoints(ead),
-                pointHoverRadius: highlightedPoints(ead, 4, 7),
+                pointRadius: highlightedPoints(ead, 2.2, 3.4),
+                pointHoverRadius: highlightedPoints(ead, 3.6, 5.2),
                 pointBackgroundColor: "#a87838",
                 pointBorderColor: "#a87838"
             })
