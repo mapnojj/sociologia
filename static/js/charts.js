@@ -164,13 +164,13 @@
         charts.infantil = new Chart(document.getElementById("chart-infantil"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: withEditorialTheme(baseOptions())
+            options: withEditorialTheme(options)
         });
 
         charts.fundamentalEvolucao = new Chart(document.getElementById("chart-fundamental-evolucao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options: withEditorialTheme(baseOptions())
+            options: withEditorialTheme(options)
         });
 
         charts.medioEvolucao = new Chart(document.getElementById("chart-medio-evolucao"), {
