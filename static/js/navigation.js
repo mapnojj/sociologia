@@ -2,6 +2,7 @@
     document.addEventListener("DOMContentLoaded", () => {
         const slides = [...document.querySelectorAll(".slide")];
         const navDots = document.getElementById("nav-dots");
+        const globalControls = document.getElementById("global-controls");
 
         if (!slides.length || !navDots) return;
 
@@ -23,6 +24,13 @@
             currentIndex = index;
             dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
             document.body.classList.toggle("hero-active", index === 0);
+
+            if (globalControls) {
+                const shouldHideGlobalControls = slides[index]?.dataset.hideGlobalControls === "true";
+                globalControls.classList.toggle("controls-hidden", shouldHideGlobalControls);
+                globalControls.toggleAttribute("inert", shouldHideGlobalControls);
+                globalControls.setAttribute("aria-hidden", shouldHideGlobalControls ? "true" : "false");
+            }
         }
 
         function scrollToSlide(index) {
