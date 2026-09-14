@@ -3943,16 +3943,13 @@ select {
         padding-bottom: clamp(6.5rem, 9vh, 7.5rem);
     }
 
-    .slide-conclusao .conclusao-header,
     .slide-conclusao .conclusao-circle {
         position: relative;
     }
 
     .slide-conclusao .conclusao-header {
-        left: auto;
-        transform: none;
-        display: grid;
-        justify-items: center;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .slide-conclusao .conclusao-title {
