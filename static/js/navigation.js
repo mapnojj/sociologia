@@ -55,6 +55,10 @@
 
                 globalControls.setAttribute("aria-hidden", shouldHideGlobalControls ? "true" : "false");
             }
+
+            if (activeSlide?.id === "slide-14" && window.ChartManager?.refreshFinanciamento20A) {
+                requestAnimationFrame(() => window.ChartManager.refreshFinanciamento20A());
+            }
         }
 
         function scrollToSlide(index) {
