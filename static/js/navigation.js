@@ -36,7 +36,7 @@
             if (globalControls) {
                 const shouldHideGlobalControls = activeSlide?.dataset.hideGlobalControls === "true";
 
-                if (shouldHideGlobalControls && globalControls.contains(document.activeElement) && activeSlide) {
+                if (shouldHideGlobalControls && activeSlide) {
                     const needsTemporaryTabIndex = !activeSlide.hasAttribute("tabindex");
 
                     if (needsTemporaryTabIndex) {
