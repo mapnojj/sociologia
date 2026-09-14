@@ -3892,7 +3892,6 @@ select {
 
     .slide-pacotes-padroes .pacotes-padroes-panel {
         width: min(100%, 720px);
-        max-width: 720px;
     }
 
     .slide-pacotes-padroes .pacotes-padroes-circle-left,
