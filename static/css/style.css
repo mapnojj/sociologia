@@ -2250,6 +2250,12 @@ h2 {
     box-sizing: border-box;
 }
 
+#global-controls.controls-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 @supports ((-webkit-backdrop-filter: blur(14px)) or (backdrop-filter: blur(14px))) {
     .territorial-selector {
         background: linear-gradient(180deg, rgba(43, 5, 7, 0.78), rgba(67, 9, 12, 0.64));
@@ -3195,6 +3201,122 @@ select {
         linear-gradient(150deg, rgba(111, 36, 30, 0.35), rgba(43, 5, 7, 0.22));
 }
 
+.slide-conclusao .conclusao-stage {
+    position: relative;
+    width: min(calc(100% - clamp(12px, 1.6vw, 28px)), 1580px);
+    max-width: none;
+    min-height: clamp(640px, 82vh, 900px);
+    margin-inline: auto;
+    display: grid;
+    justify-items: center;
+    align-content: start;
+    padding-top: clamp(0.6rem, 1.6vh, 1.4rem);
+    overflow: visible;
+}
+
+.slide-conclusao .conclusao-header,
+.slide-conclusao .conclusao-circle,
+.slide-conclusao .conclusao-closing-line {
+    position: absolute;
+}
+
+.slide-conclusao .conclusao-header {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: max-content;
+    max-width: min(92vw, 700px);
+}
+
+.slide-conclusao .conclusao-title {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    line-height: 0.96;
+    letter-spacing: 0.04em;
+    color: var(--marfim);
+}
+
+.slide-conclusao .conclusao-question {
+    position: relative;
+    z-index: 2;
+    width: min(900px, 65vw);
+    margin-top: clamp(11rem, 21vh, 15rem);
+    display: grid;
+    gap: clamp(0.1rem, 0.55vh, 0.45rem);
+    font-family: var(--serif-display);
+    font-size: clamp(30px, 2.5vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--marfim);
+    text-wrap: balance;
+}
+
+.slide-conclusao .conclusao-line {
+    display: block;
+}
+
+.slide-conclusao .conclusao-line-emphasis {
+    font-weight: 600;
+}
+
+.slide-conclusao .conclusao-line-highlight {
+    color: rgba(221, 201, 174, 0.98);
+    font-weight: 700;
+}
+
+.slide-conclusao .conclusao-circle {
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.slide-conclusao .conclusao-circle-title {
+    top: clamp(12px, 1.8vh, 28px);
+    left: calc(50% - clamp(260px, 16vw, 330px));
+    z-index: 1;
+    width: clamp(88px, 7.6vw, 132px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(216, 176, 106, 0.34);
+    background:
+        radial-gradient(circle at 34% 30%, rgba(244, 238, 228, 0.18), transparent 58%),
+        linear-gradient(155deg, rgba(186, 128, 56, 0.44), rgba(110, 36, 29, 0.2));
+    box-shadow: 0 20px 46px rgba(8, 2, 2, 0.16);
+}
+
+.slide-conclusao .conclusao-circle-left {
+    bottom: clamp(74px, 10vh, 120px);
+    left: clamp(10px, 4vw, 60px);
+    z-index: 0;
+    width: clamp(66px, 5.4vw, 96px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(133, 81, 39, 0.42);
+    background:
+        radial-gradient(circle at 32% 30%, rgba(216, 176, 106, 0.18), transparent 56%),
+        linear-gradient(150deg, rgba(111, 36, 30, 0.28), rgba(45, 6, 8, 0.08));
+}
+
+.slide-conclusao .conclusao-circle-right {
+    right: clamp(34px, 7vw, 118px);
+    bottom: clamp(156px, 22vh, 230px);
+    z-index: 0;
+    width: clamp(42px, 3.6vw, 64px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(216, 176, 106, 0.36);
+    background:
+        radial-gradient(circle at 30% 30%, rgba(244, 238, 228, 0.16), transparent 56%),
+        linear-gradient(145deg, rgba(174, 103, 54, 0.3), rgba(67, 9, 12, 0.12));
+}
+
+.slide-conclusao .conclusao-closing-line {
+    left: 50%;
+    bottom: clamp(48px, 7vh, 86px);
+    z-index: 1;
+    width: clamp(160px, 16vw, 240px);
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, rgba(216, 176, 106, 0), rgba(216, 176, 106, 0.8) 50%, rgba(216, 176, 106, 0));
+}
+
 .transition-note {
     margin: 0.4rem 0 1rem;
     color: var(--muted);
@@ -3348,6 +3470,15 @@ select {
 
     .slide-pacotes-padroes .pacotes-padroes-circle-right {
         right: calc(-1 * clamp(66px, 7vw, 120px));
+    }
+
+    .slide-conclusao .conclusao-question {
+        width: min(880px, 68vw);
+        margin-top: clamp(10.5rem, 20vh, 14rem);
+    }
+
+    .slide-conclusao .conclusao-circle-title {
+        left: calc(50% - clamp(238px, 15vw, 302px));
     }
 
     .slide-transition-editorial .transition-editorial-layout {
@@ -3510,6 +3641,19 @@ select {
         top: clamp(378px, 52vh, 458px);
         right: calc(-1 * clamp(52px, 8vw, 102px));
         width: clamp(160px, 13vw, 220px);
+    }
+
+    .slide-conclusao .conclusao-stage {
+        width: 100%;
+    }
+
+    .slide-conclusao .conclusao-question {
+        width: min(840px, 72vw);
+        margin-top: clamp(10rem, 18vh, 13rem);
+    }
+
+    .slide-conclusao .conclusao-circle-left {
+        left: clamp(0px, 2vw, 24px);
     }
 
     .slide-educacao-ato-politico .educacao-ato-politico-stage {
@@ -3743,6 +3887,60 @@ select {
 
     .slide-pacotes-padroes .pacotes-padroes-circle-title {
         display: none;
+    }
+
+    .slide-conclusao {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 5.2rem 6vw 2.3rem;
+    }
+
+    .slide-conclusao .conclusao-stage {
+        min-height: auto;
+        padding-top: clamp(0.4rem, 1vh, 0.9rem);
+        padding-bottom: clamp(6.5rem, 9vh, 7.5rem);
+    }
+
+    .slide-conclusao .conclusao-header,
+    .slide-conclusao .conclusao-circle,
+    .slide-conclusao .conclusao-closing-line {
+        position: relative;
+    }
+
+    .slide-conclusao .conclusao-header {
+        left: auto;
+        transform: none;
+        display: grid;
+        justify-items: center;
+    }
+
+    .slide-conclusao .conclusao-title {
+        font-size: clamp(2.7rem, 7vw, 4rem);
+    }
+
+    .slide-conclusao .conclusao-question {
+        width: min(100%, 760px);
+        margin-top: clamp(3.5rem, 6vh, 4.5rem);
+        text-align: center;
+        text-wrap: pretty;
+    }
+
+    .slide-conclusao .conclusao-circle-title {
+        margin: 0 auto calc(-1 * clamp(66px, 8vw, 84px));
+        left: auto;
+        top: auto;
+    }
+
+    .slide-conclusao .conclusao-circle-left,
+    .slide-conclusao .conclusao-circle-right {
+        display: none;
+    }
+
+    .slide-conclusao .conclusao-closing-line {
+        left: auto;
+        bottom: auto;
+        margin-top: clamp(2.8rem, 5vh, 3.6rem);
+        transform: none;
     }
 
     .slide-educacao-ato-politico {
@@ -4484,6 +4682,31 @@ select {
         top: 18%;
         right: 42%;
         width: clamp(34px, 9vw, 48px);
+    }
+
+    .slide-conclusao {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 7.2rem 5vw 2rem;
+    }
+
+    .slide-conclusao .conclusao-title {
+        font-size: clamp(2.2rem, 10vw, 3rem);
+    }
+
+    .slide-conclusao .conclusao-question {
+        width: min(100%, 34rem);
+        margin-top: clamp(3rem, 5vh, 4rem);
+        font-size: clamp(1.8rem, 6vw, 2.45rem);
+    }
+
+    .slide-conclusao .conclusao-circle-title {
+        width: clamp(72px, 18vw, 96px);
+        margin-bottom: calc(-1 * clamp(54px, 10vw, 70px));
+    }
+
+    .slide-conclusao .conclusao-closing-line {
+        width: clamp(132px, 34vw, 190px);
     }
 
     .slide-educacao-ato-politico {

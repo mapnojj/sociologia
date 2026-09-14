@@ -2,6 +2,7 @@
     document.addEventListener("DOMContentLoaded", () => {
         const slides = [...document.querySelectorAll(".slide")];
         const navDots = document.getElementById("nav-dots");
+        const globalControls = document.getElementById("global-controls");
 
         if (!slides.length || !navDots) return;
 
@@ -20,9 +21,40 @@
         const scrollHint = document.getElementById("scroll-hint");
 
         function setActive(index) {
+            const previousSlide = slides[currentIndex];
             currentIndex = index;
+            const activeSlide = slides[index];
+
+            if (previousSlide && previousSlide !== activeSlide && previousSlide.dataset.temporaryTabindex === "true") {
+                previousSlide.removeAttribute("tabindex");
+                delete previousSlide.dataset.temporaryTabindex;
+            }
+
             dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
             document.body.classList.toggle("hero-active", index === 0);
+
+            if (globalControls) {
+                const shouldHideGlobalControls = activeSlide?.dataset.hideGlobalControls === "true";
+
+                if (shouldHideGlobalControls && activeSlide) {
+                    const needsTemporaryTabIndex = !activeSlide.hasAttribute("tabindex");
+
+                    if (needsTemporaryTabIndex) {
+                        activeSlide.setAttribute("tabindex", "-1");
+                        activeSlide.dataset.temporaryTabindex = "true";
+                    }
+
+                    activeSlide.focus({ preventScroll: true });
+                }
+
+                globalControls.classList.toggle("controls-hidden", shouldHideGlobalControls);
+
+                if ("inert" in globalControls) {
+                    globalControls.inert = shouldHideGlobalControls;
+                }
+
+                globalControls.setAttribute("aria-hidden", shouldHideGlobalControls ? "true" : "false");
+            }
         }
 
         function scrollToSlide(index) {
