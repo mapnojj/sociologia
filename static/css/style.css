@@ -3279,8 +3279,7 @@ select {
 }
 
 .slide-conclusao .conclusao-editorial-body {
-    display: grid;
-    gap: clamp(1rem, 1.8vh, 1.45rem);
+    min-width: 0;
 }
 
 .slide-conclusao .conclusao-editorial-text {
@@ -3293,6 +3292,8 @@ select {
 }
 
 .slide-conclusao .conclusao-editorial-text-final {
+    display: block;
+    margin-top: clamp(1rem, 1.8vh, 1.45rem);
     font-size: clamp(1.7rem, 2.25vw, 2.3rem);
     line-height: 1.34;
     color: rgba(247, 241, 232, 0.96);
