@@ -22,6 +22,10 @@
         absolutos: {
             0: "R$ 437,8 bi",
             7: "R$ 513,4 bi"
+        },
+        absolutosTooltip: {
+            0: "R$ 437,8 bilhões",
+            7: "R$ 513,4 bilhões"
         }
     };
     const financiamento20ALabelPlugin = {
@@ -317,9 +321,9 @@
             layout: {
                 padding: {
                     top: 56,
-                    right: 28,
+                    right: 74,
                     bottom: 8,
-                    left: 28
+                    left: 74
                 }
             },
             plugins: {
@@ -334,8 +338,8 @@
                     callbacks: {
                         label: (ctx) => {
                             const percentual = `${percentualFormatter.format(ctx.raw)}% do PIB`;
-                            const absoluto = financiamento20ADados.absolutos[ctx.dataIndex];
-                            return absoluto ? [percentual, `${absoluto.replace("bi", "bilhões")}`] : percentual;
+                            const absoluto = financiamento20ADados.absolutosTooltip[ctx.dataIndex];
+                            return absoluto ? [percentual, absoluto] : percentual;
                         }
                     }
                 }
