@@ -3261,12 +3261,6 @@ select {
     padding-inline: clamp(0.5rem, 1.8vw, 1.5rem);
 }
 
-.slide-conclusao .conclusao-editorial-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
 .slide-conclusao .conclusao-editorial-item {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
