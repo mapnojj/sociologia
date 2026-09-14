@@ -3253,6 +3253,7 @@ select {
 }
 
 .slide-conclusao .conclusao-editorial {
+    box-sizing: border-box;
     position: relative;
     z-index: 2;
     width: min(100%, 1040px);
