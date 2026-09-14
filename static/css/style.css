@@ -3944,7 +3944,7 @@ select {
     }
 
     .slide-conclusao .conclusao-header,
-    .slide-conclusao .conclusao-circle-title {
+    .slide-conclusao .conclusao-circle {
         position: relative;
     }
 
@@ -4747,6 +4747,7 @@ select {
     .slide-conclusao .conclusao-editorial {
         width: min(100%, 34rem);
         margin-top: clamp(1.2rem, 3vh, 1.8rem);
+        padding-inline: 0.75rem;
     }
 
     .slide-conclusao .conclusao-editorial-item {
@@ -4772,7 +4773,7 @@ select {
     }
 
     .slide-conclusao .conclusao-closing-line {
-        width: min(100%, 34rem);
+        width: min(calc(100% - 1.5rem), 34rem);
     }
 
     .slide-educacao-ato-politico {
