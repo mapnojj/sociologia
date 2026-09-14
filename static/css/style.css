@@ -939,7 +939,7 @@ body.hero-active .hero-copy {
 }
 
 .slide-access,
-#slide-13 {
+#slide-14 {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
@@ -950,8 +950,8 @@ body.hero-active .hero-copy {
 
 .slide-access::before,
 .slide-access::after,
-#slide-13::before,
-#slide-13::after {
+#slide-14::before,
+#slide-14::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -959,7 +959,7 @@ body.hero-active .hero-copy {
 }
 
 .slide-access::before,
-#slide-13::before {
+#slide-14::before {
     background:
         linear-gradient(102deg, rgba(22, 4, 5, 0.95) 0%, rgba(34, 5, 7, 0.9) 30%, rgba(56, 10, 13, 0.7) 62%, rgba(62, 10, 13, 0.48) 100%),
         radial-gradient(circle at 16% 18%, rgba(168, 120, 56, 0.14), transparent 26%),
@@ -976,7 +976,7 @@ body.hero-active .hero-copy {
 }
 
 .slide-access::after,
-#slide-13::after {
+#slide-14::after {
     inset: 1.2rem;
     border: 1px solid rgba(221, 201, 174, 0.14);
     background:
@@ -2436,7 +2436,7 @@ select {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-#slide-8.slide-transition-editorial {
+.slide-transition-editorial {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
@@ -2446,14 +2446,14 @@ select {
     color: var(--texto-claro);
 }
 
-#slide-8.slide-transition-editorial::before,
-#slide-8.slide-transition-editorial::after {
+.slide-transition-editorial::before,
+.slide-transition-editorial::after {
     content: "";
     position: absolute;
     pointer-events: none;
 }
 
-#slide-8.slide-transition-editorial::before {
+.slide-transition-editorial::before {
     inset: 0;
     background:
         radial-gradient(circle at 84% 22%, rgba(168, 120, 56, 0.16), transparent 30%),
@@ -2462,7 +2462,7 @@ select {
     z-index: -2;
 }
 
-#slide-8.slide-transition-editorial::after {
+.slide-transition-editorial::after {
     inset: 18px;
     border: 1px solid rgba(216, 176, 106, 0.15);
     background:
@@ -2472,7 +2472,7 @@ select {
     z-index: -1;
 }
 
-#slide-8 .transition-editorial-layout {
+.slide-transition-editorial .transition-editorial-layout {
     position: relative;
     width: min(1320px, 100%);
     margin: 0 auto;
@@ -2483,7 +2483,7 @@ select {
     transform: translateY(clamp(-28px, -1.5vh, -12px));
 }
 
-#slide-8 .transition-editorial-layout::before {
+.slide-transition-editorial .transition-editorial-layout::before {
     content: "";
     position: absolute;
     left: 0;
@@ -2494,13 +2494,13 @@ select {
     pointer-events: none;
 }
 
-#slide-8 .transition-editorial-copy {
+.slide-transition-editorial .transition-editorial-copy {
     position: relative;
     z-index: 2;
     max-width: min(38rem, 100%);
 }
 
-#slide-8 .transition-editorial-eyebrow {
+.slide-transition-editorial .transition-editorial-eyebrow {
     margin: 0 0 clamp(0.95rem, 1.9vh, 1.3rem);
     letter-spacing: 0.22em;
     color: rgba(221, 201, 174, 0.74);
@@ -2508,7 +2508,7 @@ select {
     font-weight: 600;
 }
 
-#slide-8 .transition-editorial-title {
+.slide-transition-editorial .transition-editorial-title {
     margin: 0;
     max-width: 12.5ch;
     font-size: clamp(2.55rem, 4.45vw, 4.85rem);
@@ -2517,11 +2517,11 @@ select {
     color: var(--marfim);
 }
 
-#slide-8 .transition-editorial-title span {
+.slide-transition-editorial .transition-editorial-title span {
     display: block;
 }
 
-#slide-8 .transition-editorial-lead {
+.slide-transition-editorial .transition-editorial-lead {
     margin: clamp(1.35rem, 2.1vh, 1.95rem) 0 0;
     max-width: min(34ch, 100%);
     font-size: clamp(0.98rem, 1.2vw, 1.16rem);
@@ -2529,7 +2529,7 @@ select {
     color: rgba(247, 241, 232, 0.8);
 }
 
-#slide-8 .transition-editorial-art {
+.slide-transition-editorial .transition-editorial-art {
     position: relative;
     overflow: hidden;
     justify-self: end;
@@ -2538,27 +2538,27 @@ select {
     z-index: 1;
 }
 
-#slide-8 .transition-editorial-line {
+.slide-transition-editorial .transition-editorial-line {
     position: absolute;
     display: block;
     background: rgba(216, 176, 106, 0.16);
 }
 
-#slide-8 .transition-editorial-line-horizontal {
+.slide-transition-editorial .transition-editorial-line-horizontal {
     top: 42%;
     left: -18%;
     width: min(580px, 100%);
     height: 1px;
 }
 
-#slide-8 .transition-editorial-line-vertical {
+.slide-transition-editorial .transition-editorial-line-vertical {
     top: 8%;
     right: 24%;
     width: 1px;
     height: 82%;
 }
 
-#slide-8 .transition-editorial-circle {
+.slide-transition-editorial .transition-editorial-circle {
     position: absolute;
     overflow: hidden;
     border: 1px solid rgba(216, 176, 106, 0.38);
@@ -2568,40 +2568,40 @@ select {
     box-shadow: 0 26px 60px rgba(8, 2, 2, 0.34);
 }
 
-#slide-8 .transition-editorial-circle::before,
-#slide-8 .transition-editorial-circle::after {
+.slide-transition-editorial .transition-editorial-circle::before,
+.slide-transition-editorial .transition-editorial-circle::after {
     content: "";
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
 }
 
-#slide-8 .transition-editorial-circle::before {
+.slide-transition-editorial .transition-editorial-circle::before {
     inset: 9%;
     border: 1px solid rgba(216, 176, 106, 0.16);
 }
 
-#slide-8 .transition-editorial-circle::after {
+.slide-transition-editorial .transition-editorial-circle::after {
     inset: 0;
     background: repeating-linear-gradient(180deg, rgba(244, 238, 228, 0.07) 0 1px, transparent 1px 14px);
     opacity: 0.34;
 }
 
-#slide-8 .transition-editorial-circle-lg {
+.slide-transition-editorial .transition-editorial-circle-lg {
     width: clamp(320px, 25vw, 520px);
     aspect-ratio: 1;
     top: 7%;
     right: 2%;
 }
 
-#slide-8 .transition-editorial-circle-sm {
+.slide-transition-editorial .transition-editorial-circle-sm {
     width: clamp(180px, 14vw, 300px);
     aspect-ratio: 1;
     right: clamp(28%, 18vw, 40%);
     bottom: 12%;
 }
 
-#slide-13 .financiamento-layout {
+#slide-14 .financiamento-layout {
     display: grid;
     width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
     max-width: none;
@@ -2611,30 +2611,30 @@ select {
     gap: clamp(56px, 6vw, 100px);
 }
 
-#slide-13 .financiamento-content,
-#slide-13 .financiamento-debate {
+#slide-14 .financiamento-content,
+#slide-14 .financiamento-debate {
     min-width: 0;
 }
 
-#slide-13 .financiamento-content {
+#slide-14 .financiamento-content {
     display: grid;
     align-content: start;
     gap: clamp(0.8rem, 1.8vh, 1.35rem);
 }
 
-#slide-13 .financiamento-eyebrow,
-#slide-13 .financiamento-debate-eyebrow {
+#slide-14 .financiamento-eyebrow,
+#slide-14 .financiamento-debate-eyebrow {
     margin: 0;
     color: rgba(221, 201, 174, 0.78);
 }
 
-#slide-13 .financiamento-title {
+#slide-14 .financiamento-title {
     margin: 0;
     max-width: 9.5ch;
     font-size: clamp(3rem, 5vw, 5rem);
 }
 
-#slide-13 .financiamento-subtitle {
+#slide-14 .financiamento-subtitle {
     margin: 0;
     max-width: 24ch;
     font-size: clamp(1.12rem, 1.55vw, 1.55rem);
@@ -2642,7 +2642,7 @@ select {
     color: rgba(247, 241, 232, 0.88);
 }
 
-#slide-13 .financiamento-charge-shell {
+#slide-14 .financiamento-charge-shell {
     margin: clamp(0.35rem, 0.9vh, 0.75rem) 0 0;
     width: min(100%, 680px);
     border-radius: 10px;
@@ -2650,7 +2650,7 @@ select {
     overflow: hidden;
 }
 
-#slide-13 .financiamento-charge {
+#slide-14 .financiamento-charge {
     display: block;
     width: 100%;
     height: auto;
@@ -2659,14 +2659,14 @@ select {
     object-position: left top;
 }
 
-#slide-13 .financiamento-debate {
+#slide-14 .financiamento-debate {
     display: grid;
     align-content: start;
     gap: clamp(1.15rem, 2.1vh, 1.7rem);
     padding-top: clamp(0.45rem, 1vh, 0.9rem);
 }
 
-#slide-13 .financiamento-argumentos {
+#slide-14 .financiamento-argumentos {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -2674,14 +2674,14 @@ select {
     gap: clamp(1.25rem, 2.4vh, 2rem);
 }
 
-#slide-13 .financiamento-argumento {
+#slide-14 .financiamento-argumento {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     column-gap: clamp(0.9rem, 1.4vw, 1.5rem);
     align-items: start;
 }
 
-#slide-13 .financiamento-argumento-numero {
+#slide-14 .financiamento-argumento-numero {
     margin: 0;
     min-width: 2ch;
     font-family: var(--serif-display);
@@ -2691,12 +2691,12 @@ select {
     color: rgba(216, 176, 106, 0.96);
 }
 
-#slide-13 .financiamento-argumento-com-divisor {
+#slide-14 .financiamento-argumento-com-divisor {
     padding-bottom: clamp(1.2rem, 2.2vh, 1.9rem);
     border-bottom: 1px solid rgba(221, 201, 174, 0.28);
 }
 
-#slide-13 .financiamento-argumento-texto {
+#slide-14 .financiamento-argumento-texto {
     margin: 0;
     font-size: clamp(1.1rem, 1.45vw, 1.42rem);
     line-height: 1.58;
@@ -2812,29 +2812,29 @@ select {
 }
 
 @media (max-width: 1450px) {
-    #slide-13 .financiamento-layout {
+    #slide-14 .financiamento-layout {
         grid-template-columns: minmax(0, 44fr) minmax(0, 48fr);
         gap: clamp(40px, 4.6vw, 68px);
     }
 
-    #slide-13 .financiamento-argumento-texto {
+    #slide-14 .financiamento-argumento-texto {
         font-size: clamp(1.04rem, 1.2vw, 1.25rem);
     }
 
-    #slide-8 .transition-editorial-layout {
+    .slide-transition-editorial .transition-editorial-layout {
         gap: clamp(1.6rem, 3.8vw, 3.2rem);
         grid-template-columns: minmax(0, 0.9fr) minmax(240px, 1.1fr);
     }
 
-    #slide-8 .transition-editorial-title {
+    .slide-transition-editorial .transition-editorial-title {
         font-size: clamp(2.35rem, 4.15vw, 4.3rem);
     }
 
-    #slide-8 .transition-editorial-circle-lg {
+    .slide-transition-editorial .transition-editorial-circle-lg {
         width: clamp(280px, 23vw, 450px);
     }
 
-    #slide-8 .transition-editorial-circle-sm {
+    .slide-transition-editorial .transition-editorial-circle-sm {
         width: clamp(160px, 13vw, 250px);
         right: clamp(24%, 15vw, 35%);
     }
@@ -2871,51 +2871,51 @@ select {
 }
 
 @media (max-width: 1280px) {
-    #slide-13 .financiamento-layout {
+    #slide-14 .financiamento-layout {
         width: min(calc(100% - clamp(80px, 8vw, 120px)), 1520px);
         grid-template-columns: minmax(0, 46fr) minmax(0, 50fr);
         gap: clamp(28px, 3.5vw, 44px);
     }
 
-    #slide-13 .financiamento-title {
+    #slide-14 .financiamento-title {
         font-size: clamp(2.5rem, 4.3vw, 3.9rem);
     }
 
-    #slide-13 .financiamento-charge {
+    #slide-14 .financiamento-charge {
         height: clamp(250px, 42vh, 450px);
     }
 
-    #slide-8 .transition-editorial-layout {
+    .slide-transition-editorial .transition-editorial-layout {
         width: 100%;
         max-width: 1200px;
         grid-template-columns: minmax(0, 1fr) minmax(220px, 0.95fr);
         gap: clamp(1.3rem, 2.8vw, 2.4rem);
     }
 
-    #slide-8 .transition-editorial-layout::before {
+    .slide-transition-editorial .transition-editorial-layout::before {
         right: 24%;
     }
 
-    #slide-8 .transition-editorial-title {
+    .slide-transition-editorial .transition-editorial-title {
         font-size: clamp(2.18rem, 3.7vw, 3.7rem);
     }
 
-    #slide-8 .transition-editorial-lead {
+    .slide-transition-editorial .transition-editorial-lead {
         max-width: 32ch;
         font-size: clamp(0.92rem, 1.05vw, 1rem);
     }
 
-    #slide-8 .transition-editorial-art {
+    .slide-transition-editorial .transition-editorial-art {
         width: min(100%, 500px);
         height: clamp(320px, 50vh, 460px);
     }
 
-    #slide-8 .transition-editorial-circle-lg {
+    .slide-transition-editorial .transition-editorial-circle-lg {
         width: clamp(250px, 22vw, 390px);
         top: 10%;
     }
 
-    #slide-8 .transition-editorial-circle-sm {
+    .slide-transition-editorial .transition-editorial-circle-sm {
         width: clamp(146px, 12vw, 215px);
         bottom: 14%;
     }
@@ -2968,41 +2968,41 @@ select {
 }
 
 @media (max-width: 1080px) {
-    #slide-13 {
+    #slide-14 {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 5.2rem 6vw 2.3rem;
     }
 
-    #slide-13 .financiamento-layout {
+    #slide-14 .financiamento-layout {
         width: min(100%, 1100px);
         grid-template-columns: 1fr;
         gap: clamp(1.3rem, 2.4vh, 2rem);
     }
 
-    #slide-13 .financiamento-subtitle,
-    #slide-13 .financiamento-charge-shell {
+    #slide-14 .financiamento-subtitle,
+    #slide-14 .financiamento-charge-shell {
         max-width: 100%;
     }
 
-    #slide-13 .financiamento-charge {
+    #slide-14 .financiamento-charge {
         height: clamp(220px, 34vh, 360px);
     }
 
-    #slide-13 .financiamento-debate {
+    #slide-14 .financiamento-debate {
         gap: 1.2rem;
     }
 
-    #slide-13 .financiamento-argumento-texto {
+    #slide-14 .financiamento-argumento-texto {
         font-size: clamp(0.98rem, 1.7vw, 1.14rem);
         line-height: 1.52;
     }
 
-    #slide-8.slide-transition-editorial {
+    .slide-transition-editorial {
         padding: 5.2rem 6vw 2.3rem;
     }
 
-    #slide-8 .transition-editorial-layout {
+    .slide-transition-editorial .transition-editorial-layout {
         width: 100%;
         max-width: 1040px;
         grid-template-columns: minmax(0, 1fr) minmax(200px, 0.6fr);
@@ -3010,43 +3010,43 @@ select {
         transform: translateY(clamp(-14px, -1vh, -4px));
     }
 
-    #slide-8 .transition-editorial-layout::before {
+    .slide-transition-editorial .transition-editorial-layout::before {
         right: 16%;
         top: 45%;
     }
 
-    #slide-8 .transition-editorial-title {
+    .slide-transition-editorial .transition-editorial-title {
         font-size: clamp(2rem, 3.3vw, 3.25rem);
     }
 
-    #slide-8 .transition-editorial-lead {
+    .slide-transition-editorial .transition-editorial-lead {
         max-width: 35ch;
     }
 
-    #slide-8 .transition-editorial-art {
+    .slide-transition-editorial .transition-editorial-art {
         width: 100%;
         min-width: 0;
         height: clamp(260px, 40vh, 360px);
     }
 
-    #slide-8 .transition-editorial-circle-lg {
+    .slide-transition-editorial .transition-editorial-circle-lg {
         width: clamp(210px, 20vw, 320px);
         right: 0;
         top: 9%;
     }
 
-    #slide-8 .transition-editorial-circle-sm {
+    .slide-transition-editorial .transition-editorial-circle-sm {
         width: clamp(120px, 10vw, 180px);
         right: clamp(16%, 12vw, 28%);
         bottom: 10%;
     }
 
-    #slide-8 .transition-editorial-line-horizontal {
+    .slide-transition-editorial .transition-editorial-line-horizontal {
         left: -4%;
         width: 90%;
     }
 
-    #slide-8 .transition-editorial-line-vertical {
+    .slide-transition-editorial .transition-editorial-line-vertical {
         right: 30%;
     }
 
@@ -3231,15 +3231,15 @@ select {
 }
 
 @media (max-height: 860px) {
-    #slide-8 .transition-editorial-layout {
+    .slide-transition-editorial .transition-editorial-layout {
         transform: translateY(clamp(-18px, -1.25vh, -8px));
     }
 
-    #slide-8 .transition-editorial-title {
+    .slide-transition-editorial .transition-editorial-title {
         font-size: clamp(2.2rem, 4vw, 4rem);
     }
 
-    #slide-8 .transition-editorial-art {
+    .slide-transition-editorial .transition-editorial-art {
         height: clamp(320px, 50vh, 500px);
     }
 
@@ -3451,23 +3451,23 @@ select {
 }
 
 @media (max-height: 760px) {
-    #slide-8 .transition-editorial-layout {
+    .slide-transition-editorial .transition-editorial-layout {
         transform: translateY(-8px);
     }
 
-    #slide-8 .transition-editorial-title {
+    .slide-transition-editorial .transition-editorial-title {
         font-size: clamp(1.9rem, 3.35vw, 3.1rem);
     }
 
-    #slide-8 .transition-editorial-art {
+    .slide-transition-editorial .transition-editorial-art {
         height: clamp(245px, 39vh, 330px);
     }
 
-    #slide-8 .transition-editorial-circle-lg {
+    .slide-transition-editorial .transition-editorial-circle-lg {
         width: clamp(180px, 17vw, 280px);
     }
 
-    #slide-8 .transition-editorial-circle-sm {
+    .slide-transition-editorial .transition-editorial-circle-sm {
         width: clamp(108px, 9vw, 160px);
         bottom: 8%;
     }
@@ -3586,94 +3586,94 @@ select {
 }
 
 @media (max-width: 760px) {
-    #slide-13 {
+    #slide-14 {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 7.2rem 5vw 2rem;
     }
 
-    #slide-13 .financiamento-layout {
+    #slide-14 .financiamento-layout {
         width: 100%;
     }
 
-    #slide-13 .financiamento-title {
+    #slide-14 .financiamento-title {
         font-size: clamp(2rem, 9.6vw, 2.85rem);
         max-width: 100%;
     }
 
-    #slide-13 .financiamento-subtitle {
+    #slide-14 .financiamento-subtitle {
         font-size: clamp(1rem, 4.4vw, 1.22rem);
         max-width: 100%;
     }
 
-    #slide-13 .financiamento-charge {
+    #slide-14 .financiamento-charge {
         height: clamp(210px, 31vh, 320px);
     }
 
-    #slide-13 .financiamento-argumento-numero {
+    #slide-14 .financiamento-argumento-numero {
         font-size: clamp(1.6rem, 8vw, 2.1rem);
     }
 
-    #slide-13 .financiamento-argumento-texto {
+    #slide-14 .financiamento-argumento-texto {
         font-size: clamp(0.96rem, 4.25vw, 1.08rem);
         line-height: 1.5;
     }
 
-    #slide-8.slide-transition-editorial {
+    .slide-transition-editorial {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 7.2rem 5vw 2rem;
     }
 
-    #slide-8.slide-transition-editorial::after {
+    .slide-transition-editorial::after {
         inset: 0.8rem;
     }
 
-    #slide-8 .transition-editorial-layout {
+    .slide-transition-editorial .transition-editorial-layout {
         grid-template-columns: 1fr;
         gap: 1.1rem;
         transform: none;
     }
 
-    #slide-8 .transition-editorial-layout::before {
+    .slide-transition-editorial .transition-editorial-layout::before {
         right: 0;
         top: auto;
         bottom: clamp(160px, 25vh, 220px);
     }
 
-    #slide-8 .transition-editorial-copy,
-    #slide-8 .transition-editorial-title,
-    #slide-8 .transition-editorial-lead {
+    .slide-transition-editorial .transition-editorial-copy,
+    .slide-transition-editorial .transition-editorial-title,
+    .slide-transition-editorial .transition-editorial-lead {
         max-width: 100%;
     }
 
-    #slide-8 .transition-editorial-title {
+    .slide-transition-editorial .transition-editorial-title {
         font-size: clamp(2rem, 9.6vw, 2.85rem);
     }
 
-    #slide-8 .transition-editorial-art {
+    .slide-transition-editorial .transition-editorial-art {
         justify-self: stretch;
         height: clamp(180px, 29vh, 240px);
     }
 
-    #slide-8 .transition-editorial-circle-lg {
+    .slide-transition-editorial .transition-editorial-circle-lg {
         width: clamp(150px, 42vw, 220px);
         top: 8%;
         right: 3%;
     }
 
-    #slide-8 .transition-editorial-circle-sm {
+    .slide-transition-editorial .transition-editorial-circle-sm {
         width: clamp(90px, 26vw, 140px);
         right: 26%;
         bottom: 8%;
     }
 
-    #slide-8 .transition-editorial-line-horizontal {
+    .slide-transition-editorial .transition-editorial-line-horizontal {
         left: 0;
         width: 100%;
     }
 
-    #slide-8 .transition-editorial-line-vertical {
+    .slide-transition-editorial .transition-editorial-line-vertical {
         right: 26%;
     }
 
