@@ -2752,6 +2752,10 @@ select {
     color: rgba(247, 241, 232, 0.9);
 }
 
+#slide-15.slide-falho-regime {
+    overflow-x: hidden;
+}
+
 #slide-15 .falho-regime-stage {
     position: relative;
     width: min(calc(100% - clamp(16px, 1.8vw, 32px)), 1640px);
@@ -3939,7 +3943,7 @@ select {
 
     #slide-15 .falho-regime-photo-main {
         width: clamp(290px, 62vw, 420px);
-        right: -24vw;
+        right: -12vw;
         bottom: -4vh;
     }
 
