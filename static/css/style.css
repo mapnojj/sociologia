@@ -3968,6 +3968,10 @@ select {
         width: clamp(96px, 24vw, 140px);
     }
 
+    .slide-falho-regime .falho-regime-accent {
+        display: none;
+    }
+
     .slide-falho-regime .falho-regime-accent-text {
         display: none;
     }
