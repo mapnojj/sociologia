@@ -2635,7 +2635,7 @@ select {
 }
 
 #slide-14 .financiamento-layout,
-#slide-15 .financiamento-layout {
+.slide-falho-regime .financiamento-layout {
     display: grid;
     width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
     max-width: none;
@@ -2647,13 +2647,13 @@ select {
 
 #slide-14 .financiamento-content,
 #slide-14 .financiamento-debate,
-#slide-15 .financiamento-content,
-#slide-15 .financiamento-debate {
+.slide-falho-regime .financiamento-content,
+.slide-falho-regime .financiamento-debate {
     min-width: 0;
 }
 
 #slide-14 .financiamento-content,
-#slide-15 .financiamento-content {
+.slide-falho-regime .financiamento-content {
     display: grid;
     align-content: start;
     gap: clamp(0.8rem, 1.8vh, 1.35rem);
@@ -2661,21 +2661,21 @@ select {
 
 #slide-14 .financiamento-eyebrow,
 #slide-14 .financiamento-debate-eyebrow,
-#slide-15 .financiamento-eyebrow,
-#slide-15 .financiamento-debate-eyebrow {
+.slide-falho-regime .financiamento-eyebrow,
+.slide-falho-regime .financiamento-debate-eyebrow {
     margin: 0;
     color: rgba(221, 201, 174, 0.78);
 }
 
 #slide-14 .financiamento-title,
-#slide-15 .financiamento-title {
+.slide-falho-regime .financiamento-title {
     margin: 0;
     max-width: 9.5ch;
     font-size: clamp(3rem, 5vw, 5rem);
 }
 
 #slide-14 .financiamento-subtitle,
-#slide-15 .financiamento-subtitle {
+.slide-falho-regime .financiamento-subtitle {
     margin: 0;
     max-width: 24ch;
     font-size: clamp(1.12rem, 1.55vw, 1.55rem);
@@ -2684,7 +2684,7 @@ select {
 }
 
 #slide-14 .financiamento-charge-shell,
-#slide-15 .financiamento-charge-shell {
+.slide-falho-regime .financiamento-charge-shell {
     margin: clamp(0.35rem, 0.9vh, 0.75rem) 0 0;
     width: min(100%, 680px);
     border-radius: 10px;
@@ -2693,7 +2693,7 @@ select {
 }
 
 #slide-14 .financiamento-charge,
-#slide-15 .financiamento-charge {
+.slide-falho-regime .financiamento-charge {
     display: block;
     width: 100%;
     height: auto;
@@ -2703,7 +2703,7 @@ select {
 }
 
 #slide-14 .financiamento-debate,
-#slide-15 .financiamento-debate {
+.slide-falho-regime .financiamento-debate {
     display: grid;
     align-content: start;
     gap: clamp(1.15rem, 2.1vh, 1.7rem);
@@ -2711,7 +2711,7 @@ select {
 }
 
 #slide-14 .financiamento-argumentos,
-#slide-15 .financiamento-argumentos {
+.slide-falho-regime .financiamento-argumentos {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -2720,7 +2720,7 @@ select {
 }
 
 #slide-14 .financiamento-argumento,
-#slide-15 .financiamento-argumento {
+.slide-falho-regime .financiamento-argumento {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     column-gap: clamp(0.9rem, 1.4vw, 1.5rem);
@@ -2728,7 +2728,7 @@ select {
 }
 
 #slide-14 .financiamento-argumento-numero,
-#slide-15 .financiamento-argumento-numero {
+.slide-falho-regime .financiamento-argumento-numero {
     margin: 0;
     min-width: 2ch;
     font-family: var(--serif-display);
@@ -2739,20 +2739,20 @@ select {
 }
 
 #slide-14 .financiamento-argumento-com-divisor,
-#slide-15 .financiamento-argumento-com-divisor {
+.slide-falho-regime .financiamento-argumento-com-divisor {
     padding-bottom: clamp(1.2rem, 2.2vh, 1.9rem);
     border-bottom: 1px solid rgba(221, 201, 174, 0.28);
 }
 
 #slide-14 .financiamento-argumento-texto,
-#slide-15 .financiamento-argumento-texto {
+.slide-falho-regime .financiamento-argumento-texto {
     margin: 0;
     font-size: clamp(1.1rem, 1.45vw, 1.42rem);
     line-height: 1.58;
     color: rgba(247, 241, 232, 0.9);
 }
 
-#slide-15 .falho-regime-stage {
+.slide-falho-regime .falho-regime-stage {
     position: relative;
     width: min(calc(100% - clamp(16px, 1.8vw, 32px)), 1640px);
     max-width: none;
@@ -2760,15 +2760,15 @@ select {
     margin-inline: auto;
 }
 
-#slide-15 .falho-regime-copy,
-#slide-15 .falho-regime-textbox,
-#slide-15 .falho-regime-visuals,
-#slide-15 .falho-regime-photo,
-#slide-15 .falho-regime-accent {
+.slide-falho-regime .falho-regime-copy,
+.slide-falho-regime .falho-regime-textbox,
+.slide-falho-regime .falho-regime-visuals,
+.slide-falho-regime .falho-regime-photo,
+.slide-falho-regime .falho-regime-accent {
     position: absolute;
 }
 
-#slide-15 .falho-regime-copy {
+.slide-falho-regime .falho-regime-copy {
     top: 3%;
     left: 0;
     z-index: 3;
@@ -2776,7 +2776,7 @@ select {
     gap: clamp(0.55rem, 1vh, 0.9rem);
 }
 
-#slide-15 .falho-regime-title {
+.slide-falho-regime .falho-regime-title {
     margin: 0;
     max-width: 10ch;
     font-size: clamp(3rem, 5.2vw, 5.2rem);
@@ -2784,7 +2784,7 @@ select {
     letter-spacing: -0.03em;
 }
 
-#slide-15 .falho-regime-subtitle {
+.slide-falho-regime .falho-regime-subtitle {
     margin: 0 0 0 clamp(1.5rem, 2vw, 2.75rem);
     font-family: var(--serif-display);
     font-size: clamp(1.45rem, 2vw, 2.2rem);
@@ -2792,7 +2792,7 @@ select {
     color: rgba(221, 201, 174, 0.94);
 }
 
-#slide-15 .falho-regime-textbox {
+.slide-falho-regime .falho-regime-textbox {
     left: 0;
     top: 36%;
     width: min(43%, 700px);
@@ -2804,8 +2804,8 @@ select {
     z-index: 3;
 }
 
-#slide-15 .falho-regime-textbox::before,
-#slide-15 .falho-regime-textbox::after {
+.slide-falho-regime .falho-regime-textbox::before,
+.slide-falho-regime .falho-regime-textbox::after {
     content: "";
     position: absolute;
     width: clamp(24px, 2vw, 34px);
@@ -2814,7 +2814,7 @@ select {
     pointer-events: none;
 }
 
-#slide-15 .falho-regime-textbox::before {
+.slide-falho-regime .falho-regime-textbox::before {
     top: clamp(12px, 1.3vw, 18px);
     left: clamp(12px, 1.3vw, 18px);
     border-top: 1px solid currentColor;
@@ -2822,7 +2822,7 @@ select {
     color: rgba(216, 176, 106, 0.44);
 }
 
-#slide-15 .falho-regime-textbox::after {
+.slide-falho-regime .falho-regime-textbox::after {
     right: clamp(12px, 1.3vw, 18px);
     bottom: clamp(12px, 1.3vw, 18px);
     border-right: 1px solid currentColor;
@@ -2830,7 +2830,7 @@ select {
     color: rgba(216, 176, 106, 0.38);
 }
 
-#slide-15 .falho-regime-text {
+.slide-falho-regime .falho-regime-text {
     margin: 0;
     font-size: clamp(1.12rem, 1.45vw, 1.42rem);
     line-height: 1.72;
@@ -2839,21 +2839,21 @@ select {
     text-wrap: pretty;
 }
 
-#slide-15 .falho-regime-visuals {
-    top: 8%;
+.slide-falho-regime .falho-regime-visuals {
     right: 0;
     bottom: 0;
     width: min(47%, 760px);
+    height: clamp(520px, 74vh, 760px);
     z-index: 1;
 }
 
-#slide-15 .falho-regime-photo {
+.slide-falho-regime .falho-regime-photo {
     margin: 0;
     border-radius: 50%;
     overflow: hidden;
 }
 
-#slide-15 .falho-regime-photo-main {
+.slide-falho-regime .falho-regime-photo-main {
     right: 0;
     bottom: 0;
     width: clamp(430px, 38vw, 650px);
@@ -2862,7 +2862,7 @@ select {
     box-shadow: 0 32px 80px rgba(8, 2, 2, 0.45);
 }
 
-#slide-15 .falho-regime-photo-secondary {
+.slide-falho-regime .falho-regime-photo-secondary {
     top: 11%;
     right: 6%;
     width: clamp(180px, 16vw, 270px);
@@ -2872,19 +2872,19 @@ select {
     z-index: 2;
 }
 
-#slide-15 .falho-regime-photo-image {
+.slide-falho-regime .falho-regime-photo-image {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#slide-15 .falho-regime-accent {
+.slide-falho-regime .falho-regime-accent {
     border-radius: 50%;
     pointer-events: none;
 }
 
-#slide-15 .falho-regime-accent-text {
+.slide-falho-regime .falho-regime-accent-text {
     top: 31%;
     left: min(41.5%, 640px);
     width: clamp(28px, 2.6vw, 44px);
@@ -2896,7 +2896,7 @@ select {
     z-index: 2;
 }
 
-#slide-15 .falho-regime-accent-photo {
+.slide-falho-regime .falho-regime-accent-photo {
     top: 24%;
     right: 34%;
     width: clamp(46px, 4vw, 68px);
@@ -3026,16 +3026,17 @@ select {
         font-size: clamp(1.04rem, 1.2vw, 1.25rem);
     }
 
-    #slide-15 .falho-regime-stage {
+    .slide-falho-regime .falho-regime-stage {
         min-height: clamp(620px, 80vh, 820px);
     }
 
-    #slide-15 .falho-regime-textbox {
+    .slide-falho-regime .falho-regime-textbox {
         width: min(45%, 660px);
     }
 
-    #slide-15 .falho-regime-visuals {
+    .slide-falho-regime .falho-regime-visuals {
         width: min(46%, 700px);
+        height: clamp(500px, 70vh, 700px);
     }
 
     .slide-transition-editorial .transition-editorial-layout {
@@ -3102,39 +3103,40 @@ select {
         height: clamp(250px, 42vh, 450px);
     }
 
-    #slide-15 .falho-regime-stage {
+    .slide-falho-regime .falho-regime-stage {
         width: 100%;
         min-height: clamp(600px, 78vh, 760px);
     }
 
-    #slide-15 .falho-regime-title {
+    .slide-falho-regime .falho-regime-title {
         font-size: clamp(2.7rem, 4.6vw, 4.1rem);
     }
 
-    #slide-15 .falho-regime-textbox {
+    .slide-falho-regime .falho-regime-textbox {
         top: 35%;
         width: min(48%, 600px);
     }
 
-    #slide-15 .falho-regime-text {
+    .slide-falho-regime .falho-regime-text {
         font-size: clamp(1.02rem, 1.35vw, 1.22rem);
         line-height: 1.66;
     }
 
-    #slide-15 .falho-regime-visuals {
+    .slide-falho-regime .falho-regime-visuals {
         width: min(45%, 620px);
+        height: clamp(440px, 64vh, 620px);
     }
 
-    #slide-15 .falho-regime-photo-main {
+    .slide-falho-regime .falho-regime-photo-main {
         width: clamp(340px, 34vw, 460px);
     }
 
-    #slide-15 .falho-regime-photo-secondary {
+    .slide-falho-regime .falho-regime-photo-secondary {
         top: 10%;
         right: 4%;
     }
 
-    #slide-15 .falho-regime-accent-text {
+    .slide-falho-regime .falho-regime-accent-text {
         left: min(46%, 560px);
     }
 
@@ -3252,46 +3254,46 @@ select {
         line-height: 1.52;
     }
 
-    #slide-15 {
+    .slide-falho-regime {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 5.2rem 6vw 2.3rem;
     }
 
-    #slide-15 .falho-regime-stage {
+    .slide-falho-regime .falho-regime-stage {
         min-height: 760px;
     }
 
-    #slide-15 .falho-regime-copy {
+    .slide-falho-regime .falho-regime-copy {
         top: 1.5%;
     }
 
-    #slide-15 .falho-regime-textbox {
+    .slide-falho-regime .falho-regime-textbox {
         top: 25%;
         width: min(58%, 580px);
     }
 
-    #slide-15 .falho-regime-visuals {
-        top: 9%;
+    .slide-falho-regime .falho-regime-visuals {
         width: min(44%, 500px);
+        height: clamp(380px, 54vh, 500px);
     }
 
-    #slide-15 .falho-regime-photo-main {
+    .slide-falho-regime .falho-regime-photo-main {
         width: clamp(300px, 38vw, 420px);
     }
 
-    #slide-15 .falho-regime-photo-secondary {
+    .slide-falho-regime .falho-regime-photo-secondary {
         top: 8%;
         right: 3%;
         width: clamp(150px, 19vw, 210px);
     }
 
-    #slide-15 .falho-regime-accent-text {
+    .slide-falho-regime .falho-regime-accent-text {
         top: 22%;
         left: min(52%, 520px);
     }
 
-    #slide-15 .falho-regime-accent-photo {
+    .slide-falho-regime .falho-regime-accent-photo {
         top: 20%;
         right: 38%;
     }
@@ -3917,22 +3919,22 @@ select {
         line-height: 1.5;
     }
 
-    #slide-15 {
+    .slide-falho-regime {
         min-height: 100vh;
         min-height: 100dvh;
         padding: 7.2rem 5vw 2rem;
     }
 
-    #slide-15 .falho-regime-stage {
+    .slide-falho-regime .falho-regime-stage {
         display: grid;
         gap: clamp(1.15rem, 2.6vh, 1.75rem);
         align-content: start;
         min-height: auto;
     }
 
-    #slide-15 .falho-regime-copy,
-    #slide-15 .falho-regime-textbox,
-    #slide-15 .falho-regime-visuals {
+    .slide-falho-regime .falho-regime-copy,
+    .slide-falho-regime .falho-regime-textbox,
+    .slide-falho-regime .falho-regime-visuals {
         position: relative;
         top: auto;
         right: auto;
@@ -3940,53 +3942,53 @@ select {
         left: auto;
     }
 
-    #slide-15 .falho-regime-title {
+    .slide-falho-regime .falho-regime-title {
         font-size: clamp(2.3rem, 10vw, 3.1rem);
         max-width: 100%;
     }
 
-    #slide-15 .falho-regime-subtitle {
+    .slide-falho-regime .falho-regime-subtitle {
         margin-left: clamp(0.7rem, 4vw, 1.3rem);
         font-size: clamp(1.2rem, 5.4vw, 1.6rem);
     }
 
-    #slide-15 .falho-regime-textbox {
+    .slide-falho-regime .falho-regime-textbox {
         width: min(100%, 520px);
         padding: 1.2rem 1.15rem 1.3rem;
         border-radius: 20px;
     }
 
-    #slide-15 .falho-regime-visuals {
+    .slide-falho-regime .falho-regime-visuals {
         position: relative;
         justify-self: center;
         width: min(72vw, 320px);
         height: clamp(220px, 31vh, 300px);
     }
 
-    #slide-15 .falho-regime-text {
+    .slide-falho-regime .falho-regime-text {
         font-size: clamp(1rem, 4.2vw, 1.08rem);
         line-height: 1.64;
     }
 
-    #slide-15 .falho-regime-photo {
+    .slide-falho-regime .falho-regime-photo {
         position: absolute;
     }
 
-    #slide-15 .falho-regime-photo-main {
+    .slide-falho-regime .falho-regime-photo-main {
         width: clamp(180px, 45vw, 260px);
     }
 
-    #slide-15 .falho-regime-photo-secondary {
+    .slide-falho-regime .falho-regime-photo-secondary {
         top: 5%;
         right: 0;
         width: clamp(96px, 24vw, 140px);
     }
 
-    #slide-15 .falho-regime-accent-text {
+    .slide-falho-regime .falho-regime-accent-text {
         display: none;
     }
 
-    #slide-15 .falho-regime-accent-photo {
+    .slide-falho-regime .falho-regime-accent-photo {
         top: 18%;
         right: 42%;
         width: clamp(34px, 9vw, 48px);
