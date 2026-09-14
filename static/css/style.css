@@ -2964,6 +2964,7 @@ select {
 }
 
 .slide-pacotes-padroes .pacotes-padroes-panel {
+    position: absolute;
     top: clamp(332px, 46vh, 458px);
     z-index: 4;
     width: clamp(270px, 22vw, 390px);
