@@ -3968,6 +3968,10 @@ select {
         line-height: 1.64;
     }
 
+    #slide-15 .falho-regime-photo {
+        position: absolute;
+    }
+
     #slide-15 .falho-regime-photo-main {
         width: clamp(180px, 45vw, 260px);
     }
