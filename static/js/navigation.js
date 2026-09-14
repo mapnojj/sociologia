@@ -89,7 +89,9 @@
                 entries.forEach((entry) => {
                     if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
                         const index = slides.indexOf(entry.target);
-                        setActive(index);
+                        if (index >= 0) {
+                            setActive(index);
+                        }
                     }
                 });
             },
