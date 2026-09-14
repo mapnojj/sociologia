@@ -2719,9 +2719,7 @@ select {
 
 #slide-14 .financiamento-20a-chart-wrapper canvas {
     display: block;
-    width: 100% !important;
-    height: 100% !important;
-    background: transparent !important;
+    background: transparent;
 }
 
 #slide-14 .financiamento-20a-copy {
