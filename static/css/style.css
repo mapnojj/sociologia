@@ -2898,7 +2898,7 @@ select {
     max-width: none;
     min-height: clamp(650px, 82vh, 900px);
     margin-inline: auto;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .slide-pacotes-padroes .pacotes-padroes-copy,
