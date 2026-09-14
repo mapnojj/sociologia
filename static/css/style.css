@@ -3943,10 +3943,6 @@ select {
         padding-bottom: clamp(6.5rem, 9vh, 7.5rem);
     }
 
-    .slide-conclusao .conclusao-circle {
-        position: relative;
-    }
-
     .slide-conclusao .conclusao-header {
         left: 50%;
         transform: translateX(-50%);
@@ -3975,9 +3971,9 @@ select {
     }
 
     .slide-conclusao .conclusao-circle-title {
-        margin: 0 auto calc(-1 * clamp(66px, 8vw, 84px));
-        left: auto;
-        top: auto;
+        top: clamp(10px, 1.2vh, 18px);
+        left: calc(50% - clamp(180px, 22vw, 215px));
+        margin: 0;
     }
 
     .slide-conclusao .conclusao-circle-left,
@@ -4765,7 +4761,8 @@ select {
 
     .slide-conclusao .conclusao-circle-title {
         width: clamp(72px, 18vw, 96px);
-        margin-bottom: calc(-1 * clamp(54px, 10vw, 70px));
+        top: clamp(8px, 1vh, 14px);
+        left: calc(50% - clamp(132px, 30vw, 150px));
     }
 
     .slide-conclusao .conclusao-closing-line {
