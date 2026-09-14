@@ -2699,7 +2699,8 @@ select {
     padding-top: clamp(10.5rem, 14vh, 12.75rem);
 }
 
-#slide-14 .financiamento-argumentos {
+#slide-14 .financiamento-argumentos,
+.slide-educacao-ato-politico .financiamento-argumentos {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -2707,14 +2708,16 @@ select {
     gap: clamp(1.25rem, 2.4vh, 2rem);
 }
 
-#slide-14 .financiamento-argumento {
+#slide-14 .financiamento-argumento,
+.slide-educacao-ato-politico .financiamento-argumento {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     column-gap: clamp(0.9rem, 1.4vw, 1.5rem);
     align-items: start;
 }
 
-#slide-14 .financiamento-argumento-numero {
+#slide-14 .financiamento-argumento-numero,
+.slide-educacao-ato-politico .financiamento-argumento-numero {
     margin: 0;
     min-width: 2ch;
     font-family: var(--serif-display);
@@ -2724,12 +2727,14 @@ select {
     color: rgba(216, 176, 106, 0.96);
 }
 
-#slide-14 .financiamento-argumento-com-divisor {
+#slide-14 .financiamento-argumento-com-divisor,
+.slide-educacao-ato-politico .financiamento-argumento-com-divisor {
     padding-bottom: clamp(1.2rem, 2.2vh, 1.9rem);
     border-bottom: 1px solid rgba(221, 201, 174, 0.28);
 }
 
-#slide-14 .financiamento-argumento-texto {
+#slide-14 .financiamento-argumento-texto,
+.slide-educacao-ato-politico .financiamento-argumento-texto {
     margin: 0;
     font-size: clamp(1.1rem, 1.45vw, 1.42rem);
     line-height: 1.58;
@@ -3037,7 +3042,7 @@ select {
 }
 
 .slide-educacao-ato-politico .educacao-ato-politico-copy,
-.slide-educacao-ato-politico .educacao-ato-politico-box,
+.slide-educacao-ato-politico .educacao-ato-politico-debate,
 .slide-educacao-ato-politico .educacao-ato-politico-visuals,
 .slide-educacao-ato-politico .educacao-ato-politico-photo,
 .slide-educacao-ato-politico .educacao-ato-politico-deco {
@@ -3068,44 +3073,53 @@ select {
     color: rgba(247, 241, 232, 0.9);
 }
 
-.slide-educacao-ato-politico .educacao-ato-politico-box {
+.slide-educacao-ato-politico .educacao-ato-politico-debate {
     left: 0;
     top: 27%;
-    width: min(50%, 840px);
-    padding: clamp(1.45rem, 2.6vw, 2.45rem) clamp(1.4rem, 2.4vw, 2.3rem);
-    border-radius: clamp(20px, 1.8vw, 28px);
-    border: 1px solid rgba(216, 176, 106, 0.45);
-    background: linear-gradient(150deg, rgba(35, 6, 8, 0.78), rgba(67, 9, 12, 0.48));
-    box-shadow: 0 28px 62px rgba(8, 2, 2, 0.2);
+    width: min(52%, 850px);
     z-index: 4;
 }
 
-.slide-educacao-ato-politico .educacao-ato-politico-list {
+.slide-educacao-ato-politico .educacao-ato-politico-debate .financiamento-argumentos {
+    gap: clamp(1.6rem, 2.9vh, 2.35rem);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-debate .financiamento-argumento {
+    column-gap: clamp(1rem, 1.7vw, 1.65rem);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-debate .financiamento-argumento-com-divisor {
+    padding-bottom: clamp(1.35rem, 2.4vh, 2rem);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-debate .financiamento-argumento-texto {
     margin: 0;
-    padding-left: clamp(1.08rem, 1.7vw, 1.45rem);
-    display: grid;
-    gap: clamp(0.85rem, 1.6vh, 1.3rem);
-    color: rgba(247, 241, 232, 0.94);
-    font-size: clamp(1.03rem, 1.23vw, 1.3rem);
+    color: rgba(247, 241, 232, 0.92);
+    font-size: clamp(1.06rem, 1.32vw, 1.32rem);
     line-height: 1.55;
 }
 
-.slide-educacao-ato-politico .educacao-ato-politico-list > li::marker {
-    color: rgba(216, 176, 106, 0.92);
-}
-
-.slide-educacao-ato-politico .educacao-ato-politico-list ul {
-    margin-top: clamp(0.6rem, 1.1vh, 0.85rem);
-    padding-left: clamp(1rem, 1.6vw, 1.4rem);
+.slide-educacao-ato-politico .educacao-ato-politico-argumento-texto {
     display: grid;
-    gap: clamp(0.6rem, 1vh, 0.9rem);
+    gap: clamp(0.75rem, 1.2vh, 1rem);
 }
 
-.slide-educacao-ato-politico .educacao-ato-politico-list ul li::marker {
-    color: rgba(216, 176, 106, 0.78);
+.slide-educacao-ato-politico .educacao-ato-politico-sublista {
+    list-style: disc;
+    margin: 0;
+    padding-left: clamp(1.2rem, 1.8vw, 1.65rem);
+    display: grid;
+    gap: clamp(0.62rem, 1.02vh, 0.9rem);
+    color: rgba(247, 241, 232, 0.92);
+    font-size: clamp(1.03rem, 1.3vw, 1.26rem);
+    line-height: 1.55;
 }
 
-.slide-educacao-ato-politico .educacao-ato-politico-list strong {
+.slide-educacao-ato-politico .educacao-ato-politico-sublista li::marker {
+    color: rgba(221, 201, 174, 0.85);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-debate strong {
     font-weight: 700;
     color: var(--marfim);
 }
@@ -3503,7 +3517,7 @@ select {
         min-height: clamp(610px, 79vh, 780px);
     }
 
-    .slide-educacao-ato-politico .educacao-ato-politico-box {
+    .slide-educacao-ato-politico .educacao-ato-politico-debate {
         width: min(54%, 660px);
         top: 25%;
     }
@@ -3741,12 +3755,13 @@ select {
         min-height: 740px;
     }
 
-    .slide-educacao-ato-politico .educacao-ato-politico-box {
+    .slide-educacao-ato-politico .educacao-ato-politico-debate {
         width: min(58%, 620px);
         top: 24%;
     }
 
-    .slide-educacao-ato-politico .educacao-ato-politico-list {
+    .slide-educacao-ato-politico .educacao-ato-politico-debate .financiamento-argumento-texto,
+    .slide-educacao-ato-politico .educacao-ato-politico-sublista {
         font-size: clamp(0.98rem, 1.45vw, 1.15rem);
     }
 
@@ -4484,7 +4499,7 @@ select {
     }
 
     .slide-educacao-ato-politico .educacao-ato-politico-copy,
-    .slide-educacao-ato-politico .educacao-ato-politico-box,
+    .slide-educacao-ato-politico .educacao-ato-politico-debate,
     .slide-educacao-ato-politico .educacao-ato-politico-visuals {
         position: relative;
         top: auto;
@@ -4503,13 +4518,12 @@ select {
         font-size: clamp(1.12rem, 5.1vw, 1.55rem);
     }
 
-    .slide-educacao-ato-politico .educacao-ato-politico-box {
+    .slide-educacao-ato-politico .educacao-ato-politico-debate {
         width: min(100%, 560px);
-        padding: 1.2rem 1.15rem 1.3rem;
-        border-radius: 20px;
     }
 
-    .slide-educacao-ato-politico .educacao-ato-politico-list {
+    .slide-educacao-ato-politico .educacao-ato-politico-debate .financiamento-argumento-texto,
+    .slide-educacao-ato-politico .educacao-ato-politico-sublista {
         font-size: clamp(0.98rem, 4.1vw, 1.08rem);
         line-height: 1.5;
     }
