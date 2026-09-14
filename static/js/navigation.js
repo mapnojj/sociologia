@@ -28,7 +28,11 @@
             if (globalControls) {
                 const shouldHideGlobalControls = slides[index]?.dataset.hideGlobalControls === "true";
                 globalControls.classList.toggle("controls-hidden", shouldHideGlobalControls);
-                globalControls.toggleAttribute("inert", shouldHideGlobalControls);
+
+                if ("inert" in globalControls) {
+                    globalControls.inert = shouldHideGlobalControls;
+                }
+
                 globalControls.setAttribute("aria-hidden", shouldHideGlobalControls ? "true" : "false");
             }
         }

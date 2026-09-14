@@ -2250,8 +2250,7 @@ h2 {
     box-sizing: border-box;
 }
 
-#global-controls.controls-hidden,
-.territorial-selector.controls-hidden {
+#global-controls.controls-hidden {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
