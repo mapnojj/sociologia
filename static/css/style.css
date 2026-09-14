@@ -3507,6 +3507,46 @@ select {
     background: linear-gradient(180deg, rgba(244, 238, 228, 0.18), rgba(244, 238, 228, 0.18)) center / 1px calc(100% - 0.3rem) no-repeat;
 }
 
+.fullscreen-toggle {
+    position: fixed;
+    right: clamp(0.8rem, 1.7vw, 1.45rem);
+    bottom: clamp(0.8rem, 1.7vw, 1.45rem);
+    z-index: 60;
+    width: clamp(2.1rem, 3.2vw, 2.45rem);
+    height: clamp(2.1rem, 3.2vw, 2.45rem);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(168, 120, 56, 0.42);
+    background: linear-gradient(180deg, rgba(43, 5, 7, 0.9), rgba(67, 9, 12, 0.78));
+    color: var(--texto-claro);
+    box-shadow: 0 14px 28px rgba(12, 2, 2, 0.22);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    opacity: 0.82;
+}
+
+.fullscreen-toggle span {
+    font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+    line-height: 1;
+}
+
+.fullscreen-toggle:hover,
+.fullscreen-toggle:focus-visible {
+    opacity: 1;
+    border-color: rgba(221, 201, 174, 0.7);
+    background: linear-gradient(180deg, rgba(67, 9, 12, 0.94), rgba(116, 23, 27, 0.82));
+    box-shadow: 0 16px 32px rgba(12, 2, 2, 0.26);
+    transform: translateY(-1px);
+}
+
+.fullscreen-toggle[aria-pressed="true"] {
+    border-color: rgba(221, 201, 174, 0.74);
+    background: linear-gradient(180deg, rgba(91, 16, 19, 0.96), rgba(67, 9, 12, 0.84));
+    opacity: 0.96;
+}
+
 .nav-dot {
     width: 9px;
     height: 9px;
@@ -5035,6 +5075,13 @@ select {
 
     .glass-panel {
         width: calc(100vw - 1.6rem);
+    }
+
+    .fullscreen-toggle {
+        right: 0.8rem;
+        bottom: 0.8rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     body.hero-active #global-controls {
