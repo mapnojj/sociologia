@@ -2696,7 +2696,7 @@ select {
     display: grid;
     align-content: start;
     gap: clamp(1.15rem, 2.1vh, 1.7rem);
-    padding-top: clamp(0.45rem, 1vh, 0.9rem);
+    padding-top: clamp(10.5rem, 14vh, 12.75rem);
 }
 
 #slide-14 .financiamento-argumentos {
@@ -3024,6 +3024,7 @@ select {
 
     #slide-14 .financiamento-debate {
         gap: 1.2rem;
+        padding-top: 0;
     }
 
     #slide-14 .financiamento-argumento-texto {
