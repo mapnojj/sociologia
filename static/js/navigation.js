@@ -3,6 +3,7 @@
         const slides = [...document.querySelectorAll(".slide")];
         const navDots = document.getElementById("nav-dots");
         const globalControls = document.getElementById("global-controls");
+        const fullscreenToggle = document.getElementById("fullscreen-toggle");
 
         if (!slides.length || !navDots) return;
 
@@ -77,8 +78,37 @@
             return ["INPUT", "SELECT", "TEXTAREA", "BUTTON"].includes(tag) || active.isContentEditable;
         }
 
+        function isFullscreenActive() {
+            return Boolean(document.fullscreenElement);
+        }
+
+        function updateFullscreenButton() {
+            if (!fullscreenToggle) return;
+            const active = isFullscreenActive();
+            fullscreenToggle.setAttribute("aria-pressed", active ? "true" : "false");
+            fullscreenToggle.setAttribute("aria-label", active ? "Sair da tela cheia" : "Entrar em tela cheia");
+            fullscreenToggle.setAttribute("title", active ? "Sair da tela cheia (F)" : "Tela cheia (F)");
+        }
+
+        async function toggleFullscreen() {
+            if (!document.fullscreenEnabled) return;
+
+            if (isFullscreenActive()) {
+                await document.exitFullscreen();
+                return;
+            }
+
+            await document.documentElement.requestFullscreen();
+        }
+
         function onKeydown(event) {
             if (isFormFocused()) return;
+
+            if (!event.ctrlKey && !event.metaKey && !event.altKey && event.key.toLowerCase() === "f") {
+                event.preventDefault();
+                toggleFullscreen().catch(() => {});
+                return;
+            }
 
             if (["ArrowDown", "ArrowRight", "PageDown"].includes(event.key)) {
                 event.preventDefault();
@@ -107,6 +137,18 @@
                     scrollToSlide(nextSlideIndex);
                 }
             });
+        }
+
+        if (fullscreenToggle) {
+            if (!document.fullscreenEnabled) {
+                fullscreenToggle.hidden = true;
+            } else {
+                updateFullscreenButton();
+                fullscreenToggle.addEventListener("click", () => {
+                    toggleFullscreen().catch(() => {});
+                });
+                document.addEventListener("fullscreenchange", updateFullscreenButton);
+            }
         }
 
         const initialIndex = slides.reduce(
