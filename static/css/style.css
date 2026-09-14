@@ -2799,7 +2799,7 @@ select {
     padding: clamp(1.45rem, 2.8vw, 2.5rem) clamp(1.4rem, 2.7vw, 2.35rem);
     border: 1px solid rgba(221, 201, 174, 0.55);
     border-radius: 24px;
-    background: linear-gradient(145deg, rgba(43, 5, 7, 0.12), rgba(43, 5, 7, 0.05));
+    background: linear-gradient(145deg, rgba(43, 5, 7, 0.44), rgba(43, 5, 7, 0.24));
     box-shadow: 0 26px 56px rgba(6, 1, 2, 0.16);
     z-index: 3;
 }
