@@ -5,6 +5,10 @@
 
         if (!slides.length || !navDots) return;
 
+        slides.forEach((slide, index) => {
+            slide.dataset.navIndex = String(index);
+        });
+
         let currentIndex = 0;
         let lock = false;
 
@@ -88,8 +92,12 @@
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
-                        const index = Number(entry.target.dataset.slideIndex || 0);
-                        setActive(index);
+                        const rawNavIndex = entry.target.dataset.navIndex;
+                        const navIndex = rawNavIndex !== undefined && rawNavIndex !== "" ? Number(rawNavIndex) : Number.NaN;
+                        const index = Number.isInteger(navIndex) ? navIndex : slides.indexOf(entry.target);
+                        if (Number.isInteger(index) && index >= 0) {
+                            setActive(index);
+                        }
                     }
                 });
             },
