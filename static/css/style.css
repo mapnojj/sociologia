@@ -3027,6 +3027,160 @@ select {
         linear-gradient(145deg, rgba(174, 103, 54, 0.34), rgba(67, 9, 12, 0.12));
 }
 
+.slide-educacao-ato-politico .educacao-ato-politico-stage {
+    position: relative;
+    width: min(calc(100% - clamp(12px, 1.6vw, 28px)), 1700px);
+    max-width: none;
+    min-height: clamp(660px, 83vh, 920px);
+    margin-inline: auto;
+    overflow: visible;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-copy,
+.slide-educacao-ato-politico .educacao-ato-politico-box,
+.slide-educacao-ato-politico .educacao-ato-politico-visuals,
+.slide-educacao-ato-politico .educacao-ato-politico-photo,
+.slide-educacao-ato-politico .educacao-ato-politico-deco {
+    position: absolute;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-copy {
+    top: 4%;
+    left: 0;
+    z-index: 4;
+    display: grid;
+    gap: clamp(0.5rem, 0.9vh, 0.85rem);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-title {
+    margin: 0;
+    font-size: clamp(3.1rem, 5.4vw, 5.4rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--marfim);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-subtitle {
+    margin: 0 0 0 clamp(1.2rem, 1.8vw, 2.4rem);
+    font-family: var(--serif-display);
+    font-size: clamp(1.35rem, 2.1vw, 2.2rem);
+    line-height: 1.04;
+    color: rgba(247, 241, 232, 0.9);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-box {
+    left: 0;
+    top: 27%;
+    width: min(50%, 840px);
+    padding: clamp(1.45rem, 2.6vw, 2.45rem) clamp(1.4rem, 2.4vw, 2.3rem);
+    border-radius: clamp(20px, 1.8vw, 28px);
+    border: 1px solid rgba(216, 176, 106, 0.45);
+    background: linear-gradient(150deg, rgba(35, 6, 8, 0.78), rgba(67, 9, 12, 0.48));
+    box-shadow: 0 28px 62px rgba(8, 2, 2, 0.2);
+    z-index: 4;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-list {
+    margin: 0;
+    padding-left: clamp(1.08rem, 1.7vw, 1.45rem);
+    display: grid;
+    gap: clamp(0.85rem, 1.6vh, 1.3rem);
+    color: rgba(247, 241, 232, 0.94);
+    font-size: clamp(1.03rem, 1.23vw, 1.3rem);
+    line-height: 1.55;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-list > li::marker {
+    color: rgba(216, 176, 106, 0.92);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-list ul {
+    margin-top: clamp(0.6rem, 1.1vh, 0.85rem);
+    padding-left: clamp(1rem, 1.6vw, 1.4rem);
+    display: grid;
+    gap: clamp(0.6rem, 1vh, 0.9rem);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-list ul li::marker {
+    color: rgba(216, 176, 106, 0.78);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-list strong {
+    font-weight: 700;
+    color: var(--marfim);
+}
+
+.slide-educacao-ato-politico .educacao-highlight-gold {
+    color: rgba(216, 176, 106, 0.96);
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-visuals {
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-photo {
+    margin: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-photo-main {
+    right: -3vw;
+    bottom: -8vh;
+    width: clamp(480px, 38vw, 680px);
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(216, 176, 106, 0.55);
+    box-shadow: 0 36px 86px rgba(8, 2, 2, 0.48);
+    z-index: 1;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-photo-secondary {
+    right: 22vw;
+    top: 18vh;
+    width: clamp(170px, 14vw, 240px);
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(216, 176, 106, 0.62);
+    box-shadow: 0 22px 56px rgba(8, 2, 2, 0.32);
+    z-index: 2;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-photo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-deco {
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-deco-a {
+    top: 24%;
+    right: 32vw;
+    width: clamp(42px, 3.8vw, 66px);
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(216, 176, 106, 0.4);
+    background:
+        radial-gradient(circle at 34% 30%, rgba(244, 238, 228, 0.2), transparent 58%),
+        linear-gradient(145deg, rgba(174, 103, 54, 0.42), rgba(67, 9, 12, 0.24));
+}
+
+.slide-educacao-ato-politico .educacao-ato-politico-deco-b {
+    top: 51%;
+    right: -4.5vw;
+    width: clamp(116px, 9.4vw, 170px);
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(133, 81, 39, 0.48);
+    background:
+        radial-gradient(circle at 32% 30%, rgba(216, 176, 106, 0.24), transparent 56%),
+        linear-gradient(150deg, rgba(111, 36, 30, 0.35), rgba(43, 5, 7, 0.22));
+}
+
 .transition-note {
     margin: 0.4rem 0 1rem;
     color: var(--muted);
@@ -3344,6 +3498,26 @@ select {
         width: clamp(160px, 13vw, 220px);
     }
 
+    .slide-educacao-ato-politico .educacao-ato-politico-stage {
+        width: 100%;
+        min-height: clamp(610px, 79vh, 780px);
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-box {
+        width: min(54%, 660px);
+        top: 25%;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-photo-main {
+        width: clamp(430px, 38vw, 580px);
+        right: -5vw;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-photo-secondary {
+        right: 20vw;
+        top: 16vh;
+    }
+
     .slide-transition-editorial .transition-editorial-layout {
         width: 100%;
         max-width: 1200px;
@@ -3555,6 +3729,46 @@ select {
 
     .slide-pacotes-padroes .pacotes-padroes-circle-title {
         display: none;
+    }
+
+    .slide-educacao-ato-politico {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 5.2rem 6vw 2.3rem;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-stage {
+        min-height: 740px;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-box {
+        width: min(58%, 620px);
+        top: 24%;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-list {
+        font-size: clamp(0.98rem, 1.45vw, 1.15rem);
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-photo-main {
+        width: clamp(370px, 42vw, 500px);
+        right: -8vw;
+        bottom: -6vh;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-photo-secondary {
+        width: clamp(148px, 17vw, 215px);
+        right: 22vw;
+        top: 16%;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-deco-a {
+        right: 31vw;
+        top: 20%;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-deco-b {
+        right: -7vw;
     }
 
     .slide-transition-editorial {
@@ -4255,6 +4469,75 @@ select {
         top: 18%;
         right: 42%;
         width: clamp(34px, 9vw, 48px);
+    }
+
+    .slide-educacao-ato-politico {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 7.2rem 5vw 2rem;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-stage {
+        display: grid;
+        gap: clamp(1.1rem, 2.3vh, 1.65rem);
+        min-height: auto;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-copy,
+    .slide-educacao-ato-politico .educacao-ato-politico-box,
+    .slide-educacao-ato-politico .educacao-ato-politico-visuals {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-title {
+        font-size: clamp(2.3rem, 10vw, 3.1rem);
+        max-width: 100%;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-subtitle {
+        margin-left: clamp(0.7rem, 4vw, 1.3rem);
+        font-size: clamp(1.12rem, 5.1vw, 1.55rem);
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-box {
+        width: min(100%, 560px);
+        padding: 1.2rem 1.15rem 1.3rem;
+        border-radius: 20px;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-list {
+        font-size: clamp(0.98rem, 4.1vw, 1.08rem);
+        line-height: 1.5;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-visuals {
+        width: min(80vw, 340px);
+        height: clamp(230px, 32vh, 310px);
+        justify-self: center;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-photo {
+        position: absolute;
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-photo-main {
+        right: -8%;
+        bottom: -10%;
+        width: clamp(200px, 52vw, 290px);
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-photo-secondary {
+        top: 2%;
+        right: 30%;
+        width: clamp(96px, 26vw, 146px);
+    }
+
+    .slide-educacao-ato-politico .educacao-ato-politico-deco {
+        display: none;
     }
 
     .slide-pacotes-padroes {
