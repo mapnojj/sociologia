@@ -3924,11 +3924,20 @@ select {
     }
 
     #slide-15 .falho-regime-stage {
-        min-height: clamp(620px, 78vh, 820px);
+        display: grid;
+        gap: clamp(1.15rem, 2.6vh, 1.75rem);
+        align-content: start;
+        min-height: auto;
     }
 
-    #slide-15 .falho-regime-copy {
-        top: 0;
+    #slide-15 .falho-regime-copy,
+    #slide-15 .falho-regime-textbox,
+    #slide-15 .falho-regime-visuals {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
     }
 
     #slide-15 .falho-regime-title {
@@ -3942,17 +3951,15 @@ select {
     }
 
     #slide-15 .falho-regime-textbox {
-        top: 19%;
-        width: min(82%, 520px);
+        width: min(100%, 520px);
         padding: 1.2rem 1.15rem 1.3rem;
         border-radius: 20px;
     }
 
     #slide-15 .falho-regime-visuals {
-        top: 54%;
-        right: 0;
-        bottom: 0;
-        width: min(58%, 320px);
+        justify-self: end;
+        width: min(72vw, 320px);
+        height: clamp(220px, 31vh, 300px);
     }
 
     #slide-15 .falho-regime-text {
@@ -3971,9 +3978,7 @@ select {
     }
 
     #slide-15 .falho-regime-accent-text {
-        top: 15%;
-        left: min(61%, 380px);
-        width: clamp(22px, 6vw, 30px);
+        display: none;
     }
 
     #slide-15 .falho-regime-accent-photo {
