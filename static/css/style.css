@@ -5114,6 +5114,12 @@ select {
         display: none;
     }
 
+    @media (max-width: 420px), (max-height: 420px) {
+        .fullscreen-toggle {
+            display: none;
+        }
+    }
+
     .image-circle-large {
         width: min(72vw, 320px);
         right: 0;

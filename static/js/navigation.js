@@ -104,7 +104,7 @@
         function onKeydown(event) {
             if (isFormFocused()) return;
 
-             if (!event.ctrlKey && !event.metaKey && !event.altKey && event.key.toLowerCase() === "f") {
+            if (!event.ctrlKey && !event.metaKey && !event.altKey && event.key.toLowerCase() === "f") {
                 event.preventDefault();
                 toggleFullscreen().catch(() => {});
                 return;
