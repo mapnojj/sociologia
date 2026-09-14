@@ -3261,6 +3261,12 @@ select {
     padding-inline: clamp(0.5rem, 1.8vw, 1.5rem);
 }
 
+.slide-conclusao .conclusao-editorial-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .slide-conclusao .conclusao-editorial-item {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
@@ -3354,6 +3360,7 @@ select {
     position: relative;
     z-index: 1;
     width: min(calc(100% - clamp(1rem, 3vw, 3rem)), 1040px);
+    margin-inline: auto;
     margin-top: clamp(1.4rem, 3vh, 2rem);
     background: linear-gradient(90deg, rgba(216, 176, 106, 0.12) 0%, rgba(216, 176, 106, 0.52) 24%, rgba(216, 176, 106, 0.18) 100%);
     opacity: 0.78;
