@@ -12,6 +12,59 @@
     };
 
     const charts = {};
+    const percentualFormatter = new Intl.NumberFormat("pt-BR", {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+    });
+    const financiamento20ADados = {
+        labels: ["2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+        valores: [5.1, 5.1, 5.0, 4.9, 5.0, 4.8, 4.5, 5.1],
+        absolutos: {
+            0: "R$ 437,8 bi",
+            7: "R$ 513,4 bi"
+        }
+    };
+    const financiamento20ALabelPlugin = {
+        id: "financiamento20ALabelPlugin",
+        afterDatasetsDraw(chart) {
+            if (chart.canvas?.id !== "chart-financiamento-20a") return;
+            const meta = chart.getDatasetMeta(0);
+            if (!meta?.data?.length) return;
+            const { ctx } = chart;
+
+            ctx.save();
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            meta.data.forEach((point, index) => {
+                const x = point.x;
+                const y = point.y;
+                const percentual = `${percentualFormatter.format(financiamento20ADados.valores[index])}%`;
+                const absoluto = financiamento20ADados.absolutos[index];
+                const isExtreme = Boolean(absoluto);
+                const direction = index === 0 ? 1 : index === meta.data.length - 1 ? -1 : 0;
+                const anchorX = x + (direction * 60);
+                const anchorY = y - (isExtreme ? 44 : 18);
+
+                if (isExtreme) {
+                    ctx.fillStyle = "rgba(244, 238, 228, 0.98)";
+                    ctx.font = "600 18px var(--sans-text), system-ui, sans-serif";
+                    ctx.fillText(percentual, anchorX, anchorY);
+
+                    ctx.fillStyle = "rgba(221, 201, 174, 0.95)";
+                    ctx.font = "600 15px var(--sans-text), system-ui, sans-serif";
+                    ctx.fillText(`(${absoluto})`, anchorX, anchorY + 20);
+                    return;
+                }
+
+                ctx.fillStyle = "rgba(244, 238, 228, 0.92)";
+                ctx.font = "500 13px var(--sans-text), system-ui, sans-serif";
+                ctx.fillText(percentual, anchorX, anchorY);
+            });
+
+            ctx.restore();
+        }
+    };
 
     function baseOptions() {
         return {
@@ -268,6 +321,58 @@
         };
     }
 
+    function createFinanciamento20AOptions() {
+        const options = withLegendVisibility(createChartOptions({ editorial: true }), false);
+        return {
+            ...options,
+            interaction: { mode: "nearest", intersect: false },
+            layout: {
+                padding: {
+                    top: 66,
+                    right: 52,
+                    bottom: 8,
+                    left: 40
+                }
+            },
+            plugins: {
+                ...options.plugins,
+                tooltip: {
+                    ...options.plugins.tooltip,
+                    backgroundColor: "rgba(43, 5, 7, 0.95)",
+                    titleColor: "#f4eee4",
+                    bodyColor: "#f4eee4",
+                    borderColor: "rgba(168, 120, 56, 0.65)",
+                    borderWidth: 1,
+                    callbacks: {
+                        label: (ctx) => {
+                            const percentual = `${percentualFormatter.format(ctx.raw)}% do PIB`;
+                            const absoluto = financiamento20ADados.absolutos[ctx.dataIndex];
+                            return absoluto ? [percentual, `${absoluto.replace("bi", "bilhões")}`] : percentual;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { color: "rgba(247, 241, 232, 0.84)" },
+                    grid: { color: "rgba(247, 241, 232, 0.08)" },
+                    border: { color: "rgba(247, 241, 232, 0.14)" }
+                },
+                y: {
+                    min: 4.3,
+                    max: 5.3,
+                    ticks: {
+                        color: "rgba(247, 241, 232, 0.78)",
+                        stepSize: 0.2,
+                        callback: (value) => `${percentualFormatter.format(value)}%`
+                    },
+                    grid: { color: "rgba(247, 241, 232, 0.08)" },
+                    border: { color: "rgba(247, 241, 232, 0.14)" }
+                }
+            }
+        };
+    }
+
     function withEditorialTheme(options = baseOptions()) {
         return {
             ...options,
@@ -379,6 +484,7 @@
 
     function initCharts() {
         if (!window.Chart) throw new Error("Chart.js não está disponível");
+        Chart.register(financiamento20ALabelPlugin);
 
         const options = createChartOptions();
         const superiorEditorialOptions = createChartOptions({ editorial: true });
@@ -441,6 +547,25 @@
             type: "line",
             data: { labels: [], datasets: [] },
             options: createSuperiorFluxoOptions(superiorEditorialOptions)
+        });
+
+        charts.financiamento20A = new Chart(document.getElementById("chart-financiamento-20a"), {
+            type: "line",
+            data: {
+                labels: financiamento20ADados.labels,
+                datasets: [
+                    editorialLineDataset("Gasto público em educação pública (% do PIB)", financiamento20ADados.valores, "#d8b06a", {
+                        borderWidth: 3,
+                        pointRadius: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 5 : 3)),
+                        pointHoverRadius: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 6 : 4)),
+                        pointBackgroundColor: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? "#f4eee4" : "#d8b06a")),
+                        pointBorderColor: "#d8b06a",
+                        pointBorderWidth: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 2 : 1.4)),
+                        tension: 0.24
+                    })
+                ]
+            },
+            options: createFinanciamento20AOptions()
         });
     }
 
