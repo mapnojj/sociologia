@@ -4297,11 +4297,6 @@ select {
         line-height: 1.54;
     }
 
-    .slide-pacotes-padroes .pacotes-padroes-circle-title {
-        width: clamp(86px, 20vw, 116px);
-        opacity: 0.88;
-    }
-
     .slide-transition-editorial {
         min-height: 100vh;
         min-height: 100dvh;
