@@ -22,11 +22,18 @@
 
         function setActive(index) {
             currentIndex = index;
+            const activeSlide = slides[index];
             dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
             document.body.classList.toggle("hero-active", index === 0);
 
             if (globalControls) {
-                const shouldHideGlobalControls = slides[index]?.dataset.hideGlobalControls === "true";
+                const shouldHideGlobalControls = activeSlide?.dataset.hideGlobalControls === "true";
+
+                if (shouldHideGlobalControls && globalControls.contains(document.activeElement) && activeSlide) {
+                    activeSlide.setAttribute("tabindex", "-1");
+                    activeSlide.focus({ preventScroll: true });
+                }
+
                 globalControls.classList.toggle("controls-hidden", shouldHideGlobalControls);
 
                 if ("inert" in globalControls) {
