@@ -92,7 +92,8 @@
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
-                        const index = Number(entry.target.dataset.navIndex);
+                        const navIndex = Number(entry.target.dataset.navIndex);
+                        const index = Number.isInteger(navIndex) ? navIndex : slides.indexOf(entry.target);
                         if (Number.isInteger(index) && index >= 0) {
                             setActive(index);
                         }
