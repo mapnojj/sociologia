@@ -2752,15 +2752,12 @@ select {
     color: rgba(247, 241, 232, 0.9);
 }
 
-#slide-15.slide-falho-regime {
-    overflow: hidden;
-}
-
 #slide-15 .falho-regime-stage {
     position: relative;
     width: min(calc(100% - clamp(16px, 1.8vw, 32px)), 1640px);
     max-width: none;
     min-height: clamp(660px, 82vh, 900px);
+    margin-inline: auto;
 }
 
 #slide-15 .falho-regime-copy,
@@ -2848,7 +2845,7 @@ select {
 
 #slide-15 .falho-regime-photo-main {
     right: -4vw;
-    bottom: -14vh;
+    bottom: -10vh;
     width: clamp(430px, 38vw, 650px);
     aspect-ratio: 1;
     z-index: 1;
