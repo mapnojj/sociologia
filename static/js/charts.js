@@ -696,6 +696,7 @@
     function refreshFinanciamento20A() {
         if (!charts.financiamento20A) return;
         charts.financiamento20A.resize();
+        charts.financiamento20A.render();
     }
 
     window.ChartManager = {
