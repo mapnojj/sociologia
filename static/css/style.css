@@ -3911,7 +3911,7 @@ select {
     }
 
     #slide-15 .falho-regime-stage {
-        min-height: 820px;
+        min-height: clamp(620px, 78vh, 820px);
     }
 
     #slide-15 .falho-regime-copy {
