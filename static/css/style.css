@@ -3548,9 +3548,7 @@ select {
     }
 
     .slide-pacotes-padroes .pacotes-padroes-circle-title {
-        position: absolute;
-        top: clamp(4px, 0.6vh, 10px);
-        left: clamp(-12px, -1vw, 0);
+        display: none;
     }
 
     .slide-transition-editorial {
