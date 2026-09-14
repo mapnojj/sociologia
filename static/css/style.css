@@ -2757,6 +2757,7 @@ select {
 }
 
 #slide-15 .falho-regime-stage {
+    position: relative;
     width: min(calc(100% - clamp(16px, 1.8vw, 32px)), 1640px);
     max-width: none;
     min-height: clamp(660px, 82vh, 900px);
