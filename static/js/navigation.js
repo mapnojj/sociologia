@@ -30,7 +30,15 @@
                 const shouldHideGlobalControls = activeSlide?.dataset.hideGlobalControls === "true";
 
                 if (shouldHideGlobalControls && globalControls.contains(document.activeElement) && activeSlide) {
-                    activeSlide.setAttribute("tabindex", "-1");
+                    const needsTemporaryTabIndex = !activeSlide.hasAttribute("tabindex");
+
+                    if (needsTemporaryTabIndex) {
+                        activeSlide.setAttribute("tabindex", "-1");
+                        activeSlide.addEventListener("blur", () => {
+                            activeSlide.removeAttribute("tabindex");
+                        }, { once: true });
+                    }
+
                     activeSlide.focus({ preventScroll: true });
                 }
 
