@@ -3216,6 +3216,7 @@ select {
 }
 
 .slide-conclusao .conclusao-stage {
+    --conclusao-editorial-width: 1040px;
     position: relative;
     width: min(calc(100% - clamp(12px, 1.6vw, 28px)), 1580px);
     max-width: none;
@@ -3256,7 +3257,7 @@ select {
     box-sizing: border-box;
     position: relative;
     z-index: 2;
-    width: min(100%, 1040px);
+    width: min(100%, var(--conclusao-editorial-width));
     margin-top: clamp(11rem, 21vh, 15rem);
     padding-inline: clamp(0.5rem, 1.8vw, 1.5rem);
 }
@@ -3285,6 +3286,7 @@ select {
 .slide-conclusao .conclusao-editorial-text {
     margin: 0;
     max-width: 34ch;
+    font-weight: 400;
     font-size: clamp(1.5rem, 2vw, 2.08rem);
     line-height: 1.45;
     color: rgba(247, 241, 232, 0.92);
@@ -3354,7 +3356,7 @@ select {
 .slide-conclusao .conclusao-closing-line {
     position: relative;
     z-index: 1;
-    width: min(calc(100% - clamp(1rem, 3vw, 3rem)), 1040px);
+    width: min(calc(100% - clamp(1rem, 3vw, 3rem)), var(--conclusao-editorial-width));
     margin-inline: auto;
     margin-top: clamp(1.4rem, 3vh, 2rem);
     background: linear-gradient(90deg, rgba(216, 176, 106, 0.12) 0%, rgba(216, 176, 106, 0.52) 24%, rgba(216, 176, 106, 0.18) 100%);
@@ -3516,8 +3518,11 @@ select {
         right: calc(-1 * clamp(66px, 7vw, 120px));
     }
 
+    .slide-conclusao .conclusao-stage {
+        --conclusao-editorial-width: 980px;
+    }
+
     .slide-conclusao .conclusao-editorial {
-        width: min(100%, 980px);
         margin-top: clamp(10.5rem, 20vh, 14rem);
     }
 
@@ -3688,11 +3693,11 @@ select {
     }
 
     .slide-conclusao .conclusao-stage {
+        --conclusao-editorial-width: 920px;
         width: 100%;
     }
 
     .slide-conclusao .conclusao-editorial {
-        width: min(100%, 920px);
         margin-top: clamp(10rem, 18vh, 13rem);
     }
 
@@ -3940,6 +3945,7 @@ select {
     }
 
     .slide-conclusao .conclusao-stage {
+        --conclusao-editorial-width: 760px;
         min-height: auto;
         padding-top: clamp(0.4rem, 1vh, 0.9rem);
         padding-bottom: clamp(6.5rem, 9vh, 7.5rem);
@@ -3962,7 +3968,6 @@ select {
     }
 
     .slide-conclusao .conclusao-editorial {
-        width: min(100%, 760px);
         margin-top: clamp(1.5rem, 3.5vh, 2.4rem);
         padding-inline: 0;
     }
@@ -3991,7 +3996,7 @@ select {
     }
 
     .slide-conclusao .conclusao-closing-line {
-        width: min(100%, 760px);
+        width: min(100%, var(--conclusao-editorial-width));
         margin-top: clamp(2.8rem, 5vh, 3.6rem);
     }
 
@@ -4746,8 +4751,11 @@ select {
         font-size: clamp(2.2rem, 10vw, 3rem);
     }
 
+    .slide-conclusao .conclusao-stage {
+        --conclusao-editorial-width: 34rem;
+    }
+
     .slide-conclusao .conclusao-editorial {
-        width: min(100%, 34rem);
         margin-top: clamp(1.2rem, 3vh, 1.8rem);
         padding-inline: 0.75rem;
     }
@@ -4775,7 +4783,7 @@ select {
     }
 
     .slide-conclusao .conclusao-closing-line {
-        width: min(calc(100% - 1.5rem), 34rem);
+        width: min(calc(100% - 1.5rem), var(--conclusao-editorial-width));
     }
 
     .slide-educacao-ato-politico {
