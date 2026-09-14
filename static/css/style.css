@@ -3257,7 +3257,7 @@ select {
 
     #slide-15 .falho-regime-textbox {
         top: 25%;
-        width: min(54%, 560px);
+        width: min(58%, 580px);
     }
 
     #slide-15 .falho-regime-photo-main {
@@ -3929,7 +3929,7 @@ select {
 
     #slide-15 .falho-regime-textbox {
         top: 19%;
-        width: min(64%, 420px);
+        width: min(82%, 520px);
         padding: 1.2rem 1.15rem 1.3rem;
         border-radius: 20px;
     }
