@@ -37,25 +37,12 @@
             ctx.textBaseline = "middle";
 
             meta.data.forEach((point, index) => {
+                if (index === 0 || index === meta.data.length - 1) return;
                 const x = point.x;
                 const y = point.y;
                 const percentual = `${percentualFormatter.format(financiamento20ADados.valores[index])}%`;
-                const absoluto = financiamento20ADados.absolutos[index];
-                const isExtreme = Boolean(absoluto);
-                const direction = index === 0 ? 1 : index === meta.data.length - 1 ? -1 : 0;
-                const anchorX = x + (direction * 60);
-                const anchorY = y - (isExtreme ? 44 : 18);
-
-                if (isExtreme) {
-                    ctx.fillStyle = "rgba(244, 238, 228, 0.98)";
-                    ctx.font = "600 18px var(--sans-text), system-ui, sans-serif";
-                    ctx.fillText(percentual, anchorX, anchorY);
-
-                    ctx.fillStyle = "rgba(221, 201, 174, 0.95)";
-                    ctx.font = "600 15px var(--sans-text), system-ui, sans-serif";
-                    ctx.fillText(`(${absoluto})`, anchorX, anchorY + 20);
-                    return;
-                }
+                const anchorX = x;
+                const anchorY = y - 18;
 
                 ctx.fillStyle = "rgba(244, 238, 228, 0.92)";
                 ctx.font = "500 13px var(--sans-text), system-ui, sans-serif";
@@ -329,10 +316,10 @@
             interaction: { mode: "nearest", intersect: false },
             layout: {
                 padding: {
-                    top: 66,
-                    right: 52,
+                    top: 56,
+                    right: 28,
                     bottom: 8,
-                    left: 40
+                    left: 28
                 }
             },
             plugins: {

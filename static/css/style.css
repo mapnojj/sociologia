@@ -2699,6 +2699,7 @@ select {
 }
 
 #slide-14 .financiamento-20a-chart-wrapper {
+    position: relative;
     margin-top: clamp(0.05rem, 0.4vh, 0.2rem);
     background: transparent;
     border: none;
@@ -2720,6 +2721,41 @@ select {
 #slide-14 .financiamento-20a-chart-wrapper canvas {
     display: block;
     background: transparent;
+}
+
+#slide-14 .financiamento-20a-extreme-label {
+    position: absolute;
+    z-index: 2;
+    margin: 0;
+    display: grid;
+    gap: 0.1rem;
+    font-size: clamp(0.8rem, 0.95vw, 0.96rem);
+    line-height: 1.25;
+    color: rgba(244, 238, 228, 0.96);
+    pointer-events: none;
+}
+
+#slide-14 .financiamento-20a-extreme-label strong {
+    font-size: clamp(0.86rem, 1.02vw, 1.02rem);
+    font-weight: 700;
+    color: rgba(244, 238, 228, 0.99);
+}
+
+#slide-14 .financiamento-20a-extreme-label span {
+    color: rgba(221, 201, 174, 0.95);
+    font-weight: 600;
+}
+
+#slide-14 .financiamento-20a-extreme-label-left {
+    top: clamp(0.8rem, 1.8vh, 1.15rem);
+    left: clamp(0.35rem, 1.15vw, 0.9rem);
+    text-align: left;
+}
+
+#slide-14 .financiamento-20a-extreme-label-right {
+    top: clamp(0.8rem, 1.8vh, 1.15rem);
+    right: clamp(0.35rem, 1.15vw, 0.9rem);
+    text-align: right;
 }
 
 #slide-14 .financiamento-20a-copy {
@@ -4679,6 +4715,14 @@ select {
 
     #slide-14 .financiamento-20a-chart-wrapper {
         height: clamp(250px, 40vh, 320px);
+    }
+
+    #slide-14 .financiamento-20a-extreme-label {
+        font-size: clamp(0.72rem, 3vw, 0.8rem);
+    }
+
+    #slide-14 .financiamento-20a-extreme-label strong {
+        font-size: clamp(0.76rem, 3.2vw, 0.86rem);
     }
 
     #slide-14 .financiamento-20a-sintese {
