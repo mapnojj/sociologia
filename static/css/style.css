@@ -2634,7 +2634,8 @@ select {
     bottom: 12%;
 }
 
-#slide-14 .financiamento-layout {
+#slide-14 .financiamento-layout,
+#slide-15 .financiamento-layout {
     display: grid;
     width: min(calc(100% - clamp(120px, 10vw, 190px)), 1680px);
     max-width: none;
@@ -2645,29 +2646,36 @@ select {
 }
 
 #slide-14 .financiamento-content,
-#slide-14 .financiamento-debate {
+#slide-14 .financiamento-debate,
+#slide-15 .financiamento-content,
+#slide-15 .financiamento-debate {
     min-width: 0;
 }
 
-#slide-14 .financiamento-content {
+#slide-14 .financiamento-content,
+#slide-15 .financiamento-content {
     display: grid;
     align-content: start;
     gap: clamp(0.8rem, 1.8vh, 1.35rem);
 }
 
 #slide-14 .financiamento-eyebrow,
-#slide-14 .financiamento-debate-eyebrow {
+#slide-14 .financiamento-debate-eyebrow,
+#slide-15 .financiamento-eyebrow,
+#slide-15 .financiamento-debate-eyebrow {
     margin: 0;
     color: rgba(221, 201, 174, 0.78);
 }
 
-#slide-14 .financiamento-title {
+#slide-14 .financiamento-title,
+#slide-15 .financiamento-title {
     margin: 0;
     max-width: 9.5ch;
     font-size: clamp(3rem, 5vw, 5rem);
 }
 
-#slide-14 .financiamento-subtitle {
+#slide-14 .financiamento-subtitle,
+#slide-15 .financiamento-subtitle {
     margin: 0;
     max-width: 24ch;
     font-size: clamp(1.12rem, 1.55vw, 1.55rem);
@@ -2675,7 +2683,8 @@ select {
     color: rgba(247, 241, 232, 0.88);
 }
 
-#slide-14 .financiamento-charge-shell {
+#slide-14 .financiamento-charge-shell,
+#slide-15 .financiamento-charge-shell {
     margin: clamp(0.35rem, 0.9vh, 0.75rem) 0 0;
     width: min(100%, 680px);
     border-radius: 10px;
@@ -2683,7 +2692,8 @@ select {
     overflow: hidden;
 }
 
-#slide-14 .financiamento-charge {
+#slide-14 .financiamento-charge,
+#slide-15 .financiamento-charge {
     display: block;
     width: 100%;
     height: auto;
@@ -2692,14 +2702,16 @@ select {
     object-position: left top;
 }
 
-#slide-14 .financiamento-debate {
+#slide-14 .financiamento-debate,
+#slide-15 .financiamento-debate {
     display: grid;
     align-content: start;
     gap: clamp(1.15rem, 2.1vh, 1.7rem);
     padding-top: clamp(10.5rem, 14vh, 12.75rem);
 }
 
-#slide-14 .financiamento-argumentos {
+#slide-14 .financiamento-argumentos,
+#slide-15 .financiamento-argumentos {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -2707,14 +2719,16 @@ select {
     gap: clamp(1.25rem, 2.4vh, 2rem);
 }
 
-#slide-14 .financiamento-argumento {
+#slide-14 .financiamento-argumento,
+#slide-15 .financiamento-argumento {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
     column-gap: clamp(0.9rem, 1.4vw, 1.5rem);
     align-items: start;
 }
 
-#slide-14 .financiamento-argumento-numero {
+#slide-14 .financiamento-argumento-numero,
+#slide-15 .financiamento-argumento-numero {
     margin: 0;
     min-width: 2ch;
     font-family: var(--serif-display);
@@ -2724,12 +2738,14 @@ select {
     color: rgba(216, 176, 106, 0.96);
 }
 
-#slide-14 .financiamento-argumento-com-divisor {
+#slide-14 .financiamento-argumento-com-divisor,
+#slide-15 .financiamento-argumento-com-divisor {
     padding-bottom: clamp(1.2rem, 2.2vh, 1.9rem);
     border-bottom: 1px solid rgba(221, 201, 174, 0.28);
 }
 
-#slide-14 .financiamento-argumento-texto {
+#slide-14 .financiamento-argumento-texto,
+#slide-15 .financiamento-argumento-texto {
     margin: 0;
     font-size: clamp(1.1rem, 1.45vw, 1.42rem);
     line-height: 1.58;
