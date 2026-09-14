@@ -5,6 +5,10 @@
 
         if (!slides.length || !navDots) return;
 
+        slides.forEach((slide, index) => {
+            slide.dataset.navIndex = String(index);
+        });
+
         let currentIndex = 0;
         let lock = false;
 
@@ -88,8 +92,8 @@
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
-                        const index = slides.indexOf(entry.target);
-                        if (index >= 0) {
+                        const index = Number(entry.target.dataset.navIndex);
+                        if (Number.isInteger(index) && index >= 0) {
                             setActive(index);
                         }
                     }
