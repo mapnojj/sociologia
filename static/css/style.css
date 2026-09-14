@@ -2964,21 +2964,35 @@ select {
 }
 
 .slide-pacotes-padroes .pacotes-padroes-panel {
+    position: absolute;
     top: clamp(332px, 46vh, 458px);
     z-index: 4;
     width: clamp(270px, 22vw, 390px);
-    padding: clamp(1.35rem, 2vw, 1.9rem) clamp(1.25rem, 1.8vw, 1.7rem);
-    border: 1px solid rgba(216, 176, 106, 0.42);
-    border-radius: clamp(24px, 2vw, 34px);
-    background: linear-gradient(150deg, rgba(36, 6, 8, 0.84), rgba(71, 12, 16, 0.58));
-    box-shadow: 0 24px 48px rgba(8, 2, 2, 0.22);
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 18px;
+    align-items: start;
+    padding: 0 0 clamp(1rem, 1.7vh, 1.4rem);
     transform: translateY(-50%);
 }
 
-@supports (backdrop-filter: blur(4px)) {
-    .slide-pacotes-padroes .pacotes-padroes-panel {
-        backdrop-filter: blur(4px);
-    }
+.slide-pacotes-padroes .pacotes-padroes-panel::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 1px solid rgba(216, 176, 106, 0.34);
+}
+
+.slide-pacotes-padroes .pacotes-padroes-panel-numero {
+    margin: 0;
+    min-width: 2ch;
+    font-family: var(--serif-display);
+    font-size: clamp(1.95rem, 2.8vw, 2.9rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: rgba(216, 176, 106, 0.96);
 }
 
 .slide-pacotes-padroes .pacotes-padroes-panel-left {
@@ -2991,8 +3005,8 @@ select {
 
 .slide-pacotes-padroes .pacotes-padroes-panel-text {
     margin: 0;
-    font-size: clamp(1.04rem, 1.22vw, 1.28rem);
-    line-height: 1.62;
+    font-size: clamp(1.08rem, 1.3vw, 1.35rem);
+    line-height: 1.45;
     color: rgba(247, 241, 232, 0.92);
     overflow-wrap: anywhere;
     text-wrap: pretty;
@@ -3461,7 +3475,7 @@ select {
     }
 
     .slide-pacotes-padroes .pacotes-padroes-panel-text {
-        font-size: clamp(1rem, 1.1vw, 1.18rem);
+        font-size: clamp(0.98rem, 1.12vw, 1.2rem);
     }
 
     .slide-pacotes-padroes .pacotes-padroes-circle-left {
@@ -3610,8 +3624,8 @@ select {
     .slide-pacotes-padroes .pacotes-padroes-panel {
         top: clamp(330px, 46vh, 420px);
         width: clamp(240px, 21vw, 300px);
-        padding: 1.15rem 1.1rem 1.25rem;
-        border-radius: 28px;
+        column-gap: 14px;
+        padding-bottom: 1rem;
     }
 
     .slide-pacotes-padroes .pacotes-padroes-panel-left {
@@ -3624,7 +3638,7 @@ select {
 
     .slide-pacotes-padroes .pacotes-padroes-panel-text {
         font-size: clamp(0.95rem, 1.08vw, 1.08rem);
-        line-height: 1.56;
+        line-height: 1.45;
     }
 
     .slide-pacotes-padroes .pacotes-padroes-circle-title {
@@ -4809,13 +4823,17 @@ select {
 
     .slide-pacotes-padroes .pacotes-padroes-panel {
         width: 100%;
-        padding: 1.1rem 1rem 1.2rem;
-        border-radius: 24px;
+        column-gap: 12px;
+        padding-bottom: 0.85rem;
+    }
+
+    .slide-pacotes-padroes .pacotes-padroes-panel-numero {
+        font-size: clamp(1.7rem, 7vw, 2.3rem);
     }
 
     .slide-pacotes-padroes .pacotes-padroes-panel-text {
         font-size: clamp(0.98rem, 4.15vw, 1.08rem);
-        line-height: 1.54;
+        line-height: 1.45;
     }
 
     .slide-transition-editorial {
