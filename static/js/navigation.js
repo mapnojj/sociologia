@@ -21,8 +21,15 @@
         const scrollHint = document.getElementById("scroll-hint");
 
         function setActive(index) {
+            const previousSlide = slides[currentIndex];
             currentIndex = index;
             const activeSlide = slides[index];
+
+            if (previousSlide && previousSlide !== activeSlide && previousSlide.dataset.temporaryTabindex === "true") {
+                previousSlide.removeAttribute("tabindex");
+                delete previousSlide.dataset.temporaryTabindex;
+            }
+
             dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
             document.body.classList.toggle("hero-active", index === 0);
 
@@ -34,9 +41,7 @@
 
                     if (needsTemporaryTabIndex) {
                         activeSlide.setAttribute("tabindex", "-1");
-                        activeSlide.addEventListener("blur", () => {
-                            activeSlide.removeAttribute("tabindex");
-                        }, { once: true });
+                        activeSlide.dataset.temporaryTabindex = "true";
                     }
 
                     activeSlide.focus({ preventScroll: true });
