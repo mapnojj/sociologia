@@ -65,6 +65,7 @@
             ctx.restore();
         }
     };
+    let financiamento20APluginRegistrado = false;
 
     function baseOptions() {
         return {
@@ -484,7 +485,10 @@
 
     function initCharts() {
         if (!window.Chart) throw new Error("Chart.js não está disponível");
-        Chart.register(financiamento20ALabelPlugin);
+        if (!financiamento20APluginRegistrado) {
+            Chart.register(financiamento20ALabelPlugin);
+            financiamento20APluginRegistrado = true;
+        }
 
         const options = createChartOptions();
         const superiorEditorialOptions = createChartOptions({ editorial: true });
@@ -549,24 +553,27 @@
             options: createSuperiorFluxoOptions(superiorEditorialOptions)
         });
 
-        charts.financiamento20A = new Chart(document.getElementById("chart-financiamento-20a"), {
-            type: "line",
-            data: {
-                labels: financiamento20ADados.labels,
-                datasets: [
-                    editorialLineDataset("Gasto público em educação pública (% do PIB)", financiamento20ADados.valores, "#d8b06a", {
-                        borderWidth: 3,
-                        pointRadius: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 5 : 3)),
-                        pointHoverRadius: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 6 : 4)),
-                        pointBackgroundColor: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? "#f4eee4" : "#d8b06a")),
-                        pointBorderColor: "#d8b06a",
-                        pointBorderWidth: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 2 : 1.4)),
-                        tension: 0.24
-                    })
-                ]
-            },
-            options: createFinanciamento20AOptions()
-        });
+        const financiamento20ACanvas = document.getElementById("chart-financiamento-20a");
+        if (financiamento20ACanvas) {
+            charts.financiamento20A = new Chart(financiamento20ACanvas, {
+                type: "line",
+                data: {
+                    labels: financiamento20ADados.labels,
+                    datasets: [
+                        editorialLineDataset("Gasto público em educação pública (% do PIB)", financiamento20ADados.valores, "#d8b06a", {
+                            borderWidth: 3,
+                            pointRadius: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 5 : 3)),
+                            pointHoverRadius: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 6 : 4)),
+                            pointBackgroundColor: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? "#f4eee4" : "#d8b06a")),
+                            pointBorderColor: "#d8b06a",
+                            pointBorderWidth: financiamento20ADados.valores.map((_, index) => (index === 0 || index === 7 ? 2 : 1.4)),
+                            tension: 0.24
+                        })
+                    ]
+                },
+                options: createFinanciamento20AOptions()
+            });
+        }
     }
 
     function updateEvolucaoGeral(payload, indicatorColumn, label) {
