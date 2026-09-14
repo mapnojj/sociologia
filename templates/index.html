@@ -649,15 +649,18 @@
             </div>
 
             <span class="editorial-circle falho-regime-accent falho-regime-accent-text" aria-hidden="true"></span>
-            <span class="editorial-circle falho-regime-accent falho-regime-accent-photo" aria-hidden="true"></span>
 
-            <figure class="falho-regime-photo falho-regime-photo-main" aria-hidden="true">
-                <img src="{{ url_for('static', filename='img/circulo-3.jpg') }}" alt="" class="falho-regime-photo-image">
-            </figure>
+            <div class="falho-regime-visuals" aria-hidden="true">
+                <span class="editorial-circle falho-regime-accent falho-regime-accent-photo"></span>
 
-            <figure class="falho-regime-photo falho-regime-photo-secondary" aria-hidden="true">
-                <img src="{{ url_for('static', filename='img/circulo-5.jpg') }}" alt="" class="falho-regime-photo-image">
-            </figure>
+                <figure class="falho-regime-photo falho-regime-photo-main">
+                    <img src="{{ url_for('static', filename='img/circulo-3.jpg') }}" alt="" class="falho-regime-photo-image">
+                </figure>
+
+                <figure class="falho-regime-photo falho-regime-photo-secondary">
+                    <img src="{{ url_for('static', filename='img/circulo-5.jpg') }}" alt="" class="falho-regime-photo-image">
+                </figure>
+            </div>
         </div>
     </section>
 </main>
