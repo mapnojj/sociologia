@@ -3949,15 +3949,15 @@ select {
     }
 
     #slide-15 .falho-regime-visuals {
-        top: 32%;
+        top: 54%;
         right: 0;
         bottom: 0;
         width: min(58%, 320px);
     }
 
     #slide-15 .falho-regime-text {
-        font-size: clamp(0.94rem, 3.85vw, 1.06rem);
-        line-height: 1.58;
+        font-size: clamp(1rem, 4.2vw, 1.08rem);
+        line-height: 1.64;
     }
 
     #slide-15 .falho-regime-photo-main {
