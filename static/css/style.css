@@ -3958,7 +3958,7 @@ select {
 
     #slide-15 .falho-regime-visuals {
         position: relative;
-        justify-self: end;
+        justify-self: center;
         width: min(72vw, 320px);
         height: clamp(220px, 31vh, 300px);
     }
