@@ -2187,6 +2187,49 @@ body.hero-active .hero-copy {
     font-weight: 700;
 }
 
+.contemporary-chart-area {
+    margin-top: clamp(0.6rem, 1.1vh, 1rem);
+}
+
+#slide-6 .contemporary-chart-area::before {
+    background: linear-gradient(rgba(43, 5, 7, 0.22), rgba(43, 5, 7, 0.22));
+}
+
+#slide-6 .contemporary-chart-header .section-eyebrow {
+    color: rgba(221, 201, 174, 0.9);
+}
+
+#slide-6 .contemporary-chart-title {
+    font-size: clamp(1.75rem, 2.7vw, 2.55rem);
+}
+
+#slide-6 .medio-chart-wrapper {
+    height: clamp(250px, 32vh, 350px);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.2rem 0 0;
+}
+
+#slide-6 .medio-chart-wrapper::before {
+    content: "";
+    display: block;
+    width: min(180px, 24%);
+    height: 1px;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, rgba(244, 238, 228, 0.52), rgba(244, 238, 228, 0));
+}
+
+#slide-6 .medio-chart-wrapper canvas {
+    background: transparent !important;
+}
+
+#slide-6 .access-source-note {
+    margin-top: 0.25rem;
+    color: rgba(247, 241, 232, 0.7);
+}
+
 .legacy-hidden-content {
     position: absolute;
     left: 0;

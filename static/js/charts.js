@@ -515,7 +515,7 @@
         charts.medioEvolucao = new Chart(document.getElementById("chart-medio-evolucao"), {
             type: "line",
             data: { labels: [], datasets: [] },
-            options
+            options: createChartOptions({ editorial: true })
         });
 
         charts.medioAdm = new Chart(document.getElementById("chart-medio-adm"), {
@@ -632,10 +632,22 @@
         updateChart(charts.fundamentalEvolucao, payload.anos, datasets);
     }
 
-    function updateMedio(payload) {
-        updateChart(charts.medioEvolucao, payload.anos, [
-            lineDataset("Ensino Médio Total", chartData(payload, "Ensino_Medio_Total"), palette.blue)
-        ]);
+    function updateMedio(payload, { showPopulation = false } = {}) {
+        const datasets = [
+            editorialLineDataset("Ensino Médio", chartData(payload, "Ensino_Medio_Total"), "#f4eee4")
+        ];
+
+        if (showPopulation) {
+            datasets.push(
+                editorialPopulationDataset(
+                    "População de 15–17 anos — referência etária (IBGE)",
+                    payload?.populacao?.dados?.Pop_15_17 || [],
+                    palette.cyan
+                )
+            );
+        }
+
+        updateChart(charts.medioEvolucao, payload.anos, datasets);
 
         updateChart(charts.medioAdm, payload.anos, [
             lineDataset("Federal", chartData(payload, "Ensino_Medio_Federal"), palette.gray, true),
