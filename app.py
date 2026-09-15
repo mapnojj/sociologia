@@ -51,6 +51,35 @@ EXPECTED_NUMERIC_COLUMNS_POPULACAO = [
     "Pop_15_17",
 ]
 SUPERIOR_YEAR_RANGE = list(range(2015, 2025))
+UF_SIGLAS = {
+    "Acre": "AC",
+    "Alagoas": "AL",
+    "Amapá": "AP",
+    "Amazonas": "AM",
+    "Bahia": "BA",
+    "Ceará": "CE",
+    "Distrito Federal": "DF",
+    "Espírito Santo": "ES",
+    "Goiás": "GO",
+    "Maranhão": "MA",
+    "Mato Grosso": "MT",
+    "Mato Grosso do Sul": "MS",
+    "Minas Gerais": "MG",
+    "Pará": "PA",
+    "Paraíba": "PB",
+    "Paraná": "PR",
+    "Pernambuco": "PE",
+    "Piauí": "PI",
+    "Rio de Janeiro": "RJ",
+    "Rio Grande do Norte": "RN",
+    "Rio Grande do Sul": "RS",
+    "Rondônia": "RO",
+    "Roraima": "RR",
+    "Santa Catarina": "SC",
+    "São Paulo": "SP",
+    "Sergipe": "SE",
+    "Tocantins": "TO",
+}
 
 
 def _to_native_number(value):
@@ -122,7 +151,8 @@ def _build_population_payload(nivel, anos, uf=None):
             "dados": empty_series,
         }
 
-    population_df = DF_POPULACAO[DF_POPULACAO["UF"] == ("BR" if nivel == "brasil" else uf)]
+    population_uf = "BR" if nivel == "brasil" else UF_SIGLAS.get(uf, uf)
+    population_df = DF_POPULACAO[DF_POPULACAO["UF"] == population_uf]
     if population_df.empty:
         return {
             "available": False,
