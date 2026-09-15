@@ -7,6 +7,9 @@ app = Flask(__name__)
 
 DATA_PATH_BASICA = Path(__file__).parent / "data" / "educacao_basica_2015_2025.csv"
 DATA_PATH_SUPERIOR = Path(__file__).parent / "data" / "ensino_superior_2015_2024.csv"
+DATA_PATH_POPULACAO = (
+    Path(__file__).parent / "data" / "populacao_brasil_estados_faixa_etaria_2015_2025.csv"
+)
 EXPECTED_NUMERIC_COLUMNS_BASICA = [
     "Creche",
     "Pre_Escola",
@@ -40,7 +43,43 @@ EXPECTED_NUMERIC_COLUMNS_SUPERIOR = [
     "Ingressantes",
     "Concluintes",
 ]
+EXPECTED_NUMERIC_COLUMNS_POPULACAO = [
+    "Pop_0_3",
+    "Pop_4_5",
+    "Pop_6_10",
+    "Pop_11_14",
+    "Pop_15_17",
+]
 SUPERIOR_YEAR_RANGE = list(range(2015, 2025))
+UF_SIGLAS = {
+    "Acre": "AC",
+    "Alagoas": "AL",
+    "Amapá": "AP",
+    "Amazonas": "AM",
+    "Bahia": "BA",
+    "Ceará": "CE",
+    "Distrito Federal": "DF",
+    "Espírito Santo": "ES",
+    "Goiás": "GO",
+    "Maranhão": "MA",
+    "Mato Grosso": "MT",
+    "Mato Grosso do Sul": "MS",
+    "Minas Gerais": "MG",
+    "Pará": "PA",
+    "Paraíba": "PB",
+    "Paraná": "PR",
+    "Pernambuco": "PE",
+    "Piauí": "PI",
+    "Rio de Janeiro": "RJ",
+    "Rio Grande do Norte": "RN",
+    "Rio Grande do Sul": "RS",
+    "Rondônia": "RO",
+    "Roraima": "RR",
+    "Santa Catarina": "SC",
+    "São Paulo": "SP",
+    "Sergipe": "SE",
+    "Tocantins": "TO",
+}
 
 
 def _to_native_number(value):
@@ -74,8 +113,80 @@ def _load_data(data_path, expected_numeric_columns):
     return df, numeric_columns
 
 
+def _load_population_data(data_path, expected_numeric_columns):
+    df = pd.read_csv(data_path, encoding="utf-8-sig")
+
+    required_base = {"Ano", "UF", "Local"}
+    missing_base = required_base - set(df.columns)
+    if missing_base:
+        raise RuntimeError(f"Colunas obrigatórias ausentes no CSV populacional: {sorted(missing_base)}")
+
+    numeric_columns = [col for col in expected_numeric_columns if col in df.columns]
+
+    df["Ano"] = pd.to_numeric(df["Ano"], errors="coerce").astype("Int64")
+    df["UF"] = df["UF"].astype("string")
+    df["Local"] = df["Local"].astype("string")
+
+    for col in numeric_columns:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    df = df.dropna(subset=["Ano", "UF", "Local"]).copy()
+    df["Ano"] = df["Ano"].astype(int)
+
+    return df, numeric_columns
+
+
+def _build_population_payload(nivel, anos, uf=None):
+    source_note = "IBGE — Projeções da População, Revisão 2024"
+    disabled_reason = (
+        "Dados populacionais por faixa etária disponíveis apenas para Brasil e Unidades da Federação."
+    )
+    empty_series = {col: [None for _ in anos] for col in NUMERIC_COLUMNS_POPULACAO}
+
+    if nivel == "municipal":
+        return {
+            "available": False,
+            "source": source_note,
+            "disabled_reason": disabled_reason,
+            "dados": empty_series,
+        }
+
+    population_uf = "BR" if nivel == "brasil" else UF_SIGLAS.get(uf, uf)
+    population_df = DF_POPULACAO[DF_POPULACAO["UF"] == population_uf]
+    if population_df.empty:
+        return {
+            "available": False,
+            "source": source_note,
+            "disabled_reason": disabled_reason,
+            "dados": empty_series,
+        }
+
+    grouped = (
+        population_df.sort_values("Ano")
+        .set_index("Ano")
+        .reindex(anos)
+        .rename_axis("Ano")
+        .reset_index()
+    )
+
+    dados = {
+        col: [_to_native_number(value) for value in grouped[col].tolist()]
+        for col in NUMERIC_COLUMNS_POPULACAO
+    }
+
+    return {
+        "available": True,
+        "source": source_note,
+        "disabled_reason": disabled_reason,
+        "dados": dados,
+    }
+
+
 DF_BASICA, NUMERIC_COLUMNS_BASICA = _load_data(DATA_PATH_BASICA, EXPECTED_NUMERIC_COLUMNS_BASICA)
 DF_SUPERIOR, NUMERIC_COLUMNS_SUPERIOR = _load_data(DATA_PATH_SUPERIOR, EXPECTED_NUMERIC_COLUMNS_SUPERIOR)
+DF_POPULACAO, NUMERIC_COLUMNS_POPULACAO = _load_population_data(
+    DATA_PATH_POPULACAO, EXPECTED_NUMERIC_COLUMNS_POPULACAO
+)
 
 # Compatibilidade com o frontend atual da Educação Básica
 DF, NUMERIC_COLUMNS = DF_BASICA, NUMERIC_COLUMNS_BASICA
@@ -161,6 +272,11 @@ def api_dados():
             "localidade": localidade_nome,
             "anos": anos,
             "dados": dados,
+            "populacao": _build_population_payload(
+                nivel,
+                anos,
+                uf if nivel == "estadual" else None,
+            ),
         }
     )
 

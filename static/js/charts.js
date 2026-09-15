@@ -448,6 +448,16 @@
         };
     }
 
+    function editorialPopulationDataset(label, data, color) {
+        return lineDataset(label, data, color, true, {
+            borderWidth: 2.4,
+            pointRadius: 3.2,
+            pointHoverRadius: 5,
+            pointBackgroundColor: color,
+            pointBorderColor: color
+        });
+    }
+
     function chartData(payload, column) {
         return payload?.dados?.[column] || [];
     }
@@ -573,19 +583,53 @@
         ]);
     }
 
-    function updateInfantil(payload) {
-        updateChart(charts.infantil, payload.anos, [
+    function updateInfantil(payload, { showPopulation = false } = {}) {
+        const datasets = [
             editorialLineDataset("Creche", chartData(payload, "Creche"), "#d8b06a"),
             editorialLineDataset("Pré-escola", chartData(payload, "Pre_Escola"), "#f4eee4")
-        ]);
+        ];
+
+        if (showPopulation) {
+            datasets.push(
+                editorialPopulationDataset(
+                    "População de 0–3 anos (IBGE)",
+                    payload?.populacao?.dados?.Pop_0_3 || [],
+                    palette.cyan
+                ),
+                editorialPopulationDataset(
+                    "População de 4–5 anos (IBGE)",
+                    payload?.populacao?.dados?.Pop_4_5 || [],
+                    "#7db7ff"
+                )
+            );
+        }
+
+        updateChart(charts.infantil, payload.anos, datasets);
     }
 
-    function updateFundamental(payload) {
-        updateChart(charts.fundamentalEvolucao, payload.anos, [
+    function updateFundamental(payload, { showPopulation = false } = {}) {
+        const datasets = [
             editorialLineDataset("Total", chartData(payload, "Fundamental_Total"), "#f4eee4"),
             editorialLineDataset("Anos Iniciais", chartData(payload, "Fundamental_Anos_Iniciais"), "#d8b06a"),
             editorialLineDataset("Anos Finais", chartData(payload, "Fundamental_Anos_Finais"), "#a87838")
-        ]);
+        ];
+
+        if (showPopulation) {
+            datasets.push(
+                editorialPopulationDataset(
+                    "População de 6–10 anos (IBGE)",
+                    payload?.populacao?.dados?.Pop_6_10 || [],
+                    palette.cyan
+                ),
+                editorialPopulationDataset(
+                    "População de 11–14 anos (IBGE)",
+                    payload?.populacao?.dados?.Pop_11_14 || [],
+                    "#7db7ff"
+                )
+            );
+        }
+
+        updateChart(charts.fundamentalEvolucao, payload.anos, datasets);
     }
 
     function updateMedio(payload) {
