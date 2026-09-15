@@ -7,7 +7,9 @@
         indicador: "Creche",
         modalidade: "EJA_Total",
         payload: null,
-        superiorPayload: null
+        superiorPayload: null,
+        showInfantilPopulation: false,
+        showFundamentalPopulation: false
     };
 
     const indicatorLabels = {
@@ -37,6 +39,16 @@
         ufSelect: document.getElementById("uf-select"),
         municipioSelect: document.getElementById("municipio-select"),
         indicadorSelect: document.getElementById("indicador-geral"),
+        infantilCanvas: document.getElementById("chart-infantil"),
+        infantilSummary: document.getElementById("chart-infantil-summary"),
+        infantilPopulationToggle: document.getElementById("toggle-populacao-infantil"),
+        infantilPopulationControl: document.getElementById("infantil-population-control"),
+        infantilPopulationSource: document.getElementById("chart-infantil-pop-source"),
+        fundamentalCanvas: document.getElementById("chart-fundamental-evolucao"),
+        fundamentalSummary: document.getElementById("chart-fundamental-summary"),
+        fundamentalPopulationToggle: document.getElementById("toggle-populacao-fundamental"),
+        fundamentalPopulationControl: document.getElementById("fundamental-population-control"),
+        fundamentalPopulationSource: document.getElementById("chart-fundamental-pop-source"),
         modalidadeButtons: [...document.querySelectorAll(".modalidades-tab-group .tab-btn")],
         modalidadesCanvas: document.getElementById("chart-modalidades"),
         modalidadesSummary: document.getElementById("chart-modalidades-summary"),
@@ -85,10 +97,62 @@
         return "brasil";
     }
 
+    function populationDisabledReason() {
+        return appState.payload?.populacao?.disabled_reason
+            || "Dados populacionais por faixa etária disponíveis apenas para Brasil e Unidades da Federação.";
+    }
+
+    function isPopulationAvailable() {
+        return Boolean(appState.payload?.populacao?.available);
+    }
+
+    function syncPopulationToggleInputs() {
+        if (els.infantilPopulationToggle) {
+            els.infantilPopulationToggle.checked = appState.showInfantilPopulation;
+        }
+
+        if (els.fundamentalPopulationToggle) {
+            els.fundamentalPopulationToggle.checked = appState.showFundamentalPopulation;
+        }
+    }
+
+    function updatePopulationControlsState() {
+        const disabled = !isPopulationAvailable();
+        const reason = disabled ? populationDisabledReason() : "";
+
+        [
+            [els.infantilPopulationToggle, els.infantilPopulationControl],
+            [els.fundamentalPopulationToggle, els.fundamentalPopulationControl]
+        ].forEach(([input, wrapper]) => {
+            if (!input || !wrapper) return;
+            input.disabled = disabled;
+            input.title = reason;
+            wrapper.title = reason;
+            wrapper.setAttribute("aria-disabled", disabled ? "true" : "false");
+        });
+    }
+
+    function hidePopulationSeries() {
+        appState.showInfantilPopulation = false;
+        appState.showFundamentalPopulation = false;
+        syncPopulationToggleInputs();
+    }
+
     async function setLevel(level) {
         appState.nivel = level;
         syncLevelButtons();
         toggleControlVisibility();
+
+        if (level === "municipal") {
+            hidePopulationSeries();
+            if (appState.payload) {
+                window.ChartManager.updateInfantil(appState.payload, { showPopulation: false });
+                window.ChartManager.updateFundamental(appState.payload, { showPopulation: false });
+                updateInfantilA11y();
+                updateFundamentalA11y();
+                updatePopulationSourceNotes();
+            }
+        }
 
         if (level === "brasil") {
             await refreshAllData();
@@ -181,14 +245,22 @@
         if (!appState.payload) return;
 
         els.localityText.textContent = appState.payload.localidade;
+        updatePopulationControlsState();
+        updateInfantilA11y();
+        updateFundamentalA11y();
+        updatePopulationSourceNotes();
 
         window.ChartManager.updateEvolucaoGeral(
             appState.payload,
             appState.indicador,
             indicatorLabels[appState.indicador] || appState.indicador
         );
-        window.ChartManager.updateInfantil(appState.payload);
-        window.ChartManager.updateFundamental(appState.payload);
+        window.ChartManager.updateInfantil(appState.payload, {
+            showPopulation: appState.showInfantilPopulation && isPopulationAvailable()
+        });
+        window.ChartManager.updateFundamental(appState.payload, {
+            showPopulation: appState.showFundamentalPopulation && isPopulationAvailable()
+        });
         window.ChartManager.updateMedio(appState.payload);
         window.ChartManager.updateModalidades(appState.payload, appState.modalidade);
         updateModalidadesA11y();
@@ -206,6 +278,58 @@
 
         if (els.modalidadesCanvas) {
             els.modalidadesCanvas.setAttribute("aria-label", `Gráfico de evolução das matrículas em ${modalidadeLabel} entre 2015 e 2025`);
+        }
+    }
+
+    function updateInfantilA11y() {
+        const showPopulation = appState.showInfantilPopulation && isPopulationAvailable();
+        const description = showPopulation
+            ? "Séries de Creche e Pré-escola com evolução anual de matrículas entre 2015 e 2025, comparadas à população de 0–3 e 4–5 anos do IBGE, atualizadas pela escala territorial selecionada."
+            : "Séries de Creche e Pré-escola com evolução anual de matrículas entre 2015 e 2025, atualizadas pela escala territorial selecionada.";
+        const label = showPopulation
+            ? "Gráfico de evolução das matrículas em Creche e Pré-escola com população de 0–3 e 4–5 anos"
+            : "Gráfico de evolução das matrículas em Creche e Pré-escola de 2015 a 2025";
+
+        if (els.infantilSummary) {
+            els.infantilSummary.textContent = description;
+        }
+
+        if (els.infantilCanvas) {
+            els.infantilCanvas.setAttribute("aria-label", label);
+        }
+    }
+
+    function updateFundamentalA11y() {
+        const showPopulation = appState.showFundamentalPopulation && isPopulationAvailable();
+        const description = showPopulation
+            ? "Séries de Total, Anos Iniciais e Anos Finais com comparação da população de 6–10 e 11–14 anos do IBGE, atualizadas pela escala territorial selecionada."
+            : "Séries de Total, Anos Iniciais e Anos Finais atualizadas pela escala territorial selecionada.";
+        const label = showPopulation
+            ? "Gráfico de evolução das matrículas totais, anos iniciais e anos finais no Ensino Fundamental com população de 6–10 e 11–14 anos"
+            : "Gráfico de evolução das matrículas totais, anos iniciais e anos finais no Ensino Fundamental";
+
+        if (els.fundamentalSummary) {
+            els.fundamentalSummary.textContent = description;
+        }
+
+        if (els.fundamentalCanvas) {
+            els.fundamentalCanvas.setAttribute("aria-label", label);
+        }
+    }
+
+    function updatePopulationSourceNotes() {
+        if (els.infantilPopulationSource) {
+            els.infantilPopulationSource.classList.toggle(
+                "hidden",
+                !(appState.showInfantilPopulation && isPopulationAvailable())
+            );
+        }
+
+        if (els.fundamentalPopulationSource) {
+            els.fundamentalPopulationSource.classList.toggle(
+                "hidden",
+                !(appState.showFundamentalPopulation && isPopulationAvailable())
+            );
         }
     }
 
@@ -481,6 +605,26 @@
             );
             updateCards();
         });
+
+        if (els.infantilPopulationToggle) {
+            els.infantilPopulationToggle.addEventListener("change", () => {
+                appState.showInfantilPopulation = els.infantilPopulationToggle.checked && isPopulationAvailable();
+                syncPopulationToggleInputs();
+                if (appState.payload) {
+                    updateAllVisuals();
+                }
+            });
+        }
+
+        if (els.fundamentalPopulationToggle) {
+            els.fundamentalPopulationToggle.addEventListener("change", () => {
+                appState.showFundamentalPopulation = els.fundamentalPopulationToggle.checked && isPopulationAvailable();
+                syncPopulationToggleInputs();
+                if (appState.payload) {
+                    updateAllVisuals();
+                }
+            });
+        }
 
         els.modalidadeButtons.forEach((button) => {
             button.addEventListener("click", () => {

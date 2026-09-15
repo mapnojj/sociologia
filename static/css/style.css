@@ -1063,6 +1063,36 @@ body.hero-active .hero-copy {
     color: rgba(247, 241, 232, 0.82);
 }
 
+.population-toggle {
+    position: relative;
+    z-index: 1;
+    margin-top: -0.35rem;
+}
+
+.population-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    color: rgba(247, 241, 232, 0.88);
+    cursor: pointer;
+}
+
+.population-toggle-label input {
+    margin: 0;
+    accent-color: #d8b06a;
+}
+
+.population-toggle[aria-disabled="true"] .population-toggle-label {
+    opacity: 0.68;
+    cursor: not-allowed;
+}
+
+.population-toggle[aria-disabled="true"] .population-toggle-label input {
+    cursor: not-allowed;
+}
+
 #slide-4 .access-chart-wrapper,
 #slide-5 .access-chart-wrapper {
     background: transparent;
@@ -1217,6 +1247,12 @@ body.hero-active .hero-copy {
 #slide-5 .fundamental-chart-wrapper {
     width: 100%;
     height: clamp(390px, 47vh, 520px);
+}
+
+#slide-4 .access-source-note,
+#slide-5 .access-source-note {
+    margin-top: 0;
+    color: rgba(247, 241, 232, 0.66);
 }
 
 #slide-7 .slide-content {
