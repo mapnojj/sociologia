@@ -2064,6 +2064,13 @@ body.hero-active .hero-copy {
     gap: clamp(1.2rem, 2.1vh, 1.9rem);
 }
 
+.contemporary-chart-shell {
+    min-height: 100%;
+    margin: 0 auto;
+    display: grid;
+    align-content: center;
+}
+
 .contemporary-header {
     display: grid;
     gap: 0.6rem;
@@ -2191,19 +2198,19 @@ body.hero-active .hero-copy {
     margin-top: clamp(0.6rem, 1.1vh, 1rem);
 }
 
-#slide-6 .contemporary-chart-area::before {
+#slide-6-matriculas .contemporary-chart-area::before {
     background: linear-gradient(rgba(43, 5, 7, 0.22), rgba(43, 5, 7, 0.22));
 }
 
-#slide-6 .contemporary-chart-header .section-eyebrow {
+#slide-6-matriculas .contemporary-chart-header .section-eyebrow {
     color: rgba(221, 201, 174, 0.9);
 }
 
-#slide-6 .contemporary-chart-title {
+#slide-6-matriculas .contemporary-chart-title {
     font-size: clamp(1.75rem, 2.7vw, 2.55rem);
 }
 
-#slide-6 .medio-chart-wrapper {
+#slide-6-matriculas .medio-chart-wrapper {
     height: clamp(250px, 32vh, 350px);
     background: transparent;
     border: none;
@@ -2212,7 +2219,7 @@ body.hero-active .hero-copy {
     padding: 0.2rem 0 0;
 }
 
-#slide-6 .medio-chart-wrapper::before {
+#slide-6-matriculas .medio-chart-wrapper::before {
     content: "";
     display: block;
     width: min(180px, 24%);
@@ -2221,11 +2228,11 @@ body.hero-active .hero-copy {
     background: linear-gradient(90deg, rgba(244, 238, 228, 0.52), rgba(244, 238, 228, 0));
 }
 
-#slide-6 .medio-chart-wrapper canvas {
+#slide-6-matriculas .medio-chart-wrapper canvas {
     background: transparent !important;
 }
 
-#slide-6 .access-source-note {
+#slide-6-matriculas .access-source-note {
     margin-top: 0.25rem;
     color: rgba(247, 241, 232, 0.7);
 }
