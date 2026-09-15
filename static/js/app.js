@@ -9,7 +9,8 @@
         payload: null,
         superiorPayload: null,
         showInfantilPopulation: false,
-        showFundamentalPopulation: false
+        showFundamentalPopulation: false,
+        showMedioPopulation: false
     };
 
     const indicatorLabels = {
@@ -49,6 +50,11 @@
         fundamentalPopulationToggle: document.getElementById("toggle-populacao-fundamental"),
         fundamentalPopulationControl: document.getElementById("fundamental-population-control"),
         fundamentalPopulationSource: document.getElementById("chart-fundamental-pop-source"),
+        medioCanvas: document.getElementById("chart-medio-evolucao"),
+        medioSummary: document.getElementById("chart-medio-summary"),
+        medioPopulationToggle: document.getElementById("toggle-populacao-medio"),
+        medioPopulationControl: document.getElementById("medio-population-control"),
+        medioPopulationSource: document.getElementById("chart-medio-pop-source"),
         modalidadeButtons: [...document.querySelectorAll(".modalidades-tab-group .tab-btn")],
         modalidadesCanvas: document.getElementById("chart-modalidades"),
         modalidadesSummary: document.getElementById("chart-modalidades-summary"),
@@ -114,6 +120,10 @@
         if (els.fundamentalPopulationToggle) {
             els.fundamentalPopulationToggle.checked = appState.showFundamentalPopulation;
         }
+
+        if (els.medioPopulationToggle) {
+            els.medioPopulationToggle.checked = appState.showMedioPopulation;
+        }
     }
 
     function updatePopulationControlsState() {
@@ -122,7 +132,8 @@
 
         [
             [els.infantilPopulationToggle, els.infantilPopulationControl],
-            [els.fundamentalPopulationToggle, els.fundamentalPopulationControl]
+            [els.fundamentalPopulationToggle, els.fundamentalPopulationControl],
+            [els.medioPopulationToggle, els.medioPopulationControl]
         ].forEach(([input, wrapper]) => {
             if (!input || !wrapper) return;
             input.disabled = disabled;
@@ -135,6 +146,7 @@
     function hidePopulationSeries() {
         appState.showInfantilPopulation = false;
         appState.showFundamentalPopulation = false;
+        appState.showMedioPopulation = false;
         syncPopulationToggleInputs();
     }
 
@@ -148,8 +160,10 @@
             if (appState.payload) {
                 window.ChartManager.updateInfantil(appState.payload, { showPopulation: false });
                 window.ChartManager.updateFundamental(appState.payload, { showPopulation: false });
+                window.ChartManager.updateMedio(appState.payload, { showPopulation: false });
                 updateInfantilA11y();
                 updateFundamentalA11y();
+                updateMedioA11y();
                 updatePopulationSourceNotes();
             }
         }
@@ -248,6 +262,7 @@
         updatePopulationControlsState();
         updateInfantilA11y();
         updateFundamentalA11y();
+        updateMedioA11y();
         updatePopulationSourceNotes();
 
         window.ChartManager.updateEvolucaoGeral(
@@ -261,7 +276,9 @@
         window.ChartManager.updateFundamental(appState.payload, {
             showPopulation: appState.showFundamentalPopulation && isPopulationAvailable()
         });
-        window.ChartManager.updateMedio(appState.payload);
+        window.ChartManager.updateMedio(appState.payload, {
+            showPopulation: appState.showMedioPopulation && isPopulationAvailable()
+        });
         window.ChartManager.updateModalidades(appState.payload, appState.modalidade);
         updateModalidadesA11y();
 
@@ -317,6 +334,24 @@
         }
     }
 
+    function updateMedioA11y() {
+        const showPopulation = appState.showMedioPopulation && isPopulationAvailable();
+        const description = showPopulation
+            ? "Série de matrículas no Ensino Médio entre 2015 e 2025 com comparação da população de 15–17 anos do IBGE, atualizada pela escala territorial selecionada."
+            : "Série anual de matrículas no Ensino Médio entre 2015 e 2025, atualizada pela escala territorial selecionada.";
+        const label = showPopulation
+            ? "Gráfico de evolução das matrículas no Ensino Médio com população de 15–17 anos"
+            : "Gráfico de evolução das matrículas no Ensino Médio de 2015 a 2025";
+
+        if (els.medioSummary) {
+            els.medioSummary.textContent = description;
+        }
+
+        if (els.medioCanvas) {
+            els.medioCanvas.setAttribute("aria-label", label);
+        }
+    }
+
     function updatePopulationSourceNotes() {
         if (els.infantilPopulationSource) {
             els.infantilPopulationSource.classList.toggle(
@@ -329,6 +364,13 @@
             els.fundamentalPopulationSource.classList.toggle(
                 "hidden",
                 !(appState.showFundamentalPopulation && isPopulationAvailable())
+            );
+        }
+
+        if (els.medioPopulationSource) {
+            els.medioPopulationSource.classList.toggle(
+                "hidden",
+                !(appState.showMedioPopulation && isPopulationAvailable())
             );
         }
     }
@@ -619,6 +661,16 @@
         if (els.fundamentalPopulationToggle) {
             els.fundamentalPopulationToggle.addEventListener("change", () => {
                 appState.showFundamentalPopulation = els.fundamentalPopulationToggle.checked && isPopulationAvailable();
+                syncPopulationToggleInputs();
+                if (appState.payload) {
+                    updateAllVisuals();
+                }
+            });
+        }
+
+        if (els.medioPopulationToggle) {
+            els.medioPopulationToggle.addEventListener("change", () => {
+                appState.showMedioPopulation = els.medioPopulationToggle.checked && isPopulationAvailable();
                 syncPopulationToggleInputs();
                 if (appState.payload) {
                     updateAllVisuals();
