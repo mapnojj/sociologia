@@ -5352,6 +5352,96 @@ select {
         gap: 0.6rem;
     }
 
+    #slide-4 .slide-content,
+    #slide-5 .slide-content,
+    #slide-7 .slide-content {
+        width: 100%;
+    }
+
+    #slide-4 .access-layout,
+    #slide-5 .fundamental-layout,
+    #slide-7 .modalidades-layout {
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0;
+        row-gap: 1.1rem;
+        align-items: start;
+    }
+
+    #slide-4 .access-content,
+    #slide-5 .fundamental-content,
+    #slide-7 .modalidades-content,
+    #slide-4 .access-chart-area,
+    #slide-5 .fundamental-chart-area,
+    #slide-7 .modalidades-chart-area {
+        max-width: 100%;
+    }
+
+    #slide-4 .access-title,
+    #slide-5 .fundamental-title,
+    #slide-7 .modalidades-title {
+        font-size: clamp(2rem, 9.4vw, 2.85rem);
+        max-width: 100%;
+    }
+
+    #slide-4 .access-copy p,
+    #slide-5 .fundamental-copy p,
+    #slide-7 .modalidades-intro {
+        max-width: 100%;
+    }
+
+    #slide-4 .access-chart-wrapper,
+    #slide-5 .fundamental-chart-wrapper,
+    #slide-7 .modalidades-chart-wrapper {
+        height: clamp(260px, 41vh, 340px);
+    }
+
+    #slide-7 .modalidades-tab-group .tab-btn {
+        padding: 0.56rem 0.82rem;
+        font-size: 0.9rem;
+    }
+
+    #slide-6-matriculas .contemporary-chart-shell {
+        align-content: start;
+    }
+
+    :is(#slide-9, #slide-10, #slide-12) .superior-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.2rem;
+        align-items: start;
+    }
+
+    :is(#slide-9, #slide-10, #slide-12) .superior-content,
+    :is(#slide-9, #slide-10, #slide-12) .superior-chart-area {
+        max-width: 100%;
+    }
+
+    :is(#slide-9, #slide-10, #slide-12) .superior-title {
+        font-size: clamp(2rem, 9.4vw, 2.9rem);
+        max-width: 100%;
+    }
+
+    :is(#slide-9, #slide-10, #slide-12) .superior-intro,
+    :is(#slide-9, #slide-10, #slide-12) .superior-chart-subtitle {
+        max-width: 100%;
+    }
+
+    :is(#slide-9, #slide-10, #slide-12) .superior-chart-area {
+        padding-left: 0;
+        gap: 1rem;
+    }
+
+    :is(#slide-9, #slide-10, #slide-12) .superior-chart-title {
+        font-size: clamp(1.55rem, 7vw, 2.25rem);
+    }
+
+    #slide-9 .superior-metrics,
+    #slide-10 .superior-modalidade-copy,
+    #slide-10 .superior-modalidade-highlights,
+    #slide-12 .superior-fluxo-highlights {
+        width: 100%;
+        max-width: 100%;
+    }
+
     #slide-11 .superior-rede-shell {
         grid-template-columns: minmax(0, 1fr);
         gap: 1.4rem;
